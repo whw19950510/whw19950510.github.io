@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-12T16:43:07.912Z</updated>
+  <updated>2018-01-12T22:39:16.743Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode practice process</title>
+    <link href="http://yoursite.com/2018/01/12/leetcode-practice-process/"/>
+    <id>http://yoursite.com/2018/01/12/leetcode-practice-process/</id>
+    <published>2018-01-12T22:23:19.000Z</published>
+    <updated>2018-01-12T22:39:16.743Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Union-find-problems"><a href="#Union-find-problems" class="headerlink" title="Union find problems"></a>Union find problems</h2><h3 id="261-Graph-Valid-Tree"><a href="#261-Graph-Valid-Tree" class="headerlink" title="261. Graph Valid Tree"></a>261. Graph Valid Tree</h3><p>This is a typical union find problem. Notice that not only do you need to detect the loop, but also need to detect it is a <strong>connected</strong> graph.<br>Notice that when judge whether 2 components is connected &amp;&amp; union 2 components together, always get to <strong><em>the most far</em></strong> parent nodes.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span>[] parent, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(parent[p] == p) <span class="keyword">return</span> p;</span><br><span class="line">        <span class="keyword">return</span> find(parent,parent[p]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span>[] parent, <span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> find(parent,p) == find(parent, q);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span>[] parent, <span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index1 = find(parent, p);</span><br><span class="line">        <span class="keyword">int</span> index2 = find(parent, q);</span><br><span class="line">        <span class="keyword">if</span>(index1 != index2) &#123;</span><br><span class="line">            parent[index1] = index2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">validTree</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[][] edges)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] parent = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            parent[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] edge:edges) &#123;</span><br><span class="line">            <span class="keyword">if</span>(isConnected(parent, edge[<span class="number">0</span>], edge[<span class="number">1</span>]) == <span class="keyword">true</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            union(parent, edge[<span class="number">0</span>], edge[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!isConnected(parent, parent[i],parent[<span class="number">0</span>])) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      key idea of leetcode problems
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="union find" scheme="http://yoursite.com/tags/union-find/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
