@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/13/leetcode-binary-search-practice.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Daily practice of alogorithms. Some tricks in binary search and its variation forms.">
-<meta property="og:updated_time" content="2018-01-14T04:49:25.318Z">
+<meta property="og:updated_time" content="2018-01-14T22:43:01.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode binary search practice">
 <meta name="twitter:description" content="Daily practice of alogorithms. Some tricks in binary search and its variation forms.">
@@ -99,7 +99,6 @@
 		</nav>
 	</header>		
 </div>
-
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -190,7 +189,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Binary-search-problems"><a href="#Binary-search-problems" class="headerlink" title="Binary search problems"></a>Binary search problems</h2><p>Typical problems include rotate array, .I am not familiar with this kind of problem, especially how to divide them into different situation.<br>Usually, the end situation written as <code>start &lt; end</code>, so that the final return value can be written as nums[start] to avoid some edge situation. In addition, the mid value calculation should be written as <code>mid = start + (end - start)/2</code> to avoid overflow of number range.<br><a id="more"></a></p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Binary-search-problems"><a href="#Binary-search-problems" class="headerlink" title="Binary search problems"></a>Binary search problems</h2><p>Typical problems include rotate array. I am not familiar with this kind of problem, especially how to divide them into different situation.<br><a id="more"></a><br>Usually, the end situation written as <code>start &lt; end</code>, so that the final return value can be written as nums[start] to avoid some edge situation. In addition, the mid value calculation should be written as <code>mid = start + (end - start)/2</code> to avoid overflow of number range.</p>
 <h3 id="153-Find-Minimum-in-Rotated-Sorted-Array"><a href="#153-Find-Minimum-in-Rotated-Sorted-Array" class="headerlink" title="153. Find Minimum in Rotated Sorted Array"></a>153. Find Minimum in Rotated Sorted Array</h3><p>Divide the situation into array rotated &amp; not rotated. If <code>nums[start] &lt; nums[end]</code>, the array is not rotated, simply return nums[0]. Then for the rotated situation, there are 2 cases:</p>
 <ul>
 <li><code>nums[mid] &lt; nums[end] &amp;&amp; nums[mid] &lt; nums[start]</code>, minimum is on left side.</li>
@@ -284,6 +283,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/01/14/leetcode-binary-search-practice-2.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          leetcode binary search practice 2
+        
+      </div>
+    </a>
   
   
     <a href="/2018/01/12/冬日随想-麦迪逊.html" id="article-nav-older" class="article-nav-link-wrap">
@@ -448,15 +456,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">union find</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">音乐</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">union find</a>
               </li>
              
               <li class="article-tag-list-item">
