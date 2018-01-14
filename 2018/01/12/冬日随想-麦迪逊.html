@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>leetcode union find practice | Huawei&#39;s Blog</title>
+  <title>冬日随想@麦迪逊 | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="key idea of leetcode problems">
-<meta name="keywords" content="leetcode,union find">
+  <meta name="description" content="今日分享音乐《山外小楼听夜雨》">
+<meta name="keywords" content="随笔,音乐,古风">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode union find practice">
-<meta property="og:url" content="http://yoursite.com/2018/01/12/leetcode-practice-process/index.html">
+<meta property="og:title" content="冬日随想@麦迪逊">
+<meta property="og:url" content="http://yoursite.com/2018/01/12/冬日随想-麦迪逊.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="key idea of leetcode problems">
-<meta property="og:updated_time" content="2018-01-13T22:36:59.066Z">
+<meta property="og:description" content="今日分享音乐《山外小楼听夜雨》">
+<meta property="og:image" content="http://yoursite.com/assets/blogimgs/1.12wisc.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/blogimgs/1.12cs.jpg">
+<meta property="og:updated_time" content="2018-01-14T04:34:50.310Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode union find practice">
-<meta name="twitter:description" content="key idea of leetcode problems">
+<meta name="twitter:title" content="冬日随想@麦迪逊">
+<meta name="twitter:description" content="今日分享音乐《山外小楼听夜雨》">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogimgs/1.12wisc.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -63,6 +66,8 @@
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
 	        
+				<li><a href="/memo">备忘录</a></li>
+	        
 				<li><a href="/photos">相册</a></li>
 	        
 			</ul>
@@ -73,6 +78,8 @@
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
@@ -123,6 +130,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -143,11 +152,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/photos">相册</a></li>
+					<li style="width: 25%"><a href="/memo">备忘录</a></li>
+		        
+					<li style="width: 25%"><a href="/photos">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -162,31 +173,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-practice-process" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-冬日随想-麦迪逊" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode union find practice
+      冬日随想@麦迪逊
     </h1>
   
 
         
-        <a href="/2018/01/12/leetcode-practice-process/" class="archive-article-date">
-  	<time datetime="2018-01-12T22:23:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
+        <a href="/2018/01/12/冬日随想-麦迪逊.html" class="archive-article-date">
+  	<time datetime="2018-01-13T01:10:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Union-find-problems"><a href="#Union-find-problems" class="headerlink" title="Union find problems"></a>Union find problems</h2><h3 id="261-Graph-Valid-Tree"><a href="#261-Graph-Valid-Tree" class="headerlink" title="261. Graph Valid Tree"></a>261. Graph Valid Tree</h3><p>This is a typical union find problem. Notice that not only do you need to detect the loop, but also need to detect it is a <strong>connected</strong> graph.<br>Notice that when judge whether 2 components is connected &amp;&amp; union 2 components together, always get to <strong><em>the most far</em></strong> parent nodes.<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span>[] parent, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(parent[p] == p) <span class="keyword">return</span> p;</span><br><span class="line">        <span class="keyword">return</span> find(parent,parent[p]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span>[] parent, <span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> find(parent,p) == find(parent, q);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span>[] parent, <span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index1 = find(parent, p);</span><br><span class="line">        <span class="keyword">int</span> index2 = find(parent, q);</span><br><span class="line">        <span class="keyword">if</span>(index1 != index2) &#123;</span><br><span class="line">            parent[index1] = index2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">validTree</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[][] edges)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] parent = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            parent[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] edge:edges) &#123;</span><br><span class="line">            <span class="keyword">if</span>(isConnected(parent, edge[<span class="number">0</span>], edge[<span class="number">1</span>]) == <span class="keyword">true</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            union(parent, edge[<span class="number">0</span>], edge[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!isConnected(parent, parent[i],parent[<span class="number">0</span>])) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Some problems solved by Union-find can also be solved by DFS. For example, lc200,lc547&amp;&amp;lc130. lc130 uses a small trick, which just set an additional node to represent the node in boundary, which can’t be transformed,then expand them into center part.</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="一个人的麦迪逊"><a href="#一个人的麦迪逊" class="headerlink" title="一个人的麦迪逊"></a>一个人的麦迪逊</h2><p>寒假的最后一周啦，人真的是很矛盾的动物，明知道岁月匆忙，还是忍不住它能走的快一点，大概还是因为有点孤独吧。今天最后一个室友也出门去玩了，自己做个饭放个音乐哼个小曲码几行代码，日子倒也自在。刚暖和了两天的麦屯今天又一下子跌到-12C了。不过想想以后回忆起来还是会感谢这段时光吧，和大一时一样专注地学习和做事，麦屯的天空和湖水会永远留在心底的。</p>
+<h5 id="Basecom-Hall雪景"><a href="#Basecom-Hall雪景" class="headerlink" title="Basecom Hall雪景"></a>Basecom Hall雪景</h5><p><img src="/assets/blogimgs/1.12wisc.jpg" width="80%" height="60%" alt="Basecom Hall雪景"></p>
+<h5 id="CS-Department"><a href="#CS-Department" class="headerlink" title="CS Department"></a>CS Department</h5><p><img src="/assets/blogimgs/1.12cs.jpg" width="80%" height="60%" alt="Basecom Hall雪景"></p>
+<h2 id="音乐分享"><a href="#音乐分享" class="headerlink" title="音乐分享"></a>音乐分享</h2><p>不知从什么时候起爱上了网易云音乐这个App。推送很应景，评论留言的朋友们都有各自各样的感人故事，爱情友情亲情个人奋斗，比小说精彩多了hhh，最关键的是它不封海外IP，还一样能听到我最爱的银临、不才、司夏女神们。<br>今天循环了<strong>山外小楼听夜雨</strong>。一条评论写的很好：<br><blockquote><p>有人问我做中国人是什么体验。我告诉他，认得汉字，识得诗词，赏得风月，闻得茶香，入宫商角徵羽，不知是多少辈子修来的福分。</p>
+</blockquote><br>感谢爸妈，从小让我学民乐背诗词，一个人再孤单的时候也能去音乐中找到一点慰藉。听古风大概听的就是这样一种独特的心境吧。<br>歌词里写的像是苏东坡，料峭春风吹酒醒，一蓑烟雨任平生；也可以是欧阳修，月上柳梢头，人约黄昏后；也是柳三变，惟有长江水，无语东流；不忍登高临远，望故乡渺邈，归思难收。听完之后好像站在南京的长江边上了呀！<br><a id="more"></a><br><blockquote><p>数着春去熟透的红豆 无人黄昏后<br>庭前寒冷深秋为谁消瘦<br>月下惟有我的身影投 该与谁厮守<br>酒入喉却解不了愁<br>芙蓉花又栖满了枝头 奈何蝶难留<br>漂泊如江水向东流<br>望断门前隔岸的杨柳 寂寞仍不休<br>我无言让眼泪长流<br>我独酌山外小阁楼 听一夜相思愁<br>醉后让人烦忧 心事难收<br>山外小阁楼 我乘一叶小舟<br>放思念随风漂流</p>
+</blockquote></p>
+<div class="aplayer" data-id="405597568" data-server="netease" data-type="song"></div>
+
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果(*^▽^*)<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -197,11 +245,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">union find</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">古风</a>
         		</li>
       		
 		</ul>
@@ -257,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/12/leetcode-practice-process/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/12/冬日随想-麦迪逊.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -271,18 +323,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/12/冬日随想-麦迪逊/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/13/leetcode-binary-search-practice.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          冬日随想@麦迪逊
+          leetcode binary search practice
         
       </div>
     </a>
   
   
-    <a href="/2018/01/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2018/01/12/leetcode-practice-process.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode union find practice</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +364,7 @@
   
 
   
-  <div id="SOHUCS" sid="leetcode-practice-process" ></div> 
+  <div id="SOHUCS" sid="冬日随想-麦迪逊" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -332,16 +384,32 @@
         </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/meting@1.0.1/dist/Meting.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
     		&copy; 2018 huawei
     	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
+			<div class="footer-right">
+				<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+			</div>
+		</div>
+		<span id="busuanzi_container_site_uv">
+			Total <span id="busuanzi_value_site_uv"></span> views
+		</span>
+		
+			<div class="visit">
+				
+					<span id="busuanzi_container_site_pv" style='display:none'>
+							<span id="site-visit" title="visit_counter.site"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+							</span>
+					</span>
+				
+				
+				
+			</div>
+		
   </div>
 </footer>
     </div>
@@ -357,7 +425,7 @@
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -377,6 +445,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
+      
+      
     
       
       
@@ -388,13 +458,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
+      
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -481,6 +553,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://dapanggit.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://tranquil-woodland-36751.herokuapp.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://pure-brook-13189.herokuapp.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://lovexinforever.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.seu.edu.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.wisc.edu/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
     
 
     

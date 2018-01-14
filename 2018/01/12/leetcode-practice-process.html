@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>leetcode binary search practice | Huawei&#39;s Blog</title>
+  <title>leetcode union find practice | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Binary search problemsTypical problems include rotate array, .I am not familiar with this kind of problem, especially how to divide them into different situation.Usually, the end situation written as">
-<meta name="keywords" content="leetcode,binary search">
+  <meta name="description" content="key idea of leetcode problems, learn how to use Union find data structure">
+<meta name="keywords" content="leetcode,union find">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode binary search practice">
-<meta property="og:url" content="http://yoursite.com/2018/01/13/leetcode-binary-search-practice/index.html">
+<meta property="og:title" content="leetcode union find practice">
+<meta property="og:url" content="http://yoursite.com/2018/01/12/leetcode-practice-process.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="Binary search problemsTypical problems include rotate array, .I am not familiar with this kind of problem, especially how to divide them into different situation.Usually, the end situation written as">
-<meta property="og:updated_time" content="2018-01-13T22:49:13.197Z">
+<meta property="og:description" content="key idea of leetcode problems, learn how to use Union find data structure">
+<meta property="og:updated_time" content="2018-01-14T04:35:28.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode binary search practice">
-<meta name="twitter:description" content="Binary search problemsTypical problems include rotate array, .I am not familiar with this kind of problem, especially how to divide them into different situation.Usually, the end situation written as">
+<meta name="twitter:title" content="leetcode union find practice">
+<meta name="twitter:description" content="key idea of leetcode problems, learn how to use Union find data structure">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -63,6 +63,8 @@
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
 	        
+				<li><a href="/memo">备忘录</a></li>
+	        
 				<li><a href="/photos">相册</a></li>
 	        
 			</ul>
@@ -73,6 +75,8 @@
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
@@ -123,6 +127,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -143,11 +149,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/photos">相册</a></li>
+					<li style="width: 25%"><a href="/memo">备忘录</a></li>
+		        
+					<li style="width: 25%"><a href="/photos">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -162,34 +170,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-binary-search-practice" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-leetcode-practice-process" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode binary search practice
+      leetcode union find practice
     </h1>
   
 
         
-        <a href="/2018/01/13/leetcode-binary-search-practice/" class="archive-article-date">
-  	<time datetime="2018-01-13T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-13</time>
+        <a href="/2018/01/12/leetcode-practice-process.html" class="archive-article-date">
+  	<time datetime="2018-01-12T22:23:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Binary-search-problems"><a href="#Binary-search-problems" class="headerlink" title="Binary search problems"></a>Binary search problems</h2><p>Typical problems include rotate array, .I am not familiar with this kind of problem, especially how to divide them into different situation.<br>Usually, the end situation written as <code>start &lt; end</code>, so that the final return value can be written as nums[start] to avoid some edge situation. In addition, the mid value calculation should be written as <code>mid = start + (end - start)/2</code> to avoid overflow of number range.<br><a id="more"></a></p>
-<h3 id="153-Find-Minimum-in-Rotated-Sorted-Array"><a href="#153-Find-Minimum-in-Rotated-Sorted-Array" class="headerlink" title="153. Find Minimum in Rotated Sorted Array"></a>153. Find Minimum in Rotated Sorted Array</h3><p>Divide the situation into array rotated &amp; not rotated. If <code>nums[start] &lt; nums[end]</code>, the array is not rotated, simply return nums[0]. Then for the rotated situation, there are 2 cases:</p>
-<ul>
-<li><code>nums[mid] &lt; nums[end] &amp;&amp; nums[mid] &lt; nums[start]</code>, minimum is on left side.</li>
-<li><code>nums[mid] &gt; nums[end] &amp;&amp; nums[mid] &gt; nums[start]</code>, minimum is on right side.<br>Can write <strong>end</strong> side check condition, (if use <strong>start</strong> will have decreasing order edge case.)notice that when change value of start &amp; end need to deal with edge case.(when carry with no equal, update, otherwise, keep)</li>
-</ul>
-<h3 id="33-Search-in-rotated-array"><a href="#33-Search-in-rotated-array" class="headerlink" title="33.Search in rotated array"></a>33.Search in rotated array</h3><p>Same as previous problem, use nums[mid] &amp; nums[right] to judge which part is ordered, then judge target lies in which part to get the result.</p>
-<h3 id="287-Find-the-Duplicate-Number"><a href="#287-Find-the-Duplicate-Number" class="headerlink" title="287. Find the Duplicate Number"></a>287. Find the Duplicate Number</h3><p>Use idea same as <a href="https://leetcode.com/problems/linked-list-cycle-ii/description/" target="_blank" rel="noopener">linkedlist cycle 2</a>. Very tricky to understand array entry since they are all in 1-N range. Just find the entry of the cycle.</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Union-find-problems"><a href="#Union-find-problems" class="headerlink" title="Union find problems"></a>Union find problems</h2><h3 id="261-Graph-Valid-Tree"><a href="#261-Graph-Valid-Tree" class="headerlink" title="261. Graph Valid Tree"></a>261. Graph Valid Tree</h3><p>This is a typical union find problem. Notice that not only do you need to detect the loop, but also need to detect it is a <strong>connected</strong> graph.<br>Notice that when judge whether 2 components is connected &amp;&amp; union 2 components together, always get to <strong><em>the most far</em></strong> parent nodes.<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span>[] parent, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(parent[p] == p) <span class="keyword">return</span> p;</span><br><span class="line">        <span class="keyword">return</span> find(parent,parent[p]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span>[] parent, <span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> find(parent,p) == find(parent, q);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span>[] parent, <span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index1 = find(parent, p);</span><br><span class="line">        <span class="keyword">int</span> index2 = find(parent, q);</span><br><span class="line">        <span class="keyword">if</span>(index1 != index2) &#123;</span><br><span class="line">            parent[index1] = index2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">validTree</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[][] edges)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] parent = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            parent[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] edge:edges) &#123;</span><br><span class="line">            <span class="keyword">if</span>(isConnected(parent, edge[<span class="number">0</span>], edge[<span class="number">1</span>]) == <span class="keyword">true</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            union(parent, edge[<span class="number">0</span>], edge[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!isConnected(parent, parent[i],parent[<span class="number">0</span>])) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Some problems solved by Union-find can also be solved by DFS. For example, lc200,lc547&amp;&amp;lc130. lc130 uses a small trick, which just set an additional node to represent the node in boundary, which can’t be transformed,then expand them into center part.</p>
 
       
 
@@ -207,7 +209,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">binary search</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">union find</a>
         		</li>
       		
 		</ul>
@@ -263,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/13/leetcode-binary-search-practice/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/12/leetcode-practice-process.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,9 +279,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/01/12/冬日随想-麦迪逊.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          冬日随想@麦迪逊
+        
+      </div>
+    </a>
   
-    <a href="/2018/01/12/冬日随想-麦迪逊/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">冬日随想@麦迪逊</div>
+  
+    <a href="/2018/01/12/hello-world.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -309,7 +320,7 @@
   
 
   
-  <div id="SOHUCS" sid="leetcode-binary-search-practice" ></div> 
+  <div id="SOHUCS" sid="leetcode-practice-process" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -329,16 +340,32 @@
         </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/meting@1.0.1/dist/Meting.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
     		&copy; 2018 huawei
     	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
+			<div class="footer-right">
+				<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+			</div>
+		</div>
+		<span id="busuanzi_container_site_uv">
+			Total <span id="busuanzi_value_site_uv"></span> views
+		</span>
+		
+			<div class="visit">
+				
+					<span id="busuanzi_container_site_pv" style='display:none'>
+							<span id="site-visit" title="visit_counter.site"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+							</span>
+					</span>
+				
+				
+				
+			</div>
+		
   </div>
 </footer>
     </div>
@@ -354,7 +381,7 @@
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -374,6 +401,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
+      
+      
     
       
       
@@ -385,13 +414,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
+      
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -478,6 +509,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://dapanggit.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://tranquil-woodland-36751.herokuapp.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://pure-brook-13189.herokuapp.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://lovexinforever.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.seu.edu.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.wisc.edu/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
     
 
     
