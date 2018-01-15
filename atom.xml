@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-14T22:37:51.369Z</updated>
+  <updated>2018-01-15T02:46:42.414Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JSP Student-system review</title>
+    <link href="http://yoursite.com/2018/01/14/JSP-Student-system-review.html"/>
+    <id>http://yoursite.com/2018/01/14/JSP-Student-system-review.html</id>
+    <published>2018-01-15T00:50:40.000Z</published>
+    <updated>2018-01-15T02:46:42.414Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h2 id="Project-Review"><a href="#Project-Review" class="headerlink" title="Project Review"></a>Project Review</h2><p>Develop a simple <a href="https://github.com/whw19950510/Studentsystem" target="_blank" rel="noopener">student management system</a> using pure Servlet, MySql and Bootstrap. Basically supports CRUD functionality, ie: create, read, update, delete. Also supports search functionality. Need further improvement on high efficiency sql query, high concurrency and some consideration of loading balance.<br><a id="more"></a></p><h2 id="Understanding-of-MVC-design-patterns"><a href="#Understanding-of-MVC-design-patterns" class="headerlink" title="Understanding of MVC design patterns"></a>Understanding of MVC design patterns</h2><p>Some frenquently used j2ee functions, includes:</p><ul><li>request.getParameter(): get the parameter value in the HTML form(name property).</li><li>request.setAttribute/getAttribute(), used to retrieve value from request(send from 1 page to another).</li><li>dispatcher.forward(request, response): forward the request to some page, be careful with the dispatcher’s constructor should be passed into value of JSP/Servlet, which can cause different effects.<h2 id="Problem-met-in-project"><a href="#Problem-met-in-project" class="headerlink" title="Problem met in project"></a>Problem met in project</h2></li><li>When developing the update functionality, fail to update with no error show up. Try to show the id on the jsp page and found it always come to 0. Finally found that it’s due to not set up corresponding properties and set it to request attribute.</li><li>Have difficulty with the CSS coding to properly layout the button… Waste a lot of time to adjust the button to be aligned with each other. Need further understanding of display: inline/block property, float property and BOX model(making use of margin+padding).</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Project-Review&quot;&gt;&lt;a href=&quot;#Project-Review&quot; class=&quot;headerlink&quot; title=&quot;Project Review&quot;&gt;&lt;/a&gt;Project Review&lt;/h2&gt;&lt;p&gt;Develop a simple &lt;a href=&quot;https://github.com/whw19950510/Studentsystem&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;student management system&lt;/a&gt; using pure Servlet, MySql and Bootstrap. Basically supports CRUD functionality, ie: create, read, update, delete. Also supports search functionality. Need further improvement on high efficiency sql query, high concurrency and some consideration of loading balance.&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Java EE" scheme="http://yoursite.com/tags/Java-EE/"/>
+    
+      <category term="JSP" scheme="http://yoursite.com/tags/JSP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>雪夜</title>
     <link href="http://yoursite.com/2018/01/14/%E9%9B%AA%E5%A4%9C.html"/>
     <id>http://yoursite.com/2018/01/14/雪夜.html</id>
     <published>2018-01-15T00:17:24.000Z</published>
-    <updated>2018-01-14T22:37:51.369Z</updated>
+    <updated>2018-01-15T02:50:20.930Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h2 id="雪夜"><a href="#雪夜" class="headerlink" title="雪夜"></a>雪夜</h2><p>来之前就在知乎上看到过麦迪逊冬天很长，有的冬天一直持续到来年四五月份。来了才知道名不虚传，午睡起来又开始洋洋洒洒地下雪。这的雪花像北方的雪，结成块的那种，像棉花糖，街上的雪聚在一起，风一吹像白色的沙一样，很好看。</p><h2 id="音乐分享"><a href="#音乐分享" class="headerlink" title="音乐分享"></a>音乐分享</h2><p>静谧的雪夜，最适合思念。今天推荐<strong>《兔子先生》</strong>。开始以为是云泣原唱，后来才知道是洛天依的电子声。没事的时候去B站上翻了下那个<a href="https://www.bilibili.com/video/av2877056/" title="沙画视频" target="_blank" rel="noopener">沙画视频</a>。也是满满的泪点呢。<br>兔子先生大概也是小孩子自己吧。歌词和旋律都很朴素，但可能恰巧因为这种平素让人难以忘怀。<br><blockquote><p>流浪不是一个人的旅途，早点给自己找一个家，让自己的心不再漂泊。总有人会在你身旁，牵住你的手，帮你把那个不懂事的小孩子释放出来，抱住他，也亲吻他，让他舒舒服服躺在怀中，安心听她把兔子先生的故事讲完。</p></blockquote><br>好想听你们弹琴啊，希望五月快一点到来。<br><blockquote><a id="more"></a><p>小孩子问妈妈<br>兔子的家在哪里啊<br>妈妈笑着回答<br>月亮是兔子先生的故乡<br>小孩子问妈妈<br>兔子先生咋不回家<br>妈妈笑着回答<br>流浪是兔子先生的特长<br>小孩子嘟着嘴<br>说兔子先生怎么不听话<br>兔子公公 兔子婆婆<br>会想念他 会担心他<br>小孩小孩轻声说<br>啊兔子先生请你快回家<br>最爱你的爸爸妈妈<br>在那远空 盼望你啊<br>兔子先生笑着说<br>啊小孩小孩我也会想家<br>但渺小的我<br>流浪的步伐<br>还没法停下</p></blockquote></p><div class="aplayer" data-id="34614479" data-server="netease" data-type="song"></div>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h2 id="雪夜"><a href="#雪夜" class="headerlink" title="雪夜"></a>雪夜</h2><p>来之前就在知乎上看到过麦迪逊冬天很长，有的冬天一直持续到来年四五月份，海本们因此都练就了一小时雪中刨车的技能hhh。来了才知道名不虚传，午睡起来又开始洋洋洒洒地下雪。这的雪花像北方的雪，结成块的那种，像棉花糖，街上的雪聚在一起，风一吹像白色的沙一样，很好看。<br><img src="/assets/blogimgs/1.14snow.jpg" width="80%" height="60%" alt="Union South is snowing"></p><h2 id="音乐分享"><a href="#音乐分享" class="headerlink" title="音乐分享"></a>音乐分享</h2><p>静谧的雪夜，最适合思念。今天推荐<strong>《兔子先生》</strong>。开始以为是云泣原唱，后来才知道是洛天依的电子声。没事的时候去B站上翻了下那个<a href="https://www.bilibili.com/video/av2877056/" title="沙画视频" target="_blank" rel="noopener">沙画视频</a>。也是满满的泪点呢。<br>兔子先生大概也是小孩子自己吧。歌词和旋律都很朴素，但可能恰巧因为这种平素让人难以忘怀。<br><blockquote><p>流浪不是一个人的旅途，早点给自己找一个家，让自己的心不再漂泊。总有人会在你身旁，牵住你的手，帮你把那个不懂事的小孩子释放出来，抱住他，也亲吻他，让他舒舒服服躺在怀中，安心听她把兔子先生的故事讲完。</p></blockquote><br>好想听你们弹琴啊，希望五月快一点到来。<br><blockquote><a id="more"></a><p>小孩子问妈妈<br>兔子的家在哪里啊<br>妈妈笑着回答<br>月亮是兔子先生的故乡<br>小孩子问妈妈<br>兔子先生咋不回家<br>妈妈笑着回答<br>流浪是兔子先生的特长<br>小孩子嘟着嘴<br>说兔子先生怎么不听话<br>兔子公公 兔子婆婆<br>会想念他 会担心他<br>小孩小孩轻声说<br>啊兔子先生请你快回家<br>最爱你的爸爸妈妈<br>在那远空 盼望你啊<br>兔子先生笑着说<br>啊小孩小孩我也会想家<br>但渺小的我<br>流浪的步伐<br>还没法停下</p></blockquote></p><div class="aplayer" data-id="34614479" data-server="netease" data-type="song"></div>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;雪夜&quot;&gt;&lt;a href=&quot;#雪夜&quot; class=&quot;headerlink&quot; title=&quot;雪夜&quot;&gt;&lt;/a&gt;雪夜&lt;/h2&gt;&lt;p&gt;来之前就在知乎上看到过麦迪逊冬天很长，有的冬天一直持续到来年四五月份。来了才知道名不虚传，午睡起来又开始洋洋洒洒地下雪。这的雪花像北方的雪，结成块的那种，像棉花糖，街上的雪聚在一起，风一吹像白色的沙一样，很好看。&lt;/p&gt;
+      &lt;h2 id=&quot;雪夜&quot;&gt;&lt;a href=&quot;#雪夜&quot; class=&quot;headerlink&quot; title=&quot;雪夜&quot;&gt;&lt;/a&gt;雪夜&lt;/h2&gt;&lt;p&gt;来之前就在知乎上看到过麦迪逊冬天很长，有的冬天一直持续到来年四五月份，海本们因此都练就了一小时雪中刨车的技能hhh。来了才知道名不虚传，午睡起来又开始洋洋洒洒地下雪。这的雪花像北方的雪，结成块的那种，像棉花糖，街上的雪聚在一起，风一吹像白色的沙一样，很好看。&lt;br&gt;&lt;img src=&quot;/assets/blogimgs/1.14snow.jpg&quot; width=&quot;80%&quot; height=&quot;60%&quot; alt=&quot;Union South is snowing&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;音乐分享&quot;&gt;&lt;a href=&quot;#音乐分享&quot; class=&quot;headerlink&quot; title=&quot;音乐分享&quot;&gt;&lt;/a&gt;音乐分享&lt;/h2&gt;&lt;p&gt;静谧的雪夜，最适合思念。今天推荐&lt;strong&gt;《兔子先生》&lt;/strong&gt;。开始以为是云泣原唱，后来才知道是洛天依的电子声。没事的时候去B站上翻了下那个&lt;a href=&quot;https://www.bilibili.com/video/av2877056/&quot; title=&quot;沙画视频&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;沙画视频&lt;/a&gt;。也是满满的泪点呢。&lt;br&gt;兔子先生大概也是小孩子自己吧。歌词和旋律都很朴素，但可能恰巧因为这种平素让人难以忘怀。&lt;br&gt;&lt;blockquote&gt;&lt;p&gt;流浪不是一个人的旅途，早点给自己找一个家，让自己的心不再漂泊。总有人会在你身旁，牵住你的手，帮你把那个不懂事的小孩子释放出来，抱住他，也亲吻他，让他舒舒服服躺在怀中，安心听她把兔子先生的故事讲完。&lt;/p&gt;
 &lt;/blockquote&gt;&lt;br&gt;好想听你们弹琴啊，希望五月快一点到来。&lt;br&gt;&lt;blockquote&gt;
     
