@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-15T02:46:42.414Z</updated>
+  <updated>2018-01-16T01:19:56.752Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>莫愁前路无知己</title>
+    <link href="http://yoursite.com/2018/01/15/%E8%8E%AB%E6%84%81%E5%89%8D%E8%B7%AF%E6%97%A0%E7%9F%A5%E5%B7%B1.html"/>
+    <id>http://yoursite.com/2018/01/15/莫愁前路无知己.html</id>
+    <published>2018-01-16T01:02:40.000Z</published>
+    <updated>2018-01-16T01:19:56.752Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h3 id="莫愁前路无知己"><a href="#莫愁前路无知己" class="headerlink" title="莫愁前路无知己"></a>莫愁前路无知己</h3><p>大雪下了一夜都没停，今天去湖边转了一圈整个湖水都冻住了，也算是奇景了。几对情侣走在浩渺茫茫的湖面上，应该是生命中很难忘的体验吧。<br>话别诗最有名的一句就是<br><blockquote><p>莫愁前路无知己，天下谁人不识君。</p></blockquote><br>语句中饱含着宽慰和豁达。然而相比送别我还是更喜欢重逢吧，即使是<br><blockquote><p>深知身在情长在，前尘不共彩云飞</p></blockquote><br>这种伤感的风格。</p><h3 id="家门口的雪人"><a href="#家门口的雪人" class="headerlink" title="家门口的雪人"></a>家门口的雪人</h3><p><img src="/assets/blogimgs/1.15snowman.jpg" width="80%" height="60%" alt="snowman"></p><h3 id="Lake-Mendota"><a href="#Lake-Mendota" class="headerlink" title="Lake Mendota"></a>Lake Mendota</h3><p><img src="/assets/blogimgs/1.15mendota2.jpg" width="80%" height="60%" alt="snowman"></p><h3 id="音乐分享"><a href="#音乐分享" class="headerlink" title="音乐分享"></a>音乐分享</h3><p>今天分享银临的<strong>《不老梦》</strong>。新专辑《蚍蜉渡海》也出了好久了，然而寄到家的时候我已经在美国了。。只能等回家听了。最喜欢这首歌的文案，一个很凄美、令人动容的爱情故事。也许这些故事也上演在我们身边吧。贴上银临自己的创作灵感。<br><blockquote><p>终南有坟，名不老。客奇之，问何故，言乃淮南翁主媗冢。<br>元光二年上巳，媗于渭水之滨遇振翊将军韩衿，悦之。明年，河水决濮阳，上发卒十万救决河，使衿督。媗送别，诉心意。衿以其年尚幼，婉拒之。<br>后三年，衿戍定襄，媗托尺素，书：妾已及笄。<br>复三年，媗随姊陵探长安，约结上左右。每逢衿，且喜且怯。<br>又三年，媗疾，久不愈。衿随大将军青击匈奴，媗恐不复见，追大军十余里，终力竭。呛血白衣，形销骨立。<br>元狩元年，淮南衡山事发，陵媗皆下狱。衿欲面之，叩未央宫，额血流地，上弗允。媗殒，衿亲葬于终南。<br>后长安有歌曰：茔茔蔓草，岁岁不老；风雨如晦，死生为谁。<br>终南有坟，名不老。</p></blockquote><br><blockquote><p>清明说：这首歌主题是“求不得”，但并不是不敢追寻才不得，而是努力了、尝试了，依然不可得。因为时代，因为环境，因为外界的桎梏和内心的枷锁。因为人在天命面前，总是渺小得可怜。纵使如此，依然不悔地去爱着，是怎样一种苍凉的勇气？是“知其不可而为之”，“虽千万人吾往矣”。</p></blockquote></p><div class="aplayer" data-id="421137682" data-server="netease" data-type="song"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;\assets\js\APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h3 id=&quot;莫愁前路无知己&quot;&gt;&lt;a href=&quot;#莫愁前路无知己&quot; class=&quot;headerlink&quot; title=&quot;莫愁前路无知己&quot;&gt;&lt;/a&gt;莫愁前路无知己&lt;/h3&gt;&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="音乐" scheme="http://yoursite.com/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+      <category term="古风" scheme="http://yoursite.com/tags/%E5%8F%A4%E9%A3%8E/"/>
+    
+  </entry>
   
   <entry>
     <title>JSP Student-system review</title>
@@ -153,20 +180,27 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2018/01/12/hello-world.html"/>
-    <id>http://yoursite.com/2018/01/12/hello-world.html</id>
-    <published>2018-01-12T16:43:07.912Z</published>
-    <updated>2018-01-14T22:43:37.136Z</updated>
+    <title>Learn to use maven to manage project</title>
+    <link href="http://yoursite.com/2018/01/01/Learn-to-use-maven-to-manage-project.html"/>
+    <id>http://yoursite.com/2018/01/01/Learn-to-use-maven-to-manage-project.html</id>
+    <published>2018-01-01T06:17:35.000Z</published>
+    <updated>2018-01-15T17:01:21.258Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br><a id="more"></a></p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h3 id="Maven-learn-review"><a href="#Maven-learn-review" class="headerlink" title="Maven learn review"></a>Maven learn review</h3><p>Today I spend some free time learning how to use Maven to manage the dependencies and create project’s structure. This posts will continue to be updated.</p><h4 id="Basic-instructions"><a href="#Basic-instructions" class="headerlink" title="Basic instructions"></a>Basic instructions</h4><ul><li><code>mvn clean compile</code> will generate target folder, which contains the class files generated by dependencies.</li><li><code>mvn clean test</code> will compile and add Junit test module. Need to add junit dependencies to pom.xml first.</li><li><code>mvn clean package</code> will generate jar file of your project.</li><li><code>mvn clean install</code> will generate your project into the local repository and let other projects be able to depend on it.<h4 id="Write-pom-xml"><a href="#Write-pom-xml" class="headerlink" title="Write pom.xml"></a>Write pom.xml</h4>Write groupId as package name, ArtifactId as project name. Then add dependencies to the <code>&lt;dependencies&gt;&lt;/dependencies&gt;</code> block.</li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
+      
+      
+        &lt;script src=&quot;\assets\js\APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h3 id=&quot;Maven-learn-review&quot;&gt;&lt;a href=&quot;#Maven-learn-review&quot; class=&quot;headerlink&quot; title=&quot;Maven 
+      
     
     </summary>
     
+    
+      <category term="Java EE" scheme="http://yoursite.com/tags/Java-EE/"/>
+    
+      <category term="Spring" scheme="http://yoursite.com/tags/Spring/"/>
     
   </entry>
   
