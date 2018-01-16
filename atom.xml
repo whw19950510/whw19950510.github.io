@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-16T01:24:33.780Z</updated>
+  <updated>2018-01-16T03:29:49.852Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode binary search practice 3</title>
+    <link href="http://yoursite.com/2018/01/15/leetcode-binary-search-practice3.html"/>
+    <id>http://yoursite.com/2018/01/15/leetcode-binary-search-practice3.html</id>
+    <published>2018-01-16T02:48:55.000Z</published>
+    <updated>2018-01-16T03:29:49.852Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h3 id="162-Find-Peak-Element"><a href="#162-Find-Peak-Element" class="headerlink" title="162. Find Peak Element"></a>162. Find Peak Element</h3><p>There may exsists many peak elements in array, only need to return 1 index. If it’s a sorted array, answer will be first or last element.<br>random select 1 element, if not peak element, if left neighbors larger than it, peak will exists in left part, otherwise right part. Notice the edge case where length == 2, then simply comes to start/end.</p><h3 id="34-Search-for-a-Range"><a href="#34-Search-for-a-Range" class="headerlink" title="34. Search for a Range"></a>34. Search for a Range</h3><p>Simple binary search to find initial value, then search for the range. My solution is a little complex to loop to boundary, worst case go to <code>O(n)</code>. actually, <code>start = find(target), end = find(target + 1) -1</code>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;\assets\js\APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h3 id=&quot;162-Find-Peak-Element&quot;&gt;&lt;a href=&quot;#162-Find-Peak-Element&quot; class=&quot;headerlink&quot; title=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="binary search" scheme="http://yoursite.com/tags/binary-search/"/>
+    
+  </entry>
   
   <entry>
     <title>莫愁前路无知己</title>

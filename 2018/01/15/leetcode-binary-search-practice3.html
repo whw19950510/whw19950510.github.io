@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>memo | Huawei&#39;s Blog</title>
+  <title>leetcode binary search practice 3 | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MemoJust a todo-list to remind me keep learning &amp;amp; making progress. Long-term Learn Hadoop, Map reduce &amp;amp; other big data thechnology. Learn CSS, React &amp;amp; Vue.js, other popular front-end tech">
-<meta name="keywords" content="front-end,React,javascript,SpringMVC,Django,程序猿,Developer,Programmer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="memo">
-<meta property="og:url" content="http://yoursite.com/memo/index.html">
+  <meta name="description" content="162. Find Peak ElementThere may exsists many peak elements in array, only need to return 1 index. If it’s a sorted array, answer will be first or last element.random select 1 element, if not peak ele">
+<meta name="keywords" content="leetcode,binary search">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode binary search practice 3">
+<meta property="og:url" content="http://yoursite.com/2018/01/15/leetcode-binary-search-practice3.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="MemoJust a todo-list to remind me keep learning &amp;amp; making progress. Long-term Learn Hadoop, Map reduce &amp;amp; other big data thechnology. Learn CSS, React &amp;amp; Vue.js, other popular front-end tech">
-<meta property="og:updated_time" content="2018-01-14T02:40:37.080Z">
+<meta property="og:description" content="162. Find Peak ElementThere may exsists many peak elements in array, only need to return 1 index. If it’s a sorted array, answer will be first or last element.random select 1 element, if not peak ele">
+<meta property="og:updated_time" content="2018-01-16T03:29:49.852Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="memo">
-<meta name="twitter:description" content="MemoJust a todo-list to remind me keep learning &amp;amp; making progress. Long-term Learn Hadoop, Map reduce &amp;amp; other big data thechnology. Learn CSS, React &amp;amp; Vue.js, other popular front-end tech">
+<meta name="twitter:title" content="leetcode binary search practice 3">
+<meta name="twitter:description" content="162. Find Peak ElementThere may exsists many peak elements in array, only need to return 1 index. If it’s a sorted array, answer will be first or last element.random select 1 element, if not peak ele">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -169,39 +169,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-leetcode-binary-search-practice3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      memo
+      leetcode binary search practice 3
     </h1>
   
 
         
-        <a href="/memo/index.html" class="archive-article-date">
-  	<time datetime="2018-01-14T02:26:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-13</time>
+        <a href="/2018/01/15/leetcode-binary-search-practice3.html" class="archive-article-date">
+  	<time datetime="2018-01-16T02:48:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Memo"><a href="#Memo" class="headerlink" title="Memo"></a>Memo</h2><p>Just a todo-list to remind me keep learning &amp; making progress.</p>
-<h3 id="Long-term"><a href="#Long-term" class="headerlink" title="Long-term"></a>Long-term</h3><ul>
-<li>Learn Hadoop, Map reduce &amp; other big data thechnology.</li>
-<li>Learn CSS, React &amp; Vue.js, other popular front-end tech stack.</li>
-<li>Learn Java SSM framework.</li>
-</ul>
-<h3 id="Short-term"><a href="#Short-term" class="headerlink" title="Short-term"></a>Short-term</h3><ul>
-<li>Look for an internship in Shenzhen.</li>
-<li>Practicing leetcode everyday.</li>
-<li>Add more project to resume.</li>
-<li>Keep accompany of who you love.</li>
-<li>Keep sport exercising.</li>
-</ul>
+        <script src="\assets\js\APlayer.min.js"> </script><h3 id="162-Find-Peak-Element"><a href="#162-Find-Peak-Element" class="headerlink" title="162. Find Peak Element"></a>162. Find Peak Element</h3><p>There may exsists many peak elements in array, only need to return 1 index. If it’s a sorted array, answer will be first or last element.<br>random select 1 element, if not peak element, if left neighbors larger than it, peak will exists in left part, otherwise right part. Notice the edge case where length == 2, then simply comes to start/end.</p>
+<h3 id="34-Search-for-a-Range"><a href="#34-Search-for-a-Range" class="headerlink" title="34. Search for a Range"></a>34. Search for a Range</h3><p>Simple binary search to find initial value, then search for the range. My solution is a little complex to loop to boundary, worst case go to <code>O(n)</code>. actually, <code>start = find(target), end = find(target + 1) -1</code>.</p>
 
       
 
@@ -210,6 +199,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">binary search</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -260,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/memo/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/15/leetcode-binary-search-practice3.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -272,6 +276,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/15/莫愁前路无知己.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">莫愁前路无知己</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -296,7 +310,7 @@
   
 
   
-  <div id="SOHUCS" sid="" ></div> 
+  <div id="SOHUCS" sid="leetcode-binary-search-practice3" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -349,7 +363,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
