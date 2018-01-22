@@ -69,6 +69,31 @@
   </entry>
   
   <entry>
+    <title>转-面试感想</title>
+    <link href="http://yoursite.com/2018/01/19/%E9%9D%A2%E8%AF%95%E5%BF%83%E5%BE%97.html"/>
+    <id>http://yoursite.com/2018/01/19/面试心得.html</id>
+    <published>2018-01-19T22:41:18.000Z</published>
+    <updated>2018-01-22T15:01:35.733Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h2 id="转自知乎日报"><a href="#转自知乎日报" class="headerlink" title="转自知乎日报"></a>转自知乎日报</h2><p>如果你想去更大的平台发展，比如微软、阿里、Airbnb、亚马逊，即使是前端的岗位，在面试时（甚至每一轮）也会考验一些算法题目（虽然我觉得没什么道理）。总的来说面试算法题的公司一半一半吧，另一半倾向于面试前端相关的实战练习题。外企基本不考察你的前端能力，只考虑你的算法和数据结构能力（别问我是怎么知道的，我的面试史就是一部血泪史）。所以前端同学懂一些基本的算法也是有必要的。我不知道其他语言的程序员在找工作时面试的算法题有哪些，但前端的算法面试题还算是比较基础并且不难（至少相对于我而言）。我也算是面霸了，所以分享一些个人经验，同时也是记录下来写给将来的有需要的自己。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;\assets\js\APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;转自知乎日报&quot;&gt;&lt;a href=&quot;#转自知乎日报&quot; class=&quot;headerlink&quot; title=&quot;转自知乎日报&quot;&gt;&lt;/a&gt;转自知乎日报&lt;/h2&gt;&lt;p&gt;如果你想
+      
+    
+    </summary>
+    
+    
+      <category term="front-end" scheme="http://yoursite.com/tags/front-end/"/>
+    
+      <category term="interview" scheme="http://yoursite.com/tags/interview/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Understanding Promise</title>
     <link href="http://yoursite.com/2018/01/18/Understanding-Promise.html"/>
     <id>http://yoursite.com/2018/01/18/Understanding-Promise.html</id>

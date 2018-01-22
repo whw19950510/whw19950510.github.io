@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JSP Student-system review | Huawei&#39;s Blog</title>
+  <title>转-面试感想 | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Project ReviewDevelop a simple student management system using pure Servlet, MySql and Bootstrap. Basically supports CRUD functionality, ie: create, read, update, delete. Also supports search function">
-<meta name="keywords" content="Java EE,JSP">
+  <meta name="description" content="转自知乎日报如果你想去更大的平台发展，比如微软、阿里、Airbnb、亚马逊，即使是前端的岗位，在面试时（甚至每一轮）也会考验一些算法题目（虽然我觉得没什么道理）。总的来说面试算法题的公司一半一半吧，另一半倾向于面试前端相关的实战练习题。外企基本不考察你的前端能力，只考虑你的算法和数据结构能力（别问我是怎么知道的，我的面试史就是一部血泪史）。所以前端同学懂一些基本的算法也是有必要的。我不知道其他语">
+<meta name="keywords" content="front-end,interview">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSP Student-system review">
-<meta property="og:url" content="http://yoursite.com/2018/01/14/JSP-Student-system-review.html">
+<meta property="og:title" content="转-面试感想">
+<meta property="og:url" content="http://yoursite.com/2018/01/19/面试心得.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="Project ReviewDevelop a simple student management system using pure Servlet, MySql and Bootstrap. Basically supports CRUD functionality, ie: create, read, update, delete. Also supports search function">
-<meta property="og:updated_time" content="2018-01-15T02:46:42.414Z">
+<meta property="og:description" content="转自知乎日报如果你想去更大的平台发展，比如微软、阿里、Airbnb、亚马逊，即使是前端的岗位，在面试时（甚至每一轮）也会考验一些算法题目（虽然我觉得没什么道理）。总的来说面试算法题的公司一半一半吧，另一半倾向于面试前端相关的实战练习题。外企基本不考察你的前端能力，只考虑你的算法和数据结构能力（别问我是怎么知道的，我的面试史就是一部血泪史）。所以前端同学懂一些基本的算法也是有必要的。我不知道其他语">
+<meta property="og:updated_time" content="2018-01-22T15:01:35.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSP Student-system review">
-<meta name="twitter:description" content="Project ReviewDevelop a simple student management system using pure Servlet, MySql and Bootstrap. Basically supports CRUD functionality, ie: create, read, update, delete. Also supports search function">
+<meta name="twitter:title" content="转-面试感想">
+<meta name="twitter:description" content="转自知乎日报如果你想去更大的平台发展，比如微软、阿里、Airbnb、亚马逊，即使是前端的岗位，在面试时（甚至每一轮）也会考验一些算法题目（虽然我觉得没什么道理）。总的来说面试算法题的公司一半一半吧，另一半倾向于面试前端相关的实战练习题。外企基本不考察你的前端能力，只考虑你的算法和数据结构能力（别问我是怎么知道的，我的面试史就是一部血泪史）。所以前端同学懂一些基本的算法也是有必要的。我不知道其他语">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -169,35 +169,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JSP-Student-system-review" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-面试心得" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JSP Student-system review
+      转-面试感想
     </h1>
   
 
         
-        <a href="/2018/01/14/JSP-Student-system-review.html" class="archive-article-date">
-  	<time datetime="2018-01-15T00:50:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-14</time>
+        <a href="/2018/01/19/面试心得.html" class="archive-article-date">
+  	<time datetime="2018-01-19T22:41:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Project-Review"><a href="#Project-Review" class="headerlink" title="Project Review"></a>Project Review</h2><p>Develop a simple <a href="https://github.com/whw19950510/Studentsystem" target="_blank" rel="noopener">student management system</a> using pure Servlet, MySql and Bootstrap. Basically supports CRUD functionality, ie: create, read, update, delete. Also supports search functionality. Need further improvement on high efficiency sql query, high concurrency and some consideration of loading balance.<br><a id="more"></a></p>
-<h2 id="Understanding-of-MVC-design-patterns"><a href="#Understanding-of-MVC-design-patterns" class="headerlink" title="Understanding of MVC design patterns"></a>Understanding of MVC design patterns</h2><p>Some frenquently used j2ee functions, includes:</p>
-<ul>
-<li>request.getParameter(): get the parameter value in the HTML form(name property).</li>
-<li>request.setAttribute/getAttribute(), used to retrieve value from request(send from 1 page to another).</li>
-<li>dispatcher.forward(request, response): forward the request to some page, be careful with the dispatcher’s constructor should be passed into value of JSP/Servlet, which can cause different effects.<h2 id="Problem-met-in-project"><a href="#Problem-met-in-project" class="headerlink" title="Problem met in project"></a>Problem met in project</h2></li>
-<li>When developing the update functionality, fail to update with no error show up. Try to show the id on the jsp page and found it always come to 0. Finally found that it’s due to not set up corresponding properties and set it to request attribute.</li>
-<li>Have difficulty with the CSS coding to properly layout the button… Waste a lot of time to adjust the button to be aligned with each other. Need further understanding of display: inline/block property, float property and BOX model(making use of margin+padding).</li>
-</ul>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="转自知乎日报"><a href="#转自知乎日报" class="headerlink" title="转自知乎日报"></a>转自知乎日报</h2><p>如果你想去更大的平台发展，比如微软、阿里、Airbnb、亚马逊，即使是前端的岗位，在面试时（甚至每一轮）也会考验一些算法题目（虽然我觉得没什么道理）。总的来说面试算法题的公司一半一半吧，另一半倾向于面试前端相关的实战练习题。外企基本不考察你的前端能力，只考虑你的算法和数据结构能力（别问我是怎么知道的，我的面试史就是一部血泪史）。所以前端同学懂一些基本的算法也是有必要的。我不知道其他语言的程序员在找工作时面试的算法题有哪些，但前端的算法面试题还算是比较基础并且不难（至少相对于我而言）。我也算是面霸了，所以分享一些个人经验，同时也是记录下来写给将来的有需要的自己。</p>
 
       
 
@@ -211,11 +203,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JSP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
         		</li>
       		
 		</ul>
@@ -271,7 +263,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/14/JSP-Student-system-review.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/19/面试心得.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,18 +277,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/15/莫愁前路无知己.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/19/React review.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          莫愁前路无知己
+          React review
         
       </div>
     </a>
   
   
-    <a href="/2018/01/14/雪夜.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">雪夜</div>
+    <a href="/2018/01/18/Understanding-Promise.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Understanding Promise</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -326,7 +318,7 @@
   
 
   
-  <div id="SOHUCS" sid="JSP-Student-system-review" ></div> 
+  <div id="SOHUCS" sid="面试心得" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
