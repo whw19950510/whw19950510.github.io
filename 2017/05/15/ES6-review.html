@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>ES6 review | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JS basicJS is OOScripting language.JS on the client side access the DOM.JS on the server side can communicate with databases.Using &amp;lt;script type = &amp;quot;text/javascript&amp;quot; src=&amp;quot;./index.js&amp;q">
+  <meta name="description" content="JS basicJS is OOScripting language.JS on the client side access the DOM.JS on the server side can communicate with databases.">
 <meta name="keywords" content="JavaScript,front-end,React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6 review">
 <meta property="og:url" content="http://yoursite.com/2017/05/15/ES6-review.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="JS basicJS is OOScripting language.JS on the client side access the DOM.JS on the server side can communicate with databases.Using &amp;lt;script type = &amp;quot;text/javascript&amp;quot; src=&amp;quot;./index.js&amp;q">
-<meta property="og:updated_time" content="2018-01-17T23:07:11.514Z">
+<meta property="og:description" content="JS basicJS is OOScripting language.JS on the client side access the DOM.JS on the server side can communicate with databases.">
+<meta property="og:updated_time" content="2018-01-22T00:55:41.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6 review">
-<meta name="twitter:description" content="JS basicJS is OOScripting language.JS on the client side access the DOM.JS on the server side can communicate with databases.Using &amp;lt;script type = &amp;quot;text/javascript&amp;quot; src=&amp;quot;./index.js&amp;q">
+<meta name="twitter:description" content="JS basicJS is OOScripting language.JS on the client side access the DOM.JS on the server side can communicate with databases.">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -189,7 +189,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="JS-basic"><a href="#JS-basic" class="headerlink" title="JS basic"></a>JS basic</h2><p>JS is OOScripting language.<br>JS on the client side access the DOM.<br>JS on the server side can communicate with databases.<br>Using <code>&lt;script type = &quot;text/javascript&quot; src=&quot;./index.js&quot;&gt;&lt;/script&gt;</code> to directly use the JS code.<br>DOM enables dynamically generate HTML code. Eg:document.getElementById().innerHTML() = ‘’.<br>var can start with <code>$</code>,no number,no space. Camelcasing var.<br>var data = [];data.push(0),data.pop();<br>onkeypress/onChange事件</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="JS-basic"><a href="#JS-basic" class="headerlink" title="JS basic"></a>JS basic</h2><p>JS is OOScripting language.<br>JS on the client side access the DOM.<br>JS on the server side can communicate with databases.<br><a id="more"></a><br>Using <code>&lt;script type = &quot;text/javascript&quot; src=&quot;./index.js&quot;&gt;&lt;/script&gt;</code> to directly use the JS code.<br>DOM enables dynamically generate HTML code. Eg:document.getElementById().innerHTML() = ‘’.<br>var can start with <code>$</code>,no number,no space. Camelcasing var.<br>var data = [];data.push(0),data.pop();<br>onkeypress/onChange事件</p>
 <h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><h4 id="New-features"><a href="#New-features" class="headerlink" title="New features"></a>New features</h4><p>arrow functions, import, const.<br>let a = 5 === var a = 5;<br>local scope vs global scope. {}.differenciate from closure.{work in its self scope}<br>`` as template string. ${}<br>[10,…a,50];spread operator concatenate.<br>function(…a){}, gathering all parameters into an array.<br>let [name,parent] = a;<br>()=&gt;,no this contained. Annoynous function expression{<br>    function() {};<br>}<br>.map(function)/filter(boolean test). string.repeat(50)/startsWith()/includes(). Safe integer: Number.isSafeInteger(number).<br>module: split code into file based on relevance. export default add; import add from “math.js”/import {multiply} from “math.js”.</p>
 <h4 id="Webpack-amp-Babel"><a href="#Webpack-amp-Babel" class="headerlink" title="Webpack &amp; Babel"></a>Webpack &amp; Babel</h4><p>Using webpack(打包工具) &amp;&amp; Babel to let JS be compatible with the browser. Basically they are transpilier, generate code to olderjs.<br>webpack bundles multiple modules into one js file, come with dev-server, update timely.<br>npm install webpack –save-dev.<br>npm install babel-core babel-loader webpack-dev-server babel-preset-es2015 babel-polyfill –save-dev.<br>npm install –save-dev babel-preset-react.<br>webpack.config.js:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = &#123;</span><br><span class="line">    entry: [<span class="string">'babel-polyfill'</span>,<span class="string">'./app/index.js'</span>],</span><br><span class="line">    output:&#123;</span><br><span class="line">        path:__dirname + <span class="string">'/build'</span>,</span><br><span class="line">        filename:<span class="string">'bundle.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">module</span>:&#123;</span><br><span class="line">        loaders:[</span><br><span class="line">            &#123;</span><br><span class="line">                loader:<span class="string">'babel-loader'</span>,</span><br><span class="line">                test:/\js$/,</span><br><span class="line">                exclude:/node_modules/</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    devServer:&#123;</span><br><span class="line">        port: <span class="number">3000</span>,</span><br><span class="line">        contentBase:<span class="string">"./build"</span>,</span><br><span class="line">        inline:<span class="keyword">true</span> <span class="comment">// automatically update code</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>package.json:<code>script:&quot;build&quot;:&quot;webpack&quot;</code>. add <code>&quot;babel&quot;:{&quot;presets&quot;:[&quot;es2015&quot;] }</code>, <code>&quot;start&quot;: &quot;webpack-dev-server&quot;</code>.</p>
 <h4 id="Classes-in-ES6"><a href="#Classes-in-ES6" class="headerlink" title="Classes in ES6"></a>Classes in ES6</h4><ol>
@@ -224,10 +224,16 @@
 </ul>
 <ol>
 <li>exponential operator,2**5-32.</li>
-<li>support for arrays. arr.include(2) == true<br>npm install babel-preset-es2016 babel-preset-es2017<br>ES8</li>
+<li>support for arrays. arr.includes(2) == true<br>npm install babel-preset-es2016 babel-preset-es2017<br>ES8</li>
 <li>access object manipulate with .values()+.entries()<br>let a ={‘a’:1,’b’:2};let keys = Object.keys(a)/values(a);<br>let entries = Object.entries(a);<br>for(let cur of entries) {cur[0]}</li>
 <li>Async. don’t want logic to continue until get relavant data in functions. Use await to temprtial stop the execution of statements and logic until finishes returning a promises.</li>
 </ol>
+<p>CSS3<br>column-count:3<br>column-rule:线型<br>column-gap:40px;之间的间距</p>
+<p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。越大离用户越近。</p>
+<p><left></left></p>
+<p><right></right></p>
+<p><main><br>.left {<br>    float:left;<br>    width:200px;<br>}<br>.right {<br>    float:right;<br>    width:200px;<br>}<br>.main {<br>    margin-left:200px;<br>    margin-right:200px;<br>}</main></p>
+<p>{<br>    position:absolute;<br>    width:400px<br>    height:400px;<br>    top:50%;<br>    left:50%;<br>    margin-top:-200px;<br>    margin-left:-200px;<br>}</p>
 
       
 
@@ -498,6 +504,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -510,19 +524,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">union find</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">union find</a>
               </li>
             
             <div class="clearfix"></div>
