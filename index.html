@@ -190,10 +190,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="新学期换个心情生活"><a href="#新学期换个心情生活" class="headerlink" title="新学期换个心情生活"></a>新学期换个心情生活</h2><p>麦屯淅淅沥沥下了一夜的雨，我也一夜都没睡好。认真准备了一周的面试一面结果感觉一般，面试官人好侥幸给我过了。再接再厉！新学期认真上课，好好做项目，能少一点来自现实的压力，希望暑假早一点到来，毕竟这个寒假实在是太煎熬了。</p>
-<h2 id="音乐分享"><a href="#音乐分享" class="headerlink" title="音乐分享"></a>音乐分享</h2><p>日经安利贴。忙到没有时间看综艺节目了，但是刷微博还是看到张韶涵的翻唱在《歌手》刷了屏。虽然上了高中以后就听古风听得多了，但是有些音乐什么时候想起来都是那段生活的回忆吧，比如初三初四最拼的时候，听广播里放一首《隐形的翅膀》就觉得特别励志，然后自我安慰着自己那与投入不成正比的努力，后来这首歌出现在北京高考作文试题里，让在那个年纪天天沉迷高考满分作文的我对这首歌愈发喜爱。它代表了一种坚持和希望吧，正如歌词所写：<strong>愿所有梦想都开花</strong>。再比如在北欧看极光的时候放一首《欧若拉》也是极其应景的，其他诸如《看得最远的地方》《遗失的美好》不一而足。<br>想来《隐形的翅膀》也是她自己人生的写照吧，虽然历经种种波折指责，在人生的最高峰最辉煌的时刻跌落，但是只要心中有坚定的信念和对生活的憧憬，终有一天能看到梦想的绽放。<br><blockquote><p>每一次都在徘徊孤单中坚强<br>每一次就算很受伤也不闪泪光<br>我知道我一直有双隐形的翅膀<br>带我飞飞过绝望<br>不去想他们拥有美丽的太阳<br>我看见每天的夕阳也会有变化<br>我知道我一直有双隐形的翅膀<br>带我飞给我希望</p>
-</blockquote></p>
-<div class="aplayer" data-id="36871866" data-server="netease" data-type="song"></div>
+        <h2 id="新学期换个心情生活"><a href="#新学期换个心情生活" class="headerlink" title="新学期换个心情生活"></a>新学期换个心情生活</h2><p>麦屯淅淅沥沥下了一夜的雨，我也一夜都没睡好。认真准备了一周的面试一面结果感觉一般，面试官人好侥幸给我过了。再接再厉！新学期认真上课，好好做项目，能少一点来自现实的压力，希望暑假早一点到来，毕竟这个寒假实在是太煎熬了。<br>
+        
+          <a class="article-more-a" href="/2018/01/22/阴雨天的新学期.html#more">more >></a>
+        
       
 
       
@@ -270,12 +270,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="React解决了什么问题"><a href="#React解决了什么问题" class="headerlink" title="React解决了什么问题"></a>React解决了什么问题</h2><p>MVC架构的双向绑定以及一对多的关系容易造成连级/联动（Cascading）修改，对于代码的调试和维护都成问题。<a href="https://zhuanlan.zhihu.com/p/21324696" target="_blank" rel="noopener">Problem</a></p>
-<h2 id="如何设计一个好的Component"><a href="#如何设计一个好的Component" class="headerlink" title="如何设计一个好的Component"></a>如何设计一个好的Component</h2><p>高内聚，低耦合<br>React组件设计推崇的是“组合”，而非“继承”。例如你的页面需要一个表单组件，表单中需要有输入框，按钮，列表，单选框等。那么在开发中你不应该只开发一（整）个表单组件（<form>），而是应该开发若干个单一功能的组件，比如输入框<input>、提交按钮<submit>、单选框<checkbox>等，最后再将它们组合起来。这其中的重点是<strong>每个组件仅做一件事</strong>。<br>设计模式：Higher-Order Components 和 Container Components 和 Stateless Components.</checkbox></submit></form></p>
-<h2 id="什么时候render调用，什么时候修改DOM"><a href="#什么时候render调用，什么时候修改DOM" class="headerlink" title="什么时候render调用，什么时候修改DOM"></a>什么时候render调用，什么时候修改DOM</h2><p>毫无疑问Render是在组件 state 发生改变时候被调用。无论是通过 setState 函数改变组件自身的state值，还是继承的 props 属性发生改变都会造成render函数被调用，即使改变的前后值都是一样的。shouldComponentUpdate默认都返回true，可以重写进行优化。<br>React组件中存在两类DOM，一类是众所周知的Virtual DOM，相信大家也耳熟能详了；另一类就是浏览器中的真实DOM（Real DOM/Native DOM）。React的Render函数被调用之后，React立即根据props或者state重新创建了一颗Virtual DOM Tree，虽然每一次调用时都重新创建，但因为在内存中创建DOM树其实是非常快且不影响性能的，所以这一步的开销并不大。而Virtual DOM的更新并不意味这Real DOM的更新，接下来的事情也是大家知道的，React采用算法将Virtual DOM和Real DOM进行对比，找出需要更新的最小步骤，此时Real DOM才可能发生修改。<br>每一次的state更改都会使得render函数被调用，但页面的DOM不一定会发生修改</p>
-<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>Mounting, Updating, Unmounting.<br>Mounting:<br>constructor,componentWillMount(在mount前调用可操作state),render(只能渲染DOM),componentDidMount(<strong>如果你有第三方操作DOM的类库需要初始化（类似于jQuery，Bootstrap的一些组件）操作DOM、或者请求异步数据，都应该放在这个步骤中做</strong>)<br>Updating:<br>componentWillReceiveProps,在这里你可以拿到即将改变的状态，可以在这一步中通过setState方法设置state;shouldComponentUpdate,<strong>componentWillUpdate(不能改变state)</strong>;render();componentDidUpdate,更新DOM执行请求.<br>Unmounting<br>componentWillUnmount<br>有哪些生命周期是允许设置state的？</p>
-<h2 id="Webpack相关"><a href="#Webpack相关" class="headerlink" title="Webpack相关"></a>Webpack相关</h2><p>Webpack如何打包输出多个文件？<br>webpack打包时如何工作的？<br>如何解决循环引用的问题<br>在什么情况下需要打包输出多个文件？<br>loader和plugin的差别:loader 用于加载某些资源文件;plugin 用于扩展webpack的功能。它直接作用于 webpack，扩展了它的功能。<br>你觉得使用过什么高级技巧吗？</p>
-
+        <h2 id="React解决了什么问题"><a href="#React解决了什么问题" class="headerlink" title="React解决了什么问题"></a>React解决了什么问题</h2><p>MVC架构的双向绑定以及一对多的关系容易造成连级/联动（Cascading）修改，对于代码的调试和维护都成问题。<a href="https://zhuanlan.zhihu.com/p/21324696" target="_blank" rel="noopener">Problem</a><br>
+        
+          <a class="article-more-a" href="/2018/01/19/React review.html#more">more >></a>
+        
       
 
       
@@ -356,8 +354,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="转自知乎日报"><a href="#转自知乎日报" class="headerlink" title="转自知乎日报"></a>转自知乎日报</h2><p>如果你想去更大的平台发展，比如微软、阿里、Airbnb、亚马逊，即使是前端的岗位，在面试时（甚至每一轮）也会考验一些算法题目（虽然我觉得没什么道理）。总的来说面试算法题的公司一半一半吧，另一半倾向于面试前端相关的实战练习题。外企基本不考察你的前端能力，只考虑你的算法和数据结构能力（别问我是怎么知道的，我的面试史就是一部血泪史）。所以前端同学懂一些基本的算法也是有必要的。我不知道其他语言的程序员在找工作时面试的算法题有哪些，但前端的算法面试题还算是比较基础并且不难（至少相对于我而言）。我也算是面霸了，所以分享一些个人经验，同时也是记录下来写给将来的有需要的自己。</p>
-
+        <h2 id="转自知乎日报"><a href="#转自知乎日报" class="headerlink" title="转自知乎日报"></a>转自知乎日报</h2>
+        
+          <a class="article-more-a" href="/2018/01/19/面试心得.html#more">more >></a>
+        
       
 
       
