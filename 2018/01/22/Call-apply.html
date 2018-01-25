@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Spring | Huawei&#39;s Blog</title>
+  <title>Call, apply | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="东南大学13级，就读于UW-Madison CS系。努力学习各种前后端技能ing">
-<meta name="keywords" content="front-end,React,javascript,SpringMVC,Django,程序猿,Developer,Programmer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Huawei&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Spring/index.html">
+  <meta name="description" content="apply前端面试中，很多面试官会问你，apply是做什么的？apply和call的区别？ 你可以告诉面试官，apply和call只有一个区别，就是传入的参数格式不同，apply传入一个数组参数 [argsArray]，而call传入参数列表 arg1, arg2, …1.Apply的语法结构有2个参数thisArg：在 fun 函数运行时指定的 this 值，非严格模式下，也就是没有写”use">
+<meta name="keywords" content="JavaScript,front-end">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Call, apply">
+<meta property="og:url" content="http://yoursite.com/2018/01/22/Call-apply.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="东南大学13级，就读于UW-Madison CS系。努力学习各种前后端技能ing">
+<meta property="og:description" content="apply前端面试中，很多面试官会问你，apply是做什么的？apply和call的区别？ 你可以告诉面试官，apply和call只有一个区别，就是传入的参数格式不同，apply传入一个数组参数 [argsArray]，而call传入参数列表 arg1, arg2, …1.Apply的语法结构有2个参数thisArg：在 fun 函数运行时指定的 this 值，非严格模式下，也就是没有写”use">
+<meta property="og:updated_time" content="2018-01-23T00:48:58.290Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Huawei&#39;s Blog">
-<meta name="twitter:description" content="东南大学13级，就读于UW-Madison CS系。努力学习各种前后端技能ing">
+<meta name="twitter:title" content="Call, apply">
+<meta name="twitter:description" content="apply前端面试中，很多面试官会问你，apply是做什么的？apply和call的区别？ 你可以告诉面试官，apply和call只有一个区别，就是传入的参数格式不同，apply传入一个数组参数 [argsArray]，而call传入参数列表 arg1, arg2, …1.Apply的语法结构有2个参数thisArg：在 fun 函数运行时指定的 this 值，非严格模式下，也就是没有写”use">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -168,64 +169,162 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Call-apply" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/01/Learn-to-use-maven-to-manage-project.html" class="archive-article-date">
-  	<time datetime="2018-01-01T06:17:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/01/Learn-to-use-maven-to-manage-project.html">Learn to use maven to manage project</a>
+    <h1 class="article-title" itemprop="name">
+      Call, apply
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/01/22/Call-apply.html" class="archive-article-date">
+  	<time datetime="2018-01-23T00:38:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h3><p>前端面试中，很多面试官会问你，apply是做什么的？apply和call的区别？</p>
+<p>你可以告诉面试官，apply和call只有一个区别，就是传入的参数格式不同，apply传入一个数组参数 [argsArray]，而call传入参数列表 arg1, arg2, …<br>1.Apply的语法结构<br>有2个参数<br>thisArg：在 fun 函数运行时指定的 this 值，非严格模式下，也就是没有写”use strict”，<strong>通常这个值设置为null或者undefined，则指向全局对象（大部分是时候是window）</strong>。<br>argsArray：数组对象或者类数组对象，类数组对象只支持ES5，你可以不传任何参数，则为null 或 undefined。<br><code>fun.apply(thisArg, [argsArray])</code>.<br>2.使用apply和内置函数）：内置函数有很多，比如Array实现的内置函数、Math实现的内置函数<br>使用apply调用Array的内置函数push()，可以写成下面这样。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="comment">//第一个参数表示正在调用调用push()的对象，这行代码的意思是说把arr2的参数传入arr1，你可以看成是arr1.push(arr2)这种行为，但不是等价的。</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr1, arr2)  <span class="comment">//[1, 3, 4, 2, 4, 5]</span></span><br><span class="line"><span class="comment">//类似下面这种写法，他们的输出是一样的。</span></span><br><span class="line">arr2.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">arr1.push(value)</span><br><span class="line">&#125;) <span class="comment">// [1, 3, 4, 2, 4, 5]</span></span><br><span class="line"><span class="keyword">var</span> num = [<span class="number">6</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">2</span>, <span class="number">8</span>];</span><br><span class="line"><span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, num); <span class="comment">// null说明当前函数执行的上下文是在全局作用域，输出10</span></span><br></pre></td></tr></table></figure><br><strong>总结：apply作为内置函数调用传参是最经常使用的场景，唯一的难点在于指定第一个参数的运行环境，毕竟一个this可以难倒一大批前端工程师。</strong></p>
+<h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><p>使用call方法调用匿名函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> people = [</span><br><span class="line">  &#123;<span class="attr">name</span>: <span class="string">'阿里妈妈'</span>, <span class="attr">age</span>: <span class="number">18</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>: <span class="string">'阿里爸爸'</span>, <span class="attr">age</span>: <span class="number">22</span>&#125;</span><br><span class="line">];</span><br><span class="line"><span class="comment">//一开始你可能会这样写：</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; people.length; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123; </span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">          <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">': '</span> + <span class="keyword">this</span>.age); </span><br><span class="line">        &#125;, i * <span class="number">1000</span>)</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125; <span class="comment">//输出 </span></span><br><span class="line"><span class="comment">//"JS Bin Output : undefined"</span></span><br><span class="line"><span class="comment">//"JS Bin Output : undefined"</span></span><br></pre></td></tr></table></figure><br>然后发现this指向不对，你可能会想到给函数设置一个变量指向当前的this，但是这样也不对，因为输出的this.name和this.age是指向数组animals的对象，那么这时候你需要给匿名函数用到call来绑定this指向的是animals里面循环的对象。然而你会发现输出还是undefined，为什么呢？<br>原因在于匿名函数里面的this是指向了people[i]的对象，但是setTimeout里面的this是指向window的，所以你需要用到bind()绑定this。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; people.length; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123; </span><br><span class="line"><span class="comment">//这里也可以用var  _this = this来改变this的上下文（指向）</span></span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">          <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">': '</span> + <span class="keyword">this</span>.age); </span><br><span class="line">        &#125;.bind(<span class="keyword">this</span>), i * <span class="number">1000</span>)</span><br><span class="line">    &#125;).call(people[i], i);</span><br><span class="line">&#125; <span class="comment">//输出</span></span><br><span class="line"><span class="comment">//"阿里妈妈: 18"</span></span><br><span class="line"><span class="comment">//"阿里爸爸: 22"</span></span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/22/Call-apply.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/01/22/Spread-Operator.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spread Operator</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="Call-apply" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytpN4GFU",
+        conf: "bb6314f2f3a2a7cda6fc4d4f5a22342f"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -265,9 +364,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Spring | Huawei&#39;s Blog</title>
+  <title>Spread Operator | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="东南大学13级，就读于UW-Madison CS系。努力学习各种前后端技能ing">
-<meta name="keywords" content="front-end,React,javascript,SpringMVC,Django,程序猿,Developer,Programmer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Huawei&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Spring/index.html">
+  <meta name="description" content="JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。本文主要记录展开运算符。 展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。">
+<meta name="keywords" content="JavaScript,front-end">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spread Operator">
+<meta property="og:url" content="http://yoursite.com/2018/01/22/Spread-Operator.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="东南大学13级，就读于UW-Madison CS系。努力学习各种前后端技能ing">
+<meta property="og:description" content="JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。本文主要记录展开运算符。 展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。">
+<meta property="og:updated_time" content="2018-01-23T01:01:32.370Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Huawei&#39;s Blog">
-<meta name="twitter:description" content="东南大学13级，就读于UW-Madison CS系。努力学习各种前后端技能ing">
+<meta name="twitter:title" content="Spread Operator">
+<meta name="twitter:description" content="JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。本文主要记录展开运算符。 展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -168,64 +169,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Spread-Operator" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/01/Learn-to-use-maven-to-manage-project.html" class="archive-article-date">
-  	<time datetime="2018-01-01T06:17:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/01/Learn-to-use-maven-to-manage-project.html">Learn to use maven to manage project</a>
+    <h1 class="article-title" itemprop="name">
+      Spread Operator
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/01/22/Spread-Operator.html" class="archive-article-date">
+  	<time datetime="2018-01-23T00:29:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><p>JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。本文主要记录展开运算符。</p>
+<p>展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。<br><a id="more"></a><br>展开运算符不能用在对象当中，因为目前展开运算符只能在可遍历对象（iterables）可用。iterables的实现是依靠[Symbol.iterator]函数，而目前只有Array,Set,String内置[Symbol.iterator]方法，而Object尚未内置该方法，因此无法使用展开运算符。不过ES7草案当中已经加入了对象展开运算符特性。</p>
+<h3 id="函数调用中使用展开运算符"><a href="#函数调用中使用展开运算符" class="headerlink" title="函数调用中使用展开运算符"></a>函数调用中使用展开运算符</h3><p>在以前我们会使用apply方法来将一个数组展开成多个参数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a, b, c</span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">test.apply(<span class="literal">null</span>, args);</span><br></pre></td></tr></table></figure><br>如上，我们把args数组当作实参传递给了a,b,c，这边正是利用了Function.prototype.apply的特性。</p>
+<p>不过有了ES6，我们就可以更加简洁地来传递数组参数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b,c</span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line">test(...args);</span><br></pre></td></tr></table></figure></p>
+<h3 id="数组字面量中使用展开运算符"><a href="#数组字面量中使用展开运算符" class="headerlink" title="数组字面量中使用展开运算符"></a>数组字面量中使用展开运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>];</span><br><span class="line"><span class="keyword">var</span> arr2=[...arr1,<span class="string">'d'</span>,<span class="string">'e'</span>]; <span class="comment">//['a','b','c','d','e']</span></span><br></pre></td></tr></table></figure>
+<h3 id="用于解构赋值"><a href="#用于解构赋值" class="headerlink" title="用于解构赋值"></a>用于解构赋值</h3><p><code>let [pivot,...rest] = arr</code>.只能用在数组最后。<br>剩余对象必须用在最后，…spread可以用在中间。</p>
+<h3 id="类数组对象变成数组"><a href="#类数组对象变成数组" class="headerlink" title="类数组对象变成数组"></a>类数组对象变成数组</h3><p>展开运算符可以将一个类数组对象变成一个真正的数组对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> list=<span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</span><br><span class="line"><span class="keyword">var</span> arr=[...list];</span><br></pre></td></tr></table></figure></p>
+<h3 id="ES7草案中的对象展开运算符"><a href="#ES7草案中的对象展开运算符" class="headerlink" title="ES7草案中的对象展开运算符"></a>ES7草案中的对象展开运算符</h3><p>spread可以对对象进行操作，提取对象中的元素。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;x,y,...z&#125;=&#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>,<span class="attr">a</span>:<span class="number">3</span>,<span class="attr">b</span>:<span class="number">4</span>&#125;;</span><br><span class="line">x; <span class="comment">//1</span></span><br><span class="line">y; <span class="comment">//2</span></span><br><span class="line">z; <span class="comment">//&#123;a:3,b:4&#125;</span></span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/22/Spread-Operator.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/01/22/Call-apply.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Call, apply
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/01/22/阴雨天的新学期.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">阴雨天的新学期</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="Spread-Operator" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytpN4GFU",
+        conf: "bb6314f2f3a2a7cda6fc4d4f5a22342f"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -265,9 +378,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
