@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>React review | Huawei&#39;s Blog</title>
+  <title>leetcode daily practice-Array | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="React解决了什么问题MVC架构的双向绑定以及一对多的关系容易造成连级/联动（Cascading）修改，对于代码的调试和维护都成问题。Problem">
-<meta name="keywords" content="JavaScript,front-end,React">
+  <meta name="description" content="Array manipulationI often feel tricky with many Array manipulation problems. This post may get updated in the future. Currently just can recognize to use increasing stack to solve this kind of typica">
+<meta name="keywords" content="leetcode,stack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React review">
-<meta property="og:url" content="http://yoursite.com/2018/01/19/React review.html">
+<meta property="og:title" content="leetcode daily practice-Array">
+<meta property="og:url" content="http://yoursite.com/2018/01/30/leetcode-daily-practice-Array.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="React解决了什么问题MVC架构的双向绑定以及一对多的关系容易造成连级/联动（Cascading）修改，对于代码的调试和维护都成问题。Problem">
-<meta property="og:updated_time" content="2018-01-24T23:52:06.672Z">
+<meta property="og:description" content="Array manipulationI often feel tricky with many Array manipulation problems. This post may get updated in the future. Currently just can recognize to use increasing stack to solve this kind of typica">
+<meta property="og:updated_time" content="2018-01-30T18:28:26.975Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React review">
-<meta name="twitter:description" content="React解决了什么问题MVC架构的双向绑定以及一对多的关系容易造成连级/联动（Cascading）修改，对于代码的调试和维护都成问题。Problem">
+<meta name="twitter:title" content="leetcode daily practice-Array">
+<meta name="twitter:description" content="Array manipulationI often feel tricky with many Array manipulation problems. This post may get updated in the future. Currently just can recognize to use increasing stack to solve this kind of typica">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -169,33 +169,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-React review" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-leetcode-daily-practice-Array" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      React review
+      leetcode daily practice-Array
     </h1>
   
 
         
-        <a href="/2018/01/19/React review.html" class="archive-article-date">
-  	<time datetime="2018-01-19T23:05:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
+        <a href="/2018/01/30/leetcode-daily-practice-Array.html" class="archive-article-date">
+  	<time datetime="2018-01-30T18:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="React解决了什么问题"><a href="#React解决了什么问题" class="headerlink" title="React解决了什么问题"></a>React解决了什么问题</h2><p>MVC架构的双向绑定以及一对多的关系容易造成连级/联动（Cascading）修改，对于代码的调试和维护都成问题。<a href="https://zhuanlan.zhihu.com/p/21324696" target="_blank" rel="noopener">Problem</a><br><a id="more"></a></p>
-<h2 id="如何设计一个好的Component"><a href="#如何设计一个好的Component" class="headerlink" title="如何设计一个好的Component"></a>如何设计一个好的Component</h2><p>高内聚，低耦合<br>React组件设计推崇的是“组合”，而非“继承”。例如你的页面需要一个表单组件，表单中需要有输入框，按钮，列表，单选框等。那么在开发中你不应该只开发一（整）个表单组件（<form>），而是应该开发若干个单一功能的组件，比如输入框<input>、提交按钮<submit>、单选框<checkbox>等，最后再将它们组合起来。这其中的重点是<strong>每个组件仅做一件事</strong>。<br>设计模式：Higher-Order Components 和 Container Components 和 Stateless Components.</checkbox></submit></form></p>
-<h2 id="什么时候render调用，什么时候修改DOM"><a href="#什么时候render调用，什么时候修改DOM" class="headerlink" title="什么时候render调用，什么时候修改DOM"></a>什么时候render调用，什么时候修改DOM</h2><p>毫无疑问Render是在组件 state 发生改变时候被调用。无论是通过 setState 函数改变组件自身的state值，还是继承的 props 属性发生改变都会造成render函数被调用，即使改变的前后值都是一样的。shouldComponentUpdate默认都返回true，可以重写进行优化。<br>React组件中存在两类DOM，一类是众所周知的Virtual DOM，相信大家也耳熟能详了；另一类就是浏览器中的真实DOM（Real DOM/Native DOM）。React的Render函数被调用之后，React立即根据props或者state重新创建了一颗Virtual DOM Tree，虽然每一次调用时都重新创建，但因为在内存中创建DOM树其实是非常快且不影响性能的，所以这一步的开销并不大。而Virtual DOM的更新并不意味这Real DOM的更新，接下来的事情也是大家知道的，React采用算法将Virtual DOM和Real DOM进行对比，找出需要更新的最小步骤，此时Real DOM才可能发生修改。<br>每一次的state更改都会使得render函数被调用，但页面的DOM不一定会发生修改</p>
-<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>Mounting, Updating, Unmounting.<br>Mounting:<br>constructor,componentWillMount(在mount前调用可操作state),render(只能渲染DOM),componentDidMount(<strong>如果你有第三方操作DOM的类库需要初始化（类似于jQuery，Bootstrap的一些组件）操作DOM、或者请求异步数据，都应该放在这个步骤中做</strong>)<br>Updating:<br>componentWillReceiveProps,在这里你可以拿到即将改变的状态，可以在这一步中通过setState方法设置state;shouldComponentUpdate,<strong>componentWillUpdate(不能改变state)</strong>;render();componentDidUpdate,更新DOM执行请求.<br>Unmounting<br>componentWillUnmount<br>有哪些生命周期是允许设置state的？</p>
-<h2 id="React更新state时做了什么"><a href="#React更新state时做了什么" class="headerlink" title="React更新state时做了什么"></a>React更新state时做了什么</h2><p>React会做的第一件事就是把你传递给setState的参数对象合并到组件原先的state。这个事件会导致一个“reconciliation”（调和）的过程。reconciliation的最终目标就是，尽可能以最高效的方法，去基于新的state来更新UI。为了达到这个目的，React会构建一个React元素树（你可以把这个想象成一个表示UI的一个对象）。一旦这个树构建完毕，React为了根据新的state去决定UI要怎么进行改变，它会找出这棵新树和旧树的不同之处。React能够相对精确地找出哪些位置发生了改变以及如何发生了什么变化，并且知道如何只通过必要的更新来最小化重渲染。</p>
-<h2 id="Redux相关问题"><a href="#Redux相关问题" class="headerlink" title="Redux相关问题"></a>Redux相关问题</h2><p>React的批量更新机制 BatchUpdates？<br>Redux是如何将state注入到React组件上的？mapStateToProps,connect<br>请描述一次完整的 Redux 数据流<br>Redux是如何做到可预测呢？pure function,map State to action<br>Redux将React组件划分为哪两种？container,common UI component</p>
-<h2 id="Webpack相关"><a href="#Webpack相关" class="headerlink" title="Webpack相关"></a>Webpack相关</h2><p>Webpack如何打包输出多个文件？<br>webpack打包时如何工作的？<br>如何解决循环引用的问题<br>在什么情况下需要打包输出多个文件？<br>loader和plugin的差别:loader 用于加载某些资源文件;plugin 用于扩展webpack的功能。它直接作用于 webpack，扩展了它的功能。<br>你觉得使用过什么高级技巧吗？</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Array-manipulation"><a href="#Array-manipulation" class="headerlink" title="Array manipulation"></a>Array manipulation</h2><p>I often feel tricky with many Array manipulation problems. This post may get updated in the future. Currently just can recognize to use increasing stack to solve this kind of typical problems.</p>
+<h2 id="Increasing-Stack"><a href="#Increasing-Stack" class="headerlink" title="Increasing Stack"></a>Increasing Stack</h2><p>To keep the order of the array and records some position information of the array.<br>lc739. Daily Temperatures<br>Use a stack to keep compare the peek element and current element, then get the position value of each position.<br>lc .Rectangle Histogram</p>
 
       
 
@@ -209,15 +204,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">stack</a>
         		</li>
       		
 		</ul>
@@ -273,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/19/React review.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/30/leetcode-daily-practice-Array.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +278,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/22/阴雨天的新学期.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/30/Java-multithread-programming.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          阴雨天的新学期
+          Java multithread programming
         
       </div>
     </a>
   
   
-    <a href="/2018/01/19/面试心得.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">转-面试感想</div>
+    <a href="/2018/01/22/Call-apply.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Call, apply</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -328,7 +319,7 @@
   
 
   
-  <div id="SOHUCS" sid="React review" ></div> 
+  <div id="SOHUCS" sid="leetcode-daily-practice-Array" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
