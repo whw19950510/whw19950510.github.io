@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>python recording for TA grading | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Sys &amp;amp; ossys.argv[] 以list形式存储所有的命令参数，py test.py -c -m 打印所有会从文件名开始打印。”test.py -c -m”。 文件IO操作程序不能直接对磁盘进行读写操作，使用系统调用接口。每次需要open,read,close,read()可以指定读取数据量大小，否则会一次读取全部可能爆内存。常用语句：with open(program,’rw’">
+  <meta name="description" content="Sys &amp;amp; ossys.argv[] 以list形式存储所有的命令参数，py test.py -c -m 打印所有会从文件名开始打印。”test.py -c -m”。">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python recording for TA grading">
 <meta property="og:url" content="http://yoursite.com/2018/02/03/python简书.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="Sys &amp;amp; ossys.argv[] 以list形式存储所有的命令参数，py test.py -c -m 打印所有会从文件名开始打印。”test.py -c -m”。 文件IO操作程序不能直接对磁盘进行读写操作，使用系统调用接口。每次需要open,read,close,read()可以指定读取数据量大小，否则会一次读取全部可能爆内存。常用语句：with open(program,’rw’">
-<meta property="og:updated_time" content="2018-02-04T05:54:23.509Z">
+<meta property="og:description" content="Sys &amp;amp; ossys.argv[] 以list形式存储所有的命令参数，py test.py -c -m 打印所有会从文件名开始打印。”test.py -c -m”。">
+<meta property="og:updated_time" content="2018-02-04T06:06:33.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python recording for TA grading">
-<meta name="twitter:description" content="Sys &amp;amp; ossys.argv[] 以list形式存储所有的命令参数，py test.py -c -m 打印所有会从文件名开始打印。”test.py -c -m”。 文件IO操作程序不能直接对磁盘进行读写操作，使用系统调用接口。每次需要open,read,close,read()可以指定读取数据量大小，否则会一次读取全部可能爆内存。常用语句：with open(program,’rw’">
+<meta name="twitter:description" content="Sys &amp;amp; ossys.argv[] 以list形式存储所有的命令参数，py test.py -c -m 打印所有会从文件名开始打印。”test.py -c -m”。">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -189,7 +189,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Sys-amp-os"><a href="#Sys-amp-os" class="headerlink" title="Sys &amp; os"></a>Sys &amp; os</h2><p>sys.argv[] 以list形式存储所有的命令参数，<code>py test.py -c -m</code> 打印所有会从文件名开始打印。”test.py -c -m”。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Sys-amp-os"><a href="#Sys-amp-os" class="headerlink" title="Sys &amp; os"></a>Sys &amp; os</h2><p>sys.argv[] 以list形式存储所有的命令参数，<code>py test.py -c -m</code> 打印所有会从文件名开始打印。”test.py -c -m”。<br><a id="more"></a></p>
 <h2 id="文件IO操作"><a href="#文件IO操作" class="headerlink" title="文件IO操作"></a>文件IO操作</h2><p>程序不能直接对磁盘进行读写操作，使用系统调用接口。每次需要open,read,close,read()可以指定读取数据量大小，否则会一次读取全部可能爆内存。<br>常用语句：with open(program,’rw’) as: filehandle filehadnle.read/write()<br>for l in filehandle. x = input(“”).</p>
 <h2 id="b’’"><a href="#b’’" class="headerlink" title="b’’"></a>b’’</h2><p>Bytes literals are always prefixed with ‘b’ or ‘B’; they produce an instance of the bytes type instead of the str type. They may only contain ASCII characters; bytes with a numeric value of 128 or greater must be expressed with escapes.</p>
 <p>str = ‘…’ literals = a sequence of Unicode characters (UTF-16 or UTF-32, depending on how Python was compiled)<br><strong>bytes = b’…’ literals = a sequence of octets (integers between 0 and 255)</strong></p>
@@ -202,6 +202,7 @@
 <h2 id="String-methods"><a href="#String-methods" class="headerlink" title="String methods"></a>String methods</h2><p>lstrip,rstrip:remove white space of given string. isdigit(),len(),find(str,begin,(end)) find substring.</p>
 <h2 id="List-methods"><a href="#List-methods" class="headerlink" title="List methods"></a>List methods</h2><p>list.append(obj),list.count(obj) count how many times obj occur.list.reverse().list.sort(function)<br>dict.clear(),dict.get(key,default=none),</p>
 <h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>Params passed by referenced type, ie:they are <strong>reflected</strong> outside once changed.变量具有作用域限制。</p>
+<h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><p>from x import temp, only introduce the temp function and ignore others.<br>Within a module, the module’s name (as a string) is available as the value of the global variable <strong>name</strong>. The code in the module will be executed, just as if you imported it, but only with the <strong>name</strong> set to “<strong>main</strong>“. Like below, the module can be called directly.<br>if <strong>name</strong> == “<strong>main</strong>“:<br>   f = fib(100)<br>   print(f)</p>
 
       
 
