@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/18/Front-end-basic.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="front-end SEOSearch engine Optimization，具体方法包括：">
-<meta property="og:updated_time" content="2018-01-25T04:10:58.820Z">
+<meta property="og:updated_time" content="2018-02-02T01:25:20.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Front-end basic">
 <meta name="twitter:description" content="front-end SEOSearch engine Optimization，具体方法包括：">
@@ -279,7 +279,7 @@ else c-=48;f (c &gt;= radix) {
     break;
 }
 result = (result * radix) + c;
-</code></pre> }<br> return result;<br>}<br>DOM事件流：事件捕获阶段、处于目标阶段、事件冒泡阶段。<br>浏览器会从根节点开始由外到内进行事件传播，即点击了子元素，<strong>如果父元素通过事件捕获方式注册了对应的事件的话，会先触发父元素绑定的事件。</strong><br>与事件捕获恰恰相反，事件冒泡顺序是由内到外进行事件传播，直到根节点。<br>从内到外输出，child-parent-body.用e.stopPropogation()停止传播。<br>设置true用事件捕获，false冒泡。<br>提交的两种实现(input+type=submit, button+点击事件)<br>点击事件具体js实现及Jquery对应的api. .click(),.mouseover(),.ready().<br>事件流：<br>绑定事件：addEventListner(false,)，attachEvent(eventName,handler)..onclick=function(){}.React里面用camelCase<br>React的flex的实现原理<br>弹性布局。任何一个容器都可以指定为 Flex 布局。<br>.box{<br>display: flex;////inline-flex;子元素的float、clear和vertical-align属性将失效。<br>align-items:center;//主轴对齐方式，水平对齐<br>justify-content:center;//垂直居中;flex-start/flex-end/baseline<br>flex-direction:决定主轴方向<br>}<br>jQuery API:hide(),parent(),parents(),children(),find查找后代元素,fadeIn,fadeOut,fadeToggle,.animate({property},ms(speed),function),addClass,removeClass,.ready(),.load().<br>解析过程：创建DOM树，解析CSS，CSS和DOM合并成渲染树。<br>当render tree中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候。<br>当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color,则就叫称为重绘。改变字体,增加或者移除样式表,内容变化,设置CSS属性值.<strong>回流一定重汇，重汇不一定回流</strong></li>
+</code></pre> }<br> return result;<br>}<br>函数奇数次调用输出1偶数次调用输出2<br>var A = (function A(){<br>var index = 1;<br>function f(){<br>if(index % 2 == 1){<br>console.log(1);<br>}else{<br>console.log(2);<br>}<br>index++;<br>}<br>return f<br>})()<br>DOM事件流：事件捕获阶段、处于目标阶段、事件冒泡阶段。<br>浏览器会从根节点开始由外到内进行事件传播，即点击了子元素，<strong>如果父元素通过事件捕获方式注册了对应的事件的话，会先触发父元素绑定的事件。</strong><br>与事件捕获恰恰相反，事件冒泡顺序是由内到外进行事件传播，直到根节点。<br>从内到外输出，child-parent-body.用e.stopPropogation()停止传播。<br>设置true用事件捕获，false冒泡。<br>提交的两种实现(input+type=submit, button+点击事件)<br>点击事件具体js实现及Jquery对应的api. .click(),.mouseover(),.ready().<br>事件流：<br>绑定事件：addEventListner(false,)，attachEvent(eventName,handler)..onclick=function(){}.React里面用camelCase<br>React的flex的实现原理<br>弹性布局。任何一个容器都可以指定为 Flex 布局。<br>.box{<br>display: flex;////inline-flex;子元素的float、clear和vertical-align属性将失效。<br>align-items:center;//主轴对齐方式，水平对齐<br>justify-content:center;//垂直居中;flex-start/flex-end/baseline<br>flex-direction:决定主轴方向<br>}<br>jQuery API:hide(),parent(),parents(),children(),find查找后代元素,fadeIn,fadeOut,fadeToggle,.animate({property},ms(speed),function),addClass,removeClass,.ready(),.load().<br>解析过程：创建DOM树，解析CSS，CSS和DOM合并成渲染树。<br>当render tree中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候。<br>当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color,则就叫称为重绘。改变字体,增加或者移除样式表,内容变化,设置CSS属性值.<strong>回流一定重汇，重汇不一定回流</strong></li>
 </ol>
 <p>在html方面问了：1、重绘和回流的区别2、视图属性3、CSS标准盒子 （box-sizing）4、清除浮动5、两列布局（右侧定宽200px,左边随屏幕自动填充宽度）6、垂直水平居中7、addEventListener()有几个参数，是什么？type,handler(function/implement EventHandler的函数)<br>padding+border+width/height=盒子长宽<br>js问了：1、typeof的类型（举例说属于什么类型），<strong>typeof null=object</strong>，<strong>typeof a=number/function/undefined/boolean</strong><br>判断是否是数组<br>用typeof判断：typeof null/[]/{} === ‘object’.if({}) true;{}==true/false false. <strong>if([]) true</strong><br>ES6:Array.isArray()<br>if(Object.prototype.toString.call(arr)===’[object Array]’)<br>同理判断是否为objectif(Object.prototype.toString.call(arr)) === ‘[object Object]’;<br>判断是否是对象实例，instanceof<br>2、function.prototype.bind/call/apply的用法及区别</p>
 <p>CSS上下左右居中<br>答父元素position:relative 子元素position:absolute margin:auto 方法很多，还可以用flex, table-cell等</p>
@@ -292,14 +292,14 @@ result = (result * radix) + c;
 <p>Responsive Web Design - The Viewport<br>The viewport is the user’s visible area of a web page.</p>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<p>1、构造继承<br>2、原型继承<br>3、实例继承<br>4、拷贝继承<br>列出JavaScript的继承实现方式，并使用一种你喜欢的方式实现如下继承<br>原型链继承，children = new Parent();<br>Children.prototype.helloword = “”;<br>function Child() {<br>    Parent.call(this,username);<br>    //Parent.apply(this,new Array(username));<br>}<br><strong>多个标签页通信主要是利用了localStorage的增删改事件监听</strong><br>function sendMsg(text) {<br>    window.localStorage.setItem(‘msg’,text);<br>}<br>window.addEventListener(‘storage’, function (evt) {<br>    if(evt.key===’msg’)<br>       console.log(evt.newValue);<br>});<br><strong>冒泡排序</strong><br>for (i = 0; i &lt; len; i++) {<br>for (j = 0; j &lt; len-i-1; j++) {<br>    }<br>}<br>等高布局：left:top:0;bottom:0;absolute实现等高。<br>水平居中：<br>1.{<br>    width:200px;<br>    margin:0,auto;//左右全设置成auto,要有固定宽度值<br>}<br>2.{<br>    width:800px;<br>    position:absolute;<br>    margin-left:-400px;<br>    left:50%;<br>}<br>垂直居中：<br>1.高度不固定{<br>    padding-top:==padding-bottom<br>}<br>2.加一个空标签：<div id="floater"></div><br>                <div id="content"></div>#floater{<br>                    float:left;<br>                    height:50%;/<em>相对于父元素高度的50%</em>/<br>                    margin-bottom: -120px;/<em>值大小为居中元素高度的一半（240px/2）</em>/<br>                }</p>
+<p>1、构造继承<br>2、原型继承<br>3、实例继承<br>4、拷贝继承<br>列出JavaScript的继承实现方式，并使用一种你喜欢的方式实现如下继承<br>原型链继承，children = new Parent();<br>为父类构造函数被执行了两次，子类的原型对象(Sub.prototype)中也有一份父类的实例属性，而且这些属性会被子类实例(sub1,sub2)的属性覆盖掉，也存在内存浪费。<br>Children.prototype.helloword = “”;<br>function Child() {<br>    Parent.call(this,username);<br>    //Parent.apply(this,new Array(username));<br>}<br><strong>多个标签页通信主要是利用了localStorage的增删改事件监听</strong><br>function sendMsg(text) {<br>    window.localStorage.setItem(‘msg’,text);<br>}<br>window.addEventListener(‘storage’, function (evt) {<br>    if(evt.key===’msg’)<br>       console.log(evt.newValue);<br>});<br><strong>冒泡排序</strong><br>for (i = 0; i &lt; len; i++) {<br>for (j = 0; j &lt; len-i-1; j++) {<br>    }<br>}<br>等高布局：left:top:0;bottom:0;absolute实现等高。<br>水平居中：<br>1.{<br>    width:200px;<br>    margin:0,auto;//左右全设置成auto,要有固定宽度值<br>}<br>2.{<br>    width:800px;<br>    position:absolute;<br>    margin-left:-400px;<br>    left:50%;<br>}<br>垂直居中：<br>1.高度不固定{<br>    padding-top:==padding-bottom<br>}<br>2.加一个空标签：<div id="floater"></div><br>                <div id="content"></div>#floater{<br>                    float:left;<br>                    height:50%;/<em>相对于父元素高度的50%</em>/<br>                    margin-bottom: -120px;/<em>值大小为居中元素高度的一半（240px/2）</em>/<br>                }</p>
 <pre><code>#content {
     clear:both;/*清除浮动*/
     height: 240px;
     position: relative;
 }
 </code></pre><p>3.垂直水平居中：.wrap{<br>    position:absolute;<br>    left:50%;<br>    top:50%;<br>    width:800px;<br>    height:800px;<br>    margin-left:-400px;<br>    margin-top:-400px;         //不知道宽度高度可以用transform:translate(-50%,-50%)<br>} parent:position:relative<br>垂直居中<br>parentElement {<br>    display:flex;/<em>Flex布局</em>/<br>    display: -webkit-flex; /<em> Safari </em>/<br>    align-items:center;/<em>指定垂直居中</em>/<br>    justify-content:center;<br>}</p>
-<p>如何获取一个元素到浏览器边缘的距离？<br>offset: 获取匹配元素在当前视口的相对偏移<br>position: 获取匹配元素相对父元素的偏移<br>scrollTop: 获取匹配元素相对滚动条顶部的偏移<br>scrollLeft: 获取匹配元素相对滚动条左侧的偏移<br>$.trim()是啥，移除开头结尾的空白。然后让我现场写代码实现一个。然后问我$(document).ready() 与window.onload的区别，接着让我写代码实现一个$(document).ready()。<br><strong>ready会比onload先执行，绘制完DOM树就开始执行,DOM一旦ready就开始执行绑定的handler.ready能同时编写多个.</strong><br>return (text || “”).replace(/^\s+|\s+$/g, “”)<br>//^匹配输入的开始<br>http并发请求资源数<br>对每一个host限制个数2、4或8.Firefox 3.6.8和chrome 5.0的并发连接数都为6。<br>http缓存机制流程<br>css雪碧图可以优化http请求数，减少请求数,具体如何减少请求数目。<br><em>*怎样实现一个可以根据浏览器动态宽高（边长）变化的正方形？</em><br>.placeholder {<br>  width: 100%;<br>  height: 100vw;<br>}<br>.placeholder {<br>  width: 100%;<br>  padding-bottom: 100%;<br>  height:0;<br>}<br>给一个无序列表里面的每个li元素添加事件监听器，我显然知道挖了一个坑呀，然后被我机智地绕过去了。写完之后问我，如果现在要给这个列表再添加两个子元素，这个事件监听要怎么加，然后我说，那就用事件代理吧，就是给父组件绑定事件嘛。还问了我一个简单的算法题，就是判断一个字符串中出现次数最多的那个字符。</p>
+<p>如何获取一个元素到浏览器边缘的距离？<br>offset: 获取匹配元素在当前视口的相对偏移<br>position: 获取匹配元素相对父元素的偏移<br>scrollTop: 获取匹配元素相对滚动条顶部的偏移<br>scrollLeft: 获取匹配元素相对滚动条左侧的偏移<br>$.trim()是啥，移除开头结尾的空白。然后让我现场写代码实现一个。然后问我$(document).ready() 与window.onload的区别，接着让我写代码实现一个$(document).ready()。<br><strong>ready会比onload先执行，绘制完DOM树就开始执行,DOM一旦ready就开始执行绑定的handler.ready能同时编写多个.</strong><br>return (text || “”).replace(/^\s+|\s+$/g, “”)<br>//^匹配输入的开始<br>http并发请求资源数<br>对每一个host限制个数2、4或8.Firefox 3.6.8和chrome 5.0的并发连接数都为6。<br>http缓存机制流程<br>css雪碧图可以优化http请求数，减少请求数,具体如何减少请求数目。<br><strong>怎样实现一个可以根据浏览器动态宽高（边长）变化的正方形？</strong><br>.placeholder {<br>  width: 100%;<br>  height: 100vw;<br>}<br>.placeholder {<br>  width: 100%;<br>  padding-bottom: 100%;<br>  height:0;<br>}<br>给一个无序列表里面的每个li元素添加事件监听器，我显然知道挖了一个坑呀，然后被我机智地绕过去了。写完之后问我，如果现在要给这个列表再添加两个子元素，这个事件监听要怎么加，然后我说，那就用事件代理吧，就是给父组件绑定事件嘛。还问了我一个简单的算法题，就是判断一个字符串中出现次数最多的那个字符。</p>
 <p><script type="text/javascript"><br>//给父元素添加监听器<br>document.getElementById(“parent-list”).addEventListener//默认冒泡<br>   (“click”,function(e) {<br>    // e.target是被点击的元素!<br>    // 如果被点击的是li元素<br>  console.log(e.target);<br>    if(e.target &amp;&amp; e.target.nodeName == “LI”) {<br>        // 找到目标，输出ID!<br>        console.log(“current click li, id :”+e.target.id);<br>    }<br>});<br></script><br>var str = ‘我爱北京天安门，天安门上太阳升’;<br>var freqs = {}; // 用来记录所有的字符的出现频次<br>var mostFreqChar = ‘’; //用来记录最大频次的字符<br>for (var i = 0; i &lt; str.length; i++) {<br>    var char = str[i];<br>    if (!freqs[char]) {<br>        freqs[char] = 0;<br>    }<br>    freqs[char] ++;<br>    if (mostFreqChar == ‘’ || freqs[char] &gt; freqs[mostFreqChar]) {<br>        mostFreqChar = char;<br>    }<br>}<br>console.log(freqs);<br>console.log(mostFreqChar);<br>//if(undefined/null) 都不会输出<br>块级元素：address - 地址<br>blockquote - 块引用<br>center - 居中对齐块<br>dir - 目录列表<br>div - 常用块级，也是css layout的主要标签<br>dl - 定义列表<br>fieldset - form控制组<br>form - 交互表单<br>h1 - 大标题<br>h2 - 副标题<br>h3 - 3级标题<br>h4 - 4级标题<br>h5 - 5级标题<br>h6 - 6级标题<br>ol,ul<br>行内：abbr,em,strong,input,br,span,img,input</p>
 <p>z-index<br>function foo () { var a = 1 function bar () { console.log(a) } return bar }<br>var baz = foo();<br>baz() // 1</p>
 <p>for (var i = 1; i &lt;= 5; i++) { setTimeout(function timer () { console.log(i) }, i <em> 1000) }<br>访问的是i的全局变量，已经变成6了。<br>for (var i = 1; i &lt;= 5; i++) { (function (j) { setTimeout(function timer () { console.log(j) }, j </em> 1000) })(i) }</p>
@@ -798,6 +798,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -806,23 +814,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -834,11 +838,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">stack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">union find</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -854,11 +866,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">union find</a>
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
               </li>
             
             <div class="clearfix"></div>

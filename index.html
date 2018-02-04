@@ -170,6 +170,397 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python简书" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/03/python简书.html">python recording for TA grading</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/03/python简书.html" class="archive-article-date">
+  	<time datetime="2018-02-04T02:19:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Sys-amp-os"><a href="#Sys-amp-os" class="headerlink" title="Sys &amp; os"></a>Sys &amp; os</h2><p>sys.argv[] 以list形式存储所有的命令参数，<code>py test.py -c -m</code> 打印所有会从文件名开始打印。”test.py -c -m”。</p>
+<h2 id="文件IO操作"><a href="#文件IO操作" class="headerlink" title="文件IO操作"></a>文件IO操作</h2><p>程序不能直接对磁盘进行读写操作，使用系统调用接口。每次需要open,read,close,read()可以指定读取数据量大小，否则会一次读取全部可能爆内存。<br>常用语句：with open(program,’rw’) as: filehandle filehadnle.read/write()<br>for l in filehandle. x = input(“”).</p>
+<h2 id="b’’"><a href="#b’’" class="headerlink" title="b’’"></a>b’’</h2><p>Bytes literals are always prefixed with ‘b’ or ‘B’; they produce an instance of the bytes type instead of the str type. They may only contain ASCII characters; bytes with a numeric value of 128 or greater must be expressed with escapes.</p>
+<p>str = ‘…’ literals = a sequence of Unicode characters (UTF-16 or UTF-32, depending on how Python was compiled)<br><strong>bytes = b’…’ literals = a sequence of octets (integers between 0 and 255)</strong></p>
+<h2 id="in"><a href="#in" class="headerlink" title="in"></a>in</h2><p>if x in next:depends on what’s next,<br>if next is a string, it <strong>checks for substring</strong>.<br>If it’s a different kind of iterable (list, tuple, dictionary…), then in checks for membership. eg:[1,2,3] in 2,true<br>in a dictionary be seen as be one of the keys.</p>
+<h2 id="sys-path"><a href="#sys-path" class="headerlink" title="sys.path"></a>sys.path</h2><p>sys.path returns a list which contains all modules, including 3rd party module and current path. .append add wanted module path into the path, only take effets when running time.<br>sys.path.append(base):base is the address of referenced module.</p>
+<h2 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h2><p>defines a function with hidden name.lambda will return a function object. is a expression not a function,lambda x:x*x.<br>lambda x:load(x);</p>
+<h2 id="Complement-a-Linux-command"><a href="#Complement-a-Linux-command" class="headerlink" title="Complement a Linux command"></a>Complement a Linux command</h2><p>find -name:find file in this folder<br>grep -rHn:parse file contents<br>ls -al:show up <strong>hidden folder</strong> which you may can’t access initially.</p>
+<h2 id="Change-to-Python3-x"><a href="#Change-to-Python3-x" class="headerlink" title="Change to Python3.x"></a>Change to Python3.x</h2><p>print(x) is not required to have parenthsis.<br>Input in python 3.x:always treat as string, x = input(“please input”);x=’10’.<br>With Linux shell,should have <code>#!/usr/bin/python3</code> or <code>#!/usr/bin/env python3</code> to indicate file type and can be executed directly.</p>
+<h2 id="Standard-type"><a href="#Standard-type" class="headerlink" title="Standard type"></a>Standard type</h2><p>multiple assignment:a=b=1////a,b=1,”whw”, use del a to free a variable reference.<br>standard type:<strong>number,string,list,tuple,dictionary</strong>.<br>String supports + as concatenation, [2:5] as substring and <em>2 as repetition.<br>all the items belonging to a list can be of different data type.<br>a[:],a[1:3].<br>The main difference between lists and tuples are − Lists are enclosed in brackets ( [ ] ) and their elements and size can be changed, while tuples are enclosed in parentheses ( ( ) ) and <strong>cannot be updated</strong>. Tuples can be thought of as read-only lists.eg:tinytuple = (123, ‘john’)<br>dictionary:keys can be different type. dict[‘one’] = 1;dict.keys();dict.values();str(),int(),float(),set()(which has unique element and ca use add/remove) used for conversion.<br>boolean operator:and or not.<strong> power. </strong>is*</em> indentifies whether 2 objects are the same. True,False.<br>iterator:use iter to get an iterator of list,a = iter(list),print(next(a)) can get you next value.<br>Number function:pow(x,y),fabs(x),max(),min(),sqrt(),exp(),log(),log10().</p>
+<h2 id="String-methods"><a href="#String-methods" class="headerlink" title="String methods"></a>String methods</h2><p>lstrip,rstrip:remove white space of given string. isdigit(),len(),find(str,begin,(end)) find substring.</p>
+<h2 id="List-methods"><a href="#List-methods" class="headerlink" title="List methods"></a>List methods</h2><p>list.append(obj),list.count(obj) count how many times obj occur.list.reverse().list.sort(function)<br>dict.clear(),dict.get(key,default=none),</p>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>Params passed by referenced type, ie:they are <strong>reflected</strong> outside once changed.变量具有作用域限制。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/03/python简书.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Database concept" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/03/Database concept.html">Database concept</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/03/Database concept.html" class="archive-article-date">
+  	<time datetime="2018-02-03T17:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Cover materials on Stanford CS145,345,346</p>
+<h2 id="Transaction-Concurrency-amp-Atomicity"><a href="#Transaction-Concurrency-amp-Atomicity" class="headerlink" title="Transaction,Concurrency &amp; Atomicity"></a>Transaction,Concurrency &amp; Atomicity</h2><p>Performace problem:Disk/SSD    access is slow,DBMS hide the latency by    doing more CPU work concurrently.<br>
+        
+          <a class="article-more-a" href="/2018/02/03/Database concept.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Database</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/03/Database concept.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java Socket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/02/Java Socket.html">Java Socket Programming</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/02/Java Socket.html" class="archive-article-date">
+  	<time datetime="2018-02-02T22:07:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Java-Socket-programming-basics"><a href="#Java-Socket-programming-basics" class="headerlink" title="Java Socket programming basics"></a>Java Socket programming basics</h2><p>URLs and URLConnections provide a relatively high-level mechanism for accessing resources on the Internet. Sometimes your programs require lower-level network communication, for example, when you want to write a client-server application.<br>
+        
+          <a class="article-more-a" href="/2018/02/02/Java Socket.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/02/Java Socket.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Advanced-Sql-query" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/02/Advanced-Sql-query.html">Advanced Sql query</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/02/Advanced-Sql-query.html" class="archive-article-date">
+  	<time datetime="2018-02-02T16:55:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Query-Construction"><a href="#Query-Construction" class="headerlink" title="Query Construction"></a>Query Construction</h2>
+        
+          <a class="article-more-a" href="/2018/02/02/Advanced-Sql-query.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Database</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/02/Advanced-Sql-query.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Computer-Network-week1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/31/Computer-Network-week1.html">Computer Network week1</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/31/Computer-Network-week1.html" class="archive-article-date">
+  	<time datetime="2018-01-31T22:07:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Switch-amp-amp-Bridges"><a href="#Switch-amp-amp-Bridges" class="headerlink" title="Switch &amp;&amp; Bridges"></a>Switch &amp;&amp; Bridges</h2>
+        
+          <a class="article-more-a" href="/2018/01/31/Computer-Network-week1.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/31/Computer-Network-week1.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SSM-framework-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -245,394 +636,9 @@
 
 
   
-    <article id="post-OOD-concepts" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/30/OOD-concepts.html">OOD concepts</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/30/OOD-concepts.html" class="archive-article-date">
-  	<time datetime="2018-01-31T01:17:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="OOD-core-concepts"><a href="#OOD-core-concepts" class="headerlink" title="OOD core concepts"></a>OOD core concepts</h2><p>1.Excapsulation<br>2.Inheritence:子类只能继承父类部分的方法和对象。<br>3.Polyphosim:父类引用可以持有子类对象，只能调用父类的方法，不能调用特有方法。多态的实现：1.继承，多个子类重写2.接口，多种实现。</p>
-<h2 id="Difference-between-Abstract-class-amp-amp-Interface"><a href="#Difference-between-Abstract-class-amp-amp-Interface" class="headerlink" title="Difference between Abstract class &amp;&amp; Interface"></a>Difference between Abstract class &amp;&amp; Interface</h2><p>1.single extends&amp;&amp;multi implementation<br>2.Abstract can have unabstract methods,interface can only have abstract methods. interface assumes methods:<strong>public static final</strong>.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/30/OOD-concepts.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java-load-balancing" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/30/Java-load-balancing.html">Java load balancing</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/30/Java-load-balancing.html" class="archive-article-date">
-  	<time datetime="2018-01-31T01:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Load-Balancing-Algorithms"><a href="#Load-Balancing-Algorithms" class="headerlink" title="Load Balancing Algorithms"></a>Load Balancing Algorithms</h2><p>Round robin:equally divide sevaral number of tasks.<br>Weighted RR:assign different number of tasks to several servers according to the weights.<br>Random<br>最少连接（Least Connections）<br>记录每个应用服务器正在处理额连接数（请求数），将新到的请求分发到最少连接的服务器上，应该说，这是最符合负载均衡定义的算法。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/30/Java-load-balancing.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java-multithread-programming" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/30/Java-multithread-programming.html">Java multithread programming</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/30/Java-multithread-programming.html" class="archive-article-date">
-  	<time datetime="2018-01-30T22:47:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Multithreading-implementation"><a href="#Multithreading-implementation" class="headerlink" title="Multithreading implementation"></a>Multithreading implementation</h2><p>2 ways to implement multithreading:1.implement Runnable, then implement the void run() method.2.extends the Thread abstract class.<br>Obviously 1st way is better, as Java not allowed extends multi-classes.</p>
-<h2 id="Java-util-concurrent"><a href="#Java-util-concurrent" class="headerlink" title="Java.util.concurrent"></a>Java.util.concurrent</h2><p>It includes several threadsafing collection framework:CopyOnWriteArrayList,ConcurrentHashMap,ConcurrentSkipListSet,ConcurrentSkipListMap,BlockingQueue<br>Eg:BlockingQueue is thread safe for consumer/producer problems. Whereas add, remove will <strong>throw Exception</strong>; offer poll gives out specail value; put/take will get thread blocked until operated successfully.<br>ConcurrentHashMap providing thread safety and <strong>atomicity</strong> guarantees.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Consumer  c= <span class="keyword">new</span> Consumer();</span><br><span class="line">        Producer p = <span class="keyword">new</span> Producer();</span><br><span class="line">        <span class="keyword">new</span> Thread(c).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(p).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>tasks may execute in a newly created thread, an existing task-execution thread, or the thread calling execute, and may execute sequentially or concurrently.<br>ThreadPoolExecutor and ScheduledThreadPoolExecutor provide tunable, flexible thread pools. The Executors class provides factory methods for the most common kinds and configurations of Executors, as well as a few utility methods for using them. Other utilities based on Executors include the concrete class FutureTask providing a common extensible implementation of Futures, and ExecutorCompletionService, that assists in coordinating the processing of groups of asynchronous tasks.<br>Implements the <strong>ThreadFactory</strong> can creates self serving thread class.</p>
-<h2 id="Lock-in-Java"><a href="#Lock-in-Java" class="headerlink" title="Lock in Java"></a>Lock in Java</h2><p>ReentrantLock 实现的锁定规则非常简单 – 每当一个线程具有锁定时，其他线程必须等待，直到该锁定可用。有时，当对数据结构的读取通常多于修改时，可以使用更复杂的称为读写锁定的锁定结构，它允许有多个并发读者，同时还允许一个写入者独占锁定。该方法在一般情况下（只读）提供了更大的并发性，同时在必要时仍提供独占访问的安全性。ReadWriteLock 接口和 ReentrantReadWriteLock 类提供这种功能 – 多读者、单写入者锁定规则，可以用这种功能来保护共享的易变资源。<br>synchoronized used for methods/coding blocks.synchormized(this){}.非同步代码仍然能继续执行。<strong>synchronized锁住的是括号里的对象，而不是代码</strong>。main()里面只创建一个new Thread(),thread.start()同步机制才会生效.多个thread是不生效的。synchronized(Sync.class)实现全局锁的效果。</p>
-<h2 id="Java-util-concurrent-atomic-locks"><a href="#Java-util-concurrent-atomic-locks" class="headerlink" title="Java.util.concurrent.atomic/locks"></a>Java.util.concurrent.atomic/locks</h2><h2 id="Java-EE"><a href="#Java-EE" class="headerlink" title="Java EE"></a>Java EE</h2><p>Servlet is singleton but multi-threading, and is not thread safe.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/30/Java-multithread-programming.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode-daily-practice-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/30/leetcode-daily-practice-Array.html">leetcode daily practice-Array</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/30/leetcode-daily-practice-Array.html" class="archive-article-date">
-  	<time datetime="2018-01-30T18:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Array-manipulation"><a href="#Array-manipulation" class="headerlink" title="Array manipulation"></a>Array manipulation</h2><p>I often feel tricky with many Array manipulation problems. This post may get updated in the future. Currently just can recognize to use increasing stack to solve this kind of typical problems.</p>
-<h2 id="Increasing-Stack"><a href="#Increasing-Stack" class="headerlink" title="Increasing Stack"></a>Increasing Stack</h2><p>To keep the order of the array and records some position information of the array.<br>lc739. Daily Temperatures<br>Use a stack to keep compare the peek element and current element, then get the position value of each position.<br>lc .Rectangle Histogram</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">stack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/30/leetcode-daily-practice-Array.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Call-apply" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/22/Call-apply.html">Call, apply</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/22/Call-apply.html" class="archive-article-date">
-  	<time datetime="2018-01-23T00:38:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h3><p>前端面试中，很多面试官会问你，apply是做什么的？apply和call的区别？<br>
-        
-          <a class="article-more-a" href="/2018/01/22/Call-apply.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/22/Call-apply.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -744,6 +750,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -752,23 +766,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -780,11 +790,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">stack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">union find</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,11 +818,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">union find</a>
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
               </li>
             
             <div class="clearfix"></div>
