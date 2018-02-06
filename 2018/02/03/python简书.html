@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/03/python简书.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Sys &amp;amp; ossys.argv[] 以list形式存储所有的命令参数，py test.py -c -m 打印所有会从文件名开始打印。”test.py -c -m”。">
-<meta property="og:updated_time" content="2018-02-04T06:06:33.434Z">
+<meta property="og:updated_time" content="2018-02-04T16:19:15.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python recording for TA grading">
 <meta name="twitter:description" content="Sys &amp;amp; ossys.argv[] 以list形式存储所有的命令参数，py test.py -c -m 打印所有会从文件名开始打印。”test.py -c -m”。">
@@ -203,6 +203,10 @@
 <h2 id="List-methods"><a href="#List-methods" class="headerlink" title="List methods"></a>List methods</h2><p>list.append(obj),list.count(obj) count how many times obj occur.list.reverse().list.sort(function)<br>dict.clear(),dict.get(key,default=none),</p>
 <h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>Params passed by referenced type, ie:they are <strong>reflected</strong> outside once changed.变量具有作用域限制。</p>
 <h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><p>from x import temp, only introduce the temp function and ignore others.<br>Within a module, the module’s name (as a string) is available as the value of the global variable <strong>name</strong>. The code in the module will be executed, just as if you imported it, but only with the <strong>name</strong> set to “<strong>main</strong>“. Like below, the module can be called directly.<br>if <strong>name</strong> == “<strong>main</strong>“:<br>   f = fib(100)<br>   print(f)</p>
+<h2 id="Class-amp-amp-Object"><a href="#Class-amp-amp-Object" class="headerlink" title="Class &amp;&amp; Object"></a>Class &amp;&amp; Object</h2><p>class Employee:<br>    current;    #defined in class equivlant to a class variable, shared               #by all instances<br>    def <strong>init</strong>(self,name,age):<br>other methods all includes a argument called <strong>self</strong>.<br>setattr(obj,name,value);hasattr(obj,name);<br>getattr(obj,name);<br><strong>build in attributes</strong> which can be used . to access anywhere:<br><strong>name</strong>,<strong>dict</strong>:namespace of class,就是整个类的声明。<br>引用计数法清楚变量，索引。<br>An object’s reference count increases when it is assigned a new name or placed in a container (list, tuple, or dictionary). The object’s reference count decreases when it is deleted with del, its reference is reassigned, or its reference goes out of scope. When an object’s reference count reaches zero, Python collects it automatically.<br>Inheritence:class child(parent1,parent2):<br>                xxx<br>Overriding methods:直接命名同名函数。</p>
+<h2 id="CGI"><a href="#CGI" class="headerlink" title="CGI"></a>CGI</h2><p>Commmon gateway interface:whenever a file is requested, it’s not returned directly but executed on server side and returns the result back to the browser.</p>
+<h2 id="Database-API"><a href="#Database-API" class="headerlink" title="Database API"></a>Database API</h2><p>import pymysql;<br>connect = pymysql.connect(“localhost”,”root”,”password”,”dbname”);<br>cursor = connect.cursor();<br>cursor.execute(sql);<br>connect.commit();<br>/#results = cursor.fetchall();<br>for row in results:<br>    fname = row[0];<br>    age = row[1];<br>    parent = row[2];<br>try:<br>except:<br>    connect.rollback();</p>
+<h2 id="Multithreading-programming"><a href="#Multithreading-programming" class="headerlink" title="Multithreading programming"></a>Multithreading programming</h2><p>Threading module<br>import threading;</p>
 
       
 
@@ -285,6 +289,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/02/05/Java-IO.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java IO
+        
+      </div>
+    </a>
   
   
     <a href="/2018/02/03/Database concept.html" id="article-nav-older" class="article-nav-link-wrap">
@@ -445,7 +458,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,7 +474,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,11 +490,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,10 +499,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">binary search</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">

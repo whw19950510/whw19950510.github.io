@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/03/Database concept.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Cover materials on Stanford CS145,345,346 Transaction,Concurrency &amp;amp; AtomicityPerformace problem:Disk/SSD    access is slow,DBMS hide the latency by    doing more CPU work concurrently.">
-<meta property="og:updated_time" content="2018-02-04T00:08:12.179Z">
+<meta property="og:updated_time" content="2018-02-05T01:42:01.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Database concept">
 <meta name="twitter:description" content="Cover materials on Stanford CS145,345,346 Transaction,Concurrency &amp;amp; AtomicityPerformace problem:Disk/SSD    access is slow,DBMS hide the latency by    doing more CPU work concurrently.">
@@ -190,12 +190,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <script src="\assets\js\APlayer.min.js"> </script><p>Cover materials on Stanford CS145,345,346</p>
-<h2 id="Transaction-Concurrency-amp-Atomicity"><a href="#Transaction-Concurrency-amp-Atomicity" class="headerlink" title="Transaction,Concurrency &amp; Atomicity"></a>Transaction,Concurrency &amp; Atomicity</h2><p>Performace problem:Disk/SSD    access is slow,DBMS hide the latency by    doing more CPU work concurrently.<br><a id="more"></a><br>Transactions:A <strong>atomic</strong> sequence of independant read/write. DBMS exsures it is a serial execution of instrucitons. One way to solve is through locking, before r/w requires a locking from DBMS.All concurrency    issues handled by the DBMS.<br>Ensure consistency even if crashed:OS concepts,write ahead logging,before any action is finalized, a corresponding entry is forced to disk.</p>
+<h2 id="Transaction-Concurrency-amp-Atomicity"><a href="#Transaction-Concurrency-amp-Atomicity" class="headerlink" title="Transaction,Concurrency &amp; Atomicity"></a>Transaction,Concurrency &amp; Atomicity</h2><p>Performace problem:Disk/SSD    access is slow,DBMS hide the latency by    doing more CPU work concurrently.<br><a id="more"></a><br>Transaction:中文翻译成<strong>事务</strong>,<strong>ACID</strong><br>Transactions:A <strong>atomic</strong> sequence of independant read/write. DBMS exsures it is a serial execution of instrucitons. One way to solve is through locking, before r/w requires a locking from DBMS.All concurrency    issues handled by the DBMS.<br>Ensure consistency even if crashed:OS concepts,write ahead logging,before any action is finalized, a corresponding entry is forced to disk.</p>
 <h2 id="ER-Model"><a href="#ER-Model" class="headerlink" title="ER Model"></a>ER Model</h2><p>What entities to model<br>How entities are related<br>What constraints exist in the domain<br>How to achieve good designs<br>Requirement analysis,Conceptual design(ER model),Logical/physical/security<br>Entity &amp; entity sets:entity are basic units of ER model, has several attributes.(eg:product:color,name,company); Key:unique attribute that defined a entity.<br>Relationship:between 2 entities. subset of all p,Q pairs with tuples uniquly defined by their keys. Use a new entity instead of relationship, and can make it expand.<br>Define subclass in ER,maintains connection with parent class,contains all attributes of parent class and add new attributes.<br>Difference with OODesign:OO classes are disjoint,ER entities sets overlap.</p>
 <h2 id="Design-theory"><a href="#Design-theory" class="headerlink" title="Design theory"></a>Design theory</h2><p>Norm-forms(范式) and functionality dependency:<br>3rdNorm form(3NF):Boyce-Codd norm form.DB designs based on functional dependencies,intended to prevent data anomalies.<br>functional dependency:whenever 2 tuples agreed on A they agreed on B.A-&gt;B.<br>Use FD to find better schema and reduce anomaly.<br>Given set of FD, minimum FD and eliminate bad one.<br>Given a set of FD, does another fd holds?<br>methods:split/combine,reduction/trasivity.</p>
 <h2 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h2><p>a sequecne of operations happend/not happen at all.Goals:recovery&durability;concurrency.<br>ACID:atomicity,consistency,iosalated,durable.</p>
 <h2 id="Buffer-manager"><a href="#Buffer-manager" class="headerlink" title="Buffer manager"></a>Buffer manager</h2><p>Operation:read/flush/release(withoutwriting to disks)<br>Core:<strong>External sorting algorithm</strong>,can use 3 pages to manage/merge lists of arbitrary length. If M,N length lists,2(M+N) IO operations.<br>problem:2 lists are both much larger that the main memory to merge directly.<br>How to sort big files?<br>1.Split chunks of small enough to sort in memory,<br>2.merge pairs of run using external sort algorithms.<br>3.keep merging the result untils only left with 1 list.</p>
 <h2 id="Index-amp-B-tree"><a href="#Index-amp-B-tree" class="headerlink" title="Index &amp; B+ tree"></a>Index &amp; B+ tree</h2><p>Problem:get faster in search for specific attribute values;faster insertions.<br>Index is a data structure mapping search key(primary key) to each rows.provides efficient retrieval &amp; lookup.<br>Operation:search,add/remove.<br>B+ tree:<br>search tree,1 node for 1 page,balanced height adjusted.make leaves into a linkedlist.Leaf nodes contains pointer to data records, internal nodes points to other nodes which contains other slots.<br>Feature:high fan out.the depth of tree is small, can get to the nodes very fast.<br>self balancing:balanced with height even if after insert.</p>
+<h2 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h2><p>锁的粒度就是锁的作用范围，一般分为行级锁、表级锁。行级锁锁定记录行，表级锁锁定整个表。行级索：系统开销大，加锁慢，锁定粒度最小，会发生死锁，但是发生冲突的概率最低，并发性最高。表级索：系统开销小，加锁快，锁定粒度最大，不会发生死锁，但是发生冲突的概率最高，并发性最低。<br>共享锁只用于表级，排它锁用于行级或表级。<br>加了共享锁的对象，可以继续加共享锁，不能再加排他锁。<br>加了排他锁的对象，不能再加任何锁。<br>读写锁：共享锁，排它锁。<br>通常情况下，写操作较少时，使用乐观锁，写操作较多时，使用悲观锁。每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据。</p>
 
       
 
@@ -447,7 +448,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,7 +464,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,11 +480,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,10 +489,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">binary search</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">

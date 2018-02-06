@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/31/Computer-Network-week1.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Switch &amp;amp;&amp;amp; Bridges">
-<meta property="og:updated_time" content="2018-02-04T05:04:17.998Z">
+<meta property="og:updated_time" content="2018-02-05T22:22:22.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Network week1">
 <meta name="twitter:description" content="Switch &amp;amp;&amp;amp; Bridges">
@@ -191,7 +191,10 @@
       
         <script src="\assets\js\APlayer.min.js"> </script><h2 id="Switch-amp-amp-Bridges"><a href="#Switch-amp-amp-Bridges" class="headerlink" title="Switch &amp;&amp; Bridges"></a>Switch &amp;&amp; Bridges</h2><a id="more"></a>
 <p>The core job of a switch is to take packets that arrive on an input and forward them to the right output so that they will reach their appropriate destination. There are a variety of ways that the switch can determine the “right” output for a packet, which can be broadly categorized as connectionless and connection oriented approaches.<br>A switch is a multi-input, multi-output device that transfers packets from an input to one or more outputs. Thus, a switch adds the <strong>star topology</strong> to the PtoP network.<br>switched networks are considered more scalable (i.e., more capable of growing to large numbers of nodes) than shared-media networks because of this ability to support many hosts at full speed.<br>A switch’s primary job is to receive incoming packets on one of its links and to transmit them on some other link. This function is sometimes referred to as either <strong>switching or forwarding.</strong>Main function of the network layer.<br>How does a packet decides where to go?<br>Using the header of the packet to determine. The first is the datagram or <strong>connectionless</strong> approach. The second is the virtual circuit or <strong>connection-oriented</strong> approach.<br>How to identify the end addrress of a packet?<br>48-bit addresses used for Ethernet, which is unique for all nodes. Use the number of port to identify input and output of switch.</p>
-<h2 id="Datagrams-amp-amp-Virtual-circuit"><a href="#Datagrams-amp-amp-Virtual-circuit" class="headerlink" title="Datagrams &amp;&amp; Virtual circuit"></a>Datagrams &amp;&amp; Virtual circuit</h2><p>Datagrams:switch uses a forwarding table.A host can send a packet anywhere at any time, since any packet that turns up at a switch can be immediately forwarded. 2 same packets may follow different paths.<br>VC:requires setting up a virtual connection from the source host to the destination host before any data is sent. This is a two-stage process. The first stage is “connection setup.” The second is data transfer.<br>A virtual circuit identifier (VCI) that uniquely identifies the<br>connection at this switch and which will be carried inside the<br>header of the packets that belong to this connection. Packets sent out according to corresponding interface.<br>建立连接的方式：1.Administrator configure.</p>
+<h2 id="Datagrams-amp-amp-Virtual-circuit"><a href="#Datagrams-amp-amp-Virtual-circuit" class="headerlink" title="Datagrams &amp;&amp; Virtual circuit"></a>Datagrams &amp;&amp; Virtual circuit</h2><p>Datagrams:switch uses a forwarding table.A host can send a packet anywhere at any time, since any packet that turns up at a switch can be immediately forwarded. 2 same packets may follow different paths.<br>VC:conection oriented appraoch, requires setting up a virtual connection from the source host to the destination host before any data is sent. This is a two-stage process. The first stage is “connection setup.” The second is data transfer.<br>switch which connection bypasses will record all information in <strong>VC table.</strong>,includes VCI,incoming interface&amp;outgoing interface.<br>A virtual circuit identifier (VCI) that uniquely identifies the<br>connection at this switch and which will be carried inside the<br>header of the packets that belong to this connection. Packets sent out according to corresponding interface.；链接建立后每次发送的消息报头都会携带VCI信息字段。每次经过一个节点更新VCI。最后发送返回确认信息回到源节点。<br>链接断开后，switch会移除相应的entry。<br>每个switch记录信息，switch使用没使用过的VCI记录entry,packet outgoing. VCI：link scope。<br>建立连接的方式：1.Administrator configure.<br>VC:需要保证不同的QoS。</p>
+<h2 id="ATM"><a href="#ATM" class="headerlink" title="ATM"></a>ATM</h2><p>ATM是virtual circuit最典型的应用，尽管现在deploy的已经很少了。ATM cell==ATM packet.<br>small fixed-length packets which only contaisn 54bytes. too short,large head overhead;too long,padding data to waste bandwidth.</p>
+<h2 id="Bridges-amp-LAN-switches"><a href="#Bridges-amp-LAN-switches" class="headerlink" title="Bridges &amp; LAN switches"></a>Bridges &amp; LAN switches</h2><p>They are the same defnition. Use multi-input/output,1 input will flow ot all output. Thus can <strong>increase bandwidth of network.</strong>Be extended to #number of ports Mbps throughtput.<br>bridge takes self-learning and timeout mechanism to continually remove entries and add entries to the table.record which host is connected to which port.<br><strong>Spanning tree algorithms</strong><br>Avoid loop. subsets of original topological with no loops.</p>
+<h2 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h2><p>Use IP to solve heterogenioty in network by defining simple,common internetwork model. Then use ARP to resolve global IP address to a local linklayer IP address.<br>IP routing algorithm:determine efficient route to any destination.<br>Link state:RIP<br>distance vector:OSPF<br>Switch&amp;Bridges usually need to be scalable to deal with special situations.</p>
 <h2 id="Mininet"><a href="#Mininet" class="headerlink" title="Mininet"></a>Mininet</h2><p>According to the [Mininet website]:<a href="http://mininet.org/" target="_blank" rel="noopener">http://mininet.org/</a>, Mininet creates a realistic virtual network, running real kernel, switch and application code, on a single machine (VM or native), in seconds, with a single command. We will use Mininet in programming assignments throughout the semester.<br><code>$</code> preceeds Linux commands that should be typed at the shell prompt<br><code>mininet&gt;</code> preceeds Mininet commands that should be typed at Mininet’s CLI,<br><code>#</code> preceeds Linux commands that are typed at a root shell prompt<br>The default topology is the minimal topology, which includes one OpenFlow kernel switch connected to two hosts, plus the OpenFlow reference controller. This topology could also be specified on the command line with <strong>–topo=minimal.</strong> Other topologies are also available out of the box; see the –topo section in the output of mn -h.<br>If the first string typed into the Mininet CLI is a host, switch or controller name, the command is executed on that node. Run a command on a host process:<code>h1 ifconfig -a</code>.<br>Note that only the network is virtualized; <strong>each host process sees the same set of processes and directories.</strong> For example, print the process list from a host process:<br>h1 ping -c #packets h2, ping from 1 host to another host.<br>Mininet hosts can run any command or application that is available to the underlying Linux system (or VM) and its file system. You can also enter any bash command, including job control (&amp;, jobs, kill, etc..)</p>
 <p>You don’t need to drop into the CLI; Mininet can also be used to run self-contained regression tests.<br>Run a regression test:<code>sudo mn --test pingpair</code></p>
 <p><code>sudo mn --test iperf</code><br>This command created the same Mininet, ran an iperf server on one host, ran an iperf client on the second host, and parsed the bandwidth achieved.</p>
@@ -446,7 +449,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -458,7 +465,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,11 +481,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,10 +490,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">binary search</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">

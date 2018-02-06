@@ -170,6 +170,157 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Mininet-virtual-network" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/05/Mininet-virtual-network.html">Mininet virtual network</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/05/Mininet-virtual-network.html" class="archive-article-date">
+  	<time datetime="2018-02-06T00:40:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Basic-usage"><a href="#Basic-usage" class="headerlink" title="Basic usage"></a>Basic usage</h2><p>$Linux mode<br>mininet&gt;:mininet command<br><code>sudo mn -h</code>:show all help commands<br>start a minimal topology:<code>sudo mn</code>. create 1 openflow switch with 2 hosts.<br>nodes:show all nodes;<br>net:show all links;<br>dump:dump all information about all nodes;<br>nodename ifconfig -a:在指定节点上运行指定指令;<br>s1 arp/route:显示网关和硬件地址;<br>s1/h1 ps -a:显示当前进程的所有进程<br>s1 ping -c 1 h2:检测连接情况,-c为发送的全部数据包数目<br>ping的第一次要ARP,广播泛红所有请求到网络里面是所有的主机,找到目标主机应答相应的MAC address返回到controller再应答主机。</p>
+<h2 id="Host指令"><a href="#Host指令" class="headerlink" title="Host指令"></a>Host指令</h2><p>模式下支持所有Bash指令。<br>Run a simple web server and client：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mininet&gt; h1 python -m SimpleHTTPServer 80 &amp;//创建一个新进程</span><br><span class="line">mininet&gt; h2 wget -O - h1</span><br><span class="line">...</span><br><span class="line">mininet&gt; h1 kill %python</span><br></pre></td></tr></table></figure><br><code>sudo mn -c</code>clean up the host;</p>
+<h2 id="Analysis-of-network"><a href="#Analysis-of-network" class="headerlink" title="Analysis of network"></a>Analysis of network</h2><p>self contained-regression test:<code>sudo mn --test pingpair</code>:run all pairs ping test and return the total time and tore down situation.<br><code>sudo mn --test iperf</code>:test bandwidth between each host pair.<br>regression test: sudo mn –topo single,3:1 switch and 3 hosts.<br>sudo mn –topo linear,4<br>Link variations:人为改变链路参数:<code>sudo mn --link tc,bw=10,delay=10ms</code><br>tc:traffic control utility<br>Adjustable Verbosity:调整信息模式，默认是info.<br>sudo mn -v ouput/debug</p>
+<h2 id="Interact-with-mininet-shell"><a href="#Interact-with-mininet-shell" class="headerlink" title="Interact with mininet shell"></a>Interact with mininet shell</h2><p><strong>the round trip time (RTT)</strong><br><code>py locals()</code><br><code>py dir(h1)</code>:methods and file avaliable from a host<br><code>py h1.IP()</code>:evaluate a variable<br>Link up and down:For fault tolerance testing, it can be helpful to bring links up and down.<br><code>link s1 h1 down</code><br><code>link s1 h1 up</code>建立链路<br><strong>When running ping and Iperfer in Mininet, you must use IP addresses, not hostnames.</strong><br>ping:send ICMP echo requests to hosts;-F flow to all hosts,-f flood ping</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/05/Mininet-virtual-network.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java-IO" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/05/Java-IO.html">Java IO</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/05/Java-IO.html" class="archive-article-date">
+  	<time datetime="2018-02-06T00:14:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="IO-stream-classification"><a href="#IO-stream-classification" class="headerlink" title="IO stream classification"></a>IO stream classification</h2><p>字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)<br>字符流：Reader(Abstract class,implements <strong>Readable,Closeable</strong>),must subclass implements read(char[],int,int),read into a portion of array.<br>Buffered Reader:Reads text from a <strong>character-input stream</strong>, buffering characters so as to provide for the efficient reading of characters, arrays, and lines.<br>InputStreamReader:bridge from bytestream to character stream.<br>FileReader(File file/filedescriptor/String filename):read(char[],int,int):read characters into a portion of array.<br>For top efficiency, consider wrapping an InputStreamReader within a BufferedReader. For example:<br><code>BufferedReader in= new BufferedReader(new InputStreamReader(System.in);</code><br>字节流：<br>InputStream()方法：<br>read():for read 1 byte, read(byte[])for read some number of bytes into buffer. read(byte[], int start, int len):for read len bytes start from start position.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/05/Java-IO.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python简书" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -475,157 +626,6 @@
 
 
   
-    <article id="post-Computer-Network-week1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/31/Computer-Network-week1.html">Computer Network week1</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/31/Computer-Network-week1.html" class="archive-article-date">
-  	<time datetime="2018-01-31T22:07:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Switch-amp-amp-Bridges"><a href="#Switch-amp-amp-Bridges" class="headerlink" title="Switch &amp;&amp; Bridges"></a>Switch &amp;&amp; Bridges</h2>
-        
-          <a class="article-more-a" href="/2018/01/31/Computer-Network-week1.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/31/Computer-Network-week1.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SSM-framework-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/30/SSM-framework-summary.html">SSM framework summary</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/30/SSM-framework-summary.html" class="archive-article-date">
-  	<time datetime="2018-01-31T01:34:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><p>IOC:Class A中用到了Class B的对象b，一般情况下，需要在A的代码中显式的new一个B的对象。<br>IOC is a thought in SE,Dependency injection is a design pattern.<br>采用依赖注入技术之后，A的代码只需要定义一个私有的B对象，不需要直接new来获得这个对象，而是通过相关的容器控制程序来将B对象在外部new出来并注入到A类里的引用中。而具体获取的方法、对象被获取时的状态由配置文件（如XML）来指定。</p>
-<h2 id="Implement-methods"><a href="#Implement-methods" class="headerlink" title="Implement methods"></a>Implement methods</h2><p>1.基于接口。实现特定接口以供外部容器注入所依赖类型的对象。<br>2.基于 getter/setter 方法。实现特定属性的public set方法，来让外部容器调用传入所依赖类型的对象。<br>3.基于构造函数。实现特定参数的构造函数，在新建对象时传入所依赖类型的对象。<br>4.基于注解。基于Java的注解功能，在私有变量前加“@Autowired”等注解，不需要显式的定义以上三种代码，便可以让外部容器传入对应的对象。该方案相当于定义了public的set方法，但是因为没有真正的set方法，从而不会为了实现依赖注入导致暴露了不该暴露的接口（因为set方法只想让容器访问来注入而并不希望其他依赖此类的对象访问）。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/30/SSM-framework-summary.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -744,7 +744,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -756,7 +760,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -764,11 +776,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -777,10 +785,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">binary search</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">

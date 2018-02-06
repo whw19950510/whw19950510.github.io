@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>leetcode binary search practice 3 | Huawei&#39;s Blog</title>
+  <title>Java IO | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="162. Find Peak ElementThere may exsists many peak elements in array, only need to return 1 index. If it’s a sorted array, answer will be first or last element.random select 1 element, if not peak ele">
-<meta name="keywords" content="leetcode,binary search">
+  <meta name="description" content="IO stream classification字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)字符流：Reader(Abstract class,implements Readable,Closeable),must subclass implements read(char[],int,i">
+<meta name="keywords" content="Java EE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode binary search practice 3">
-<meta property="og:url" content="http://yoursite.com/2018/01/15/leetcode-binary-search-practice3.html">
+<meta property="og:title" content="Java IO">
+<meta property="og:url" content="http://yoursite.com/2018/02/05/Java-IO.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="162. Find Peak ElementThere may exsists many peak elements in array, only need to return 1 index. If it’s a sorted array, answer will be first or last element.random select 1 element, if not peak ele">
-<meta property="og:updated_time" content="2018-01-16T03:29:49.852Z">
+<meta property="og:description" content="IO stream classification字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)字符流：Reader(Abstract class,implements Readable,Closeable),must subclass implements read(char[],int,i">
+<meta property="og:updated_time" content="2018-02-06T00:37:57.193Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode binary search practice 3">
-<meta name="twitter:description" content="162. Find Peak ElementThere may exsists many peak elements in array, only need to return 1 index. If it’s a sorted array, answer will be first or last element.random select 1 element, if not peak ele">
+<meta name="twitter:title" content="Java IO">
+<meta name="twitter:description" content="IO stream classification字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)字符流：Reader(Abstract class,implements Readable,Closeable),must subclass implements read(char[],int,i">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -169,28 +169,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-binary-search-practice3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java-IO" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode binary search practice 3
+      Java IO
     </h1>
   
 
         
-        <a href="/2018/01/15/leetcode-binary-search-practice3.html" class="archive-article-date">
-  	<time datetime="2018-01-16T02:48:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-15</time>
+        <a href="/2018/02/05/Java-IO.html" class="archive-article-date">
+  	<time datetime="2018-02-06T00:14:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h3 id="162-Find-Peak-Element"><a href="#162-Find-Peak-Element" class="headerlink" title="162. Find Peak Element"></a>162. Find Peak Element</h3><p>There may exsists many peak elements in array, only need to return 1 index. If it’s a sorted array, answer will be first or last element.<br>random select 1 element, if not peak element, if left neighbors larger than it, peak will exists in left part, otherwise right part. Notice the edge case where length == 2, then simply comes to start/end.</p>
-<h3 id="34-Search-for-a-Range"><a href="#34-Search-for-a-Range" class="headerlink" title="34. Search for a Range"></a>34. Search for a Range</h3><p>Simple binary search to find initial value, then search for the range. My solution is a little complex to loop to boundary, worst case go to <code>O(n)</code>. actually, <code>start = find(target), end = find(target + 1) -1</code>.</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="IO-stream-classification"><a href="#IO-stream-classification" class="headerlink" title="IO stream classification"></a>IO stream classification</h2><p>字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)<br>字符流：Reader(Abstract class,implements <strong>Readable,Closeable</strong>),must subclass implements read(char[],int,int),read into a portion of array.<br>Buffered Reader:Reads text from a <strong>character-input stream</strong>, buffering characters so as to provide for the efficient reading of characters, arrays, and lines.<br>InputStreamReader:bridge from bytestream to character stream.<br>FileReader(File file/filedescriptor/String filename):read(char[],int,int):read characters into a portion of array.<br>For top efficiency, consider wrapping an InputStreamReader within a BufferedReader. For example:<br><code>BufferedReader in= new BufferedReader(new InputStreamReader(System.in);</code><br>字节流：<br>InputStream()方法：<br>read():for read 1 byte, read(byte[])for read some number of bytes into buffer. read(byte[], int start, int len):for read len bytes start from start position.</p>
 
       
 
@@ -204,11 +203,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">binary search</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
         		</li>
       		
 		</ul>
@@ -264,7 +259,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/15/leetcode-binary-search-practice3.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/05/Java-IO.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,9 +273,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/02/05/Mininet-virtual-network.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Mininet virtual network
+        
+      </div>
+    </a>
   
-    <a href="/2018/01/15/莫愁前路无知己.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">莫愁前路无知己</div>
+  
+    <a href="/2018/02/03/python简书.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python recording for TA grading</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -310,7 +314,7 @@
   
 
   
-  <div id="SOHUCS" sid="leetcode-binary-search-practice3" ></div> 
+  <div id="SOHUCS" sid="Java-IO" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -433,6 +437,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
               </li>
              
@@ -453,6 +461,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -465,19 +509,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">union find</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
               </li>
             
             <div class="clearfix"></div>
@@ -542,14 +578,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           
             <li class="search-li">
               <a href="https://pure-brook-13189.herokuapp.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Project2 Demo</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://lovexinforever.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Friend1 of mine</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://dapanggit.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Friend2 of mine</a>
             </li>
           
         </ul>
