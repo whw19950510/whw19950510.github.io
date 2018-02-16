@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Mininet virtual network | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Basic usage$Linux modemininet&amp;gt;:mininet commandsudo mn -h:show all help commandsstart a minimal topology:sudo mn. create 1 openflow switch with 2 hosts.nodes:show all nodes;net:show all links;dump:">
+  <meta name="description" content="Basic usage$Linux mode">
 <meta name="keywords" content="Network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mininet virtual network">
 <meta property="og:url" content="http://yoursite.com/2018/02/05/Mininet-virtual-network.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="Basic usage$Linux modemininet&amp;gt;:mininet commandsudo mn -h:show all help commandsstart a minimal topology:sudo mn. create 1 openflow switch with 2 hosts.nodes:show all nodes;net:show all links;dump:">
-<meta property="og:updated_time" content="2018-02-06T05:35:18.541Z">
+<meta property="og:description" content="Basic usage$Linux mode">
+<meta property="og:updated_time" content="2018-02-07T15:48:56.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mininet virtual network">
-<meta name="twitter:description" content="Basic usage$Linux modemininet&amp;gt;:mininet commandsudo mn -h:show all help commandsstart a minimal topology:sudo mn. create 1 openflow switch with 2 hosts.nodes:show all nodes;net:show all links;dump:">
+<meta name="twitter:description" content="Basic usage$Linux mode">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -189,7 +189,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Basic-usage"><a href="#Basic-usage" class="headerlink" title="Basic usage"></a>Basic usage</h2><p>$Linux mode<br>mininet&gt;:mininet command<br><code>sudo mn -h</code>:show all help commands<br>start a minimal topology:<code>sudo mn</code>. create 1 openflow switch with 2 hosts.<br>nodes:show all nodes;<br>net:show all links;<br>dump:dump all information about all nodes;<br>nodename ifconfig -a:在指定节点上运行指定指令;<br>s1 arp/route:显示网关和硬件地址;<br>s1/h1 ps -a:显示当前进程的所有进程<br>s1 ping -c 1 h2:检测连接情况,-c为发送的全部数据包数目<br>ping的第一次要ARP,广播泛红所有请求到网络里面是所有的主机,找到目标主机应答相应的MAC address返回到controller再应答主机。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Basic-usage"><a href="#Basic-usage" class="headerlink" title="Basic usage"></a>Basic usage</h2><p>$Linux mode<br><a id="more"></a><br>mininet&gt;:mininet command<br><code>sudo mn -h</code>:show all help commands<br>start a minimal topology:<code>sudo mn</code>. create 1 openflow switch with 2 hosts.<br>nodes:show all nodes;<br>net:show all links;<br>dump:dump all information about all nodes;<br>nodename ifconfig -a:在指定节点上运行指定指令;<br>s1 arp/route:显示网关和硬件地址;<br>s1/h1 ps -a:显示当前进程的所有进程<br>s1 ping -c 1 h2:检测连接情况,-c为发送的全部数据包数目<br>ping的第一次要ARP,广播泛红所有请求到网络里面是所有的主机,找到目标主机应答相应的MAC address返回到controller再应答主机。</p>
 <h2 id="Host指令"><a href="#Host指令" class="headerlink" title="Host指令"></a>Host指令</h2><p>模式下支持所有Bash指令。<br>Run a simple web server and client：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mininet&gt; h1 python -m SimpleHTTPServer 80 &amp;//创建一个新进程</span><br><span class="line">mininet&gt; h2 wget -O - h1</span><br><span class="line">...</span><br><span class="line">mininet&gt; h1 kill %python</span><br></pre></td></tr></table></figure><br><code>sudo mn -c</code>clean up the host;</p>
 <h2 id="Analysis-of-network"><a href="#Analysis-of-network" class="headerlink" title="Analysis of network"></a>Analysis of network</h2><p>self contained-regression test:<code>sudo mn --test pingpair</code>:run all pairs ping test and return the total time and tore down situation.<br><code>sudo mn --test iperf</code>:test bandwidth between each host pair.<br>regression test: sudo mn –topo single,3:1 switch and 3 hosts.<br>sudo mn –topo linear,4<br>Link variations:人为改变链路参数:<code>sudo mn --link tc,bw=10,delay=10ms</code><br>tc:traffic control utility<br>Adjustable Verbosity:调整信息模式，默认是info.<br>sudo mn -v ouput/debug</p>
 <h2 id="Interact-with-mininet-shell"><a href="#Interact-with-mininet-shell" class="headerlink" title="Interact with mininet shell"></a>Interact with mininet shell</h2><p><strong>the round trip time (RTT)</strong><br><code>py locals()</code><br><code>py dir(h1)</code>:methods and file avaliable from a host<br><code>py h1.IP()</code>:evaluate a variable<br>Link up and down:For fault tolerance testing, it can be helpful to bring links up and down.<br><code>link s1 h1 down</code><br><code>link s1 h1 up</code>建立链路<br><strong>When running ping and Iperfer in Mininet, you must use IP addresses, not hostnames.</strong><br>ping:send ICMP echo requests to hosts;-F flow to all hosts,-f flood ping</p>
@@ -275,6 +275,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/02/08/Computer-Network-week2.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Computer Network Week2
+        
+      </div>
+    </a>
   
   
     <a href="/2018/02/05/Java-IO.html" id="article-nav-older" class="article-nav-link-wrap">
@@ -431,15 +440,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,15 +456,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,7 +488,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,6 +505,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,10 +521,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">古风</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">

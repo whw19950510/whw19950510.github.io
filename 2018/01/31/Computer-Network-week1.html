@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/31/Computer-Network-week1.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Switch &amp;amp;&amp;amp; Bridges">
-<meta property="og:updated_time" content="2018-02-05T22:22:22.561Z">
+<meta property="og:updated_time" content="2018-02-07T22:14:41.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Network week1">
 <meta name="twitter:description" content="Switch &amp;amp;&amp;amp; Bridges">
@@ -198,6 +198,7 @@
 <h2 id="Mininet"><a href="#Mininet" class="headerlink" title="Mininet"></a>Mininet</h2><p>According to the [Mininet website]:<a href="http://mininet.org/" target="_blank" rel="noopener">http://mininet.org/</a>, Mininet creates a realistic virtual network, running real kernel, switch and application code, on a single machine (VM or native), in seconds, with a single command. We will use Mininet in programming assignments throughout the semester.<br><code>$</code> preceeds Linux commands that should be typed at the shell prompt<br><code>mininet&gt;</code> preceeds Mininet commands that should be typed at Mininet’s CLI,<br><code>#</code> preceeds Linux commands that are typed at a root shell prompt<br>The default topology is the minimal topology, which includes one OpenFlow kernel switch connected to two hosts, plus the OpenFlow reference controller. This topology could also be specified on the command line with <strong>–topo=minimal.</strong> Other topologies are also available out of the box; see the –topo section in the output of mn -h.<br>If the first string typed into the Mininet CLI is a host, switch or controller name, the command is executed on that node. Run a command on a host process:<code>h1 ifconfig -a</code>.<br>Note that only the network is virtualized; <strong>each host process sees the same set of processes and directories.</strong> For example, print the process list from a host process:<br>h1 ping -c #packets h2, ping from 1 host to another host.<br>Mininet hosts can run any command or application that is available to the underlying Linux system (or VM) and its file system. You can also enter any bash command, including job control (&amp;, jobs, kill, etc..)</p>
 <p>You don’t need to drop into the CLI; Mininet can also be used to run self-contained regression tests.<br>Run a regression test:<code>sudo mn --test pingpair</code></p>
 <p><code>sudo mn --test iperf</code><br>This command created the same Mininet, ran an iperf server on one host, ran an iperf client on the second host, and parsed the bandwidth achieved.</p>
+<h2 id="Spanning-tree-algorithm"><a href="#Spanning-tree-algorithm" class="headerlink" title="Spanning-tree algorithm"></a>Spanning-tree algorithm</h2><p>Each bridge has a unique idetifier, first selects the bridge with the smallest id as the root of spanning tree.The root bridges always forward all its port.Next, each bridges compute its shortest path to the root and notes which of port is on the path. If equally close to the root, selects bridges with the smallest ID.<br>Each bridge records the current best configuration message it has seen on each of its ports.<br>Unicast &amp; Broadcast, Multicast<br>multicast:each port decides whether accept the message or not. Learns this by observing the source address of the packets that it receives over this port.<br>extended LANs don’t scale well because some LANS don’t want to be bothered by other broadcast messages.<br>One solution to scale is to use <strong>VLAN</strong>. a single extended LAN be partitioned into several LAN. assingned color/idetifier to each LAN segments and limit the number of segments in an extended LAN that will receive any given broadcast message.</p>
 
       
 
@@ -445,15 +446,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,15 +462,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,7 +494,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,6 +511,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,10 +527,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">古风</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">

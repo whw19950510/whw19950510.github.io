@@ -170,333 +170,30 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Mininet-virtual-network" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Computer-Network-week4-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/05/Mininet-virtual-network.html">Mininet virtual network</a>
+      <a class="article-title" href="/2018/02/15/Computer-Network-week4-md.html">Computer-Network-week4.md</a>
     </h1>
   
 
         
-        <a href="/2018/02/05/Mininet-virtual-network.html" class="archive-article-date">
-  	<time datetime="2018-02-06T00:40:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
+        <a href="/2018/02/15/Computer-Network-week4-md.html" class="archive-article-date">
+  	<time datetime="2018-02-16T03:54:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Basic-usage"><a href="#Basic-usage" class="headerlink" title="Basic usage"></a>Basic usage</h2><p>$Linux mode<br>mininet&gt;:mininet command<br><code>sudo mn -h</code>:show all help commands<br>start a minimal topology:<code>sudo mn</code>. create 1 openflow switch with 2 hosts.<br>nodes:show all nodes;<br>net:show all links;<br>dump:dump all information about all nodes;<br>nodename ifconfig -a:在指定节点上运行指定指令;<br>s1 arp/route:显示网关和硬件地址;<br>s1/h1 ps -a:显示当前进程的所有进程<br>s1 ping -c 1 h2:检测连接情况,-c为发送的全部数据包数目<br>ping的第一次要ARP,广播泛红所有请求到网络里面是所有的主机,找到目标主机应答相应的MAC address返回到controller再应答主机。</p>
-<h2 id="Host指令"><a href="#Host指令" class="headerlink" title="Host指令"></a>Host指令</h2><p>模式下支持所有Bash指令。<br>Run a simple web server and client：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mininet&gt; h1 python -m SimpleHTTPServer 80 &amp;//创建一个新进程</span><br><span class="line">mininet&gt; h2 wget -O - h1</span><br><span class="line">...</span><br><span class="line">mininet&gt; h1 kill %python</span><br></pre></td></tr></table></figure><br><code>sudo mn -c</code>clean up the host;</p>
-<h2 id="Analysis-of-network"><a href="#Analysis-of-network" class="headerlink" title="Analysis of network"></a>Analysis of network</h2><p>self contained-regression test:<code>sudo mn --test pingpair</code>:run all pairs ping test and return the total time and tore down situation.<br><code>sudo mn --test iperf</code>:test bandwidth between each host pair.<br>regression test: sudo mn –topo single,3:1 switch and 3 hosts.<br>sudo mn –topo linear,4<br>Link variations:人为改变链路参数:<code>sudo mn --link tc,bw=10,delay=10ms</code><br>tc:traffic control utility<br>Adjustable Verbosity:调整信息模式，默认是info.<br>sudo mn -v ouput/debug</p>
-<h2 id="Interact-with-mininet-shell"><a href="#Interact-with-mininet-shell" class="headerlink" title="Interact with mininet shell"></a>Interact with mininet shell</h2><p><strong>the round trip time (RTT)</strong><br><code>py locals()</code><br><code>py dir(h1)</code>:methods and file avaliable from a host<br><code>py h1.IP()</code>:evaluate a variable<br>Link up and down:For fault tolerance testing, it can be helpful to bring links up and down.<br><code>link s1 h1 down</code><br><code>link s1 h1 up</code>建立链路<br><strong>When running ping and Iperfer in Mininet, you must use IP addresses, not hostnames.</strong><br>ping:send ICMP echo requests to hosts;-F flow to all hosts,-f flood ping</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/05/Mininet-virtual-network.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+        <p>Bridges are <strong>link-level nodes</strong> (they forward frames from one link to another to implement an extended LAN), switches are <strong>network-level nodes</strong> (they forward packets from one link to another to implement a packet-switched network), and routers are <strong>internet-level nodes</strong>(they forward datagrams from one network to another to implement an internet). Switch transmit later-2 packets(Ethernet);Router transmit <strong>IP datagrams.</strong></p>
+<h2 id="Internetworking-IP"><a href="#Internetworking-IP" class="headerlink" title="Internetworking(IP)"></a>Internetworking(IP)</h2><p>IP network which can handle scale and heterogenity, LAN with bridges can only scale to small network.<br>
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java-IO" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/05/Java-IO.html">Java IO</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/05/Java-IO.html" class="archive-article-date">
-  	<time datetime="2018-02-06T00:14:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="IO-stream-classification"><a href="#IO-stream-classification" class="headerlink" title="IO stream classification"></a>IO stream classification</h2><p>字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)<br>字符流：Reader(Abstract class,implements <strong>Readable,Closeable</strong>),must subclass implements read(char[],int,int),read into a portion of array.<br>Buffered Reader:Reads text from a <strong>character-input stream</strong>, buffering characters so as to provide for the efficient reading of characters, arrays, and lines.<br>InputStreamReader:bridge from bytestream to character stream.<br>FileReader(File file/filedescriptor/String filename):read(char[],int,int):read characters into a portion of array.<br>For top efficiency, consider wrapping an InputStreamReader within a BufferedReader. For example:<br><code>BufferedReader in= new BufferedReader(new InputStreamReader(System.in);</code><br>字节流：<br>InputStream()方法：<br>read():for read 1 byte, read(byte[])for read some number of bytes into buffer. read(byte[], int start, int len):for read len bytes start from start position.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/05/Java-IO.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python简书" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/03/python简书.html">python recording for TA grading</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/03/python简书.html" class="archive-article-date">
-  	<time datetime="2018-02-04T02:19:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Sys-amp-os"><a href="#Sys-amp-os" class="headerlink" title="Sys &amp; os"></a>Sys &amp; os</h2><p>sys.argv[] 以list形式存储所有的命令参数，<code>py test.py -c -m</code> 打印所有会从文件名开始打印。”test.py -c -m”。<br>
-        
-          <a class="article-more-a" href="/2018/02/03/python简书.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/03/python简书.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Database concept" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/03/Database concept.html">Database concept</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/03/Database concept.html" class="archive-article-date">
-  	<time datetime="2018-02-03T17:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Cover materials on Stanford CS145,345,346</p>
-<h2 id="Transaction-Concurrency-amp-Atomicity"><a href="#Transaction-Concurrency-amp-Atomicity" class="headerlink" title="Transaction,Concurrency &amp; Atomicity"></a>Transaction,Concurrency &amp; Atomicity</h2><p>Performace problem:Disk/SSD    access is slow,DBMS hide the latency by    doing more CPU work concurrently.<br>
-        
-          <a class="article-more-a" href="/2018/02/03/Database concept.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Database</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/03/Database concept.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java Socket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/Java Socket.html">Java Socket Programming</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/02/Java Socket.html" class="archive-article-date">
-  	<time datetime="2018-02-02T22:07:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java-Socket-programming-basics"><a href="#Java-Socket-programming-basics" class="headerlink" title="Java Socket programming basics"></a>Java Socket programming basics</h2><p>URLs and URLConnections provide a relatively high-level mechanism for accessing resources on the Internet. Sometimes your programs require lower-level network communication, for example, when you want to write a client-server application.<br>
-        
-          <a class="article-more-a" href="/2018/02/02/Java Socket.html#more">more >></a>
+          <a class="article-more-a" href="/2018/02/15/Computer-Network-week4-md.html#more">more >></a>
         
       
 
@@ -520,7 +217,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/02/Java Socket.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/15/Computer-Network-week4-md.html">展开全文 >></a>
         </p>
       
 
@@ -550,29 +247,181 @@
 
 
   
-    <article id="post-Advanced-Sql-query" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java-small-details" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/Advanced-Sql-query.html">Advanced Sql query</a>
+      <a class="article-title" href="/2018/02/15/Java-small-details.html">Java small details</a>
     </h1>
   
 
         
-        <a href="/2018/02/02/Advanced-Sql-query.html" class="archive-article-date">
-  	<time datetime="2018-02-02T16:55:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
+        <a href="/2018/02/15/Java-small-details.html" class="archive-article-date">
+  	<time datetime="2018-02-15T22:50:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Query-Construction"><a href="#Query-Construction" class="headerlink" title="Query Construction"></a>Query Construction</h2>
+        <h2 id="When-update-an-entry-of-HashMap"><a href="#When-update-an-entry-of-HashMap" class="headerlink" title="When update an entry of HashMap"></a>When update an entry of HashMap</h2><p>Imagine there is an HashMap with entry properties, mapped from String to Object, this value only contains a refrence to the value field. Thus you can directly call the <strong>set methods</strong> of the object, and it will get reflected in the HashMap. The situation also applies to arrayList as value of this entry.<br>
         
-          <a class="article-more-a" href="/2018/02/02/Advanced-Sql-query.html#more">more >></a>
+          <a class="article-more-a" href="/2018/02/15/Java-small-details.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/15/Java-small-details.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Computer-Network-week3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/14/Computer-Network-week3.html">Computer-Network-week3</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/14/Computer-Network-week3.html" class="archive-article-date">
+  	<time datetime="2018-02-15T02:58:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Data-link-layer-amp-amp-Transport-layer"><a href="#Data-link-layer-amp-amp-Transport-layer" class="headerlink" title="Data link layer &amp;&amp; Transport layer"></a>Data link layer &amp;&amp; Transport layer</h2><p>Data link layer: consists of Logic link layer and medium access control. <strong>dataframes transmission*,encapsulates network layer data into frmaes. responsible for </strong>local delivery of frames<strong> between devices on the same LAN.  example protocals:Ethernet for local area network(multinodes);PPP, HDLC.<br>
+        
+          <a class="article-more-a" href="/2018/02/14/Computer-Network-week3.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/14/Computer-Network-week3.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Database-design-theory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/14/Database-design-theory.html">Database design theory</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/14/Database-design-theory.html" class="archive-article-date">
+  	<time datetime="2018-02-14T21:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Functional-Dependencies"><a href="#Functional-Dependencies" class="headerlink" title="Functional Dependencies"></a>Functional Dependencies</h2>
+        
+          <a class="article-more-a" href="/2018/02/14/Database-design-theory.html#more">more >></a>
         
       
 
@@ -596,7 +445,163 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/02/Advanced-Sql-query.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/14/Database-design-theory.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-redis-documentation-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/14/redis-documentation-summary.html">redis documentation summary</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/14/redis-documentation-summary.html" class="archive-article-date">
+  	<time datetime="2018-02-14T15:26:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Redis-architecture"><a href="#Redis-architecture" class="headerlink" title="Redis architecture"></a>Redis architecture</h2><p>Implemented in C, the performance mainly lies in how OS schedules each process and the cost spent in network communication and sockets reading/writing system call.<br>
+        
+          <a class="article-more-a" href="/2018/02/14/redis-documentation-summary.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java ee</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/14/redis-documentation-summary.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode-tree-prictice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/10/leetcode-tree-prictice.html">leetcode-tree-prictice</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/10/leetcode-tree-prictice.html" class="archive-article-date">
+  	<time datetime="2018-02-10T18:16:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="742-Nearest-to-leaf-node"><a href="#742-Nearest-to-leaf-node" class="headerlink" title="742.Nearest to leaf node"></a>742.Nearest to leaf node</h2><p>Find the treenode whose value == k first, then can use <strong>BFS</strong> to find the nearest leaf node to this target node.(Clever mind, once find target node, guaranteed to be nearest node).<br>TreeNode left, right’s writing will ensure that as if the target node is not dfind, it will continually add the current node and parent node to the hashMap, only ignore those node where their depth are deeper than the current node.<br>&lt;% start codeblock %&gt;<br>public class Solution {<br>    public int findClosestLeaf(TreeNode root, int k) {<br>        Map<treenode,treenode> parent = new HashMap&lt;&gt;();<br>        TreeNode target = findDFS(parent, k, root);<br>        Queue<treenode> visit = new LinkedList&lt;&gt;();<br>        visit.offer(target);<br>        Set<treenode>stat = new HashSet&lt;&gt;();<br>        stat.add(target);<br>        while(visit.size()&gt;0) {<br>            TreeNode cur = visit.poll();<br>            if(cur.left==null&amp;&amp;cur.right==null) return cur.val;<br>            if(cur.left!=null&amp;&amp; stat.add(cur.left)) {<br>                visit.offer(cur.left);<br>            }<br>            if(cur.right!=null &amp;&amp; stat.add(cur.right)) {<br>                visit.offer(cur.right);<br>            }<br>            if(parent.containsKey(cur) &amp;&amp; stat.add(parent.get(cur))) {<br>                visit.offer(parent.get(cur));<br>            }<br>        }<br>    }<br>    public TreeNode findDFS(Map<treenode,treenode>parent, int k, TreeNode root) {<br>        if(root.val == k) return root;<br>        if(root.left != null) {<br>            parent.put(root.left,root);<br>            TreeNode left = findDFS(parent,k,root.left);<br>            if(left!=null) return left;<br>        }<br>        if(root.right != null) {<br>            parent.put(root.right,root);<br>            TreeNode right = findDFS(parent,k,root.right);<br>            if(right!=null) return right;<br>        }<br>        return null;<br>    }</treenode,treenode></treenode></treenode></treenode,treenode></p>
+<p>}<br>&lt;% endcodeblock %&gt;</p>
+<h2 id="250-Count-Univalue-Subtrees"><a href="#250-Count-Univalue-Subtrees" class="headerlink" title="250. Count Univalue Subtrees"></a>250. Count Univalue Subtrees</h2><p>Subtree should include all of its left&amp;&amp;right treenodes. can’t be single branch of one node… Notice that this type of problem all use post traversal to solve…<br>compare each leaves with their parent nodes and follow along the path to get upper side.<strong>Only when both left&amp;&amp;right subtree all counted as univalue can it be counted as univalue</strong><br>Why use int[] as params?<br>Here int[] works like a wrap. When you pass (int[])arr to a method, it creates a new reference point to the same object as arr and pass the <strong>new reference to the method</strong>. Hence when you change for example arr[0] in the method call, since both of the references point to the same object, it will reflect on arr in the parent call;<br>int is a primitive type, you pass a int variable to a method it simply makes a copy of the variable and pass it to the method.<br>Thus, use a array can be equivlant to use a global variable.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/10/leetcode-tree-prictice.html">展开全文 >></a>
         </p>
       
 
@@ -628,7 +633,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -740,15 +745,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -760,15 +761,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,7 +793,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -797,6 +810,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,10 +826,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">古风</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">

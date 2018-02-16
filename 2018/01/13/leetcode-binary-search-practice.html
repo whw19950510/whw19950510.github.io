@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/13/leetcode-binary-search-practice.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Daily practice of alogorithms. Some tricks in binary search and its variation forms.">
-<meta property="og:updated_time" content="2018-01-14T22:43:01.802Z">
+<meta property="og:updated_time" content="2018-02-08T15:19:08.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode binary search practice">
 <meta name="twitter:description" content="Daily practice of alogorithms. Some tricks in binary search and its variation forms.">
@@ -197,6 +197,7 @@
 </ul>
 <h3 id="33-Search-in-rotated-array"><a href="#33-Search-in-rotated-array" class="headerlink" title="33.Search in rotated array"></a>33.Search in rotated array</h3><p>Same as previous problem, use nums[mid] &amp; nums[right] to judge which part is ordered, then judge target lies in which part to get the result.</p>
 <h3 id="287-Find-the-Duplicate-Number"><a href="#287-Find-the-Duplicate-Number" class="headerlink" title="287. Find the Duplicate Number"></a>287. Find the Duplicate Number</h3><p>Use idea same as <a href="https://leetcode.com/problems/linked-list-cycle-ii/description/" target="_blank" rel="noopener">linkedlist cycle 2</a>. Very tricky to understand array entry since they are all in 1-N range. Just find the entry of the cycle.</p>
+<h3 id="Review-of-find-minimum-in-sorted-array"><a href="#Review-of-find-minimum-in-sorted-array" class="headerlink" title="Review of find minimum in sorted array"></a>Review of find minimum in sorted array</h3><p>Always compare the nums[mid] with nums[end]; When you classify different situations, you need also to consider when the rotated array already become a sorted array, you need to <strong>combine this situation into several another situation</strong>, this is important. Otherwise, answers error when you don’t consider the array shrink process.</p>
 
       
 
@@ -448,15 +449,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,15 +465,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,7 +497,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,6 +514,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,10 +530,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">古风</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">

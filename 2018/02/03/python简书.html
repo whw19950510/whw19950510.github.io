@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/03/python简书.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Sys &amp;amp; ossys.argv[] 以list形式存储所有的命令参数，py test.py -c -m 打印所有会从文件名开始打印。”test.py -c -m”。">
-<meta property="og:updated_time" content="2018-02-04T16:19:15.642Z">
+<meta property="og:updated_time" content="2018-02-13T22:23:06.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python recording for TA grading">
 <meta name="twitter:description" content="Sys &amp;amp; ossys.argv[] 以list形式存储所有的命令参数，py test.py -c -m 打印所有会从文件名开始打印。”test.py -c -m”。">
@@ -207,6 +207,11 @@
 <h2 id="CGI"><a href="#CGI" class="headerlink" title="CGI"></a>CGI</h2><p>Commmon gateway interface:whenever a file is requested, it’s not returned directly but executed on server side and returns the result back to the browser.</p>
 <h2 id="Database-API"><a href="#Database-API" class="headerlink" title="Database API"></a>Database API</h2><p>import pymysql;<br>connect = pymysql.connect(“localhost”,”root”,”password”,”dbname”);<br>cursor = connect.cursor();<br>cursor.execute(sql);<br>connect.commit();<br>/#results = cursor.fetchall();<br>for row in results:<br>    fname = row[0];<br>    age = row[1];<br>    parent = row[2];<br>try:<br>except:<br>    connect.rollback();</p>
 <h2 id="Multithreading-programming"><a href="#Multithreading-programming" class="headerlink" title="Multithreading programming"></a>Multithreading programming</h2><p>Threading module<br>import threading;</p>
+<h2 id="For-loop-amp-if-else"><a href="#For-loop-amp-if-else" class="headerlink" title="For loop &amp; if else"></a>For loop &amp; if else</h2><p>for cur in paragraph:xxx<br>for index in range(len(nums))<br>if nums[0] == 1://using column to indicate a coding block</p>
+<h2 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h2><p>2 important data structures:<br>Series:1D array, using index to access value,<br>se.index():默认是0：len-1,se.values()<br>numpy数组操作：bool数组过滤，数乘将保持元素之间的索引<br>使用dict创建Series，键成为index<br>索引index可以就地更改，se.index = [dsad,dsad]<br><strong>Dataframes</strong>:行的索引和列的索引;列索引column是dict的键，row索引是数字<br>直接df[‘state’]索引到的是<strong>整个列</strong>.<br>可以直接给某一列赋值为Series:df[‘state’] = se;<br>data[[‘one’,’two’]]提取两列出来<br>data.ix[2]:索引其中单独的一行<br>data[data&gt;2]选择列过滤行<br>number of rows:len(df.index);number of cols:len(df.columns)</p>
+<p>.loc()label based selection:<br>.loc[index,column]得到具体数值..loc[[‘a’,’b’,’c’],’A’:’C’]选取几个row和column<br>.iloc[[1,3,4],[2]]通过index进行选取，选取个别几列</p>
+<p>series.size()直接获取大小，没有len()方法，df[‘’].str.len()返回选取长度</p>
+<h2 id="Python-class-call-recursive-functions-inside-the-class"><a href="#Python-class-call-recursive-functions-inside-the-class" class="headerlink" title="Python class call recursive functions inside the class"></a>Python class call recursive functions inside the class</h2><p>self.calculate(name,value);//with no self params already</p>
 
       
 
@@ -454,15 +459,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -474,15 +475,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,7 +507,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,6 +524,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,10 +540,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">古风</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
