@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/02/10/leetcode-tree-prictice.html</loc>
+    
+    <lastmod>2018-02-16T23:35:23.996Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/02/15/Computer-Network-week4-md.html</loc>
     
     <lastmod>2018-02-16T23:30:25.921Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>http://yoursite.com/2018/02/03/python%E7%AE%80%E4%B9%A6.html</loc>
     
     <lastmod>2018-02-13T22:23:06.653Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/02/10/leetcode-tree-prictice.html</loc>
-    
-    <lastmod>2018-02-12T17:13:51.937Z</lastmod>
     
   </url>
   
