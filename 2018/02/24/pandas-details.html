@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Huawei&#39;s Blog</title>
+  <title>pandas details | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="东南大学13级，就读于UW-Madison CS系。努力学习各种前后端技能ing">
-<meta name="keywords" content="front-end,React,javascript,SpringMVC,Django,程序猿,Developer,Programmer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Huawei&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="Classical usage of Pandas">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pandas details">
+<meta property="og:url" content="http://yoursite.com/2018/02/24/pandas-details.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="东南大学13级，就读于UW-Madison CS系。努力学习各种前后端技能ing">
+<meta property="og:description" content="Classical usage of Pandas">
+<meta property="og:updated_time" content="2018-02-27T02:24:43.217Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Huawei&#39;s Blog">
-<meta name="twitter:description" content="东南大学13级，就读于UW-Madison CS系。努力学习各种前后端技能ing">
+<meta name="twitter:title" content="pandas details">
+<meta name="twitter:description" content="Classical usage of Pandas">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -168,68 +169,168 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-pandas-details" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/15/ES6-review.html" class="archive-article-date">
-  	<time datetime="2017-05-16T02:41:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/15/ES6-review.html">ES6 review</a>
+    <h1 class="article-title" itemprop="name">
+      pandas details
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/02/24/pandas-details.html" class="archive-article-date">
+  	<time datetime="2018-02-25T03:06:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Classical-usage-of-Pandas"><a href="#Classical-usage-of-Pandas" class="headerlink" title="Classical usage of Pandas"></a>Classical usage of Pandas</h2><a id="more"></a>
+<p>Series &amp; DataFrame are most important elements in pandas. df[‘col’] will return a Series with col as column name; can assign column name and index name with df.index/df.columns = ;can select using integer index like df.iloc[a,b] or using name value like df.loc[‘index1’,’col1’], can also using filter condition such as df.loc[df[‘col’] == val, :]</p>
+<h2 id="Use-a-single-ceil-to-store-a-list"><a href="#Use-a-single-ceil-to-store-a-list" class="headerlink" title="Use a single ceil to store a list"></a>Use a single ceil to store a list</h2><p>If you want to uses a single ceil to store a whole list, don’t use .iloc which may cause Valueerr, caonsider using <strong>at(m,n)</strong>, which need column name as find params. Can also use iat(m,n). Actually, dataframe ca definitly used to store Series &amp;&amp; Dataframe in a single cell.</p>
+<h2 id="Merge-amp-Join"><a href="#Merge-amp-Join" class="headerlink" title="Merge &amp; Join"></a>Merge &amp; Join</h2><p>Can merge 2/ more dataframe together using the list/dict as params.<br>frame = [df1,df2,df3], which all has the same index and column, implied the same structure.<br>result = pd.concat(frame)<br>df1.append(index, axis = 0), concat along the index dimension, can also get 2 matrix together.<br>pandas has full-featured, high performance in-memory join operations idiomatically very similar to relational databases like SQL. These methods perform significantly better (in some cases well over an order of magnitude better) than other open source implementations (like base::merge.data.frame in R). The reason for this is careful algorithmic design and internal layout of the data in DataFrame.<br>Useful tips when using concat, the <strong>index</strong> and the columns will all be kept, if you want to regenerate the range num index for concat dataframe, using <strong>ignore_index</strong> when call concat. newdf = pd.concat(list, ignore_index = True).</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/24/pandas-details.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/02/25/OS-practice-problem-summary.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          OS practice problem summary
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/02/19/Linux-memory-management.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux memory management</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="pandas-details" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytpN4GFU",
+        conf: "bb6314f2f3a2a7cda6fc4d4f5a22342f"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -269,8 +370,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

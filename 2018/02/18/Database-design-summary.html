@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Database design sumary | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Composite keyI design a database system with auction based. In this system, one kind of item can have multiple category and one category can possess multiple items, thus create a independent table wh">
+  <meta name="description" content="Composite key">
 <meta name="keywords" content="Database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Database design sumary">
 <meta property="og:url" content="http://yoursite.com/2018/02/18/Database-design-summary.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="Composite keyI design a database system with auction based. In this system, one kind of item can have multiple category and one category can possess multiple items, thus create a independent table wh">
-<meta property="og:updated_time" content="2018-02-18T23:58:18.244Z">
+<meta property="og:description" content="Composite key">
+<meta property="og:updated_time" content="2018-02-26T16:48:04.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Database design sumary">
-<meta name="twitter:description" content="Composite keyI design a database system with auction based. In this system, one kind of item can have multiple category and one category can possess multiple items, thus create a independent table wh">
+<meta name="twitter:description" content="Composite key">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -189,7 +189,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Composite-key"><a href="#Composite-key" class="headerlink" title="Composite key"></a>Composite key</h2><p>I design a database system with auction based. In this system, one kind of item can have multiple category and one category can possess multiple items, thus create a independent table which uses composite primary key. Notice that <strong>primary key</strong> can have multiple columns, not only 1 column. This applies to all many-to-many relationship.</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Composite-key"><a href="#Composite-key" class="headerlink" title="Composite key"></a>Composite key</h2><a id="more"></a>
+<p>I design a database system with auction based. In this system, one kind of item can have multiple category and one category can possess multiple items, thus create a independent table which uses composite primary key. Notice that <strong>primary key</strong> can have multiple columns, not only 1 column. This applies to all many-to-many relationship.</p>
+<h2 id="Functional-Dependency"><a href="#Functional-Dependency" class="headerlink" title="Functional Dependency"></a>Functional Dependency</h2><p>Use FD &amp; FD Closure to determine good DB and make normalization. Not always make BCNF decompotion. When you make a composition, the attributes are splitted. <strong>FD in 1 attr set only refer to all attr are contained in this datasets.</strong>BCNF decompisition will splitted into all trivial &amp;&amp; super key datasets.<br>BCNF after decompotion all nontrival FD/ all FD are in super key</p>
+<h2 id="3NF"><a href="#3NF" class="headerlink" title="3NF"></a>3NF</h2><p>BCNF implies 3NF.<br>Relation R is in 3NF, if FD X-&gt;A, is trival FD, X is super key, <strong>A is part of some key of R.</strong>Decomposition into 3NF is always feasible. <strong>Lossless join and property preserving.</strong></p>
 
       
 
@@ -437,10 +440,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -453,15 +452,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,19 +464,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,11 +492,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,11 +504,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">union find</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,6 +525,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">古风</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">union find</a>
               </li>
              
               <li class="article-tag-list-item">

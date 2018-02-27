@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-19T15:04:23.622Z</updated>
+  <updated>2018-02-27T05:54:44.177Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,89 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux knowledge</title>
+    <link href="http://yoursite.com/2018/02/26/Linux-knowledge.html"/>
+    <id>http://yoursite.com/2018/02/26/Linux-knowledge.html</id>
+    <published>2018-02-27T05:44:53.000Z</published>
+    <updated>2018-02-27T05:54:44.177Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h2 id="Useful-command"><a href="#Useful-command" class="headerlink" title="Useful command"></a>Useful command</h2><p>df:查看磁盘使用情况<br>dd:convert and copy a file<br>top:查看CPU占用<br>du:estimate file space usage<br>/etc/hosts 主机名到 IP 地址的映射关系的文件<br>/etc/resolv.conf DNS 服务的配置文件<br>/etc/gateways 建立动态路由需要用到的文件 </p><h2 id="Inode可以被多个文件使用"><a href="#Inode可以被多个文件使用" class="headerlink" title="Inode可以被多个文件使用"></a>Inode可以被多个文件使用</h2><p>Unix/Linux系统允许，多个文件名指向同一个inode号码。这意味着，可以用不同的文件名访问同样的内容；对文件内容进行修改，会影响到所有文件名；但是，删除一个文件名，不影响另一个文件名的访问。这种情况就被称为”硬链接”（hard link）。 除了硬链接以外，还有一种特殊情况。文件A和文件B的inode号码虽然不一样，但是文件A的内容是文件B的路径。读取文件A时，系统会自动将访问者导向文件B。因此，无论打开哪一个文件，最终读取的都是文件B。这时，文件A就称为文件B的”软链接”（soft link）或者”符号链接（symbolic link）。</p><h2 id="Spinlock"><a href="#Spinlock" class="headerlink" title="Spinlock"></a>Spinlock</h2><p>spinlock在多处理器多线程环境的场景中有很广泛的使用，一般要求使用spinlock的临界区尽量简短，这样获取的锁可以尽快释放，以满足其他忙等的线程。Spinlock和mutex不同，spinlock不会导致线程的状态切换(用户态-&gt;内核态)，但是spinlock使用不当(如临界区执行时间过长)会导致cpu busy飙高。</p><h2 id="CPU负载"><a href="#CPU负载" class="headerlink" title="CPU负载"></a>CPU负载</h2><p>数字越小越好，可以通过TOP命令查看，可以通过uptime查看</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;\assets\js\APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;Useful-command&quot;&gt;&lt;a href=&quot;#Useful-command&quot; class=&quot;headerlink&quot; title=&quot;Useful command
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Database-relation-algebra</title>
+    <link href="http://yoursite.com/2018/02/26/Database-relation-alebra.html"/>
+    <id>http://yoursite.com/2018/02/26/Database-relation-alebra.html</id>
+    <published>2018-02-26T16:49:33.000Z</published>
+    <updated>2018-02-27T05:55:45.541Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h2 id="RA"><a href="#RA" class="headerlink" title="RA"></a>RA</h2><p>Declarative language/Procudual language<br>RA：operands,operator<br><a id="more"></a><br>select/projection can be composited together;projection will select only those distinct tuples, which is equivalant to select distinct column name.<br>cross production：combines 2 database together.;will match automatically on 1 attribute.<br>set difference:<br>union:both relation mush have the same schema(attr形式相同,will filter duplicate rows)<br>renaming:pa1,a2(name):自己的relation和自己join的时候需要进行一种区分.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;RA&quot;&gt;&lt;a href=&quot;#RA&quot; class=&quot;headerlink&quot; title=&quot;RA&quot;&gt;&lt;/a&gt;RA&lt;/h2&gt;&lt;p&gt;Declarative language/Procudual language&lt;br&gt;RA：operands,operator&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Database" scheme="http://yoursite.com/tags/Database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OS practice problem summary</title>
+    <link href="http://yoursite.com/2018/02/25/OS-practice-problem-summary.html"/>
+    <id>http://yoursite.com/2018/02/25/OS-practice-problem-summary.html</id>
+    <published>2018-02-26T04:31:14.000Z</published>
+    <updated>2018-02-27T05:56:06.563Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h2 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h2><p>1.系统的主要功能有:<br>虚拟存储管理、处理机管理、进程调度、文件系统<br>2.通道控制设备控制器，设备控制器控制设备<br>3.在多道程序系统执行，一般情况下，每个程序执行完毕需要的时间（）大于单道系统时间<br><a id="more"></a><br>4.UNIX是<strong>多道批处理系统</strong><br>5.Unix操作系统允许用户在<strong>汇编语言</strong>上使用系统调用。<br>6.共享设备不需要用户安装设备驱动程序。<br>7.在 UNIX 中，文件系统和设备驱动程序之间的接口是<strong>DCT设备控制表</strong><br>8.SJF会引起Starvation<br>9.超级用户（管理员、特权用户）可以使用特权指令。错，是提供给操作系统系统态的<br>10.进程是资源分配的基本单位，<strong>线程是资源调度的基本单位</strong><br>11.进程间通信的方式:共享内存;消息传递;系统管道;同步(互斥锁,条件变量,读写锁,文件和记录锁,Posix和System V信号灯) ;临界区用于线程<br>12.Linux内核默认支持的文件格式:ext3;ext2;ext4;xfs;ufs<br>13.进程之间存在直接制约关系(即同步问题)和间接制约关系(即互斥问题)<br>14.多个进程怎样共享一个监听端口？fork共享监听套接字<br>15.分段内存管理，逻辑地址是二维地址<br>16.在 Windows 的 FAT 文件系统中，对磁盘空闲空间的管理采用<strong>位示图法</strong><br>17.在设备管理中，逻辑设备表（ LUT ）的作用是在物理设备和逻辑设备之间建立对应关系<br>18.并发是指多个请求向服务器同时请求，服务器的响应过程是依次响应，或者轮转响应的；并行是多个请求向多个服务器，各自服务各自的请求(类似多处理GPU)<br>19.缓存是为了提高并行操作，提高CPU和设备之间的并行程度<br>20.线程提高了不同执行程序间的通信效率<br>21.无结构文件的含义是<strong>流式文件</strong>.流式文件中构成文件的基本单位是字符，流式文件是有序字符的集合，其长度为该文件所包含的字符个数，所以又称为字符流文件。流式文件无结构，且管理简单，用户可以方便地对其进行操作。源程序、目标代码等文件属于流式文件。<strong>UNIX系统采用的是流式文件结构。</strong>记录式文件:一群记录的集合，<br>22.降低进程优先级的合理时机是:时间片用完，RR<br>23.进程对管道进行读操作和写操作都可以被<strong>阻塞</strong>.<strong>管道是 单向的、先进先出的 ，它把一个进程的输出和另一个进程的输入连接在一起。一个进程（写进程）在管道的 尾部写入数据 ，另一个进程（读进程）从管道的 头部读出数据 。</strong><br>24.哪一个不属于活动头硬盘的存取访问时间？旋转延迟时间+寻道时间+传送时间<br>25.文件的逻辑结构:记录式，流式文件;物理结构:连续结构,串联结构,索引结构<br>26.死锁是指因相互竞争资源使得系统中有多个阻塞进程的情况;若系统中并发运行的进程和资源之间满足互斥条件、占有且申请、不可抢占和环路条件，则可判定系统中发生了死锁<br>27.向量中断由硬件形成向量地址，再由向量地址找到中断服务程序入口地址<br>28.输出字符是系统调用。两个合作进程，无法利用<strong>全局变量</strong>传递信息,都是自己的东西。<br>29.线程切换进程可能切换，要看下一个被调度的线程和当前线程是否属于同一进程。如果不属于才切换页表，更换进程用户空间，否则只是从事一些线程级别工作，不会切换进程的<br>30.<strong>共享设备在同一时刻只能有一个作业调用。</strong><br>31.对进程间互斥的使用临界资源，进程可以<strong>互斥的进入各自的同类资源临界区</strong><br>32.银行家算法是著名的<strong>死锁避免算法</strong>，避免死锁并不是事先采取某种限制措施破坏死锁的必要条件，而是再资源动态分配过程中，防止系统进入不安全状态，以避免发生死锁.<br>33.对进程来说，其虚拟内存的大小不受物理内存大小的限制.<strong>线程有自己的栈，没有堆</strong><br>34.程序=数据结构+算法<br>35.在虚拟存储器中为了提高主存的命中率，可以采取的措施是<strong>增大主存容量</strong><br>36.显示磁盘文件目录的DOS命令DIR。一个英文字符2个ASCII码,DOS文件目录是树形结构。<br>37.下列哪些因素不会限制Linux服务器并发连接数?<strong>系统网卡数量</strong><br>系统内存大小<br>系统网卡数量<br>系统最大文件句柄数量<br>系统IP地址数量<br>38.网络：环形拓扑，星星拓扑，总线拓扑<br>39.<strong>局部static</strong>变量的可见性与生存期不一致。<br>40.接口可以包含方法、属性、索引器和事件，不能包含共有私有变量。<br>41.同一时刻只能有一个部件占用总线发送信息，但可以有多个部件通过总线接收信息<br>42.DNS用来解析域名地址和IP地址。<br>43.方法覆盖返回值类型可以小于父类。<br>shmget获得shared memory,共享内存并没有同步机制<br>44.银行家算法是一种最有代表性的避免死锁的算法。又被称为“资源分配拒绝”法。在避免死锁方法中允许进程动态地申请资源，但系统在进行资源分配之前，应先计算此次分配资源的安全性，若分配不会导致系统进入不安全状态，则分配，否则等待。为实现银行家算法，系统必须设置若干数据结构。<br>45.线程不能跨机器迁移，进程适合在SMP机器上迁移。<br>47.Event、Semaphore、Mutex是内核对象，能够跨进程使用，Critical Section不能跨进程，只能实现线程内互斥(线程同步)<br>48.可重入函数对全局变量才需要互斥量保护。可重入函数不可以调用不可重入函数<br>49.轮询调度优点是其简洁性，它无需记录当前所有连接的状态，所以它是一种无状态调度.抢占式调度实现相对较复杂.Preempted/unpreempted<br>50.<strong>run()方法用来执行线程体中具体的内容</strong><br>51.volatile变量具有synchronized的可见性特性，<strong>但是不具备原子特性。</strong><br>start()方法用来启动线程对象，使其进入就绪状态<br>sleep()方法用来使线程进入睡眠状态<br>suspend()方法用来使线程挂起，要通过resume()方法使其重新启动<br>52.当线程企图访问临界资源时，先会查看该临界资源当前是否已被加锁，如果没有被加锁，则对该临界资源加锁，并进入该同步块或方法，加锁后，其他线程也就无法访问该临界资源了。所以判定获取了一个内部锁的标准为：进入该同步区域。获取内部锁的标准，进入同步区域。<br>pwd是环境变量/用户登录系统时，bash首先执行/etc/profile配置文件和/etc/profile.d/目录下的配置文件，这些配置文件对所有用户都有效</p><h2 id="Java并发编程的同步机制"><a href="#Java并发编程的同步机制" class="headerlink" title="Java并发编程的同步机制"></a>Java并发编程的同步机制</h2><p>A，Java 并发库 的Semaphore 可以很轻松完成信号量控制，Semaphore可以控制某个资源可被同时访问的个数，通过 acquire() 获取一个许可，如果没有就等待，而 release() 释放一个许可。<br>B，CyclicBarrier 主要的方法就是一个：await()。await() 方法没被调用一次，计数便会减少1，并阻塞住当前线程。当计数减至0时，阻塞解除，所有在此 CyclicBarrier 上面阻塞的线程开始运行。<br>C，直译过来就是倒计数(CountDown)门闩(Latch)。倒计数不用说，门闩的意思顾名思义就是阻止前进。在这里就是指 CountDownLatch.await() 方法在倒计数为0之前会阻塞当前线程。</p><h2 id="Database-transaction理论"><a href="#Database-transaction理论" class="headerlink" title="Database transaction理论"></a>Database transaction理论</h2><p>脏读：就是指当一个事务对数据进行了修改但还没有提交到数据库时，另一个事务访问并使用了这个数据。<br>不可重复读：在一个事务内两次读数据之间，第二个事务访问该数据并进行了修改。<br>丢失修改：两个事务读入同一数据并修改，T2提交的结果破坏了T1提交的结果。例如T1读A修改为A-1，T2也读A修改为A-1（实际上应该是读A-1，修改 为A-2）<br>幻影读：同一事务在两个不同的时间段执行相同的查询条件得到的结果不一致。<br>注意区分：<br>不可重复读的重点是修改<br>同样的条件,你读取过的数据,再次读取出来发现值不一样了<br>幻读的重点在于新增或者删除<br>同样的条件, 第 1 次和第 2 次读出来的记录数不一样。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;问题总结&quot;&gt;&lt;a href=&quot;#问题总结&quot; class=&quot;headerlink&quot; title=&quot;问题总结&quot;&gt;&lt;/a&gt;问题总结&lt;/h2&gt;&lt;p&gt;1.系统的主要功能有:&lt;br&gt;虚拟存储管理、处理机管理、进程调度、文件系统&lt;br&gt;2.通道控制设备控制器，设备控制器控制设备&lt;br&gt;3.在多道程序系统执行，一般情况下，每个程序执行完毕需要的时间（）大于单道系统时间&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="http://yoursite.com/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pandas details</title>
+    <link href="http://yoursite.com/2018/02/24/pandas-details.html"/>
+    <id>http://yoursite.com/2018/02/24/pandas-details.html</id>
+    <published>2018-02-25T03:06:49.000Z</published>
+    <updated>2018-02-27T02:24:43.217Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h2 id="Classical-usage-of-Pandas"><a href="#Classical-usage-of-Pandas" class="headerlink" title="Classical usage of Pandas"></a>Classical usage of Pandas</h2><a id="more"></a><p>Series &amp; DataFrame are most important elements in pandas. df[‘col’] will return a Series with col as column name; can assign column name and index name with df.index/df.columns = ;can select using integer index like df.iloc[a,b] or using name value like df.loc[‘index1’,’col1’], can also using filter condition such as df.loc[df[‘col’] == val, :]</p><h2 id="Use-a-single-ceil-to-store-a-list"><a href="#Use-a-single-ceil-to-store-a-list" class="headerlink" title="Use a single ceil to store a list"></a>Use a single ceil to store a list</h2><p>If you want to uses a single ceil to store a whole list, don’t use .iloc which may cause Valueerr, caonsider using <strong>at(m,n)</strong>, which need column name as find params. Can also use iat(m,n). Actually, dataframe ca definitly used to store Series &amp;&amp; Dataframe in a single cell.</p><h2 id="Merge-amp-Join"><a href="#Merge-amp-Join" class="headerlink" title="Merge &amp; Join"></a>Merge &amp; Join</h2><p>Can merge 2/ more dataframe together using the list/dict as params.<br>frame = [df1,df2,df3], which all has the same index and column, implied the same structure.<br>result = pd.concat(frame)<br>df1.append(index, axis = 0), concat along the index dimension, can also get 2 matrix together.<br>pandas has full-featured, high performance in-memory join operations idiomatically very similar to relational databases like SQL. These methods perform significantly better (in some cases well over an order of magnitude better) than other open source implementations (like base::merge.data.frame in R). The reason for this is careful algorithmic design and internal layout of the data in DataFrame.<br>Useful tips when using concat, the <strong>index</strong> and the columns will all be kept, if you want to regenerate the range num index for concat dataframe, using <strong>ignore_index</strong> when call concat. newdf = pd.concat(list, ignore_index = True).</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Classical-usage-of-Pandas&quot;&gt;&lt;a href=&quot;#Classical-usage-of-Pandas&quot; class=&quot;headerlink&quot; title=&quot;Classical usage of Pandas&quot;&gt;&lt;/a&gt;Classical usage of Pandas&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux memory management</title>
@@ -41,16 +124,13 @@
     <link href="http://yoursite.com/2018/02/18/Database-design-summary.html"/>
     <id>http://yoursite.com/2018/02/18/Database-design-summary.html</id>
     <published>2018-02-18T23:53:11.000Z</published>
-    <updated>2018-02-18T23:58:18.244Z</updated>
+    <updated>2018-02-26T16:48:04.007Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h2 id="Composite-key"><a href="#Composite-key" class="headerlink" title="Composite key"></a>Composite key</h2><p>I design a database system with auction based. In this system, one kind of item can have multiple category and one category can possess multiple items, thus create a independent table which uses composite primary key. Notice that <strong>primary key</strong> can have multiple columns, not only 1 column. This applies to all many-to-many relationship.</p>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h2 id="Composite-key"><a href="#Composite-key" class="headerlink" title="Composite key"></a>Composite key</h2><a id="more"></a><p>I design a database system with auction based. In this system, one kind of item can have multiple category and one category can possess multiple items, thus create a independent table which uses composite primary key. Notice that <strong>primary key</strong> can have multiple columns, not only 1 column. This applies to all many-to-many relationship.</p><h2 id="Functional-Dependency"><a href="#Functional-Dependency" class="headerlink" title="Functional Dependency"></a>Functional Dependency</h2><p>Use FD &amp; FD Closure to determine good DB and make normalization. Not always make BCNF decompotion. When you make a composition, the attributes are splitted. <strong>FD in 1 attr set only refer to all attr are contained in this datasets.</strong>BCNF decompisition will splitted into all trivial &amp;&amp; super key datasets.<br>BCNF after decompotion all nontrival FD/ all FD are in super key</p><h2 id="3NF"><a href="#3NF" class="headerlink" title="3NF"></a>3NF</h2><p>BCNF implies 3NF.<br>Relation R is in 3NF, if FD X-&gt;A, is trival FD, X is super key, <strong>A is part of some key of R.</strong>Decomposition into 3NF is always feasible. <strong>Lossless join and property preserving.</strong></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;script src=&quot;\assets\js\APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;Composite-key&quot;&gt;&lt;a href=&quot;#Composite-key&quot; class=&quot;headerlink&quot; title=&quot;Composite key&quot;&gt;&lt;
-      
+      &lt;h2 id=&quot;Composite-key&quot;&gt;&lt;a href=&quot;#Composite-key&quot; class=&quot;headerlink&quot; title=&quot;Composite key&quot;&gt;&lt;/a&gt;Composite key&lt;/h2&gt;
     
     </summary>
     
@@ -332,11 +412,11 @@
   </entry>
   
   <entry>
-    <title>Database concept</title>
+    <title>Database Physical layer concept</title>
     <link href="http://yoursite.com/2018/02/03/Database%20concept.html"/>
     <id>http://yoursite.com/2018/02/03/Database concept.html</id>
     <published>2018-02-03T17:33:53.000Z</published>
-    <updated>2018-02-07T16:53:20.919Z</updated>
+    <updated>2018-02-26T16:49:02.331Z</updated>
     
     <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>Cover materials on Stanford CS145,345,346</p><h2 id="Transaction-Concurrency-amp-Atomicity"><a href="#Transaction-Concurrency-amp-Atomicity" class="headerlink" title="Transaction,Concurrency &amp; Atomicity"></a>Transaction,Concurrency &amp; Atomicity</h2><p>Performace problem:Disk/SSD    access is slow,DBMS hide the latency by    doing more CPU work concurrently.<br><a id="more"></a><br>Transaction:中文翻译成<strong>事务</strong>,<strong>ACID</strong><br>Transactions:A <strong>atomic</strong> sequence of independant read/write. DBMS exsures it is a serial execution of instrucitons. One way to solve is through locking, before r/w requires a locking from DBMS.All concurrency    issues handled by the DBMS.<br>Ensure consistency even if crashed:OS concepts,write ahead logging,before any action is finalized, a corresponding entry is forced to disk.</p><h2 id="ER-Model"><a href="#ER-Model" class="headerlink" title="ER Model"></a>ER Model</h2><p>What entities to model<br>How entities are related<br>What constraints exist in the domain<br>How to achieve good designs<br>Requirement analysis,Conceptual design(ER model),Logical/physical/security<br>Entity &amp; entity sets:entity are basic units of ER model, has several attributes.(eg:product:color,name,company); Key:unique attribute that defined a entity.<br>Relationship:between 2 entities. subset of all p,Q pairs with tuples uniquly defined by their keys. Use a new entity instead of relationship, and can make it expand.<br>Define subclass in ER,maintains connection with parent class,contains all attributes of parent class and add new attributes.<br>Difference with OODesign:OO classes are disjoint,ER entities sets overlap.</p><h2 id="Design-theory"><a href="#Design-theory" class="headerlink" title="Design theory"></a>Design theory</h2><p>Norm-forms(范式) and functionality dependency:<br>3rdNorm form(3NF):Boyce-Codd norm form.DB designs based on functional dependencies,intended to prevent data anomalies.<br>functional dependency:whenever 2 tuples agreed on A they agreed on B.A-&gt;B.<br>Use FD to find better schema and reduce anomaly.<br>Given set of FD, minimum FD and eliminate bad one.<br>Given a set of FD, does another fd holds?<br>methods:split/combine,reduction/trasivity.</p><h2 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h2><p>a sequecne of operations happend/not happen at all.Goals:recovery&durability;concurrency.<br>ACID:atomicity,consistency,iosalated,durable.</p><h2 id="Buffer-manager"><a href="#Buffer-manager" class="headerlink" title="Buffer manager"></a>Buffer manager</h2><p>Operation:read/flush/release(withoutwriting to disks)<br>Core:<strong>External sorting algorithm</strong>,can use 3 pages to manage/merge lists of arbitrary length. If M,N length lists,2(M+N) IO operations.<br>problem:2 lists are both much larger that the main memory to merge directly.<br>How to sort big files?<br>1.Split chunks of small enough to sort in memory,<br>2.merge pairs of run using external sort algorithms.<br>3.keep merging the result untils only left with 1 list.</p><h2 id="Index-amp-B-tree"><a href="#Index-amp-B-tree" class="headerlink" title="Index &amp; B+ tree"></a>Index &amp; B+ tree</h2><p>Problem:get faster in search for specific attribute values;faster insertions.<br>Index is a data structure mapping search key(primary key) to each rows.provides efficient retrieval &amp; lookup.<br>Operation:search,add/remove.<br>B+ tree:<br>search tree,1 node for 1 page,balanced height adjusted.make leaves into a linkedlist.Leaf nodes contains pointer to data records, internal nodes points to other nodes which contains other slots.<br>Feature:high fan out.the depth of tree is small, can get to the nodes very fast.<br>self balancing:balanced with height even if after insert.</p><h2 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h2><p>锁的粒度就是锁的作用范围，一般分为行级锁、表级锁。行级锁锁定记录行，表级锁锁定整个表。行级索：系统开销大，加锁慢，锁定粒度最小，会发生死锁，但是发生冲突的概率最低，并发性最高。表级索：系统开销小，加锁快，锁定粒度最大，不会发生死锁，但是发生冲突的概率最高，并发性最低。<br>共享锁只用于表级，排它锁用于行级或表级。<br>加了共享锁的对象，可以继续加共享锁，不能再加排他锁。<br>加了排他锁的对象，不能再加任何锁。<br>读写锁：共享锁，排它锁。<br>通常情况下，写操作较少时，使用乐观锁，写操作较多时，使用悲观锁。每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据。</p><h2 id="NoSQL的劣势和优势"><a href="#NoSQL的劣势和优势" class="headerlink" title="NoSQL的劣势和优势"></a>NoSQL的劣势和优势</h2><p>锁的粒度大，只支持全局读写锁，IO速度慢时容易造成卡死。不支持MySQL的事务操作，join多表查询困难。<br>事务操作是指一批SQL语句具有相互关联性， 在一个表中插入删除了之后在另一个表里面也要进行相应的批处理操作，否则进行回滚。在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。<br>MySQL的事务操作机制：<br>1、用 BEGIN, ROLLBACK, COMMIT来实现<br>BEGIN 开始一个事务<br>ROLLBACK 事务回滚<br>COMMIT 事务确认<br>2、直接用 SET 来改变 MySQL 的自动提交模式:<br>SET AUTOCOMMIT=0 禁止自动提交<br>SET AUTOCOMMIT=1 开启自动提交</p>]]></content>
     

@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/02/25/OS-practice-problem-summary.html</loc>
+    
+    <lastmod>2018-02-27T05:56:06.563Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/26/Database-relation-alebra.html</loc>
+    
+    <lastmod>2018-02-27T05:55:45.541Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/26/Linux-knowledge.html</loc>
+    
+    <lastmod>2018-02-27T05:54:44.177Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/24/pandas-details.html</loc>
+    
+    <lastmod>2018-02-27T02:24:43.217Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/03/Database%20concept.html</loc>
+    
+    <lastmod>2018-02-26T16:49:02.331Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/18/Database-design-summary.html</loc>
+    
+    <lastmod>2018-02-26T16:48:04.007Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/02/19/Linux-memory-management.html</loc>
     
     <lastmod>2018-02-19T15:04:23.622Z</lastmod>
@@ -12,13 +54,6 @@
     <loc>http://yoursite.com/2018/02/17/Linux-screen-command.html</loc>
     
     <lastmod>2018-02-19T00:52:24.508Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/02/18/Database-design-summary.html</loc>
-    
-    <lastmod>2018-02-18T23:58:18.244Z</lastmod>
     
   </url>
   
@@ -110,13 +145,6 @@
     <loc>http://yoursite.com/2018/01/19/React%20review.html</loc>
     
     <lastmod>2018-02-07T17:27:33.069Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/02/03/Database%20concept.html</loc>
-    
-    <lastmod>2018-02-07T16:53:20.919Z</lastmod>
     
   </url>
   
