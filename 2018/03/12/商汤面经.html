@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java线程池注意区分不是数据库连接池…我真蠢线程池的作用：线程池作用就是限制系统中执行线程的数量。根据系统的环境情况，可以自动或手动设置线程数量，达到运行的最佳效果；少了浪费了系统资源，多了造成系统拥挤效率不高。用线程池控制线程数量，其他线程排 队等候。一个任务执行完毕，再从队列的中取最前面的任务开始执行。若队列中没有等待进程，线程池的这一资源处于等待。当一个新任务需要运行时，如果线程池中有等">
+  <meta name="description" content="Java线程池注意区分不是数据库连接池…我真蠢线程池的作用：线程池作用就是限制系统中执行线程的数量。">
 <meta name="keywords" content="front-end,React,javascript,SpringMVC,Django,程序猿,Developer,Programmer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Huawei&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/2018/03/12/商汤面经.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="Java线程池注意区分不是数据库连接池…我真蠢线程池的作用：线程池作用就是限制系统中执行线程的数量。根据系统的环境情况，可以自动或手动设置线程数量，达到运行的最佳效果；少了浪费了系统资源，多了造成系统拥挤效率不高。用线程池控制线程数量，其他线程排 队等候。一个任务执行完毕，再从队列的中取最前面的任务开始执行。若队列中没有等待进程，线程池的这一资源处于等待。当一个新任务需要运行时，如果线程池中有等">
-<meta property="og:updated_time" content="2018-03-13T02:49:34.828Z">
+<meta property="og:description" content="Java线程池注意区分不是数据库连接池…我真蠢线程池的作用：线程池作用就是限制系统中执行线程的数量。">
+<meta property="og:updated_time" content="2018-03-13T02:53:49.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Huawei&#39;s Blog">
-<meta name="twitter:description" content="Java线程池注意区分不是数据库连接池…我真蠢线程池的作用：线程池作用就是限制系统中执行线程的数量。根据系统的环境情况，可以自动或手动设置线程数量，达到运行的最佳效果；少了浪费了系统资源，多了造成系统拥挤效率不高。用线程池控制线程数量，其他线程排 队等候。一个任务执行完毕，再从队列的中取最前面的任务开始执行。若队列中没有等待进程，线程池的这一资源处于等待。当一个新任务需要运行时，如果线程池中有等">
+<meta name="twitter:description" content="Java线程池注意区分不是数据库连接池…我真蠢线程池的作用：线程池作用就是限制系统中执行线程的数量。">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -174,7 +174,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Java线程池"><a href="#Java线程池" class="headerlink" title="Java线程池"></a>Java线程池</h2><p>注意区分不是数据库连接池…我真蠢<br>线程池的作用：<br>线程池作用就是<strong>限制系统中执行线程的数量。</strong><br>根据系统的环境情况，可以自动或手动设置线程数量，达到运行的最佳效果；少了浪费了系统资源，多了造成系统拥挤效率不高。用线程池控制线程数量，其他线程排 队等候。一个任务执行完毕，再从队列的中取最前面的任务开始执行。若队列中没有等待进程，线程池的这一资源处于等待。当一个新任务需要运行时，如果线程池中有等待的工作线程，就可以开始运行了；否则进入等待队列。<br>为什么要用线程池:<br>1.减少了创建和销毁线程的次数，每个工作线程都可以被重复利用，可执行多个任务。<br>2.可以根据系统的承受能力，调整线程池中工作线线程的数目，防止因为消耗过多的内存，而把服务器累趴下(每个线程需要大约1MB内存，线程开的越多，消耗的内存也就越大，最后死机)。<br>Java里面线程池的顶级接口是Executor，但是严格意义上讲Executor并不是一个线程池，而只是一个执行线程的工具。真正的线程池接口是ExecutorService。<br>比较重要的几个类：<br>ExecutorService:真正的线程池接口。<br>ScheduledExecutorService:能和Timer/TimerTask类似，解决那些需要任务重复执行的问题。<br>ThreadPoolExecutor:ExecutorService的默认实现。<br>ScheduledThreadPoolExecutor:继承ThreadPoolExecutor的ScheduledExecutorService接口实现，周期性任务调度的类实现。<br>要配置一个线程池是比较复杂的，尤其是对于线程池的原理不是很清楚的情况下，很有可能配置的线程池不是较优的，因此在Executors类里面提供了一些静态工厂，生成一些常用的线程池。<br>Java通过Executors提供四种线程池，分别为：<br><strong>newCachedThreadPool</strong>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程.<br>newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待.<br><strong>newScheduledThreadPool</strong>创建一个定长线程池，支持定时及周期性任务执行.<br>newSingleThreadExecutor创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行.</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Java线程池"><a href="#Java线程池" class="headerlink" title="Java线程池"></a>Java线程池</h2><p>注意区分不是数据库连接池…我真蠢<br>线程池的作用：<br>线程池作用就是<strong>限制系统中执行线程的数量。</strong><br><a id="more"></a><br>根据系统的环境情况，可以自动或手动设置线程数量，达到运行的最佳效果；少了浪费了系统资源，多了造成系统拥挤效率不高。用线程池控制线程数量，其他线程排 队等候。一个任务执行完毕，再从队列的中取最前面的任务开始执行。若队列中没有等待进程，线程池的这一资源处于等待。当一个新任务需要运行时，如果线程池中有等待的工作线程，就可以开始运行了；否则进入等待队列。<br>为什么要用线程池:<br>1.减少了创建和销毁线程的次数，每个工作线程都可以被重复利用，可执行多个任务。<br>2.可以根据系统的承受能力，调整线程池中工作线线程的数目，防止因为消耗过多的内存，而把服务器累趴下(每个线程需要大约1MB内存，线程开的越多，消耗的内存也就越大，最后死机)。<br>Java里面线程池的顶级接口是Executor，但是严格意义上讲Executor并不是一个线程池，而只是一个执行线程的工具。真正的线程池接口是ExecutorService。<br>比较重要的几个类：<br>ExecutorService:真正的线程池接口。<br>ScheduledExecutorService:能和Timer/TimerTask类似，解决那些需要任务重复执行的问题。<br>ThreadPoolExecutor:ExecutorService的默认实现。<br>ScheduledThreadPoolExecutor:继承ThreadPoolExecutor的ScheduledExecutorService接口实现，周期性任务调度的类实现。<br>要配置一个线程池是比较复杂的，尤其是对于线程池的原理不是很清楚的情况下，很有可能配置的线程池不是较优的，因此在Executors类里面提供了一些静态工厂，生成一些常用的线程池。<br>Java通过Executors提供四种线程池，分别为：<br><strong>newCachedThreadPool</strong>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程.<br>newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待.<br><strong>newScheduledThreadPool</strong>创建一个定长线程池，支持定时及周期性任务执行.<br>newSingleThreadExecutor创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行.</p>
 <h2 id="Java-Object"><a href="#Java-Object" class="headerlink" title="Java Object"></a>Java Object</h2><p>Clone(深拷贝浅拷贝);equals/hashCode(),为什么要重写他们,HashMap的实现原理一定会问，具体怎么实现的呢？toString():    Returns a string representation of the object.</p>
 <h2 id="Java数类型对象的安全性能"><a href="#Java数类型对象的安全性能" class="headerlink" title="Java数类型对象的安全性能"></a>Java数类型对象的安全性能</h2><p>Java虚拟机规范定义的许多规则中的一条：所有对基本类型的操作，除了某些对long类型和double类型的操作之外，都是原子级的。<br>目前的JVM（java虚拟机）都是将32位作为原子操作，并非64位。当线程把主存中的 long/double类型的值读到线程内存中时，可能是两次32位值的写操作，显而易见，如果几个线程同时操作，那么就可能会出现高低2个32位值出错的情况发生。<br><strong>要在线程间共享long与double字段是，必须在synchronized中操作，或是声明为volatile.</strong></p>
 <h2 id="ConcurrentMap-amp-amp-HashMap有什么区别"><a href="#ConcurrentMap-amp-amp-HashMap有什么区别" class="headerlink" title="ConcurrentMap&amp;&amp;HashMap有什么区别"></a>ConcurrentMap&amp;&amp;HashMap有什么区别</h2><h2 id="数据库线程池"><a href="#数据库线程池" class="headerlink" title="数据库线程池"></a>数据库线程池</h2><p>连接池就是创建和管理一个连接的缓冲池技术，这些连接随时会被需要他们的线程调用。在我们连接数据库的时候如果不使用数据连接池，每一次访问数据库都去创建一个连接，这样会很消耗时间和项目的性能。<br>Proxool是sourceforge下面的一个开源数据连接池，最大的特色便是Proxool提供了监视的功能，便于发现连接泄漏的情况。 </p>

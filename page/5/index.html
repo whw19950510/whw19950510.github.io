@@ -472,108 +472,6 @@
 
 
   
-    <article id="post-高并发秒杀系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/04/高并发秒杀系统.html">高并发秒杀系统</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/04/高并发秒杀系统.html" class="archive-article-date">
-  	<time datetime="2018-02-05T03:37:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="设计流程"><a href="#设计流程" class="headerlink" title="设计流程"></a>设计流程</h2><p>MySQL表设计<br>SQL技巧<br>事务和行级锁<br>MyBatis使用，DAO层设计开发<br>Spring IOC整合Service,注解式、XML配置<br>SpringMVC,REstFUL的API接口<br>Controller开发设计<br><strong>高并发节点</strong>和<strong>高并发瓶颈</strong></p>
-<h2 id="Maven-command"><a href="#Maven-command" class="headerlink" title="Maven command"></a>Maven command</h2><p>maven archetype:create -DgroupId=org.seckill -Dartifact=shoppingkill -DarchetypeArtifactId=maven-archetype-webapp设计模板原型<br>日志规范：slf4j是接口，log4j,logback是实际实现<br>使用slf4j+logback-classic:实现接口并整合<br>更改使用的servlet版本，从web-app.xml中取出，enable JSP EL表达式。<br>dependency:spring-web,spring-webmvc,spring-context,mysql-connector-java,spring-core,spring-beans,spring-tx,spring-jdbc.</p>
-<h2 id="秒杀业务分析"><a href="#秒杀业务分析" class="headerlink" title="秒杀业务分析"></a>秒杀业务分析</h2><p>用户对库存的秒杀处理：<br>减库存+记录购买明细-&gt;事务(transactions).<br>谁购买+购买时间+购买明细<br>出现超卖、少买事件<br>数据落地：NoSQL：redis,HBase,Elecsearch对事务处理不佳，追求分布式./SQL:事务，高可靠。</p>
-<h2 id="难点分析"><a href="#难点分析" class="headerlink" title="难点分析"></a>难点分析</h2><p>race condition:多个用户同时进行秒杀，MySQL上反映为事务+行级锁，<br>start trans<br>update 库存:会出现竞争的地方<br>记录购买明细<br>commit()<br><strong>行级锁</strong>:多个用户同时update，其他用户全部等待，只让一个sql access，进行更新操作。<strong>数据库IO是高并发难点。</strong></p>
-<h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><p>秒杀接口暴露（防止自动秒杀）<br>用户执行秒杀<br>秒杀后查询怎么做<br>DAO设计编码-&gt;Service编码-&gt;Restful-&gt;front-end<br>1.database设计<br>Table-&gt;Entity映射</p>
-<h2 id="基于MyBatis的数据映射"><a href="#基于MyBatis的数据映射" class="headerlink" title="基于MyBatis的数据映射"></a>基于MyBatis的数据映射</h2><p>数据库-&gt;映射-&gt;对象<br>JDBC:建立连接；拼写SQL；返回resultset；拿到结果<br>MyBatis：工作在映射层，ORMapping。参数需要自己提供，SQL自己操纵，能进行SQL优化===Entity封装。<br>怎么用？SQL文件写在哪？<br><strong>XML提供SQL(推荐)</strong>//注解SQL<br>怎样实现DAO接口？<br><strong>Mapper机制</strong>自动实现DAO接口，返回执行结果，不需要像Hibernate一样写实现类。<br>API方式实现接口：像JDBC一样进行一堆操作。<br>推荐Mapper自动实现接口。<br>1.Config.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;settings&gt;</span><br><span class="line">    &lt;!--使用JDBC的getGeneratedKeys获取数据库主键值，不用认为插入Id--&gt;</span><br><span class="line">    &lt;setting name=&quot;userGeneratedKeys&quot; values=&quot;true&quot;/&gt;</span><br><span class="line">    &lt;!--使用列别名替换别名--&gt;</span><br><span class="line">    &lt;setting name=&quot;userColumnLabel&quot;/&gt;</span><br><span class="line">    &lt;!--下划线-&gt;驼峰命名转换Java--&gt;</span><br><span class="line">    &lt;setting name=&quot;nameUnderscoreCamelCase&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">&lt;/settings&gt;</span><br></pre></td></tr></table></figure><br>2.Mapper file to map sql&amp;&amp;class<br>DAO名称和mapper sql文件名称相同。<br>register mapper class<br>With XML Config<br>A mapper is registered to Spring by including a MapperFactoryBean in your XML config file like follows:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;applicationcontext.xml&gt;</span><br><span class="line">&lt;bean id=&quot;userMapper&quot; class=&quot;org.mybatis.spring.mapper.MapperFactoryBean&quot;&gt;</span><br><span class="line">  &lt;property name=&quot;mapperInterface&quot; value=&quot;org.mybatis.spring.sample.mapper.UserMapper&quot; /&gt;</span><br><span class="line">  &lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure><br>If the UserMapper has a corresponding MyBatis XML mapper file in the same classpath location as the mapper interface, it will be parsed automatically by the MapperFactoryBean. There is no need to specify the mapper in a MyBatis configuration file unless the mapper XML files are in a different classpath location. See the SqlSessionFactoryBean’s configLocation property for more information.</p>
-<h2 id="Mybatis配置新特性"><a href="#Mybatis配置新特性" class="headerlink" title="Mybatis配置新特性"></a>Mybatis配置新特性</h2><p>Since 1.3.0, configuration property has been added. It can be specified a Configuration instance directly without MyBatis XML configuration file. 不用重写mybatis-config.xml,全部在spring-context.xml里面进行配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;</span><br><span class="line">  &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;</span><br><span class="line">  &lt;property name=&quot;configuration&quot;&gt;</span><br><span class="line">    &lt;bean class=&quot;org.apache.ibatis.session.Configuration&quot;&gt;</span><br><span class="line">      &lt;property name=&quot;mapUnderscoreToCamelCase&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Mybatis-config.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;settings&gt;</span><br><span class="line">    &lt;!-- 使用jdbc getGeneratedkeys 获取数据库自增主键值 --&gt;</span><br><span class="line">    &lt;setting name=&quot;useGeneratedKeys&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">    &lt;!-- 使用列别名替换列名 --&gt;</span><br><span class="line">    &lt;setting name=&quot;useColumnLabel&quot; value=&quot;true&quot; /&gt; </span><br><span class="line">    &lt;!--下划线-&gt;驼峰命名转换Java--&gt;</span><br><span class="line">    &lt;setting name=&quot;mapUnderscoreCamelCase&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">  &lt;/settings&gt;</span><br><span class="line">  &lt;!-- 配置全局属性 --&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure><br>insert <strong>ignore</strong> into TABLE_NAME WHERE xxx=xxx;//如果出现主键重复，忽略并返回0<br><strong>能最大化的编写最高效的Sql技巧语句</strong></p>
-<h2 id="MyBatis整合Spring"><a href="#MyBatis整合Spring" class="headerlink" title="MyBatis整合Spring"></a>MyBatis整合Spring</h2><p>自动实现DAO接口的API：<strong>mapper</strong>.自动注入容器。只需要拿到依赖直接使用。<br>自由传参，结果集自动赋值。<br>核心流程：<strong>DAO提供Mapper+XML提供Sql</strong><br>1.减少XML配置:别名，包名+类名表示一个类，Mybatis实现了包扫描，所以只用写类名。配置扫描：很多XML文件mapper，自动扫描：所有mapper下面对应的.xml文件。<br>2.自由传递参数并返回实体类型<br>3.少编码：只写接口，不写实现类，接口自身包含参数，返回值类型，classfile-&gt;sql id<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;property name=&quot;maxPoolSize&quot; value=&quot;30&quot;/&gt;</span><br><span class="line">&lt;property name=&quot;minPoolSize&quot; value=&quot;10&quot;/&gt;</span><br><span class="line">&lt;!--c3p0的自动清理工作--&gt;</span><br><span class="line">&lt;property name=&quot;autoCommitOnClose&quot; value=&quot;false&quot; /&gt;</span><br><span class="line">&lt;!-- 获取连接超时时间 --&gt;</span><br><span class="line">&lt;property name=&quot;checkoutTimeout&quot; value=&quot;1000&quot; /&gt;</span><br><span class="line">&lt;property name=&quot;acquireRetryAttempts&quot; value=&quot;2&quot;/&gt;</span><br><span class="line">&lt;!-- 约定大于配置，特定去扫描那些包，并注入容器。 --&gt;</span><br><span class="line">&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;</span><br><span class="line">  &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;/&gt;</span><br><span class="line">  &lt;!--给出需要扫描DAO接口包--&gt;</span><br><span class="line">  &lt;property name=&quot;basePackage&quot; value=&quot;com.web.seu.dao&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="DAO层和Service层分析"><a href="#DAO层和Service层分析" class="headerlink" title="DAO层和Service层分析"></a>DAO层和Service层分析</h2><p>DAO层工作为接口设计+SQL编写；代码和SQL分离；数据访问层，如何对远程数据进行操作<br>DAO拼接等逻辑在Service层完成；逻辑业务，完成什么样的业务。<br>dto：service和外部的数据传递；entity关注业务的封装<br>业务接口的设计：站在使用者的角度设计接口。<br>1.方法定义粒度：只做他该做的事情，参数越简练越直接越好。<br>2.返回类型友好，不能return entity、Map/抛出异常<br>运行期异常&amp;&amp;编译期异常<br>Spring回滚事务只接受运行期异常，帮助回滚<br>一般用enums表示<strong>常量数据字典</strong>，存放常量数据，不在业务代码中写hardcoded字符串。<br>Enum.SUCCESS(属性名称)</p>
-<h2 id="使用Spring管理Service依赖"><a href="#使用Spring管理Service依赖" class="headerlink" title="使用Spring管理Service依赖"></a>使用Spring管理Service依赖</h2><p>通过IOC进行依赖注入，创建对象工厂。获取一致的访问接口，ApplicationContext/Annotation注入，获取工厂当中的任意实例。<br>依赖关系：Service-&gt;DAO-&gt;SqlSessionFactory-&gt;DataSource<br>为什么要用IOC？<br>对象统一管理，交给IOC容器<br>规范的生命周期管理<br>通过注解等灵活的依赖注入<br>一致的获取对象</p>
-<h2 id="Spring注入方式总结"><a href="#Spring注入方式总结" class="headerlink" title="Spring注入方式总结"></a>Spring注入方式总结</h2><p>1.XML:用在初始化的Bean来自第三方类库，比如DataSource,MyBatis,需要命名空间配置:context,aop,mvc:<br>2.Annotation:Service+DAO,自身开发的类,Controller+Service+DAO<br>3.Java配置类，configuration.java,不常见，需要控制初始化过程，加入逻辑程序<br>XML-&gt;packagescan-&gt;Annotation<br>@Sercvice:service注解<br>@Component:Component注解<br>@Dao:Dao注解<br>@Autowired()<br>@Resource<br>@Inject</p>
-<h2 id="声明式事务"><a href="#声明式事务" class="headerlink" title="声明式事务"></a>声明式事务</h2><p>开启事务-&gt;操作-&gt;提交、回滚<br>中间有一系列操作的时候算是事务<br>ProxyFactoryBean+XML-&gt;早期使用方式<br>tx:advice+aop命名空间：一次配置永久生效<br>注解：@Transactional<br>事务方法嵌套：传播行为——&gt;propogation_required<br>什么时候回滚事务？<br>1.抛出运行期异常的时候(RunTimeException).小心try catch操作<br>Mybatis使用jdbc做事务管理器；Hibernate用自己的。<br>    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"><br>注解的声明式事务：<tx:annotation-config transaction-manager="transactionManager"><br>使用注解式：保证事务方法的执行时间尽可能短，不要穿插网络RPC、HTTP请求，高并发系统尽量避免。剥离到事务方法外部，再做一个更上层的方法。其他单条普通方法不要让数据库阻塞。不是所有的方法都需要事务，而且注意是Service里面注解。<strong>只读操作和单条添加修改操作不需要进行事务标注</strong>。<strong>MySQL行级锁</strong>。<br>前端页面流程<br>列表页-&gt;展示页-&gt;登陆(记录Cookie)-&gt;展示逻辑</tx:annotation-config></bean></p>
-<p>##RestFul<br>兴起于Ruby on Rails。URL表达方式：资源状态和资源状态的转移<br>GET查询、PUT修改操作、POST添加/修改操作、<br>URL：模块/资源/标识/集合  eg：/users/{id}/followers<br>设计好的URL便于前端交互体现类别。</p>
-<p>#SpringMVC<br>设计实现RestFul接口。围绕Handler开发，数据+View(JSON,JSP)<br>用户请求-&gt;DispatcherServlet(拦截所有请求）-&gt;DefaultAnnotationHandlerMapping(映射到URL)-&gt;DefaultHanlderAdaptor-&gt;Model&amp;View.<br>只需要编写Seccontroller-&gt;表现映射。<br>HTTP请求映射-&gt;Servlet容器-&gt;SpringMVCHandler注解映射URL-&gt;handler处理方法<br>@RequestMapping(method=RequestMethod.GET)<br>请求方法细节处理：<br>1.请求参数绑定：@PathVariable(“seckillId”)long seckillId<br>2.请求方式限定<br>3.转发重定向:return “redirect:/“,”forward:/“<br>4.数据赋值，Cookie访问:Model.addAttribute(“sec”,seckill)，CookieValue(Value=”killPhone”)<br>5.返回JSON数据：@ResponseBody标注函数头<br>MyBatis-&gt;整合到Spring，servlet加载MVC整合Spring。需要在web.xml里面配置：<init-param><servlet-mapping>默认映射到所有请求</servlet-mapping></init-param></p>
-<p><mvc:annotation-driven>：自动注册mapper&amp;Adaptor组件；开启注解模式<br>映射到/,静态资源配置,处理gif,jpg:<mvc:default-servlet-handler><br>Spring默认已经开启对JSON的支持<br>开启自动扫描Web的bean</mvc:default-servlet-handler></mvc:annotation-driven></p>
-<h2 id="常用IDE快捷键操作"><a href="#常用IDE快捷键操作" class="headerlink" title="常用IDE快捷键操作"></a>常用IDE快捷键操作</h2><p>VS code:<br>Ctrl+Shift+L:选中所有单词<br>Ctrl+D:选中下一个单词<br>IDEA：<br>alt+insert：generate补全<br>ctrl+空格：提示参数补全<br>Ctrl+Y:delete one line<br>全局查找：shift+shift<br>alt+J选中下一个匹配项</p>
-<h2 id="Bootstrap3"><a href="#Bootstrap3" class="headerlink" title="Bootstrap3"></a>Bootstrap3</h2><p>常见的动画效果能通过CSS埋点实现；移动端自适应布局；<br>静态包含JSP：内容会合并过来作为一个Servlet输出。<br>动态包含JSP：多个Servlet，先生成单独的Servlet再统一输出。</p>
-<h2 id="Cookie登录交互"><a href="#Cookie登录交互" class="headerlink" title="Cookie登录交互"></a>Cookie登录交互</h2><p>CDN是web加速最重要的功能点，高并发使用CDN加速。<br>DTO存放用户数据方便在MVC前端进行解析。<br>注解映射驱动，决定返回类型是jsp/json</p>
-<h2 id="高并发优化"><a href="#高并发优化" class="headerlink" title="高并发优化"></a>高并发优化</h2><p>高并发发生在哪？<br>为什么要单独获取商品时间：<br>用户会不断刷新页面，详情页应该被部署到CDN上，<strong>CDN会进行静态化处理</strong>，HTML在CDN节点上，加载静态资源都会部署到CDN上，不需要访问系统，这样就访问不到系统时间了。其他请求会返回系统<br><strong>CDN:内容分发网络，加速用户获取数据的系统</strong>，可以是静态资源，也可以是像视频之类的动态资源。<br>部署在离用户最近的网络接口上，上层部署<br><strong>命中CDN不需要访问系统后端服务期。</strong><br>大的互联网公司都有CDN集群，其他会进行租用。</p>
-<p>访问系统时间:这个操作没有任何后端访问，仅仅hit内存，不需要优化。<br>获取秒杀地址：没法使用CDN，CDN只适合静态资源，每个URL对应固定的js脚本。秒杀地址包含变化的内容，可以放在服务期端缓存：<strong>redis</strong>,1s-&gt;10WQDS,甚至可以进行集群，抗更高的并发量。一致性维护成本低，可以在业务系统里面控制缓存。<br>请求地址-&gt;redis/msql-&gt;<br><strong>使用超时机制，超时后就需要进入MySQL寻找数据</strong><br><strong>每次更新MySQL的时候相应的同时更新Redis</strong><br>在后端缓存会产生不一致的问题，需要使用数据库保持<strong>consistency</strong>,对单行MySQL数据的更新竞争会拖慢系统。<br>方案分析:1.原子计数器(atomic)记录库存(redis/NOSQL)，记录每次谁减库存，记录行为消息(消息放到分布式MQ)-&gt;消费消息并落地-&gt;MySQL.<br>缺点：成本高，运维维护分布式组件，了解逻辑怎么回滚；幂等性很难保证，重复秒杀问题，需要维护哪些用户减过库存了(NoSQL);<br>为什么不用MySQL?1条update能更新4wQPS。<br>java控制事务的行为分析：<br>update-&gt;insert 购买明细<br>update-&gt;<strong>block</strong>事务开启，发现两个事务锁住同一行，行级锁不能释放，另一个行级锁commit/rollback,获得锁的可以继续运行。<br>GC(JVM垃圾回收延迟，新生代GC会终止所有代码50ms左右)<br><strong>Java和客户端通信会有网络延迟，以及可能的GC</strong>,限制了系统瓶颈量。<br>行级锁在commit之后释放-&gt;怎样减少行级锁的持有时间</p>
-<p>如何确定update更新成功？<br>1.update自身没报错<br>2.客户端确认uodate影响记录数<br><strong>把客户端逻辑放在MySql服务端，避免延迟</strong><br>怎样将事务放到MySQL<br>1.定制化MySQL方案，直接修改源码，update+auto commit,自动回滚，避免网络延迟<br>2.使用<strong>存储过程，在MySQL服务端完成一组事务。</strong><br>当前事务是在Java客户端进行的，两个服务器，MySQL+Tomcat.<br>优化总结：<br>前端控制，防止用户不断发出请求<br>动静态数据分离:CDN缓存，后端缓存(redis,memcache)<br>eg:判断开始时间，结束时间<br>事务竞争:减少事务锁的持有时间，事务的ACID。</p>
-<h2 id="Java客户端连接redis并访问"><a href="#Java客户端连接redis并访问" class="headerlink" title="Java客户端连接redis并访问"></a>Java客户端连接redis并访问</h2><p>一般会有专门的服务器作为redis的缓存服务器<br>使用Jedis作为Java访问redis的客户端<br>优化秒杀暴露接口的数据库操作，<strong>SeckillService</strong>,exportSeckillUrl.<br>常用的缓存优化：<br>get from cache<br>if(null) getdb<br>else put cache<br>应该和业务代码分离开。<br>redisDAO:超时机制维护一致性<br>序列化对象，jvm-serailizer:protostuff;速度快，转化的字节数少，传输速度快。<br>protostuff-core/protostuff-runtime:protostuff必须是pojo,RuntimeSchema = RuntimeSchema.createFrom(.class):运行时通过响应对象的属性转化成byte<br>ProtostuffIOUtil.mergeFrom(bytes,seckill,runTimeSchema);//根据字节数组传到空对象里面，对象反序列，从Redis里面拿到对象，序列化再反序列化<br>Redis和数据库独立，必须在.xml里面注入，<bean id="class" ==""><constructor-arg><br>事务执行:主键拿到行级锁，网络延迟-&gt;更新-&gt;commit/rollback-&gt;释放行级锁<br>阻塞状态。MySql执行本地主键更新很快。<br>先insert购买明细，update减库存，commit/rollback。减少rowlock的持有时间。<br><strong>深度优化</strong>:<br>事务SQL在MySQL执行；Mysql通知结果，锁的时间很短。<br>存储过程:MySql,start transaction, rollback/commit;减小事务行级锁持有时间，不要过度依赖存储过程，在银行使用，Oracle数据库，存储过程很复杂<br>互联网项目没有太多市场.<strong>简单的逻辑可以应用存储过程.</strong><br>Java客户端调用存储过程；</constructor-arg></bean></p>
-<h2 id="大型系统部署"><a href="#大型系统部署" class="headerlink" title="大型系统部署"></a>大型系统部署</h2><p>CDN服务:JQuery, Bootstrap, JS, JSP加速用户获取内容的方式。不需要再访问后端服务器.<br>CDN缓存-&gt;服务期(DNS查找，查找到Ngix地址，智能DNS解析，Servlet集群负载均衡)-&gt;逻辑集群Jetty/tomcat-&gt;缓存集群(redis)<br>按照秒杀Id分库分表，数据分散.(分库分表框架，在同一个数据库中完成事务)<br>统计分析(Hadoop,,,) 从数据库拉取Search.</p>
-<p>数据库Schema的设计实现.<br>MyBatis设计DAO接口，mapper<br>一次配置不需要修改,配置包扫描<br>业务层:接口封装设计，站在使用者的角度如何使用<br>SpringIOC的配置:声明式事务XML配置，自己开发的逻辑注解@Autowired<br>Spring的声明式事务，什么情况下回滚，提交<br>RestFUL描述资源，<br>SpringMVC使用技巧<br>MySQL参数映射，怎么打包成JSON<br>事务、锁、网络延迟的理解，减小行级锁持有时间.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/04/高并发秒杀系统.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-python简书" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -621,6 +519,83 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/02/03/python简书.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Database concept" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/03/Database concept.html">Database Physical layer concept</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/03/Database concept.html" class="archive-article-date">
+  	<time datetime="2018-02-03T17:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Cover materials on Stanford CS145,345,346</p>
+<h2 id="Transaction-Concurrency-amp-Atomicity"><a href="#Transaction-Concurrency-amp-Atomicity" class="headerlink" title="Transaction,Concurrency &amp; Atomicity"></a>Transaction,Concurrency &amp; Atomicity</h2><p>Performace problem:Disk/SSD    access is slow,DBMS hide the latency by    doing more CPU work concurrently.<br>
+        
+          <a class="article-more-a" href="/2018/02/03/Database concept.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Database</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/03/Database concept.html">展开全文 >></a>
         </p>
       
 
