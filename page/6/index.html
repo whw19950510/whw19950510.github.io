@@ -170,30 +170,29 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-阴雨天的新学期" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JDBC ResultSet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/22/阴雨天的新学期.html">阴雨天的新学期</a>
+      <a class="article-title" href="/2018/02/03/JDBC ResultSet.html">JDBC ResultSet</a>
     </h1>
   
 
         
-        <a href="/2018/01/22/阴雨天的新学期.html" class="archive-article-date">
-  	<time datetime="2018-01-22T14:43:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
+        <a href="/2018/02/03/JDBC ResultSet.html" class="archive-article-date">
+  	<time datetime="2018-02-03T17:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="新学期换个心情生活"><a href="#新学期换个心情生活" class="headerlink" title="新学期换个心情生活"></a>新学期换个心情生活</h2><p>麦屯淅淅沥沥下了一夜的雨，我也一夜都没睡好。希望新学期认真上课，好好做项目，能少一点来自现实的压力，希望暑假早一点到来，毕竟这个寒假实在是太煎熬了。<br>
-        
-          <a class="article-more-a" href="/2018/01/22/阴雨天的新学期.html#more">more >></a>
-        
+        <script src="\assets\js\APlayer.min.js"> </script><p>结果集(ResultSet)是数据中查询结果返回的一种对象，可以说结果集是一个存储查询结果的对象，但是结果集并不仅仅具有存储的功能，他同时还具有操纵数据的功能，可能完成对数据的更新等。<br>结果集读取数据的方法主要是getXXX() ，他的参数可以使整型表示第几列（是从1开始的），还可以是列名。返回的是对应的XXX类型的值。如果对应那列时空值，XXX是对象的话返回XXX型的空值，如果XXX是数字类型，如Float等则返回0，boolean返回false。使用getString()可以返回所有的列的值，不过返回的都是字符串类型的。XXX可以代表的类型有：基本的数据类型如整型(int)，布尔型(Boolean)，浮点型(Float,Double)等，比特型（byte），还包括一些特殊的类型，如：日期类型（java.sql.Date），时间类型(java.sql.Time)，时间戳类型 (java.sql.Timestamp)，大数型(BigDecimal和BigInteger等)等。还可以使用getArray(int colindex/String columnname)，通过这个方法获得当前行中，colindex所在列的元素组成的对象的数组。使用getAsciiStream(<br>int colindex/String colname)可以获得该列对应的当前行的ascii流。也就是说所有的getXXX方法都是对当前行进行操作。<br>结果集从其使用的特点上可以分为四类，这四类的结果集的所具备的特点都是和Statement语句的创建有关，因为结果集是通过Statement语句执行后产生的，所以可以说，结果集具备何种特点，完全决定于Statement，当然我是说下面要将的四个特点，在Statement创建时包括三种类型。首先是无参数类型的，他对应的就是下面要介绍的基本的ResultSet对应的Statement。下面的代码中用到的Connection并没有对其初始化，变量conn代表的就是Connection对应的对象。SqlStr代表的是响应的SQL语句。<br>1.最基本的ResultSet。<br>之所以说是最基本的ResultSet是因为，这个ResultSet他起到的作用就是完成了查询结果的存储功能，而且只能读去一次，不能够来回的滚动读取。这种结果集的创建方式如下：<br>Statement st = conn.CreateStatement<br>ResultSet rs = Statement.excuteQuery(sqlStr);<br>由于这种结果集不支持，滚动的读去功能所以，如果获得这样一个结果集，只能使用它里面的next()方法，逐个的读去数据。<br>2.可滚动的ResultSet类型。<br>这个类型支持前后滚动取得纪录next（）、previous()，回到第一行first()，同时还支持要去的ResultSet中的第几行 absolute（int n），以及移动到相对当前行的第几行relative(int n)，要实现这样的ResultSet在创建Statement时用如下的方法。<br>Statement st = conn. createStatement (int resultSetType, int resultSetConcurrency)<br>ResultSet rs = st.executeQuery(sqlStr)<br>其中两个参数的意义是：<br>resultSetType 是设置 ResultSet 对象的类型可滚动，或者是不可滚动。取值如下：<br>       ResultSet.TYPE_FORWARD_ONLY 只能向前滚动<br>       ResultSet.TYPE_SCROLL_INSENSITIVE 和 Result.TYPE_SCROLL_SENSITIVE 这两个 方法都能够实现任意的前后滚动，使用各种移动的 ResultSet 指针的方法。二者的区别在于前者对于修改不敏感，而后者对于修改敏感。<br>resultSetConcurency 是设置 ResultSet 对象能够修改的，取值如下：<br>       ResultSet.CONCUR_READ_ONLY 设置为只读类型的参数。<br>       ResultSet.CONCUR_UPDATABLE 设置为可修改类型的参数。<br>所以如果只是想要可以滚动的类型的 Result 只要把 Statement 如下赋值就行了。<br>Statement st = conn.createStatement(Result.TYPE_SCROLL_INSENITIVE,<br>ResultSet.CONCUR_READ_ONLY);<br>ResultSet rs = st.excuteQuery(sqlStr) ； </p>
+<p>用这个 Statement 执行的查询语句得到的就是可滚动的 ResultSet 。<br>3.可更新的ResultSet<br>这样的ResultSet对象可以完成对数据库中表的修改，但是我知道ResultSet只是相当于数据库中表的视图，所以并不时所有的ResultSet只要设置了可更新就能够完成更新的，能够完成更新的ResultSet的SQL语句必须要具备如下的属性：<br>a.只引用了单个表。<br>b.不含有join或者group by子句。<br>c.那些列中要包含主关键字。<br>具有上述条件的，可更新的ResultSet可以完成对数据的修改，可更新的结果集的创建方法是：<br>Statement st = createstatement(Result.TYPE_SCROLL_INSENSITIVE,Result.CONCUR_UPDATABLE)<br>4、可保持的ResultSet<br>正常情况下如果使用Statement执行完一个查询，又去执行另一个查询时这时候第一个查询的结果集就会被关闭，也就是说，所有的Statement的查询对应的结果集是一个，如果调用Connection的commit()方法也会关闭结果集。可保持性就是指当ResultSet的结果被提交时，是被关闭还是不被关闭。JDBC2.0和1.0提供的都是提交后ResultSet就会被关闭。不过在JDBC3.0中，我们可以设置ResultSet是否关闭。要完成这样的ResultSet的对象的创建，要使用的Statement的创建要具有三个参数，这个Statement的创建方式也就是，我所说的 Statement的第三种创建方式。<br>当使用ResultSet的时候，当查询出来的数据集记录很多，有一千万条的时候，那rs所指的对象是否会占用很多内存，如果记录过多，那程序会不会把系统的内存用光呢<br>不会的，ResultSet表面看起来是一个记录集，其实这个对象中只是记录了结果集的相关信息，具体的记录并没有存放在对象中，具体的记录内容知道你通过next方法提取的时候，再通过相关的getXXXXX方法提取字段内容的时候才能从数据库中得到，这些并不会占用内存，具体消耗内存是由于你将记录集中的数据提取出来加入到你自己的集合中的时候才会发生，如果你没有使用集合记录所有的记录就不会发生消耗内存厉害的情况。</p>
+
       
 
       
@@ -206,11 +205,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -220,7 +215,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/22/阴雨天的新学期.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/03/JDBC ResultSet.html">展开全文 >></a>
         </p>
       
 
@@ -250,29 +245,30 @@
 
 
   
-    <article id="post-React review" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Database concept" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/19/React review.html">React review</a>
+      <a class="article-title" href="/2018/02/03/Database concept.html">Database Physical layer concept</a>
     </h1>
   
 
         
-        <a href="/2018/01/19/React review.html" class="archive-article-date">
-  	<time datetime="2018-01-19T23:05:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
+        <a href="/2018/02/03/Database concept.html" class="archive-article-date">
+  	<time datetime="2018-02-03T17:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="React解决了什么问题"><a href="#React解决了什么问题" class="headerlink" title="React解决了什么问题"></a>React解决了什么问题</h2><p>MVC架构的双向绑定以及一对多的关系容易造成连级/联动（Cascading）修改，对于代码的调试和维护都成问题。<a href="https://zhuanlan.zhihu.com/p/21324696" target="_blank" rel="noopener">Problem</a><br>
+        <p>Cover materials on Stanford CS145,345,346</p>
+<h2 id="Transaction-Concurrency-amp-Atomicity"><a href="#Transaction-Concurrency-amp-Atomicity" class="headerlink" title="Transaction,Concurrency &amp; Atomicity"></a>Transaction,Concurrency &amp; Atomicity</h2><p>Performace problem:Disk/SSD    access is slow,DBMS hide the latency by    doing more CPU work concurrently.<br>
         
-          <a class="article-more-a" href="/2018/01/19/React review.html#more">more >></a>
+          <a class="article-more-a" href="/2018/02/03/Database concept.html#more">more >></a>
         
       
 
@@ -286,15 +282,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Database</a>
         		</li>
       		
 		</ul>
@@ -304,7 +292,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/19/React review.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/03/Database concept.html">展开全文 >></a>
         </p>
       
 
@@ -334,29 +322,29 @@
 
 
   
-    <article id="post-面试心得" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java Socket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/19/面试心得.html">转-面试感想</a>
+      <a class="article-title" href="/2018/02/02/Java Socket.html">Java Socket Programming</a>
     </h1>
   
 
         
-        <a href="/2018/01/19/面试心得.html" class="archive-article-date">
-  	<time datetime="2018-01-19T22:41:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
+        <a href="/2018/02/02/Java Socket.html" class="archive-article-date">
+  	<time datetime="2018-02-02T22:07:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="转自知乎日报"><a href="#转自知乎日报" class="headerlink" title="转自知乎日报"></a>转自知乎日报</h2>
+        <h2 id="Java-Socket-programming-basics"><a href="#Java-Socket-programming-basics" class="headerlink" title="Java Socket programming basics"></a>Java Socket programming basics</h2><p>URLs and URLConnections provide a relatively high-level mechanism for accessing resources on the Internet. Sometimes your programs require lower-level network communication, for example, when you want to write a client-server application.<br>
         
-          <a class="article-more-a" href="/2018/01/19/面试心得.html#more">more >></a>
+          <a class="article-more-a" href="/2018/02/02/Java Socket.html#more">more >></a>
         
       
 
@@ -370,11 +358,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
         		</li>
       		
 		</ul>
@@ -384,7 +368,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/19/面试心得.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/02/Java Socket.html">展开全文 >></a>
         </p>
       
 
@@ -414,30 +398,29 @@
 
 
   
-    <article id="post-Understanding-Promise" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Advanced-Sql-query" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/Understanding-Promise.html">Understanding Promise</a>
+      <a class="article-title" href="/2018/02/02/Advanced-Sql-query.html">Advanced Sql query</a>
     </h1>
   
 
         
-        <a href="/2018/01/18/Understanding-Promise.html" class="archive-article-date">
-  	<time datetime="2018-01-18T22:16:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
+        <a href="/2018/02/02/Advanced-Sql-query.html" class="archive-article-date">
+  	<time datetime="2018-02-02T16:55:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>回调函数不允许使用return/throw, callback hell。</p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>ES6 原生提供了 Promise 对象。<br>所谓 Promise，就是一个对象，用来传递异步操作的消息。它代表了某个未来才会知道结果的事件（通常是一个异步操作），并且这个事件提供统一的 API，可供进一步处理。<br>
+        <h2 id="Query-Construction"><a href="#Query-Construction" class="headerlink" title="Query Construction"></a>Query Construction</h2>
         
-          <a class="article-more-a" href="/2018/01/18/Understanding-Promise.html#more">more >></a>
+          <a class="article-more-a" href="/2018/02/02/Advanced-Sql-query.html#more">more >></a>
         
       
 
@@ -451,11 +434,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Database</a>
         		</li>
       		
 		</ul>
@@ -465,7 +444,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/18/Understanding-Promise.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/02/Advanced-Sql-query.html">展开全文 >></a>
         </p>
       
 
@@ -495,29 +474,29 @@
 
 
   
-    <article id="post-Front-end-basic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Computer-Network-week1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/Front-end-basic.html">Front-end basic</a>
+      <a class="article-title" href="/2018/01/31/Computer-Network-week1.html">Computer Network week1</a>
     </h1>
   
 
         
-        <a href="/2018/01/18/Front-end-basic.html" class="archive-article-date">
-  	<time datetime="2018-01-18T18:26:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
+        <a href="/2018/01/31/Computer-Network-week1.html" class="archive-article-date">
+  	<time datetime="2018-01-31T22:07:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="front-end-SEO"><a href="#front-end-SEO" class="headerlink" title="front-end SEO"></a>front-end SEO</h2><p>Search engine Optimization，具体方法包括：<br>
+        <h2 id="Switch-amp-amp-Bridges"><a href="#Switch-amp-amp-Bridges" class="headerlink" title="Switch &amp;&amp; Bridges"></a>Switch &amp;&amp; Bridges</h2>
         
-          <a class="article-more-a" href="/2018/01/18/Front-end-basic.html#more">more >></a>
+          <a class="article-more-a" href="/2018/01/31/Computer-Network-week1.html#more">more >></a>
         
       
 
@@ -531,15 +510,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
         		</li>
       		
 		</ul>
@@ -549,7 +520,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/18/Front-end-basic.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/31/Computer-Network-week1.html">展开全文 >></a>
         </p>
       
 
@@ -579,30 +550,29 @@
 
 
   
-    <article id="post-leetcode-binary-search-practice-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SSM-framework-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/17/leetcode-binary-search-practice-4.html">leetcode-binary-search-practice-4</a>
+      <a class="article-title" href="/2018/01/30/SSM-framework-summary.html">SSM framework summary</a>
     </h1>
   
 
         
-        <a href="/2018/01/17/leetcode-binary-search-practice-4.html" class="archive-article-date">
-  	<time datetime="2018-01-17T23:36:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-17</time>
+        <a href="/2018/01/30/SSM-framework-summary.html" class="archive-article-date">
+  	<time datetime="2018-01-31T01:34:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="209-Minimum-Size-Subarray-Sum"><a href="#209-Minimum-Size-Subarray-Sum" class="headerlink" title="209. Minimum Size Subarray Sum"></a>209. Minimum Size Subarray Sum</h3><p>Can use 2 pointers with <code>O(n)</code> complexity. Notice that when end read the end of array should continue to move the start pointer.<br>
-        
-          <a class="article-more-a" href="/2018/01/17/leetcode-binary-search-practice-4.html#more">more >></a>
-        
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><p>IOC:Class A中用到了Class B的对象b，一般情况下，需要在A的代码中显式的new一个B的对象。<br>IOC is a thought in SE,Dependency injection is a design pattern.<br>采用依赖注入技术之后，A的代码只需要定义一个私有的B对象，不需要直接new来获得这个对象，而是通过相关的容器控制程序来将B对象在外部new出来并注入到A类里的引用中。而具体获取的方法、对象被获取时的状态由配置文件（如XML）来指定。</p>
+<h2 id="Implement-methods"><a href="#Implement-methods" class="headerlink" title="Implement methods"></a>Implement methods</h2><p>1.基于接口。实现特定接口以供外部容器注入所依赖类型的对象。<br>2.基于 getter/setter 方法。实现特定属性的public set方法，来让外部容器调用传入所依赖类型的对象。<br>3.基于构造函数。实现特定参数的构造函数，在新建对象时传入所依赖类型的对象。<br>4.基于注解。基于Java的注解功能，在私有变量前加“@Autowired”等注解，不需要显式的定义以上三种代码，便可以让外部容器传入对应的对象。该方案相当于定义了public的set方法，但是因为没有真正的set方法，从而不会为了实现依赖注入导致暴露了不该暴露的接口（因为set方法只想让容器访问来注入而并不希望其他依赖此类的对象访问）。</p>
+
       
 
       
@@ -615,15 +585,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">binary search</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">two pointers</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSM</a>
         		</li>
       		
 		</ul>
@@ -633,7 +599,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/17/leetcode-binary-search-practice-4.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/30/SSM-framework-summary.html">展开全文 >></a>
         </p>
       
 
@@ -665,7 +631,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -777,6 +743,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -785,39 +759,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -825,11 +767,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -837,7 +803,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -845,7 +815,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">

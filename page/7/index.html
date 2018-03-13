@@ -170,28 +170,260 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leetcode-binary-search-practice-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-OOD-concepts" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/15/leetcode-binary-search-practice-3.html">leetcode binary search practice 3</a>
+      <a class="article-title" href="/2018/01/30/OOD-concepts.html">OOD concepts</a>
     </h1>
   
 
         
-        <a href="/2018/01/15/leetcode-binary-search-practice-3.html" class="archive-article-date">
-  	<time datetime="2018-01-16T02:48:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-15</time>
+        <a href="/2018/01/30/OOD-concepts.html" class="archive-article-date">
+  	<time datetime="2018-01-31T01:17:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h3 id="162-Find-Peak-Element"><a href="#162-Find-Peak-Element" class="headerlink" title="162. Find Peak Element"></a>162. Find Peak Element</h3><p>There may exsists many peak elements in array, only need to return 1 index. If it’s a sorted array, answer will be first or last element.<br>random select 1 element, if not peak element, if left neighbors larger than it, peak will exists in left part, otherwise right part. Notice the edge case where length == 2, then simply comes to start/end.</p>
-<h3 id="34-Search-for-a-Range"><a href="#34-Search-for-a-Range" class="headerlink" title="34. Search for a Range"></a>34. Search for a Range</h3><p>Simple binary search to find initial value, then search for the range. My solution is a little complex to loop to boundary, worst case go to <code>O(n)</code>. actually, <code>start = find(target), end = find(target + 1) -1</code>.</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="OOD-core-concepts"><a href="#OOD-core-concepts" class="headerlink" title="OOD core concepts"></a>OOD core concepts</h2><p>1.Excapsulation<br>2.Inheritence:子类只能继承父类部分的方法和对象。<br>3.Polyphosim:父类引用可以持有子类对象，只能调用父类的方法，不能调用特有方法。多态的实现：1.继承，多个子类重写2.接口，多种实现。</p>
+<h2 id="Difference-between-Abstract-class-amp-amp-Interface"><a href="#Difference-between-Abstract-class-amp-amp-Interface" class="headerlink" title="Difference between Abstract class &amp;&amp; Interface"></a>Difference between Abstract class &amp;&amp; Interface</h2><p>1.single extends&amp;&amp;multi implementation<br>2.Abstract can have unabstract methods,interface can only have abstract methods. interface assumes methods:<strong>public static final</strong>.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/30/OOD-concepts.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java-load-balancing" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/30/Java-load-balancing.html">Java load balancing</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/30/Java-load-balancing.html" class="archive-article-date">
+  	<time datetime="2018-01-31T01:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Load-Balancing-Algorithms"><a href="#Load-Balancing-Algorithms" class="headerlink" title="Load Balancing Algorithms"></a>Load Balancing Algorithms</h2><p>Round robin:equally divide sevaral number of tasks.<br>Weighted RR:assign different number of tasks to several servers according to the weights.<br>Random<br>最少连接（Least Connections）<br>记录每个应用服务器正在处理额连接数（请求数），将新到的请求分发到最少连接的服务器上，应该说，这是最符合负载均衡定义的算法。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/30/Java-load-balancing.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java-multithread-programming" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/30/Java-multithread-programming.html">Java multithread programming</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/30/Java-multithread-programming.html" class="archive-article-date">
+  	<time datetime="2018-01-30T22:47:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Multithreading-implementation"><a href="#Multithreading-implementation" class="headerlink" title="Multithreading implementation"></a>Multithreading implementation</h2><p>2 ways to implement multithreading:1.implement Runnable, then implement the void run() method.2.extends the Thread abstract class.<br>Obviously 1st way is better, as Java not allowed extends multi-classes.</p>
+<h2 id="Java-util-concurrent"><a href="#Java-util-concurrent" class="headerlink" title="Java.util.concurrent"></a>Java.util.concurrent</h2><p>It includes several threadsafing collection framework:CopyOnWriteArrayList,ConcurrentHashMap,ConcurrentSkipListSet,ConcurrentSkipListMap,BlockingQueue<br>Eg:BlockingQueue is thread safe for consumer/producer problems. Whereas add, remove will <strong>throw Exception</strong>; offer poll gives out specail value; put/take will get thread blocked until operated successfully.<br>ConcurrentHashMap providing thread safety and <strong>atomicity</strong> guarantees.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Consumer  c= <span class="keyword">new</span> Consumer();</span><br><span class="line">        Producer p = <span class="keyword">new</span> Producer();</span><br><span class="line">        <span class="keyword">new</span> Thread(c).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(p).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>tasks may execute in a newly created thread, an existing task-execution thread, or the thread calling execute, and may execute sequentially or concurrently.<br>ThreadPoolExecutor and ScheduledThreadPoolExecutor provide tunable, flexible thread pools. The Executors class provides factory methods for the most common kinds and configurations of Executors, as well as a few utility methods for using them. Other utilities based on Executors include the concrete class FutureTask providing a common extensible implementation of Futures, and ExecutorCompletionService, that assists in coordinating the processing of groups of asynchronous tasks.<br>Implements the <strong>ThreadFactory</strong> can creates self serving thread class.</p>
+<h2 id="Lock-in-Java"><a href="#Lock-in-Java" class="headerlink" title="Lock in Java"></a>Lock in Java</h2><p>ReentrantLock 实现的锁定规则非常简单 – 每当一个线程具有锁定时，其他线程必须等待，直到该锁定可用。有时，当对数据结构的读取通常多于修改时，可以使用更复杂的称为读写锁定的锁定结构，它允许有多个并发读者，同时还允许一个写入者独占锁定。该方法在一般情况下（只读）提供了更大的并发性，同时在必要时仍提供独占访问的安全性。ReadWriteLock 接口和 ReentrantReadWriteLock 类提供这种功能 – 多读者、单写入者锁定规则，可以用这种功能来保护共享的易变资源。<br>synchoronized used for methods/coding blocks.synchormized(this){}.非同步代码仍然能继续执行。<strong>synchronized锁住的是括号里的对象，而不是代码</strong>。main()里面只创建一个new Thread(),thread.start()同步机制才会生效.多个thread是不生效的。synchronized(Sync.class)实现全局锁的效果。</p>
+<h2 id="Java-util-concurrent-atomic-locks"><a href="#Java-util-concurrent-atomic-locks" class="headerlink" title="Java.util.concurrent.atomic/locks"></a>Java.util.concurrent.atomic/locks</h2><h2 id="Java-EE"><a href="#Java-EE" class="headerlink" title="Java EE"></a>Java EE</h2><p>Servlet is singleton but multi-threading, and is not thread safe.</p>
+<h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><p>ConcurrentHashMap是J.U.C(java.util.concurrent包)的重要成员，它是HashMap的一个线程安全的、支持高效并发的版本。在默认理想状态下，ConcurrentHashMap可以支持<strong>16个线程执行并发写操作</strong>及任意数量线程的读操作。<br>在ConcurrentHashMap中，无论是读操作还是写操作都能保证很高的性能：在进行读操作时(几乎)不需要加锁，而在写操作时通过锁分段技术只对所操作的段加锁而不影响客户端对其它段的访问。特别地，在理想状态下，ConcurrentHashMap 可以支持 16 个线程执行并发写操作（如果并发级别设为16），及任意数量线程的读操作。</p>
+<ul>
+<li>通过锁分段技术保证并发环境下的写操作；</li>
+<li>通过 HashEntry的不变性、Volatile变量的内存可见性和加锁重读机制保证高效、安全的读操作；</li>
+<li>通过不加锁和加锁两种方案控制跨段操作的的安全性。<br>ConcurrentHashMap读操作不需要加锁的奥秘在于以下三点：<br>用HashEntery对象的不变性来降低读操作对加锁的需求；<br>用Volatile变量协调读写线程间的内存可见性；<br>若读时发生指令重排序现象，则加锁重读；</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/30/Java-multithread-programming.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode-daily-practice-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/30/leetcode-daily-practice-Array.html">leetcode daily practice-Array</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/30/leetcode-daily-practice-Array.html" class="archive-article-date">
+  	<time datetime="2018-01-30T18:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Array-manipulation"><a href="#Array-manipulation" class="headerlink" title="Array manipulation"></a>Array manipulation</h2><p>I often feel tricky with many Array manipulation problems. This post may get updated in the future. Currently just can recognize to use increasing stack to solve this kind of typical problems.</p>
+<h2 id="Increasing-Stack"><a href="#Increasing-Stack" class="headerlink" title="Increasing Stack"></a>Increasing Stack</h2><p>To keep the order of the array and records some position information of the array.<br>lc739. Daily Temperatures<br>Use a stack to keep compare the peek element and current element, then get the position value of each position.<br>lc .Rectangle Histogram</p>
 
       
 
@@ -209,7 +441,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">binary search</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">stack</a>
         		</li>
       		
 		</ul>
@@ -219,7 +451,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/15/leetcode-binary-search-practice-3.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/30/leetcode-daily-practice-Array.html">展开全文 >></a>
         </p>
       
 
@@ -249,34 +481,29 @@
 
 
   
-    <article id="post-莫愁前路无知己" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Call-apply" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/15/莫愁前路无知己.html">莫愁前路无知己</a>
+      <a class="article-title" href="/2018/01/22/Call-apply.html">Call, apply</a>
     </h1>
   
 
         
-        <a href="/2018/01/15/莫愁前路无知己.html" class="archive-article-date">
-  	<time datetime="2018-01-16T01:02:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-15</time>
+        <a href="/2018/01/22/Call-apply.html" class="archive-article-date">
+  	<time datetime="2018-01-23T00:38:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="莫愁前路无知己"><a href="#莫愁前路无知己" class="headerlink" title="莫愁前路无知己"></a>莫愁前路无知己</h3><p>大雪下了一夜都没停，今天去湖边转了一圈整个湖水都冻住了，也算是奇景了。几对情侣走在浩渺茫茫的湖面上，应该是生命中很难忘的体验吧。<br>话别诗最有名的一句就是<br><blockquote><p>莫愁前路无知己，天下谁人不识君。</p>
-</blockquote><br>语句中饱含着宽慰和豁达。然而相比送别我还是更喜欢重逢吧，即使是<br><blockquote><p>深知身在情长在，前尘不共彩云飞</p>
-</blockquote><br>这种伤感的风格。</p>
-<h3 id="家门口的雪人"><a href="#家门口的雪人" class="headerlink" title="家门口的雪人"></a>家门口的雪人</h3><p><img src="/assets/blogimgs/1.15snowman.jpg" width="80%" height="60%" alt="snowman"></p>
-<h3 id="Lake-Mendota"><a href="#Lake-Mendota" class="headerlink" title="Lake Mendota"></a>Lake Mendota</h3><p><img src="/assets/blogimgs/1.15mendota2.jpg" width="80%" height="60%" alt="snowman"></p>
-<h3 id="音乐分享"><a href="#音乐分享" class="headerlink" title="音乐分享"></a>音乐分享</h3><p>今天分享银临的<strong>《不老梦》</strong>。新专辑《蚍蜉渡海》也出了好久了，然而寄到家的时候我已经在美国了。。只能等回家听了。最喜欢这首歌的文案，一个很凄美、令人动容的爱情故事。也许这些故事也上演在我们身边吧。贴上银临自己的创作灵感。<br>
+        <h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h3><p>前端面试中，很多面试官会问你，apply是做什么的？apply和call的区别？<br>
         
-          <a class="article-more-a" href="/2018/01/15/莫愁前路无知己.html#more">more >></a>
+          <a class="article-more-a" href="/2018/01/22/Call-apply.html#more">more >></a>
         
       
 
@@ -290,15 +517,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">古风</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
         		</li>
       		
 		</ul>
@@ -308,7 +531,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/15/莫愁前路无知己.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/22/Call-apply.html">展开全文 >></a>
         </p>
       
 
@@ -338,29 +561,30 @@
 
 
   
-    <article id="post-JSP-Student-system-review" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Spread-Operator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/14/JSP-Student-system-review.html">JSP Student-system review</a>
+      <a class="article-title" href="/2018/01/22/Spread-Operator.html">Spread Operator</a>
     </h1>
   
 
         
-        <a href="/2018/01/14/JSP-Student-system-review.html" class="archive-article-date">
-  	<time datetime="2018-01-15T00:50:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-14</time>
+        <a href="/2018/01/22/Spread-Operator.html" class="archive-article-date">
+  	<time datetime="2018-01-23T00:29:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Project-Review"><a href="#Project-Review" class="headerlink" title="Project Review"></a>Project Review</h2><p>Develop a simple <a href="https://github.com/whw19950510/Studentsystem" target="_blank" rel="noopener">student management system</a> using pure Servlet, MySql and Bootstrap. Basically supports CRUD functionality, ie: create, read, update, delete. Also supports search functionality. Need further improvement on high efficiency sql query, high concurrency and some consideration of loading balance.<br>
+        <p>JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。本文主要记录展开运算符。</p>
+<p>展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。<br>
         
-          <a class="article-more-a" href="/2018/01/14/JSP-Student-system-review.html#more">more >></a>
+          <a class="article-more-a" href="/2018/01/22/Spread-Operator.html#more">more >></a>
         
       
 
@@ -374,11 +598,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JSP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
         		</li>
       		
 		</ul>
@@ -388,249 +612,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/14/JSP-Student-system-review.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-雪夜" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/14/雪夜.html">雪夜</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/14/雪夜.html" class="archive-article-date">
-  	<time datetime="2018-01-15T00:17:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="雪夜"><a href="#雪夜" class="headerlink" title="雪夜"></a>雪夜</h2><p>来之前就在知乎上看到过麦迪逊冬天很长，有的冬天一直持续到来年四五月份，海本们因此都练就了一小时雪中刨车的技能hhh。来了才知道名不虚传，午睡起来又开始洋洋洒洒地下雪。这的雪花像北方的雪，结成块的那种，像棉花糖，街上的雪聚在一起，风一吹像白色的沙一样，很好看。<br><img src="/assets/blogimgs/1.14snow.jpg" width="80%" height="60%" alt="Union South is snowing"></p>
-<h2 id="音乐分享"><a href="#音乐分享" class="headerlink" title="音乐分享"></a>音乐分享</h2><p>静谧的雪夜，最适合思念。今天推荐<strong>《兔子先生》</strong>。开始以为是云泣原唱，后来才知道是洛天依的电子声。没事的时候去B站上翻了下那个<a href="https://www.bilibili.com/video/av2877056/" title="沙画视频" target="_blank" rel="noopener">沙画视频</a>。也是满满的泪点呢。<br>兔子先生大概也是小孩子自己吧。歌词和旋律都很朴素，但可能恰巧因为这种平素让人难以忘怀。<br><blockquote><p>流浪不是一个人的旅途，早点给自己找一个家，让自己的心不再漂泊。总有人会在你身旁，牵住你的手，帮你把那个不懂事的小孩子释放出来，抱住他，也亲吻他，让他舒舒服服躺在怀中，安心听她把兔子先生的故事讲完。</p>
-</blockquote><br>好想听你们弹琴啊，希望五月快一点到来。<br><blockquote>
-        
-          <a class="article-more-a" href="/2018/01/14/雪夜.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/14/雪夜.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode-binary-search-practice-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/14/leetcode-binary-search-practice-2.html">leetcode binary search practice 2</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/14/leetcode-binary-search-practice-2.html" class="archive-article-date">
-  	<time datetime="2018-01-14T17:19:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Binary-search-problems"><a href="#Binary-search-problems" class="headerlink" title="Binary search problems"></a>Binary search problems</h2><p>Today just practice some easy but typical problems, which use both binary search &amp;&amp; 2 pointers. Notice how to pick up pivot.<br>
-        
-          <a class="article-more-a" href="/2018/01/14/leetcode-binary-search-practice-2.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">binary search</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/14/leetcode-binary-search-practice-2.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode-binary-search-practice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/13/leetcode-binary-search-practice.html">leetcode binary search practice</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/13/leetcode-binary-search-practice.html" class="archive-article-date">
-  	<time datetime="2018-01-13T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Binary-search-problems"><a href="#Binary-search-problems" class="headerlink" title="Binary search problems"></a>Binary search problems</h2><p>Typical problems include rotate array. I am not familiar with this kind of problem, especially how to divide them into different situation.<br>
-        
-          <a class="article-more-a" href="/2018/01/13/leetcode-binary-search-practice.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">binary search</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/13/leetcode-binary-search-practice.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/22/Spread-Operator.html">展开全文 >></a>
         </p>
       
 
@@ -662,7 +644,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 
@@ -774,6 +756,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -782,39 +772,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,11 +780,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -834,7 +816,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,7 +828,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">

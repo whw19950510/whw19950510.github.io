@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/25/OS-practice-problem-summary.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="问题总结1.系统的主要功能有:虚拟存储管理、处理机管理、进程调度、文件系统2.通道控制设备控制器，设备控制器控制设备3.在多道程序系统执行，一般情况下，每个程序执行完毕需要的时间（）大于单道系统时间">
-<meta property="og:updated_time" content="2018-02-27T05:56:06.563Z">
+<meta property="og:updated_time" content="2018-02-27T19:56:59.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS practice problem summary">
 <meta name="twitter:description" content="问题总结1.系统的主要功能有:虚拟存储管理、处理机管理、进程调度、文件系统2.通道控制设备控制器，设备控制器控制设备3.在多道程序系统执行，一般情况下，每个程序执行完毕需要的时间（）大于单道系统时间">
@@ -189,7 +189,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h2><p>1.系统的主要功能有:<br>虚拟存储管理、处理机管理、进程调度、文件系统<br>2.通道控制设备控制器，设备控制器控制设备<br>3.在多道程序系统执行，一般情况下，每个程序执行完毕需要的时间（）大于单道系统时间<br><a id="more"></a><br>4.UNIX是<strong>多道批处理系统</strong><br>5.Unix操作系统允许用户在<strong>汇编语言</strong>上使用系统调用。<br>6.共享设备不需要用户安装设备驱动程序。<br>7.在 UNIX 中，文件系统和设备驱动程序之间的接口是<strong>DCT设备控制表</strong><br>8.SJF会引起Starvation<br>9.超级用户（管理员、特权用户）可以使用特权指令。错，是提供给操作系统系统态的<br>10.进程是资源分配的基本单位，<strong>线程是资源调度的基本单位</strong><br>11.进程间通信的方式:共享内存;消息传递;系统管道;同步(互斥锁,条件变量,读写锁,文件和记录锁,Posix和System V信号灯) ;临界区用于线程<br>12.Linux内核默认支持的文件格式:ext3;ext2;ext4;xfs;ufs<br>13.进程之间存在直接制约关系(即同步问题)和间接制约关系(即互斥问题)<br>14.多个进程怎样共享一个监听端口？fork共享监听套接字<br>15.分段内存管理，逻辑地址是二维地址<br>16.在 Windows 的 FAT 文件系统中，对磁盘空闲空间的管理采用<strong>位示图法</strong><br>17.在设备管理中，逻辑设备表（ LUT ）的作用是在物理设备和逻辑设备之间建立对应关系<br>18.并发是指多个请求向服务器同时请求，服务器的响应过程是依次响应，或者轮转响应的；并行是多个请求向多个服务器，各自服务各自的请求(类似多处理GPU)<br>19.缓存是为了提高并行操作，提高CPU和设备之间的并行程度<br>20.线程提高了不同执行程序间的通信效率<br>21.无结构文件的含义是<strong>流式文件</strong>.流式文件中构成文件的基本单位是字符，流式文件是有序字符的集合，其长度为该文件所包含的字符个数，所以又称为字符流文件。流式文件无结构，且管理简单，用户可以方便地对其进行操作。源程序、目标代码等文件属于流式文件。<strong>UNIX系统采用的是流式文件结构。</strong>记录式文件:一群记录的集合，<br>22.降低进程优先级的合理时机是:时间片用完，RR<br>23.进程对管道进行读操作和写操作都可以被<strong>阻塞</strong>.<strong>管道是 单向的、先进先出的 ，它把一个进程的输出和另一个进程的输入连接在一起。一个进程（写进程）在管道的 尾部写入数据 ，另一个进程（读进程）从管道的 头部读出数据 。</strong><br>24.哪一个不属于活动头硬盘的存取访问时间？旋转延迟时间+寻道时间+传送时间<br>25.文件的逻辑结构:记录式，流式文件;物理结构:连续结构,串联结构,索引结构<br>26.死锁是指因相互竞争资源使得系统中有多个阻塞进程的情况;若系统中并发运行的进程和资源之间满足互斥条件、占有且申请、不可抢占和环路条件，则可判定系统中发生了死锁<br>27.向量中断由硬件形成向量地址，再由向量地址找到中断服务程序入口地址<br>28.输出字符是系统调用。两个合作进程，无法利用<strong>全局变量</strong>传递信息,都是自己的东西。<br>29.线程切换进程可能切换，要看下一个被调度的线程和当前线程是否属于同一进程。如果不属于才切换页表，更换进程用户空间，否则只是从事一些线程级别工作，不会切换进程的<br>30.<strong>共享设备在同一时刻只能有一个作业调用。</strong><br>31.对进程间互斥的使用临界资源，进程可以<strong>互斥的进入各自的同类资源临界区</strong><br>32.银行家算法是著名的<strong>死锁避免算法</strong>，避免死锁并不是事先采取某种限制措施破坏死锁的必要条件，而是再资源动态分配过程中，防止系统进入不安全状态，以避免发生死锁.<br>33.对进程来说，其虚拟内存的大小不受物理内存大小的限制.<strong>线程有自己的栈，没有堆</strong><br>34.程序=数据结构+算法<br>35.在虚拟存储器中为了提高主存的命中率，可以采取的措施是<strong>增大主存容量</strong><br>36.显示磁盘文件目录的DOS命令DIR。一个英文字符2个ASCII码,DOS文件目录是树形结构。<br>37.下列哪些因素不会限制Linux服务器并发连接数?<strong>系统网卡数量</strong><br>系统内存大小<br>系统网卡数量<br>系统最大文件句柄数量<br>系统IP地址数量<br>38.网络：环形拓扑，星星拓扑，总线拓扑<br>39.<strong>局部static</strong>变量的可见性与生存期不一致。<br>40.接口可以包含方法、属性、索引器和事件，不能包含共有私有变量。<br>41.同一时刻只能有一个部件占用总线发送信息，但可以有多个部件通过总线接收信息<br>42.DNS用来解析域名地址和IP地址。<br>43.方法覆盖返回值类型可以小于父类。<br>shmget获得shared memory,共享内存并没有同步机制<br>44.银行家算法是一种最有代表性的避免死锁的算法。又被称为“资源分配拒绝”法。在避免死锁方法中允许进程动态地申请资源，但系统在进行资源分配之前，应先计算此次分配资源的安全性，若分配不会导致系统进入不安全状态，则分配，否则等待。为实现银行家算法，系统必须设置若干数据结构。<br>45.线程不能跨机器迁移，进程适合在SMP机器上迁移。<br>47.Event、Semaphore、Mutex是内核对象，能够跨进程使用，Critical Section不能跨进程，只能实现线程内互斥(线程同步)<br>48.可重入函数对全局变量才需要互斥量保护。可重入函数不可以调用不可重入函数<br>49.轮询调度优点是其简洁性，它无需记录当前所有连接的状态，所以它是一种无状态调度.抢占式调度实现相对较复杂.Preempted/unpreempted<br>50.<strong>run()方法用来执行线程体中具体的内容</strong><br>51.volatile变量具有synchronized的可见性特性，<strong>但是不具备原子特性。</strong><br>start()方法用来启动线程对象，使其进入就绪状态<br>sleep()方法用来使线程进入睡眠状态<br>suspend()方法用来使线程挂起，要通过resume()方法使其重新启动<br>52.当线程企图访问临界资源时，先会查看该临界资源当前是否已被加锁，如果没有被加锁，则对该临界资源加锁，并进入该同步块或方法，加锁后，其他线程也就无法访问该临界资源了。所以判定获取了一个内部锁的标准为：进入该同步区域。获取内部锁的标准，进入同步区域。<br>pwd是环境变量/用户登录系统时，bash首先执行/etc/profile配置文件和/etc/profile.d/目录下的配置文件，这些配置文件对所有用户都有效</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h2><p>1.系统的主要功能有:<br>虚拟存储管理、处理机管理、进程调度、文件系统<br>2.通道控制设备控制器，设备控制器控制设备<br>3.在多道程序系统执行，一般情况下，每个程序执行完毕需要的时间（）大于单道系统时间<br><a id="more"></a><br>4.UNIX是<strong>多道批处理系统</strong><br>5.Unix操作系统允许用户在<strong>汇编语言</strong>上使用系统调用。<br>6.共享设备不需要用户安装设备驱动程序。<br>7.在 UNIX 中，文件系统和设备驱动程序之间的接口是<strong>DCT设备控制表</strong><br>8.SJF会引起Starvation<br>9.超级用户（管理员、特权用户）可以使用特权指令。错，是提供给操作系统系统态的<br>10.进程是资源分配的基本单位，<strong>线程是资源调度的基本单位</strong><br>11.进程间通信的方式:共享内存;消息传递;系统管道;同步(互斥锁,条件变量,读写锁,文件和记录锁,Posix和System V信号灯) ;临界区用于线程<br>12.Linux内核默认支持的文件格式:ext3;ext2;ext4;xfs;ufs<br>13.进程之间存在直接制约关系(即同步问题)和间接制约关系(即互斥问题)<br>14.多个进程怎样共享一个监听端口？fork共享监听套接字<br>15.分段内存管理，逻辑地址是二维地址<br>16.在 Windows 的 FAT 文件系统中，对磁盘空闲空间的管理采用<strong>位示图法</strong><br>17.在设备管理中，逻辑设备表（ LUT ）的作用是在物理设备和逻辑设备之间建立对应关系<br>18.并发是指多个请求向服务器同时请求，服务器的响应过程是依次响应，或者轮转响应的；并行是多个请求向多个服务器，各自服务各自的请求(类似多处理GPU)<br>19.缓存是为了提高并行操作，提高CPU和设备之间的并行程度<br>20.线程提高了不同执行程序间的通信效率<br>21.无结构文件的含义是<strong>流式文件</strong>.流式文件中构成文件的基本单位是字符，流式文件是有序字符的集合，其长度为该文件所包含的字符个数，所以又称为字符流文件。流式文件无结构，且管理简单，用户可以方便地对其进行操作。源程序、目标代码等文件属于流式文件。<strong>UNIX系统采用的是流式文件结构。</strong>记录式文件:一群记录的集合，<br>22.降低进程优先级的合理时机是:时间片用完，RR<br>23.进程对管道进行读操作和写操作都可以被<strong>阻塞</strong>.<strong>管道是 单向的、先进先出的 ，它把一个进程的输出和另一个进程的输入连接在一起。一个进程（写进程）在管道的 尾部写入数据 ，另一个进程（读进程）从管道的 头部读出数据 。</strong><br>24.哪一个不属于活动头硬盘的存取访问时间？旋转延迟时间+寻道时间+传送时间<br>25.文件的逻辑结构:记录式，流式文件;物理结构:连续结构,串联结构,索引结构<br>26.死锁是指因相互竞争资源使得系统中有多个阻塞进程的情况;若系统中并发运行的进程和资源之间满足互斥条件、占有且申请、不可抢占和环路条件，则可判定系统中发生了死锁<br>27.向量中断由硬件形成向量地址，再由向量地址找到中断服务程序入口地址<br>28.输出字符是系统调用。两个合作进程，无法利用<strong>全局变量</strong>传递信息,都是自己的东西。<br>29.线程切换进程可能切换，要看下一个被调度的线程和当前线程是否属于同一进程。如果不属于才切换页表，更换进程用户空间，否则只是从事一些线程级别工作，不会切换进程的<br>30.<strong>共享设备在同一时刻只能有一个作业调用。</strong><br>31.对进程间互斥的使用临界资源，进程可以<strong>互斥的进入各自的同类资源临界区</strong><br>32.银行家算法是著名的<strong>死锁避免算法</strong>，避免死锁并不是事先采取某种限制措施破坏死锁的必要条件，而是再资源动态分配过程中，防止系统进入不安全状态，以避免发生死锁.<br>33.对进程来说，其虚拟内存的大小不受物理内存大小的限制.<strong>线程有自己的栈，没有堆</strong><br>34.程序=数据结构+算法<br>35.在虚拟存储器中为了提高主存的命中率，可以采取的措施是<strong>增大主存容量</strong><br>36.显示磁盘文件目录的DOS命令DIR。一个英文字符2个ASCII码,DOS文件目录是树形结构。<br>37.下列哪些因素不会限制Linux服务器并发连接数?<strong>系统网卡数量</strong><br>系统内存大小<br>系统网卡数量<br>系统最大文件句柄数量<br>系统IP地址数量<br>38.网络：环形拓扑，星星拓扑，总线拓扑<br>39.<strong>局部static</strong>变量的可见性与生存期不一致。<br>40.接口可以包含方法、属性、索引器和事件，不能包含共有私有变量。<br>41.同一时刻只能有一个部件占用总线发送信息，但可以有多个部件通过总线接收信息<br>42.DNS用来解析域名地址和IP地址。<br>43.方法覆盖返回值类型可以小于父类。<br>shmget获得shared memory,共享内存并没有同步机制<br>44.银行家算法是一种最有代表性的避免死锁的算法。又被称为“资源分配拒绝”法。在避免死锁方法中允许进程动态地申请资源，但系统在进行资源分配之前，应先计算此次分配资源的安全性，若分配不会导致系统进入不安全状态，则分配，否则等待。为实现银行家算法，系统必须设置若干数据结构。<br>45.线程不能跨机器迁移，进程适合在SMP机器上迁移。<br>47.Event、Semaphore、Mutex是内核对象，能够跨进程使用，Critical Section不能跨进程，只能实现线程内互斥(线程同步)<br>48.可重入函数对全局变量才需要互斥量保护。可重入函数不可以调用不可重入函数<br>49.轮询调度优点是其简洁性，它无需记录当前所有连接的状态，所以它是一种无状态调度.抢占式调度实现相对较复杂.Preempted/unpreempted<br>50.<strong>run()方法用来执行线程体中具体的内容</strong><br>51.volatile变量具有synchronized的可见性特性，<strong>但是不具备原子特性。</strong><br>start()方法用来启动线程对象，使其进入就绪状态<br>sleep()方法用来使线程进入睡眠状态<br>suspend()方法用来使线程挂起，要通过resume()方法使其重新启动<br>52.当线程企图访问临界资源时，先会查看该临界资源当前是否已被加锁，如果没有被加锁，则对该临界资源加锁，并进入该同步块或方法，加锁后，其他线程也就无法访问该临界资源了。所以判定获取了一个内部锁的标准为：进入该同步区域。获取内部锁的标准，进入同步区域。<br>53.页式管理:内碎片，段式管理:外碎片<br>pwd是环境变量/用户登录系统时，bash首先执行/etc/profile配置文件和/etc/profile.d/目录下的配置文件，这些配置文件对所有用户都有效<br>54.shutdown    关机, ctrl+z暂停，ctrl+c终止<br>55.一台主机要实现通过局域网与另一个局域网通信，需要做的工作是？<br><strong>定义一条本机指向所在网络网关的路由</strong><br>56.属于网络操作系统的是？Unix, Linux,WINDOWS NT, NETWARE 4.11,LAN MANGER 4.</p>
+<h2 id="并发经典问题"><a href="#并发经典问题" class="headerlink" title="并发经典问题"></a>并发经典问题</h2><p>使用fork函数得到的子进程从父进程的继承了整个进程的地址空间，包括：进程上下文、进程堆栈、内存信息、打开的文件描述符、信号控制设置、进程优先级、进程组号、当前工作目录、根目录、资源限制、控制终端等。<br>子进程与父进程的区别在于：<br><strong>1、父进程设置的锁，子进程不继承（因为如果是排它锁，被继承的话，矛盾了）</strong><br>2、各自的进程ID和父进程ID不同<br>3、子进程的未决告警被清除；<br>4、子进程的未决信号集设置为空集。<br>2.用户线程和内核线程的调度都需要经过内核态。错。用户线程在用户态</p>
 <h2 id="Java并发编程的同步机制"><a href="#Java并发编程的同步机制" class="headerlink" title="Java并发编程的同步机制"></a>Java并发编程的同步机制</h2><p>A，Java 并发库 的Semaphore 可以很轻松完成信号量控制，Semaphore可以控制某个资源可被同时访问的个数，通过 acquire() 获取一个许可，如果没有就等待，而 release() 释放一个许可。<br>B，CyclicBarrier 主要的方法就是一个：await()。await() 方法没被调用一次，计数便会减少1，并阻塞住当前线程。当计数减至0时，阻塞解除，所有在此 CyclicBarrier 上面阻塞的线程开始运行。<br>C，直译过来就是倒计数(CountDown)门闩(Latch)。倒计数不用说，门闩的意思顾名思义就是阻止前进。在这里就是指 CountDownLatch.await() 方法在倒计数为0之前会阻塞当前线程。</p>
 <h2 id="Database-transaction理论"><a href="#Database-transaction理论" class="headerlink" title="Database transaction理论"></a>Database transaction理论</h2><p>脏读：就是指当一个事务对数据进行了修改但还没有提交到数据库时，另一个事务访问并使用了这个数据。<br>不可重复读：在一个事务内两次读数据之间，第二个事务访问该数据并进行了修改。<br>丢失修改：两个事务读入同一数据并修改，T2提交的结果破坏了T1提交的结果。例如T1读A修改为A-1，T2也读A修改为A-1（实际上应该是读A-1，修改 为A-2）<br>幻影读：同一事务在两个不同的时间段执行相同的查询条件得到的结果不一致。<br>注意区分：<br>不可重复读的重点是修改<br>同样的条件,你读取过的数据,再次读取出来发现值不一样了<br>幻读的重点在于新增或者删除<br>同样的条件, 第 1 次和第 2 次读出来的记录数不一样。</p>
 
@@ -275,11 +276,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/26/Database-relation-alebra.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/02/25/Spring-detail-knowledge.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Database-relation-algebra
+          Spring-detail-knowledge
         
       </div>
     </a>
@@ -439,6 +440,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -447,39 +456,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,11 +464,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,7 +500,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,7 +512,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -170,107 +170,60 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Linux-knowledge" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mysql-lock-level" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/Linux-knowledge.html">Linux knowledge</a>
+      <a class="article-title" href="/2018/03/12/Mysql-lock-level.html">Mysql lock level</a>
     </h1>
   
 
         
-        <a href="/2018/02/26/Linux-knowledge.html" class="archive-article-date">
-  	<time datetime="2018-02-27T05:44:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
+        <a href="/2018/03/12/Mysql-lock-level.html" class="archive-article-date">
+  	<time datetime="2018-03-13T02:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Useful-command"><a href="#Useful-command" class="headerlink" title="Useful command"></a>Useful command</h2><p>df:查看磁盘使用情况<br>dd:convert and copy a file<br>top:查看CPU占用<br>du:estimate file space usage<br>/etc/hosts 主机名到 IP 地址的映射关系的文件<br>/etc/resolv.conf DNS 服务的配置文件<br>/etc/gateways 建立动态路由需要用到的文件 </p>
-<h2 id="Inode可以被多个文件使用"><a href="#Inode可以被多个文件使用" class="headerlink" title="Inode可以被多个文件使用"></a>Inode可以被多个文件使用</h2><p>Unix/Linux系统允许，多个文件名指向同一个inode号码。这意味着，可以用不同的文件名访问同样的内容；对文件内容进行修改，会影响到所有文件名；但是，删除一个文件名，不影响另一个文件名的访问。这种情况就被称为”硬链接”（hard link）。 除了硬链接以外，还有一种特殊情况。文件A和文件B的inode号码虽然不一样，但是文件A的内容是文件B的路径。读取文件A时，系统会自动将访问者导向文件B。因此，无论打开哪一个文件，最终读取的都是文件B。这时，文件A就称为文件B的”软链接”（soft link）或者”符号链接（symbolic link）。</p>
-<h2 id="Spinlock"><a href="#Spinlock" class="headerlink" title="Spinlock"></a>Spinlock</h2><p>spinlock在多处理器多线程环境的场景中有很广泛的使用，一般要求使用spinlock的临界区尽量简短，这样获取的锁可以尽快释放，以满足其他忙等的线程。Spinlock和mutex不同，spinlock不会导致线程的状态切换(用户态-&gt;内核态)，但是spinlock使用不当(如临界区执行时间过长)会导致cpu busy飙高。</p>
-<h2 id="CPU负载"><a href="#CPU负载" class="headerlink" title="CPU负载"></a>CPU负载</h2><p>数字越小越好，可以通过TOP命令查看，可以通过uptime查看</p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>MVCC (Multiversion Concurrency Control)，即多版本并发控制技术,它使得大部分支持行锁的事务引擎，不再单纯的使用行锁来进行数据库的并发控制，取而代之的是把数据库的行锁与行的多个版本结合起来，只需要很小的开销,就可以实现非锁定读，从而大大提高数据库系统的并发性能</p>
+<p>读锁：也叫共享锁、S锁，若事务T对数据对象A加上S锁，则事务T可以读A但不能修改A，其他事务只能再对A加S锁，而不能加X锁，直到T释放A上的S 锁。这保证了其他事务可以读A，但在T释放A上的S锁之前不能对A做任何修改。</p>
+<p>写锁：又称排他锁、X锁。若事务T对数据对象A加上X锁，事务T可以读A也可以修改A，其他事务不能再对A加任何锁，直到T释放A上的锁。这保证了其他事务在T释放A上的锁之前不能再读取和修改A。</p>
+<p>表锁：操作对象是数据表。Mysql大多数锁策略都支持(常见mysql innodb)，是系统开销最低但并发性最低的一个锁策略。事务t对整个表加读锁，则其他事务可读不可写，若加写锁，则其他事务增删改都不行。</p>
+<p>行级锁：操作对象是数据表中的一行。是MVCC技术用的比较多的，但在MYISAM用不了，行级锁用mysql的储存引擎实现而不是mysql服务器。但行级锁对系统开销较大，处理高并发较好。</p>
+<p>二、MVCC实现原理<br>innodb MVCC主要是为Repeatable-Read事务隔离级别做的。在此隔离级别下，A、B客户端所示的数据相互隔离，互相更新不可见</p>
+<p>了解innodb的行结构、Read-View的结构对于理解innodb mvcc的实现由重要意义</p>
+<p>innodb存储的最基本row中包含一些额外的存储信息 DATA_TRX_ID，DATA_ROLL_PTR，DB_ROW_ID，DELETE BIT</p>
+<p>6字节的DATA_TRX_ID 标记了最新更新这条行记录的transaction id，每处理一个事务，其值自动+1</p>
+<p>7字节的DATA_ROLL_PTR 指向当前记录项的rollback segment的undo log记录，找之前版本的数据就是通过这个指针</p>
+<p>6字节的DB_ROW_ID，当由innodb自动产生聚集索引时，聚集索引包括这个DB_ROW_ID的值，否则聚集索引中不包括这个值.，这个用于索引当中<br>DELETE BIT位用于标识该记录是否被删除，这里的不是真正的删除数据，而是标志出来的删除。真正意义的删除是在commit的时候</p>
+<p>具体的执行过程</p>
+<p>begin-&gt;用排他锁锁定该行-&gt;记录redo log-&gt;记录undo log-&gt;修改当前行的值，写事务编号，回滚指针指向undo log中的修改前的行</p>
+<p>上述过程确切地说是描述了UPDATE的事务过程，其实undo log分insert和update undo log，因为insert时，原始的数据并不存在，所以回滚时把insert undo log丢弃即可，而update undo log则必须遵守上述过程</p>
+<p>下面分别以select、delete、 insert、 update语句来说明<br>SELECT</p>
+<p>Innodb检查每行数据，确保他们符合两个标准：</p>
+<p>1、InnoDB只查找版本早于当前事务版本的数据行(也就是数据行的版本必须小于等于事务的版本)，这确保当前事务读取的行都是事务之前已经存在的，或者是由当前事务创建或修改的行</p>
+<p>2、行的删除操作的版本一定是未定义的或者大于当前事务的版本号，确定了当前事务开始之前，行没有被删除</p>
+<p>符合了以上两点则返回查询结果。</p>
+<p>INSERT</p>
+<p>InnoDB为每个新增行记录当前系统版本号作为创建ID。</p>
+<p>DELETE</p>
+<p>InnoDB为每个删除行的记录当前系统版本号作为行的删除ID。</p>
+<p>UPDATE</p>
+<p>InnoDB复制了一行。这个新行的版本号使用了系统版本号。它也把系统版本号作为了删除行的版本。</p>
+<p>说明<br>insert操作时 “创建时间”=DB_ROW_ID，这时，“删除时间 ”是未定义的；</p>
+<p>update时，复制新增行的“创建时间”=DB_ROW_ID，删除时间未定义，旧数据行“创建时间”不变，删除时间=该事务的DB_ROW_ID；</p>
+<p>delete操作，相应数据行的“创建时间”不变，删除时间=该事务的DB_ROW_ID；</p>
+<p>select操作对两者都不修改，只读相应的数据</p>
+<p>三、对于MVCC的总结<br>上述更新前建立undo log，根据各种策略读取时非阻塞就是MVCC，undo log中的行就是MVCC中的多版本，这个可能与我们所理解的MVCC有较大的出入，一般我们认为MVCC有下面几个特点：<br>每行数据都存在一个版本，每次数据更新时都更新该版本<br>修改时Copy出当前版本随意修改，各个事务之间无干扰<br>保存时比较版本号，如果成功（commit），则覆盖原记录；失败则放弃copy（rollback）<br>就是每行都有版本号，保存时根据版本号决定是否成功，听起来含有乐观锁的味道，而Innodb的实现方式是：<br>事务以排他锁的形式修改原始数据<br>把修改前的数据存放于undo log，通过回滚指针与主数据关联<br>修改成功（commit）啥都不做，失败则恢复undo log中的数据（rollback）<br>二者最本质的区别是，当修改数据时是否要排他锁定，如果锁定了还算不算是MVCC？ </p>
+<p>Innodb的实现真算不上MVCC，因为并没有实现核心的多版本共存，undo log中的内容只是串行化的结果，记录了多个事务的过程，不属于多版本共存。但理想的MVCC是难以实现的，当事务仅修改一行记录使用理想的MVCC模式是没有问题的，可以通过比较版本号进行回滚；但当事务影响到多行数据时，理想的MVCC据无能为力了。</p>
+<p>比如，如果Transaciton1执行理想的MVCC，修改Row1成功，而修改Row2失败，此时需要回滚Row1，但因为Row1没有被锁定，其数据可能又被Transaction2所修改，如果此时回滚Row1的内容，则会破坏Transaction2的修改结果，导致Transaction2违反ACID。</p>
+<p>理想MVCC难以实现的根本原因在于企图通过乐观锁代替二段提交。修改两行数据，但为了保证其一致性，与修改两个分布式系统中的数据并无区别，而二提交是目前这种场景保证一致性的唯一手段。二段提交的本质是锁定，乐观锁的本质是消除锁定，二者矛盾，故理想的MVCC难以真正在实际中被应用，Innodb只是借了MVCC这个名字，提供了读的非阻塞而已。</p>
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/26/Linux-knowledge.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Database-relation-alebra" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/Database-relation-alebra.html">Database-relation-algebra</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/26/Database-relation-alebra.html" class="archive-article-date">
-  	<time datetime="2018-02-26T16:49:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="RA"><a href="#RA" class="headerlink" title="RA"></a>RA</h2><p>Declarative language/Procudual language<br>RA：operands,operator<br>
-        
-          <a class="article-more-a" href="/2018/02/26/Database-relation-alebra.html#more">more >></a>
-        
       
 
       
@@ -293,7 +246,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/26/Database-relation-alebra.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/12/Mysql-lock-level.html">展开全文 >></a>
         </p>
       
 
@@ -323,30 +276,22 @@
 
 
   
-    <article id="post-OS-practice-problem-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-商汤面经" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/OS-practice-problem-summary.html">OS practice problem summary</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/25/OS-practice-problem-summary.html" class="archive-article-date">
-  	<time datetime="2018-02-26T04:31:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-25</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h2><p>1.系统的主要功能有:<br>虚拟存储管理、处理机管理、进程调度、文件系统<br>2.通道控制设备控制器，设备控制器控制设备<br>3.在多道程序系统执行，一般情况下，每个程序执行完毕需要的时间（）大于单道系统时间<br>
-        
-          <a class="article-more-a" href="/2018/02/25/OS-practice-problem-summary.html#more">more >></a>
-        
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Java线程池"><a href="#Java线程池" class="headerlink" title="Java线程池"></a>Java线程池</h2><p>注意区分不是数据库连接池…我真蠢<br>线程池的作用：<br>线程池作用就是<strong>限制系统中执行线程的数量。</strong><br>根据系统的环境情况，可以自动或手动设置线程数量，达到运行的最佳效果；少了浪费了系统资源，多了造成系统拥挤效率不高。用线程池控制线程数量，其他线程排 队等候。一个任务执行完毕，再从队列的中取最前面的任务开始执行。若队列中没有等待进程，线程池的这一资源处于等待。当一个新任务需要运行时，如果线程池中有等待的工作线程，就可以开始运行了；否则进入等待队列。<br>为什么要用线程池:<br>1.减少了创建和销毁线程的次数，每个工作线程都可以被重复利用，可执行多个任务。<br>2.可以根据系统的承受能力，调整线程池中工作线线程的数目，防止因为消耗过多的内存，而把服务器累趴下(每个线程需要大约1MB内存，线程开的越多，消耗的内存也就越大，最后死机)。<br>Java里面线程池的顶级接口是Executor，但是严格意义上讲Executor并不是一个线程池，而只是一个执行线程的工具。真正的线程池接口是ExecutorService。<br>比较重要的几个类：<br>ExecutorService:真正的线程池接口。<br>ScheduledExecutorService:能和Timer/TimerTask类似，解决那些需要任务重复执行的问题。<br>ThreadPoolExecutor:ExecutorService的默认实现。<br>ScheduledThreadPoolExecutor:继承ThreadPoolExecutor的ScheduledExecutorService接口实现，周期性任务调度的类实现。<br>要配置一个线程池是比较复杂的，尤其是对于线程池的原理不是很清楚的情况下，很有可能配置的线程池不是较优的，因此在Executors类里面提供了一些静态工厂，生成一些常用的线程池。<br>Java通过Executors提供四种线程池，分别为：<br><strong>newCachedThreadPool</strong>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程.<br>newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待.<br><strong>newScheduledThreadPool</strong>创建一个定长线程池，支持定时及周期性任务执行.<br>newSingleThreadExecutor创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行.</p>
+<h2 id="Java-Object"><a href="#Java-Object" class="headerlink" title="Java Object"></a>Java Object</h2><p>Clone(深拷贝浅拷贝);equals/hashCode(),为什么要重写他们,HashMap的实现原理一定会问，具体怎么实现的呢？toString():    Returns a string representation of the object.</p>
+<h2 id="Java数类型对象的安全性能"><a href="#Java数类型对象的安全性能" class="headerlink" title="Java数类型对象的安全性能"></a>Java数类型对象的安全性能</h2><p>Java虚拟机规范定义的许多规则中的一条：所有对基本类型的操作，除了某些对long类型和double类型的操作之外，都是原子级的。<br>目前的JVM（java虚拟机）都是将32位作为原子操作，并非64位。当线程把主存中的 long/double类型的值读到线程内存中时，可能是两次32位值的写操作，显而易见，如果几个线程同时操作，那么就可能会出现高低2个32位值出错的情况发生。<br><strong>要在线程间共享long与double字段是，必须在synchronized中操作，或是声明为volatile.</strong></p>
+<h2 id="ConcurrentMap-amp-amp-HashMap有什么区别"><a href="#ConcurrentMap-amp-amp-HashMap有什么区别" class="headerlink" title="ConcurrentMap&amp;&amp;HashMap有什么区别"></a>ConcurrentMap&amp;&amp;HashMap有什么区别</h2><h2 id="数据库线程池"><a href="#数据库线程池" class="headerlink" title="数据库线程池"></a>数据库线程池</h2><p>连接池就是创建和管理一个连接的缓冲池技术，这些连接随时会被需要他们的线程调用。在我们连接数据库的时候如果不使用数据连接池，每一次访问数据库都去创建一个连接，这样会很消耗时间和项目的性能。<br>Proxool是sourceforge下面的一个开源数据连接池，最大的特色便是Proxool提供了监视的功能，便于发现连接泄漏的情况。 </p>
+<h2 id="Mysql的事务机制"><a href="#Mysql的事务机制" class="headerlink" title="Mysql的事务机制"></a>Mysql的事务机制</h2><p>事务是怎么解决幻读脏读的,Seriazable(肯定不是，性能太差了).四种事务隔离层级.</p>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>Redis的setkey的timeout机制你觉得应该怎么实现。Redis为什么能当成一个锁使用:单线程?</p>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><p>集合类描述一下，都包含什么东西。没有Map.HashSet的特性是什么(去重无序)</p>
+<h2 id="Java的锁有哪些"><a href="#Java的锁有哪些" class="headerlink" title="Java的锁有哪些"></a>Java的锁有哪些</h2><p>1.3 synchronized和volatile比较<br>简单的说就是synchronized的代码块是确保可见性和原子性的, <strong>volatile只能确保可见性.</strong>当且仅当下面条件全部满足时, 才能使用volatile<br>-对变量的写入操作不依赖于变量的当前值, (++i/i++这种肯定不行), 或者能确保只有单个线程在更新<br>-该变量不会与其他状态变量一起纳入不变性条件中<br>-<strong>访问变量时不需要加锁</strong><br>juc中的锁分两种, 1. 可重入锁; 2. 读写锁. 两者都用到了一个通用组件 AbstractQueuedSynchronizer.<br>利用了一个int来表示状态, 内部基于FIFO队列及UnSafe的CAS原语作为操纵状态的数据结构, AQS以单个 int 类型的原子变量来表示其状态，定义了4个抽象方法(tryAcquire(int)、tryRelease(int)、tryAcquireShared(int)、tryReleaseShared(int)，前两个方法用于独占/排他模式，后两个用于共享模式)留给子类实现，用于自定义同步器的行为以实现特定的功能。</p>
+<h2 id="Java创建一个新的对象的方式"><a href="#Java创建一个新的对象的方式" class="headerlink" title="Java创建一个新的对象的方式"></a>Java创建一个新的对象的方式</h2><p>new/class.forName/getClass().newInstance; 调用java.lang.Class或者java.lang.reflect.Constructor类的newInstance()实例方法. 调用对象的clone()方法。运用反序列化手段，调用java.io.ObjectInputStream对象的readObject()方法.<br>查看磁盘分区的命令:df -hl.打印Tomcat日志目录的尾部:tail -n</p>
+<h2 id="Mysql存储过程总结"><a href="#Mysql存储过程总结" class="headerlink" title="Mysql存储过程总结"></a>Mysql存储过程总结</h2><p>Mysql一般反而不使用存储过程迁移那些事务管理。<br>一.创建存储过程<br>1.基本语法：<br>create procedure sp_name()<br>begin<br>………<br>end<br>2.参数传递<br>3.调用<br>call sp_name()<br>4.删除存储过程<br>drop procedure sp_name<br>(1)不能在一个存储过程中删除另一个存储过程，只能调用另一个存储过程</p>
+
       
 
       
@@ -354,22 +299,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/25/OS-practice-problem-summary.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/12/商汤面经.html">展开全文 >></a>
         </p>
       
 
@@ -399,30 +333,29 @@
 
 
   
-    <article id="post-pandas-details" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-阿里面经" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/24/pandas-details.html">pandas details</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/24/pandas-details.html" class="archive-article-date">
-  	<time datetime="2018-02-25T03:06:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-24</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Classical-usage-of-Pandas"><a href="#Classical-usage-of-Pandas" class="headerlink" title="Classical usage of Pandas"></a>Classical usage of Pandas</h2>
-        
-          <a class="article-more-a" href="/2018/02/24/pandas-details.html#more">more >></a>
-        
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="三次握手四次挥手"><a href="#三次握手四次挥手" class="headerlink" title="三次握手四次挥手"></a>三次握手四次挥手</h2><p>time_wait状态必须等待多长时间：<br>2MSL<br>MSL是Maximum Segment Lifetime英文的缩写，中文可以译为“报文最大生存时间”，他是任何报文在网络上存在的最长时间，超过这个时间报文将被丢弃。因为tcp报文（segment）是ip数据报（datagram）的数据部分，具体称谓请参见《数据在网络各层中的称呼》一文，而ip头中有一个TTL域，TTL是time to live的缩写，中文可以译为“生存时间”，这个生存时间是由源主机设置初始值但不是存的具体时间，而是存储了一个ip数据报可以经过的最大路由数，每经过一个处理他的路由器此值就减1，当此值为0则数据报将被丢弃，同时发送ICMP报文通知源主机。RFC 793中规定MSL为2分钟，实际应用中常用的是30秒，1分钟和2分钟等。</p>
+<p>2MSL即两倍的MSL，TCP的TIME_WAIT状态也称为2MSL等待状态，当TCP的一端发起主动关闭，在发出最后一个ACK包后，即第3次握手完成后发送了第四次握手的ACK包后就进入了TIME_WAIT状态，必须在此状态上停留两倍的MSL时间，等待2MSL时间主要目的是怕最后一个ACK包对方没收到，那么对方在超时后将重发第三次握手的FIN包，主动关闭端接到重发的FIN包后可以再发一个ACK应答包。在TIME_WAIT状态时两端的端口不能使用，要等到2MSL时间结束才可继续使用。当连接处于2MSL等待阶段时任何迟到的报文段都将被丢弃。不过在实际应用中可以通过设置SO_REUSEADDR选项达到不必等待2MSL时间结束再使用此端口。</p>
+<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p>B+树是一种树数据结构，是一个n叉排序树，每个节点通常有多个孩子，一棵B+树包含根节点、内部节点和叶子节点。根节点可能是一个叶子节点，也可能是一个包含两个或两个以上孩子节点的节点。<br>B+树通常用于数据库和操作系统的文件系统中。NTFS, ReiserFS, NSS, XFS, JFS, ReFS和BFS等文件系统都在使用B+树作为元数据索引。B+树的特点是能够保持数据稳定有序，其插入与修改拥有较稳定的对数时间复杂度。B+树元素自底向上插入。<br>红黑树旋转：<br>降低左子树的高度，增加右子树的高度<br>将x变为当前位置的右子节点</p>
+<h2 id="mysql隔离级别"><a href="#mysql隔离级别" class="headerlink" title="mysql隔离级别"></a>mysql隔离级别</h2><p>事务隔离级别                脏读    不可重复读    幻读<br>读未提交（read-uncommitted）        是    是    是<br>不可重复读（read-committed）        否    是    是<br>可重复读（repeatable-read）            否    否    是<br>串行化（serializable）                否    否    否</p>
+<p>##<br>快排最坏复杂度O(nlogn) 在最坏的情况下，待排序的序列为正序或者逆序，时间复杂度O(n^2)</p>
+<h2 id="Mysql怎样避免幻读"><a href="#Mysql怎样避免幻读" class="headerlink" title="Mysql怎样避免幻读"></a>Mysql怎样避免幻读</h2><p>read view(或者说 MVCC)实现了一致性不锁定读(Consistent Nonlocking Reads)，从而避免了幻读<br>Innodb行锁分为:<br>类型    说明<br>Record Lock:    在索引上对单行记录加锁.<br>Gap Lock:        锁定一个范围的记录,但不包括记录本身.锁加在未使用的空闲空间上,可能是两个索引记录之间，也可能是第一个索引记录之前或最后一个索引之后的空间.<br>Next-Key Lock:    行锁与间隙锁组合起来用就叫做Next-Key Lock。锁定一个范围，并且锁定记录本身。对于行的查询，都是采用该方法，主要目的是解决幻读的问题。</p>
+<h2 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h2><ol>
+<li>方法区</li>
+<li>堆区</li>
+<li>本地方法栈</li>
+<li>虚拟机栈</li>
+<li>程序计数器<br>其中，方法区和堆是所有线程共享的。</li>
+</ol>
+<p>1.自我介绍<br>2.object类里边的方法，hashcode和equals的区别，引申到map，扩容的实现，时间复杂度<br>equals:在Object类中的默认实现是“将该对象的内部地址转换成一个整数返回”。<br>1、如果两个对象equals，Java运行时环境会认为他们的hashcode一定相等。<br>2、如果两个对象不equals，他们的hashcode有可能相等。<br>3、如果两个对象hashcode相等，他们不一定equals。<br>4、如果两个对象hashcode不相等，他们一定不equals。 </p>
+<p>3.wait notify ，synchronize方法，<br>4.不能够创建更多的线程数怎么排查<br>5.class的加载流程，一段java代码在栈帧中的执行过程<br>6.写一条sql，执行流程，b树怎么遍历，多少次io，二级索引查数据的流程，看了哪些书<br>7.volatile关键字的作用，被质疑这个关键字真的有用吗<br>8.打开文件流写入磁盘的过程，机械磁盘的查找过程<br>9.kafka 0拷贝机制，socket连接过程，nio和bio的区别<br>10.设计模式<br>11.nginx 和 tomcat的原理,优化….<br>12.linux命令<br>13.tcp连接数，挥手过程及状态转移<br>14.怎么学习新技术，对业务和技术的理解<br>15.股票买卖问题<br>在确定最大连接数之前，先来看看系统如何标识一个tcp连接。系统用一个4四元组来唯一标识一个TCP连接：{local ip, local port,remote ip,remote port}。<br>client最大连接数:65535<br>server最大连接数:最大tcp连接数约为2的32次方（ip数）×2的16次方（port数），也就是server端单机最大tcp连接数约为2的48次方。</p>
+<p>知道的redis全说出来 redis基于内存的，redis 的 rdb 和 aof， redis有虚拟内存，redis用的跳表。解释了一下aof和rdb 2. 虚拟内存为什么会损耗性能 我回答的是磁盘i/o、错了估计是内存映射 3. redis的瓶颈是什么 我回答单点故障 4. 说一下线程池 巴拉巴拉. 5. 说一下jvm. 6. 好了我们做一下题目 1. max point line 2. 求1000000w以内的素数<br>Redis瓶颈是单线程，所以一定要避免那种耗时的操作.</p>
+<p>有上面分析可知：RDB方式持久化的颗粒比较大，当服务器宕机时，到上次save或bgsave后的所有数据都会丢失。而AOF的持久化颗粒比较细，当服务器宕机后，只有宕机之前没来得AOF的操作数据会丢失。<br>1.RDB持久化是redis默认的，用来生成某一个时间点的数据快照；RDB是一个经过压缩的二进制文件，采用RDB持久化时服务器只会保存一个RDB文件（维护比较简单）；<br>2.AOF实现：<br>1）AOF持久化是通过保存redis服务器所执行的写命令来记录数据库状态的；被写入AOF文件的所有命令都是以Redis的命令请求协议格式保存的（Redis的请求协议是纯文本的）。服务器在启动时，通过载入AOF文件、并执行其中的命令来还原服务器状态。<br>1.Tomcat查看tomcat日志输出<br>tail -f catalina.out命令实时查看tomcat的输出。查看系统磁盘的空间df<br>2.</p>
+
       
 
       
@@ -430,22 +363,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/24/pandas-details.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/12/阿里面经.html">展开全文 >></a>
         </p>
       
 
@@ -475,30 +397,28 @@
 
 
   
-    <article id="post-Linux-memory-management" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Minheap-greedy-solution" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/19/Linux-memory-management.html">Linux memory management</a>
+      <a class="article-title" href="/2018/03/05/Minheap-greedy-solution.html">Minheap greedy solution</a>
     </h1>
   
 
         
-        <a href="/2018/02/19/Linux-memory-management.html" class="archive-article-date">
-  	<time datetime="2018-02-19T14:39:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-19</time>
+        <a href="/2018/03/05/Minheap-greedy-solution.html" class="archive-article-date">
+  	<time datetime="2018-03-06T01:43:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Memory-management-in-Linux-Buddy-algorithms"><a href="#Memory-management-in-Linux-Buddy-algorithms" class="headerlink" title="Memory management in Linux(Buddy algorithms)"></a>Memory management in Linux(Buddy algorithms)</h2><p>Memory allocators have two distinct tasks. First, the memory allocator uses the <strong>sbrk() system call</strong> to ask the operating
-        
-          <a class="article-more-a" href="/2018/02/19/Linux-memory-management.html#more">more >></a>
-        
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Minheap-greedy-to-use-the-largest"><a href="#Minheap-greedy-to-use-the-largest" class="headerlink" title="Minheap greedy to use the largest"></a>Minheap greedy to use the largest</h2><p>Scheduler &amp; Reorganize String:<br>For Reorganize String, count all char in the String, in order to split them into different areas as much as possible, you just use the largest 2 in the Minheap as much as possible to make sure the Character is different.</p>
+
       
 
       
@@ -511,7 +431,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -521,7 +441,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/19/Linux-memory-management.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/05/Minheap-greedy-solution.html">展开全文 >></a>
         </p>
       
 
@@ -551,29 +471,109 @@
 
 
   
-    <article id="post-Database-design-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Dijkstra-practice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/18/Database-design-summary.html">Database design sumary</a>
+      <a class="article-title" href="/2018/03/04/Dijkstra-practice.html">Dijkstra practice</a>
     </h1>
   
 
         
-        <a href="/2018/02/18/Database-design-summary.html" class="archive-article-date">
-  	<time datetime="2018-02-18T23:53:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-18</time>
+        <a href="/2018/03/04/Dijkstra-practice.html" class="archive-article-date">
+  	<time datetime="2018-03-04T23:45:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Composite-key"><a href="#Composite-key" class="headerlink" title="Composite key"></a>Composite key</h2>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Basic-summary"><a href="#Basic-summary" class="headerlink" title="Basic summary"></a>Basic summary</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> 1  function Dijkstra(G, w, s)</span><br><span class="line"> 2     for each vertex v in V[G]        // 初始化</span><br><span class="line"> 3           d[v] := infinity           // 將各點的已知最短距離先設成無窮大</span><br><span class="line"> 4           previous[v] := undefined   // 各点的已知最短路径上的前趋都未知</span><br><span class="line"> 5     d[s] := 0                        // 因为出发点到出发点间不需移动任何距离，所以可以直接将s到s的最小距离设为0</span><br><span class="line"> 6     S := empty set</span><br><span class="line"> 7     Q := set of all vertices</span><br><span class="line"> 8     while Q is not an empty set      // Dijkstra演算法主体</span><br><span class="line"> 9           u := Extract_Min(Q)</span><br><span class="line">10           S.append(u)</span><br><span class="line">11           for each edge outgoing from u as (u,v)</span><br><span class="line">12                  if d[v] &gt; d[u] + w(u,v)             // 拓展边（u,v）。w(u,v)为从u到v的路径长度。</span><br><span class="line">13                        d[v] := d[u] + w(u,v)         // 更新路径长度到更小的那个和值。</span><br><span class="line">14                        previous[v] := u              // 记录前置节点</span><br></pre></td></tr></table></figure>
+<p>Extract_Min(Q)是提取节点使得这个节点到源节点的距离最小，每次都这么提取。需要计算所有节点的距离因此将Q设成所有节点，如果只需要计算特殊情形Q起始只有一个节点。用PriorityQueue实现res-&gt;正则很方便.</p>
+<h2 id="变形Dj"><a href="#变形Dj" class="headerlink" title="变形Dj"></a>变形Dj</h2><p>BFS,每次不是提取Min_Q节点,仅仅BFS，因为题目要求逐跳之内到达目标节点，层序遍历走到就走到，走不到就停止。每次判断条件仍然是距离向量。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dfs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/04/Dijkstra-practice.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
         
-          <a class="article-more-a" href="/2018/02/18/Database-design-summary.html#more">more >></a>
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-DFS-used-up-analyze" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/03/DFS-used-up-analyze.html">DFS used up analyze</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/03/DFS-used-up-analyze.html" class="archive-article-date">
+  	<time datetime="2018-03-04T03:22:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The nice thing about DFS is it tries a path, and if that’s wrong (i.e. path does not lead to solution), DFS goes one step back and tries another path. It continues to do so until we’ve found the correct path (which leads to the solution). You need to always bear this nice feature in mind when utilizing DFS to solve problems.<br>
+        
+          <a class="article-more-a" href="/2018/03/03/DFS-used-up-analyze.html#more">more >></a>
         
       
 
@@ -587,7 +587,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Database</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -597,7 +597,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/18/Database-design-summary.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/03/DFS-used-up-analyze.html">展开全文 >></a>
         </p>
       
 
@@ -629,7 +629,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -741,6 +741,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -749,39 +757,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,11 +765,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -801,7 +801,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,7 +813,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">

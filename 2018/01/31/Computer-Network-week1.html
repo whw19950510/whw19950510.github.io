@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/31/Computer-Network-week1.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Switch &amp;amp;&amp;amp; Bridges">
-<meta property="og:updated_time" content="2018-02-07T22:14:41.585Z">
+<meta property="og:updated_time" content="2018-03-02T14:56:43.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Network week1">
 <meta name="twitter:description" content="Switch &amp;amp;&amp;amp; Bridges">
@@ -190,7 +190,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <script src="\assets\js\APlayer.min.js"> </script><h2 id="Switch-amp-amp-Bridges"><a href="#Switch-amp-amp-Bridges" class="headerlink" title="Switch &amp;&amp; Bridges"></a>Switch &amp;&amp; Bridges</h2><a id="more"></a>
-<p>The core job of a switch is to take packets that arrive on an input and forward them to the right output so that they will reach their appropriate destination. There are a variety of ways that the switch can determine the “right” output for a packet, which can be broadly categorized as connectionless and connection oriented approaches.<br>A switch is a multi-input, multi-output device that transfers packets from an input to one or more outputs. Thus, a switch adds the <strong>star topology</strong> to the PtoP network.<br>switched networks are considered more scalable (i.e., more capable of growing to large numbers of nodes) than shared-media networks because of this ability to support many hosts at full speed.<br>A switch’s primary job is to receive incoming packets on one of its links and to transmit them on some other link. This function is sometimes referred to as either <strong>switching or forwarding.</strong>Main function of the network layer.<br>How does a packet decides where to go?<br>Using the header of the packet to determine. The first is the datagram or <strong>connectionless</strong> approach. The second is the virtual circuit or <strong>connection-oriented</strong> approach.<br>How to identify the end addrress of a packet?<br>48-bit addresses used for Ethernet, which is unique for all nodes. Use the number of port to identify input and output of switch.</p>
+<p>The core job of a switch is to take packets that arrive on an input and forward them to the right output so that they will reach their appropriate destination. There are a variety of ways that the switch can determine the “right” output for a packet, which can be broadly categorized as connectionless and connection oriented approaches.<br>A switch is a multi-input, multi-output device that transfers packets from an input to one or more outputs. Thus, a switch adds the <strong>star topology</strong> to the P2P network.<br>switched networks are considered more scalable (i.e., more capable of growing to large numbers of nodes) than shared-media networks because of this ability to support many hosts at full speed.<br>A switch’s primary job is to receive incoming packets on one of its links and to transmit them on some other link. This function is sometimes referred to as either <strong>switching or forwarding.</strong>Main function of the network layer.<br>How does a packet decides where to go?<br>Using the header of the packet to determine. The first is the datagram or <strong>connectionless</strong> approach. The second is the virtual circuit or <strong>connection-oriented</strong> approach.<br>How to identify the end addrress of a packet?<br>48-bit addresses used for Ethernet, which is unique for all nodes. Use the number of port to identify input and output of switch.(二层交换机，就要使用二层Ethernet协议寻找地址)</p>
 <h2 id="Datagrams-amp-amp-Virtual-circuit"><a href="#Datagrams-amp-amp-Virtual-circuit" class="headerlink" title="Datagrams &amp;&amp; Virtual circuit"></a>Datagrams &amp;&amp; Virtual circuit</h2><p>Datagrams:switch uses a forwarding table.A host can send a packet anywhere at any time, since any packet that turns up at a switch can be immediately forwarded. 2 same packets may follow different paths.<br>VC:conection oriented appraoch, requires setting up a virtual connection from the source host to the destination host before any data is sent. This is a two-stage process. The first stage is “connection setup.” The second is data transfer.<br>switch which connection bypasses will record all information in <strong>VC table.</strong>,includes VCI,incoming interface&amp;outgoing interface.<br>A virtual circuit identifier (VCI) that uniquely identifies the<br>connection at this switch and which will be carried inside the<br>header of the packets that belong to this connection. Packets sent out according to corresponding interface.；链接建立后每次发送的消息报头都会携带VCI信息字段。每次经过一个节点更新VCI。最后发送返回确认信息回到源节点。<br>链接断开后，switch会移除相应的entry。<br>每个switch记录信息，switch使用没使用过的VCI记录entry,packet outgoing. VCI：link scope。<br>建立连接的方式：1.Administrator configure.<br>VC:需要保证不同的QoS。</p>
 <h2 id="ATM"><a href="#ATM" class="headerlink" title="ATM"></a>ATM</h2><p>ATM是virtual circuit最典型的应用，尽管现在deploy的已经很少了。ATM cell==ATM packet.<br>small fixed-length packets which only contaisn 54bytes. too short,large head overhead;too long,padding data to waste bandwidth.</p>
 <h2 id="Bridges-amp-LAN-switches"><a href="#Bridges-amp-LAN-switches" class="headerlink" title="Bridges &amp; LAN switches"></a>Bridges &amp; LAN switches</h2><p>They are the same defnition. Use multi-input/output,1 input will flow ot all output. Thus can <strong>increase bandwidth of network.</strong>Be extended to #number of ports Mbps throughtput.<br>bridge takes self-learning and timeout mechanism to continually remove entries and add entries to the table.record which host is connected to which port.<br><strong>Spanning tree algorithms</strong><br>Avoid loop. subsets of original topological with no loops.</p>
@@ -446,6 +446,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -454,39 +462,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,11 +470,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,7 +506,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,7 +518,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">

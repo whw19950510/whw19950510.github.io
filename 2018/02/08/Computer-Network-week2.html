@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/08/Computer-Network-week2.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Forwarding &amp;amp;&amp;amp; RoutingForwarding consists of taking a packet, looking at its destinationaddress, consulting a table, and sending the packet in a direction determined by that table.forwarding is">
-<meta property="og:updated_time" content="2018-02-16T15:46:35.415Z">
+<meta property="og:updated_time" content="2018-03-02T15:06:28.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Network Week2">
 <meta name="twitter:description" content="Forwarding &amp;amp;&amp;amp; RoutingForwarding consists of taking a packet, looking at its destinationaddress, consulting a table, and sending the packet in a direction determined by that table.forwarding is">
@@ -190,7 +190,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <script src="\assets\js\APlayer.min.js"> </script><h2 id="Forwarding-amp-amp-Routing"><a href="#Forwarding-amp-amp-Routing" class="headerlink" title="Forwarding &amp;&amp; Routing"></a>Forwarding &amp;&amp; Routing</h2><p>Forwarding consists of taking a packet, looking at its destination<br>address, consulting a table, and <strong>sending the packet in a direction determined by that table.</strong>forwarding is a relatively simple and well-defined process performed locally at a node, whereas <strong>routing depends on complex distributed algorithms that have continued to evolve throughout the history of networking.</strong><br>routing table usually just contains mapping from network prefixes to next hops.<br><a id="more"></a><br>the forwarding table needs to be structured to optimize the process of looking up an address when forwarding a packet, while the routing table needs to be optimized for the purpose of calculating changes in topology.<br>Theforwarding table is used when a packet is being forwarded and so must contain enough information to accomplish the forwarding function. This means that a row in the forwarding table contains the mapping from a network prefix to an outgoing interface and some MAC information, such as the Ethernet address of the next hop. The routing table, on the other hand, is the table that is built up by the routing algorithms as a precursor to building the forwarding table. It generally contains mappings from network prefixes to next hops. It may also contain information about how this information was learned, so that the router will be able to decide when it should discard some information.</p>
-<h2 id="Routing-algorithms"><a href="#Routing-algorithms" class="headerlink" title="Routing algorithms"></a>Routing algorithms</h2><p>IGPs(Intra domain Protocals/Interior gateway protocal) can’t scale very well for large size network.<br>Routing domain: an internetwork where all router are under single administrative control.<br>Basic:shortest path problems. calculating all shortest paths and store them into each node table.<br>Usually use distributed algorithms to run on all nodes.<br>1.distance vector:RIP(Bellman-ford),<br>The next step in distance-vector routing is that every node sends a<br>message to its directly connected neighbors containing its personal list of distances. The process of getting all nodes getting consistent information about routes is called convergence. Each nodes only know about its own table.<br>Whenever routing table changed or some link get failed, will notify its neighbors and updated the table. node continually detects whether a link is working by continually sending control packets and receiving acknowledgements.<br>2.link state:</p>
+<h2 id="Routing-algorithms"><a href="#Routing-algorithms" class="headerlink" title="Routing algorithms"></a>Routing algorithms</h2><p>IGPs(Intra domain Protocals/Interior gateway protocal) can’t scale very well for large size network.<br>Routing domain: an internetwork where all router are under single administrative control.<br>Basic:shortest path problems. calculating all shortest paths and store them into each node table.<br>Usually use distributed algorithms to run on all nodes.<br>1.distance vector:RIP(Bellman-ford),<br>The next step in distance-vector routing is that every node sends a message to its directly connected neighbors containing its personal list of distances. The process of getting all nodes getting consistent information about routes is called convergence. Each nodes only know about its own table.<br>Whenever routing table changed or some link get failed, will notify its neighbors and updated the table. node continually detects whether a link is working by continually sending control packets and receiving acknowledgements.<br>2.link state:</p>
 
       
 
@@ -438,6 +438,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -446,39 +454,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,11 +462,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,7 +498,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,7 +510,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">

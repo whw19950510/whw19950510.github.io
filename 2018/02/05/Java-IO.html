@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java IO | Huawei&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IO stream classification字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)字符流：Reader(Abstract class,implements Readable,Closeable),must subclass implements read(char[],int,i">
-<meta name="keywords" content="Java EE">
+  <meta name="description" content="IO stream classification字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)字符流：Reader(Abstract class,implements Readable,Closeable),subclass must implements read(char[],int,i">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java IO">
 <meta property="og:url" content="http://yoursite.com/2018/02/05/Java-IO.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
-<meta property="og:description" content="IO stream classification字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)字符流：Reader(Abstract class,implements Readable,Closeable),must subclass implements read(char[],int,i">
-<meta property="og:updated_time" content="2018-02-06T00:37:57.193Z">
+<meta property="og:description" content="IO stream classification字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)字符流：Reader(Abstract class,implements Readable,Closeable),subclass must implements read(char[],int,i">
+<meta property="og:updated_time" content="2018-03-02T15:46:25.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java IO">
-<meta name="twitter:description" content="IO stream classification字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)字符流：Reader(Abstract class,implements Readable,Closeable),must subclass implements read(char[],int,i">
+<meta name="twitter:description" content="IO stream classification字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)字符流：Reader(Abstract class,implements Readable,Closeable),subclass must implements read(char[],int,i">
   
     <link rel="alternative" href="/atom.xml" title="Huawei&#39;s Blog" type="application/atom+xml">
   
@@ -189,7 +189,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="IO-stream-classification"><a href="#IO-stream-classification" class="headerlink" title="IO stream classification"></a>IO stream classification</h2><p>字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)<br>字符流：Reader(Abstract class,implements <strong>Readable,Closeable</strong>),must subclass implements read(char[],int,int),read into a portion of array.<br>Buffered Reader:Reads text from a <strong>character-input stream</strong>, buffering characters so as to provide for the efficient reading of characters, arrays, and lines.<br>InputStreamReader:bridge from bytestream to character stream.<br>FileReader(File file/filedescriptor/String filename):read(char[],int,int):read characters into a portion of array.<br>For top efficiency, consider wrapping an InputStreamReader within a BufferedReader. For example:<br><code>BufferedReader in= new BufferedReader(new InputStreamReader(System.in);</code><br>字节流：<br>InputStream()方法：<br>read():for read 1 byte, read(byte[])for read some number of bytes into buffer. read(byte[], int start, int len):for read len bytes start from start position.</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="IO-stream-classification"><a href="#IO-stream-classification" class="headerlink" title="IO stream classification"></a>IO stream classification</h2><p>字节流：FileInputstream (继承自InputStream),StringBufferInputStream(从字符串里读取Byte源数据)<br>字符流：Reader(Abstract class,implements <strong>Readable,Closeable</strong>),subclass must implements read(char[],int,int),read into a portion of array.<br>Buffered Reader:Reads text from a <strong>character-input stream</strong>, buffering characters so as to provide for the efficient reading of characters, arrays, and lines.<br>InputStreamReader:bridge from bytestream to character stream.<br>FileReader(File file/filedescriptor/String filename):read(char[],int,int):read characters into a portion of array.<br>For top efficiency, consider wrapping an InputStreamReader within a BufferedReader. For example:<br><code>BufferedReader in= new BufferedReader(new InputStreamReader(System.in);</code><br>字节流：<br>InputStream()方法：<br>read():for read 1 byte, read(byte[])for read some number of bytes into buffer. read(byte[], int start, int len):for read len bytes start from start position.</p>
 
       
 
@@ -203,7 +203,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -283,8 +283,8 @@
     </a>
   
   
-    <a href="/2018/02/03/python简书.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python recording for TA grading</div>
+    <a href="/2018/02/04/高并发秒杀系统.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">高并发秒杀系统</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -437,6 +437,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -445,39 +453,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,11 +461,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,7 +497,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,7 +509,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">

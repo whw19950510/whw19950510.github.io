@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/14/leetcode-binary-search-practice-2.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Binary search problemsToday just practice some easy but typical problems, which use both binary search &amp;amp;&amp;amp; 2 pointers. Notice how to pick up pivot.">
-<meta property="og:updated_time" content="2018-01-14T17:41:35.392Z">
+<meta property="og:updated_time" content="2018-03-05T00:11:48.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode binary search practice 2">
 <meta name="twitter:description" content="Binary search problemsToday just practice some easy but typical problems, which use both binary search &amp;amp;&amp;amp; 2 pointers. Notice how to pick up pivot.">
@@ -192,7 +192,7 @@
         <script src="\assets\js\APlayer.min.js"> </script><h2 id="Binary-search-problems"><a href="#Binary-search-problems" class="headerlink" title="Binary search problems"></a>Binary search problems</h2><p>Today just practice some easy but typical problems, which use both binary search &amp;&amp; 2 pointers. Notice how to pick up pivot.<br><a id="more"></a></p>
 <h3 id="69-Sqrt-x"><a href="#69-Sqrt-x" class="headerlink" title="69.Sqrt(x)"></a>69.Sqrt(x)</h3><p>Met with this problem in an intrview before and I didn’t notice the type of number at that time…Should use an variable to record the number which is closest to <code>sqrt(x)</code> each time.</p>
 <h3 id="349-167-Two-sum-in-sorted-array"><a href="#349-167-Two-sum-in-sorted-array" class="headerlink" title="349/167.Two sum in sorted array"></a>349/167.Two sum in sorted array</h3><p>Use 2 pointers can be more precise. Notice the condition judgement.</p>
-<h3 id="74-Search-a-2D-matrix"><a href="#74-Search-a-2D-matrix" class="headerlink" title="74.Search a 2D matrix"></a>74.Search a 2D matrix</h3><p>Matrix has property of increasing like a single array. Thus can use binary search directly.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span>(matrix.length == <span class="number">0</span> || matrix[<span class="number">0</span>].length ==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    	<span class="keyword">int</span> row = matrix.length, col = matrix[<span class="number">0</span>].length;</span><br><span class="line">    	<span class="keyword">int</span> start = <span class="number">0</span>, end = row*col - <span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">while</span>(start &lt; end) &#123;</span><br><span class="line">    		<span class="keyword">int</span> mid = start + (end - start) /<span class="number">2</span>;</span><br><span class="line">    		<span class="keyword">if</span>(matrix[mid/col][mid%col] == target) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    		<span class="keyword">if</span>(matrix[mid/col][mid%col] &lt; target) &#123;</span><br><span class="line">    			start = mid + <span class="number">1</span>;</span><br><span class="line">    		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    			end = mid;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span>(start == end &amp;&amp; matrix[start/col][start%col] == target) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="74-Search-a-2D-matrix"><a href="#74-Search-a-2D-matrix" class="headerlink" title="74.Search a 2D matrix"></a>74.Search a 2D matrix</h3><p>Matrix has property of increasing like a single array. Thus can use binary search directly.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span>(matrix.length == <span class="number">0</span> || matrix[<span class="number">0</span>].length ==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    	<span class="keyword">int</span> row = matrix.length, col = matrix[<span class="number">0</span>].length;</span><br><span class="line">    	<span class="keyword">int</span> start = <span class="number">0</span>, end = row*col - <span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">while</span>(start &lt; end) &#123;</span><br><span class="line">    		<span class="keyword">int</span> mid = start + (end - start) /<span class="number">2</span>;</span><br><span class="line">    		<span class="keyword">if</span>(matrix[mid/col][mid%col] == target) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    		<span class="keyword">if</span>(matrix[mid/col][mid%col] &lt; target) &#123;</span><br><span class="line">    			start = mid + <span class="number">1</span>;</span><br><span class="line">    		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    			end = mid;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span>(start == end &amp;&amp; matrix[start/col][start%col] == target) 		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="240-Search-a-2D-matrix"><a href="#240-Search-a-2D-matrix" class="headerlink" title="240.Search a 2D matrix"></a>240.Search a 2D matrix</h3><p>I only make use of the increasing row property, use the right corner as pivot and search entire row or not, which leads to <code>O(mlog(n))</code> complexity. Better solution is also to use the column increasing property, shrink row/col index by 1 each time, which has <code>O(m+n)</code>.</p>
 
       
@@ -445,6 +445,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -453,39 +461,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,11 +469,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Java EE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,7 +505,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,7 +517,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">
