@@ -170,92 +170,29 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-tensorflow-introduction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JVM-boostrap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/01/tensorflow-introduction.html">tensorflow-introduction</a>
+      <a class="article-title" href="/2018/03/20/JVM-boostrap.html">JVM boostrap</a>
     </h1>
   
 
         
-        <a href="/2018/03/01/tensorflow-introduction.html" class="archive-article-date">
-  	<time datetime="2018-03-01T23:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-01</time>
+        <a href="/2018/03/20/JVM-boostrap.html" class="archive-article-date">
+  	<time datetime="2018-03-20T15:06:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script>
-      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Print-JVM-info-to-a-file-txt"><a href="#Print-JVM-info-to-a-file-txt" class="headerlink" title="Print JVM info to a file txt"></a>Print JVM info to a file txt</h2><p><code>java  -XX:+PrintFlagsFinal&gt;final.txt</code></p>
+<h2 id="Parameter-meaning"><a href="#Parameter-meaning" class="headerlink" title="Parameter meaning"></a>Parameter meaning</h2><p>-Xms:The initial capacity of the heap; 物理内存的1/64(&lt;1GB),默认(MinHeapFreeRatio参数可以调整)空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制.<br>-Xss:JDK5.0以后每个线程堆栈大小为1M,以前每个线程堆栈大小为256K.根据应用的线程所需内存大小进行调整.<strong>在相同物理内存下,减小这个值能生成更多的线程.</strong>但是操作系统对一个进程内的线程数还是有限制的,不能无限生成,经验值在3000~5000左右.一般小的应用,如果栈不是很深,应该是128k够用的 大的应用建议使用256k。这个选项对性能影响比较大,需要严格的测试。<br>-Xmn:整个堆大小=年轻代大小 + 年老代大小 + 持久代大小.增大年轻代后,将会减小年老代大小.此值对系统性能影响较大,Sun官方推荐配置为整个堆的3/8.</p>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/01/tensorflow-introduction.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java-basic-concept" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/Java-basic-concept.html">Java basic concept</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/28/Java-basic-concept.html" class="archive-article-date">
-  	<time datetime="2018-03-01T03:46:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java-concept"><a href="#Java-concept" class="headerlink" title="Java concept"></a>Java concept</h2>
-        
-          <a class="article-more-a" href="/2018/02/28/Java-basic-concept.html#more">more >></a>
-        
       
 
       
@@ -278,7 +215,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/28/Java-basic-concept.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/20/JVM-boostrap.html">展开全文 >></a>
         </p>
       
 
@@ -308,111 +245,38 @@
 
 
   
-    <article id="post-python-subprocess-module采坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-爱奇艺Java面经" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/python-subprocess-module采坑.html">python subprocess module采坑</a>
+      <a class="article-title" href="/2018/03/20/爱奇艺Java面经.html">爱奇艺Java面经</a>
     </h1>
   
 
         
-        <a href="/2018/02/28/python-subprocess-module采坑.html" class="archive-article-date">
-  	<time datetime="2018-03-01T02:50:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+        <a href="/2018/03/20/爱奇艺Java面经.html" class="archive-article-date">
+  	<time datetime="2018-03-20T15:04:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Subprocess-Module"><a href="#Subprocess-Module" class="headerlink" title="Subprocess Module"></a>Subprocess Module</h2><p>今天使用subprocess给TA的课程cs354写了一点测试脚本，研究了一下subprocess这个module。原来上操作系统课程每天只是听说进程间通信是几种方式，Pipe管道、共享内存、Socket、消息队列MQ等等。从来没有用过Pipe,只使用过shared_memory(shmmem).今天用了一次才发现了大坑。<br>
-        
-          <a class="article-more-a" href="/2018/02/28/python-subprocess-module采坑.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/28/python-subprocess-module采坑.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux-knowledge" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/Linux-knowledge.html">Linux knowledge</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/26/Linux-knowledge.html" class="archive-article-date">
-  	<time datetime="2018-02-27T05:44:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Useful-command"><a href="#Useful-command" class="headerlink" title="Useful command"></a>Useful command</h2><p>df:查看磁盘使用情况<br>dd:convert and copy a file<br>top:查看CPU占用<br>du:estimate file space usage<br>tail -f:查看文件结尾信息<br>/etc/hosts 主机名到 IP 地址的映射关系的文件<br>/etc/resolv.conf DNS 服务的配置文件<br>/etc/gateways 建立动态路由需要用到的文件<br>clone是fork的升级版本，不仅可以创建进程或者线程，还可以指定创建新的命名空间（namespace）、有选择的继承父进程的内存、甚至可以将创建出来的进程变成父进程的兄弟进程等等.clone()是可以将父进程资源有选择地复制给子进程，而没有复制的数据结构则通过指针的复制让子进程共享，具体要复制哪些资源给子进程，由参数列表中的clone_flags来决定。另外，clone()返回的是子进程的pid<br>select,pselect,FD_CLR,FD_ISSET,FD_SET,FD_ZERO - synchronous I/O<br>multiplexing<br>free查看内存整体的使用情况<br>cat /proc/meminfo查看内存更详细的情况<br>last:原来登陆的用户清单<br>可以查看当前系统的启动时间:w, top, uptime<br>cat /proc/meminfo:查看物理内存大小<br>ifconfig:配置本地回环地址,配置网卡的IP地址,激活网络适配器<br>硬链接删了能访问，软连接删了没了，能跨文件系统。<br>lprm 命令用于将一个工作由打印机贮列中移除<br><strong>lpq 命令用于查看一个打印队列的状态，该程序可以查看打印机队列状态及其所包含的打印任务。</strong><br>lpd 命令 是一个常驻的打印机管理程序，它会根据 /etc/printcap 的内容来管理本地或远端的打印机。<br><strong>lpr(line printer，按行打印)实用程序用来将一个或多个文件放入打印队列等待打印。</strong><br>将网卡激活不需要重新编译内核<br>netd表示Network守护进程. Netd负责跟一些涉及网络的配置，操作，管理，查询等相关的功能实现，比如，例如带宽控制（Bandwidth），流量统计，带宽控制，网络地址转换（NAT），个人局域网（pan），PPP链接，soft-ap，共享上网（Tether），配置路由表，interface配置管理.<br>vsftpd服务流量控制的参数:local_max_rate; anon_max_rate<br>init启动进程需要读取()配置文件:<strong>/etc/inittab</strong><br>whereis 可查询二进制文件(-b)、帮助文档(-m)、源程序（-s），无选项时，返回所有结果，-u(除上述三种的其它文件)<br>which   查看可执行文件的位置<br>whatis  查询命令有什么功能<br>apropos  搜索指定关键字的命令<br>cat /proc/interrupts查看中断<br>jobs 查看后台进程作业<br>fseek是库函数，lseek是系统调用<br>cp source des/filename:can rename the copied file<br><strong>nohup    在注销后使用  nohup  命令运行后台中的程序</strong></p>
-<h2 id="Inode可以被多个文件使用"><a href="#Inode可以被多个文件使用" class="headerlink" title="Inode可以被多个文件使用"></a>Inode可以被多个文件使用</h2><p>Unix/Linux系统允许，多个文件名指向同一个inode号码。这意味着，可以用不同的文件名访问同样的内容；对文件内容进行修改，会影响到所有文件名；但是，删除一个文件名，不影响另一个文件名的访问。这种情况就被称为”硬链接”（hard link）。 除了硬链接以外，还有一种特殊情况。文件A和文件B的inode号码虽然不一样，但是文件A的内容是文件B的路径。读取文件A时，系统会自动将访问者导向文件B。因此，无论打开哪一个文件，最终读取的都是文件B。这时，文件A就称为文件B的”软链接”（soft link）或者”符号链接（symbolic link）。<br>所有加载的文件系统在/etc/mtab中得到反映。<br>目录在文件系统中也是以文件形式存在</p>
-<h2 id="Spinlock"><a href="#Spinlock" class="headerlink" title="Spinlock"></a>Spinlock</h2><p>spinlock在多处理器多线程环境的场景中有很广泛的使用，一般要求使用spinlock的临界区尽量简短，这样获取的锁可以尽快释放，以满足其他忙等的线程。Spinlock和mutex不同，spinlock不会导致线程的状态切换(用户态-&gt;内核态)，但是spinlock使用不当(如临界区执行时间过长)会导致cpu busy飙高。</p>
-<h2 id="CPU负载"><a href="#CPU负载" class="headerlink" title="CPU负载"></a>CPU负载</h2><p>数字越小越好，可以通过TOP命令查看，可以通过uptime查看</p>
-<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>Linux系统中，已经将DHCP服务器架设好，客户端的网络接口eth0，可以通过（ ）命令获得服务器分配的IP地址：dhclient,ifdown eth0；ifup eth0<br>TCP、UDP可以绑定同一端口进行通信，取决于数据包的协议类型决定使用哪种协议。<br>网络write返回n&gt;0表示已经发送nbyte<br>硬链接仅仅删除文件名，inode没删，不能链接目录；<br>查看本机路由情况:<strong>route/netstat</strong><br>route命令用来显示目前本机路由表的内容，并且还可以针对路由表中的记录来进行相应的添加、删除或修改等操作。<br><strong>ifconfig命令用来来检测和设置本机的网络接口。</strong><br>ping命令用来检测两部主机之间的传输信道是否畅通，或远程主机是否正常<br>netstat命令用来查看主机的连接状态<br>DHCP服务器能提供的服务包括：<strong>提供DNS、网关信息；为特定客户机提供固定IP地址；为主机提供动态的IP地址</strong></p>
-<h2 id="Select-Epoll"><a href="#Select-Epoll" class="headerlink" title="Select/Epoll"></a>Select/Epoll</h2><p>linux的I/O复用接口select和epoll.<br>select 和 epoll效率差异的原因：select采用轮询方式处理连接，epoll是触发式处理连接。<br>Select:<br>1.Socket数量限制：该限制可操作的Socket数由FD_SETSIZE决定，内核默认32*32=1024.<br>2.操作限制：通过遍历FD_SETSIZE(1024)个Socket来完成调度，不管哪个Socket是活跃的，都遍历一遍。<br>poll使用pollfd结构来存储fd，突破了select中描述符数目的限制。<br>与select的后两点类似，poll仍然需要将pollfd数组拷贝到内核空间，之后依次扫描fd的状态，整体复杂度依然是O（n）的，在并发量大的情况下服务器性能会快速下降。<br>Epoll<br>1.Socket数量无限制：该模式下的Socket对应的fd列表由一个数组来保存，大小不限制（默认4k）。<br>2.操作无限制：基于内核提供的反射模式，有活跃Socket时，内核访问该Socket的callback，不需要遍历轮询。但当所有的Socket都活跃的时候，所有的callback都被唤醒，会导致资源的竞争。既然都是要处理所有的Socket，那么遍历是最简单最有效的实现方式。<br>服务器的特点是经常维护着大量连接，但其中某一时刻读写的操作符数量却不多。epoll先通过epoll_ctl注册一个描述符到内核中，并一直维护着而不像poll每次操作都将所有要监控的描述符传递给内核；在描述符读写就绪时，通过回掉函数将自己加入就绪队列中，之后epoll_wait返回该就绪队列。也就是说，epoll基本不做无用的操作，时间复杂度仅与活跃的客户端数有关，而不会随着描述符数目的增加而下降。</p>
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p>1.Linux执行ls，会引起哪些系统调用：read,fork,execv</p>
-<h2 id="nagle算法"><a href="#nagle算法" class="headerlink" title="nagle算法"></a>nagle算法</h2><p>2.在linux编程中，以下哪个TCP的套接字选项与nagle算法的开启和关闭有关？<br>TCP_NODELAY<br>3.Nagle算法的规则：<br>（1）如果包长度达到MSS，则允许发送；<br>（2）如果该包含有FIN，则允许发送；<br>（3）设置了TCP_NODELAY选项，则允许发送；<br>（4）未设置TCP_CORK选项时，若所有发出去的小数据包（包长度小于MSS）均被确认，则允许发送；<br>（5）上述条件都未满足，但发生了超时（一般为200ms），则立即发送。<br>Nagle算法只允许一个未被ACK的包存在于网络，它并不管包的大小，因此它事实上就是一个扩展的停-等协议，只不过它是基于包停-等的，而不是基于字节停-等的。Nagle算法完全由TCP协议的ACK机制决定，这会带来一些问题，比如如果对端ACK回复很快的话，Nagle事实上不会拼接太多的数据包，虽然避免了网络拥塞，网络总体的利用率依然很低。<br>Nagle算法是silly window syndrome(SWS)预防算法的一个半集。SWS算法预防发送少量的数据，Nagle算法是其在发送方的实现，而接收方要做的是不要通告缓冲空间的很小增长，不通知小窗口，除非缓冲区空间有显著的增长。这里显著的增长定义为完全大小的段（MSS）或增长到大于最大窗口的一半。<br>注意：BSD的实现是允许在空闲链接上发送大的写操作剩下的最后的小段，也就是说，当超过1个MSS数据发送时，内核先依次发送完n个MSS的数据包，然后再发送尾部的小数据包，其间不再延时等待。（假设网络不阻塞且接收窗口足够大）<br>举个例子，比如之前的blog中的实验，一开始client端调用socket的write操作将一个int型数据（称为A块）写入到网络中，由于此时连接是空闲的（也就是说还没有未被确认的小段），因此这个int型数据会被马上发送到server端，接着，client端又调用write操作写入‘\r\n’（简称B块），这个时候，A块的ACK没有返回，所以可以认为已经存在了一个未被确认的小段，所以B块没有立即被发送，一直等待A块的ACK收到（大概40ms之后），B块才被发送。整个过程如图所示：<br>这里还隐藏了一个问题，就是A块数据的ACK为什么40ms之后才收到？这是因为TCP/IP中不仅仅有nagle算法，还有一个TCP确认延迟机制 。当Server端收到数据之后，它并不会马上向client端发送ACK，而是会将ACK的发送延迟一段时间（假设为t），它希望在t时间内server端会向client端发送应答数据，这样ACK就能够和应答数据一起发送，就像是应答数据捎带着ACK过去。在我之前的时间中，t大概就是40ms。这就解释了为什么’\r\n’（B块）总是在A块之后40ms才发出。<br>当然，TCP确认延迟40ms并不是一直不变的，TCP连接的延迟确认时间一般初始化为最小值40ms，随后根据连接的重传超时时间（RTO）、上次收到数据包与本次接收数据包的时间间隔等参数进行不断调整。另外可以通过设置TCP_QUICKACK选项来取消确认延迟。</p>
-<h2 id="进程类型"><a href="#进程类型" class="headerlink" title="进程类型"></a>进程类型</h2><p>交互进程——由一个shell启动的进程。交互进程既可以在前台运行，也可以在后台运行。<br>批处理进程——这种进程和终端没有联系，是一个进程序列。<br>监控进程（也称守护进程）——Linux系统启动时启动的进程，并在后台运行。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>某南京双非的面经:<br>最近投了爱奇艺的java实习，在途牛旅游网实习过一段时间。<br>1、一开始自我介绍，然后问我做过哪些项目，我只介绍了其中一个。<br>2、项目里的redis处理并发问题的根据是什么？<br>你用 SQL 数据库的话，可以用事务来解决。但是你这么高的并发交给数据库显然会太慢。Redis 作为内存数据库，实现得又好，所以速度飞快。然后呢，解决竞态，还是靠人来编程解决。Redis 只是提供了足以解决问题的工具。<br>redis中也是有事务的，不过这个事务没有mysql中的完善，只保证了一致性和隔离性，不满足原子性和持久性。<br>redis事务使用multi、exec命令</p>
+<p>3、redis知道哪些数据类型？spring里怎么用redis？ Jeddis<br>Redis是一种基于客户端-服务端模型以及请求/响应协议的TCP服务。这意味着通常情况下一个请求会遵循以下步骤：</p>
+<ul>
+<li>客户端向服务端发送一个查询请求，并监听Socket返回，通常是以阻塞模式，等待服务端响应。</li>
+<li>服务端处理命令，并将结果返回给客户端。<br>new RedisClient(){private Jedis jedis;//非切片额客户端连接<br>  private JedisPool jedisPool;//非切片连接池<br>  private ShardedJedis shardedJedis;//切片额客户端连接<br>  private ShardedJedisPool shardedJedisPool;//切片连接池</li>
+</ul>
+<p>}<br>4、紧接着开始问我spring的问题，解释IOC的原理，有哪些创建Bean的方式，xml配置和java配置是否可以同时存在，为什么？<br>5、aop的原理，什么是静态织入和动态织入？<br>6、restful api了解不，说说get，put，post，delete的区别？<br>7、你的项目里为什么都用post，有什么好处，处理json字符串的jar包是什么？其中<strong>org.json和json-lib</strong>比较简单</p>
+<p>8、用过springboot吗？（没用过）springmvc的配置，有什么好处？servlet的原理，jdbc连接数据库。<br>9、mybatis的原理，如何实现？<br>10、数据库的事务隔离级别，什么是脏读，幻读？<br>11、数据库索引的原理是什么？B树和B+树有什么区别？什么是红黑树？有哪些索引？可不可以同时在一张表设置多个索引（n个）？索引的优缺点？一张性别表和一张学号表，哪个适合建索引？为什么？<br>12、数据库事务，spring事务如何实现？<br>13、看你项目里自己写过react和vue，接着开始问我前端，（很慌）。react和vue，angular的区别是什么？什么是虚拟DOM，vue的父子组件如何联系？什么是双向绑定，react如何实现双向绑定？会不会react redux，vuex？（这里不怎么说的清楚，很乱）<br>14、知道ES6吗，var和let区别，没有let，怎么处理var的问题（闭包和IIFE）？const？箭头函数？<br>15、样式会不会？什么是flex？为什么要用？如何实现左边固定，右边自适应？如何实现垂直水平居中？<br>16、还有一些问题记不大清了，庆幸没问算法。。。过了一个小时二面的面试官打电话过来直接就说一面的面试官对我很满意，他就不问了，有点开心，然后开始询问我一些问题，最近的情况，考虑转正的问题不？，可不可以全职？<br>17.IOC用到的设计模式:模板模式，单例模式，工厂模式<br>18.dubbo<br>19.@autireware和resource的区别:spring propertiey注入，搜索先后顺序不一样。<br>@Resource will narrow down the search first by name then by type and finally by Qualifiers (ignored if match is found by name). @Autowired and @Inject will narrow down the search first by type then by qualifier and finally by the name.<br>20.Mysql索引有哪些:单列索引，组合索引(clustered index)<br>创建索引时，你需要确保该索引是应用在SQL 查询语句的条件(一般作为 WHERE 子句的条件)。<br>MySQL里的索引类型主要有以下几种。</p>
+<ol>
+<li>B-Tree索引<br>最常见的索引类型，基于B-Tree数据结构。B-Tree的基本思想是，所有值（被索引的列）都是排过序的，每个叶节点到跟节点距离相等。所以B-Tree适合用来查找某一范围内的数据，而且可以直接支持数据排序（ORDER BY）。但是当索引多列时，列的顺序特别重要，需要格外注意。InnoDB和MyISAM都支持B-Tree索引。InnoDB用的是一个变种B+Tree，而MyISAM为了节省空间对索引进行了压缩，从而牺牲了性能。</li>
+<li>Hash索引<br>基于hash表。所以这种索引只支持精确查找，不支持范围查找，不支持排序。这意味着范围查找或ORDER BY都要依赖server层的额外工作。目前只有Memory引擎支持显式的hash索引（但是它的hash是nonunique的，冲突太多时也会影响查找性能）。Memory引擎默认的索引类型即是Hash索引，虽然它也支持B-Tree索引。<br>3.Full-text索引<br>主要用来查找文本中的关键字，而不是直接与索引中的值相比较。Full-text索引跟其它索引大不相同，它更像是一个搜索引擎，而不是简单的WHERE语句的参数匹配。你可以对某列分别进行full-text索引和B-Tree索引，两者互不冲突。Full-text索引配合MATCH AGAINST操作使用，而不是一般的WHERE语句加LIKE。<br>哪个数据库引擎？<br>Innodb，做事务</li>
+</ol>
 
       
 
@@ -426,7 +290,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -436,7 +300,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/26/Linux-knowledge.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/20/爱奇艺Java面经.html">展开全文 >></a>
         </p>
       
 
@@ -466,29 +330,137 @@
 
 
   
-    <article id="post-Database-relation-alebra" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Pascal-new-feature" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/Database-relation-alebra.html">Database-relation-algebra</a>
+      <a class="article-title" href="/2018/03/18/Pascal-new-feature.html">Pascal new feature</a>
     </h1>
   
 
         
-        <a href="/2018/02/26/Database-relation-alebra.html" class="archive-article-date">
-  	<time datetime="2018-02-26T16:49:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
+        <a href="/2018/03/18/Pascal-new-feature.html" class="archive-article-date">
+  	<time datetime="2018-03-18T17:50:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="RA"><a href="#RA" class="headerlink" title="RA"></a>RA</h2><p>Declarative language/Procudual language<br>RA：operands,operator<br>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><p>Tesla-&gt;Kepler-&gt;Fermi-&gt;MaxWell-&gt;Pascal-&gt;Tesla V100, Titan V(2017 June, CUDA Compute Capability 7.0)<br>Pascal is the codename for a GPU microarchitecture developed by Nvidia, as the successor to the Maxwell architecture</p>
+<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><p><strong>In Pascal, an SM (streaming multiprocessor) consists of 64 CUDA cores.</strong> Maxwell packed 128, Kepler 192, Fermi 32 and Tesla only 8 CUDA cores into an SM; the GP100 SM is partitioned into two processing blocks, <strong>each having 32 single-precision CUDA Cores</strong>, an instruction buffer, a warp scheduler, 2 texture mapping units and 2 dispatch units. <strong>The performance of double precision will be worse than single precision data</strong>.<br>CUDA Compute Capability 6.0.<br>重要的性能加速点：<br><strong>16-bit (FP16) floating-point operations (colloquially “half precision”) can be executed at twice the rate of 32-bit floating-point operations (“single precision”)[8] and 64-bit floating-point operations (colloquially “double precision”) executed at half the rate of 32-bit floating point operations.[9]</strong><br>More registers — twice the amount of registers per CUDA core compared to Maxwell.<br>More shared memory<br>Dynamic load balancing scheduling system.[10] This allows the scheduler to dynamically adjust the amount of the GPU assigned to multiple tasks, ensuring that the GPU remains saturated with work except when there is no more work that can safely be distributed to distribute.[10] Nvidia therefore has safely enabled asynchronous compute in Pascal’s driver.<br>Instruction-level and thread-level preemption.<br><strong>CUDA Compute Capability 6.1.</strong></p>
+<h2 id="Overview-Architecture"><a href="#Overview-Architecture" class="headerlink" title="Overview Architecture"></a>Overview Architecture</h2><p>Graphics Processor Cluster<br>A chip is partitioned into Graphics Processor Clusters (GPCs).<br>Geforce1080:arch_64&amp;&amp;computing arch_64<br>A “<strong>Streaming Multiprocessor</strong>“ corresponds to AMD’s Compute Unit. An SMP encompasses 64 single-precision ALUs on GP100 chips<strong>(“CUDA cores”)</strong>.<br>One Pascal SM on the GP100 combines 64 single-precision (FP32) shader processors and also 32 double-precision (FP64) (at least the GP100 GPUs) providing a 2:1 ratio of single- to double-precision throughput. On the GP104 an SM combines 128 single-precision ALUs, 4 double-precision ALUs providing a 32:1 ratio, and one half-precision ALU that contains a vector of two half-precision floats which can execute the same instruction on both floats providing a 64:1 ratio if the same instruction is used on both elements. GP100, however, uses more flexible FP32 cores that are able to process one single-precision or two half-precision numbers in a two-element vector.[15] Nvidia intends to address the calculation of algorithms related to deep learning with those.</p>
+<p><strong>GP100: Nvidia Tesla P100 GPU accelerator is targeted at GPGPU applications such as FP64 double precision compute and deep learning training that uses FP16.</strong> It uses HBM2 memory.[17] Quadro GP100 also uses the GP100 GPU.<br>GP102: This GPU is used in the TITAN Xp, Titan X and the GeForce GTX 1080 Ti. It is also used in the Quadro P6000 &amp; Tesla P40.<br><strong>GP104: This GPU is used in the GeForce GTX 1070, GTX 1070 Ti and the GTX 1080. The GTX 1070 has 15/20 and the GTX 1070 Ti has 19/20 of its SMs enabled. Both are connected to GDDR5 memory, while the GTX 1080 is a full chip and is connected to GDDR5X memory. It is also used in the Quadro P5000, Quadro P4000 and Tesla P4.</strong><br><strong>GP102</strong>:chips for GTX 1080Ti. </p>
+<h2 id="Succeesor-Architecture"><a href="#Succeesor-Architecture" class="headerlink" title="Succeesor Architecture"></a>Succeesor Architecture</h2><p>After Pascal, the next architecture will be preliminarily codenamed Volta. Nvidia announced that the Volta GPU would feature High Bandwidth Memory, Unified Memory, complete FP16 support (two times its FP32) and NVLink.[28] It is still not known if Volta will be part of the consumer lineup and may be replaced with Ampere.</p>
+<h2 id="Compiling-option-for-certain-architecture"><a href="#Compiling-option-for-certain-architecture" class="headerlink" title="Compiling option for certain architecture"></a>Compiling option for certain architecture</h2><p>A complete description is somewhat complicated, but there are intended to be relatively simple, easy-to-remember canonical usages. Compile for the architecture (both virtual and real), that represents the GPUs you wish to target. A fairly simple form is:<br><code>-gencode arch=compute_XX,code=sm_XX</code><br>where XX is the two digit compute capability for the GPU you wish to target. If you wish to target multiple GPUs, simply repeat the entire sequence for each XX target. This is approximately the approach taken with the CUDA sample code projects. (If you’d like to include PTX in your executable, include an additional -gencode with the code option specifying the same PTX virtual architecture as the arch option).<br>Another fairly simple form, when targetting only a single GPU, is just to use:<br><code>-arch=sm_XX</code><br>默认版本编译是sm_20,是不支持double-precision运算的.<br>When no -gencode switch is used, and no -arch switch is used, nvcc assumes a default -arch=sm_20 is appended to your compile command (this is for CUDA 7.5, the default -arch setting may vary by CUDA version).  sm_20 is a real architecture, and it is not legal to specify a real architecture on the -arch option when a -code option is also supplied.</p>
+<h2 id="Matchin-between-Arch-type-amp-computing-ability"><a href="#Matchin-between-Arch-type-amp-computing-ability" class="headerlink" title="Matchin between Arch type &amp; computing ability"></a>Matchin between Arch type &amp; computing ability</h2><p>Pascal (CUDA 8 and later)<br>SM60 or SM_60, compute_60 – GP100/Tesla P100 – DGX-1 (Generic Pascal)<br>SM61 or SM_61, compute_61 – GTX 1080, GTX 1070, GTX 1060, GTX 1050, GTX 1030, Titan Xp, Tesla P40, Tesla P4<br>SM62 or SM_62, compute_62 – Drive-PX2, Tegra (Jetson) TX2, Denver-based GPU<br>Volta (CUDA 9 and later)<br>SM70 or SM_70, compute_70 – Tesla V100<br>SM71 or SM_71, compute_71 – probably not implemented<br>SM72 or SM_72, compute_72 – currently unknown</p>
+<p>check CUDA version:nvcc – version<br>check Nvidia GPU usage: nvidia-smi</p>
+<h2 id="Programming-model-for-CUDA"><a href="#Programming-model-for-CUDA" class="headerlink" title="Programming model for CUDA"></a>Programming model for CUDA</h2><p>Programmer writes code for a single thread in<br>simple C program.</p>
+<ol>
+<li>All threads executes the same code, but can take different paths.</li>
+<li>Threads are grouped into a block.</li>
+<li>Threads within the same block can synchronize execution.</li>
+<li>Blocks are grouped into a grid.</li>
+<li>Blocks are independently scheduled on the GPU, can be executed in any order.</li>
+<li>A kernel is executed as a <strong>grid</strong> of blocks of threads.<br><strong>Each block is executed by one SM and does not migrate. Several concurrent blocks can reside on one SM depending on block’s memory requirement and the SM’s memory resources.</strong><br>A warp consists of 32 threads</li>
+</ol>
+<ul>
+<li>A warp is the basic schedule unit in kernel execution.</li>
+<li>A thread block consists of 32-thread warps.</li>
+<li>Each cycle, a warp scheduler selects one ready warps and dispatches the warps to CUDA cores to execute.</li>
+</ul>
+<h2 id="NVCC-compiling-option"><a href="#NVCC-compiling-option" class="headerlink" title="NVCC compiling option"></a>NVCC compiling option</h2><p>-pg:nstrument generated code/executable for use by gprof (Linux only).<br>-g:    Generate debug information for host code.<br>-G: Generate debug information for device code. Turns off all optimizations. Don’t use for profiling; use lineinfo instead.<br>-O    Specify optimization level for host code.<br>-shared    Generate a shared library during linking. Use option –linker-options when other linker options are required for more control.</p>
+<p>-arch<br>Specify the name of the class of NVIDIA virtual GPU architecture for which the CUDA input files must be compiled.<br>With the exception as described for the shorthand below, the architecture specified with this option must be a virtual architecture (such as compute_50). Normally, this option alone does not trigger assembly of the generated PTX for a real architecture (that is the role of nvcc option –gpu-code, see below); rather, its purpose is to control preprocessing and compilation of the input to PTX.</p>
+<p>For convenience, in case of simple nvcc compilations, the following shorthand is supported. If no value for option –gpu-code is specified, then the value of this option defaults to the value of –gpu-architecture. In this situation, as only exception to the description above, the value specified for –gpu-architecture may be a real architecture (such as a sm_50), in which case nvcc uses the specified real architecture and its closest virtual architecture as effective architecture values. For example, nvcc –gpu-architecture=sm_50 is equivalent to nvcc –gpu-architecture=compute_50 –gpu-code=sm_50,compute_50.</p>
+<h2 id="Exisiting-Library-for-HPC"><a href="#Exisiting-Library-for-HPC" class="headerlink" title="Exisiting Library for HPC"></a>Exisiting Library for HPC</h2><p>cuBLAS,cuDNN.</p>
+<h2 id="Floarting-point-number-calculation"><a href="#Floarting-point-number-calculation" class="headerlink" title="Floarting point number calculation"></a>Floarting point number calculation</h2><p>IEEE 754 supports both 32 bits and 64 bits number operation, corresbonding to float and double. Devices with compute capability 2.0 and above support <strong>both single and double precision</strong> IEEE 754 including fused multiply-add in both single and double precision. Operations such as square root and division will result in the floating point value closest to the correct mathematical result in both single and double precision, by default. Floating point number will consist of such sign bit and power weight parts and actual number with 1.XXX.<br>the fused multiply-add operation is faster and more accurate than performing separate multiply and add operations.  The flags have no effect on double precision or on devices of compute capability below 2.0.<br>Faster compiling options:<br>-ftz=true<br>-prec-div=false<br>-prec-sqrt=false<br>Possible to call cuBLAS in the user kernal. </p>
+<p>GP100: Nvidia Tesla P100 GPU accelerator is targeted at GPGPU applications such as FP64 double precision compute and deep learning training that uses FP16. All aims at using FP16 float point number. </p>
+<h2 id="Synchrnous-amp-Asynchonous-programming"><a href="#Synchrnous-amp-Asynchonous-programming" class="headerlink" title="Synchrnous &amp; Asynchonous programming"></a>Synchrnous &amp; Asynchonous programming</h2><p>CUDA kernel launch is asynchronous / non-blocking. host call starts the kernel execution, but doesn’t wait<br>for it to finish before going on to next instruction similar for cudaMemcpyAsync starts the copy but doesn’t wait for completion has to be done through a “stream” with page-locked memory (also known as pinned memory) – see<br>documentation in both cases, host eventually waits when at a cudaDeviceSynchronize() call.<br>benefit? – in general, doesn’t affect correct execution, and might improve performance by overlapping CPU and GPU execution.<br>Applications manage concurrency through streams.<br>Within each stream, CUDA operations are carried out in<br>order (i.e. FIFO – first in, first out); one finishes before the<br>next starts Key to getting better performance is using multiple streams<br>to overlap things.</p>
+<h2 id="Thrust-usage-to-maximize-efficiency"><a href="#Thrust-usage-to-maximize-efficiency" class="headerlink" title="Thrust usage to maximize efficiency"></a>Thrust usage to maximize efficiency</h2><p>As this example shows, the = operator can be used to copy a host_vector to a device_vector (or vice-versa). The = operator can also be used to copy host_vector to host_vector or device_vector to device_vector. Also note that individual elements of a device_vector can be accessed using the standard bracket notation. However, because each of these accesses requires a call to cudaMemcpy, they should be used sparingly. We’ll look at some more efficient techniques later.<br>减少[]/= copy数据通信。<br>Thrust can be called from kernal calls.<br>Thrust algorithms may be called from <strong>global</strong> or <strong>device</strong> functions when invoked with an execution policy.</p>
+<h2 id="Math-API-Optimization"><a href="#Math-API-Optimization" class="headerlink" title="Math API Optimization"></a>Math API Optimization</h2><p>The answer lies in Appendix D of the programming guide. The intrinsics for the transcendental, trigonometric, and special functions are faster, but have more domain restrictions and <strong>generally lower accuracy than their software counterparts</strong>. For the primary purpose of the hardware (ie graphics), having fast approximate functions for sin, cos, square root, reciprocal, etc. allows for improved shader performance when ultimate mathematical accuracy is not critical. For some compute tasks, the less accurate versions are also fine. For other applications, the intrinsics may not be sufficient.<br>Having both allows the informed programmer to have a choice: speed or accuracy.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GPU</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/18/Pascal-new-feature.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
         
-          <a class="article-more-a" href="/2018/02/26/Database-relation-alebra.html#more">more >></a>
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mysql-lock-level" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/12/Mysql-lock-level.html">Mysql lock level</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/12/Mysql-lock-level.html" class="archive-article-date">
+  	<time datetime="2018-03-13T02:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MVCC (Multiversion Concurrency Control)，即多版本并发控制技术,它使得大部分支持行锁的事务引擎，不再单纯的使用行锁来进行数据库的并发控制，取而代之的是把数据库的行锁与行的多个版本结合起来，只需要很小的开销,就可以实现非锁定读，从而大大提高数据库系统的并发性能<br>
+        
+          <a class="article-more-a" href="/2018/03/12/Mysql-lock-level.html#more">more >></a>
         
       
 
@@ -512,7 +484,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/26/Database-relation-alebra.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/12/Mysql-lock-level.html">展开全文 >></a>
         </p>
       
 
@@ -542,33 +514,27 @@
 
 
   
-    <article id="post-Spring-detail-knowledge" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Minheap-greedy-solution" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/Spring-detail-knowledge.html">Spring-detail-knowledge</a>
+      <a class="article-title" href="/2018/03/05/Minheap-greedy-solution.html">Minheap greedy solution</a>
     </h1>
   
 
         
-        <a href="/2018/02/25/Spring-detail-knowledge.html" class="archive-article-date">
-  	<time datetime="2018-02-26T05:47:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-25</time>
+        <a href="/2018/03/05/Minheap-greedy-solution.html" class="archive-article-date">
+  	<time datetime="2018-03-06T01:43:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p>2.方便的事务管理: Spring的声明式事务管理力度是类级别,错。spring现在只支持方法级别的织入点，域级别的还没有实现。<br>3.Spring提供的DAO(数据访问对象)支持主要的目的是便于以标准的方式使用不同的数据访问技术。<br>4.异常包装:Spring能够包装Hibernate异常，把它们从CheckedException变为RuntimeException; 开发者可选择在恰当的层处理数据中不可恢复的异常，从而避免烦琐的 catch/throw 及异常声明<br>5.Spring提供的DAO支持了JDBC、JDO和Hibernate<br>6.Spring提供的DAO(数据访问对象)支持主要的目的是<strong>便于以标准的方式使用不同的数据访问技术</strong>。 简化 DAO 组件的开发。 Spring提供了一套抽象DAO类供你扩展。这些抽象类提供了一些方法，用来简化代码开发。 IoC 容器的使用，提供了 DAO 组件与业务逻辑组件之间的解耦。所有的 DAO 组件，都由容器负责注入到业务逻辑组件中，其业务组件无须关心 DAO 组件的实现。 面向接口编程及 DAO 模式的使用，提高了系统组件之间的解耦，降低了系统重构的成本。 方便的事务管理: Spring的声明式事务管理力度是方法级。 异常包装:Spring能够包装Hibernate异常，把它们从CheckedException变为RuntimeException; 开发者可选择在恰当的层处理数据中不可恢复的异常，从而避免烦琐的 catch/throw 及异常声明。<br>7.spring事务可以分为编程式事务和声明式事务<br>8.spring提供了一个事务的接口 PaltformTractionManager接口，针对不同的事务，spring进行了不同的实现<br>声明式事务最大的优点就是不需要通过编程的方式管理事务，这样就不需要在业务逻辑代码中掺杂事务管理的代码<br>1.Spring中涉及到事务管理的API有100多个，核心的只有三个： TransactionDefinition、PlatformTransactionManager、TransactionStatus。所谓事务管理，其实就是“按照给定的事务规则来执行提交或者回滚操作”。“给定的事务规则”就是用 TransactionDefinition 表示的，“按照……来执行提交或者回滚操作”便是用 PlatformTransactionManager 来表示，而 TransactionStatus 用于表示一个运行着的事务的状态。<br>2.TransactionDefinition， 该接口在前面已经介绍过，它用于定义一个事务。它包含了事务的静态属性，比如：事务传播行为、超时时间等等。Spring 为我们提供了一个默认的实现类：DefaultTransactionDefinition，该类适用于大多数情况。如果该类不能满足需求，可以通过实现 TransactionDefinition 接口来实现自己的事务定义。<br>3.PlatformTransactionManager  用于执行具体的事务操作。<br>Public interface PlatformTransactionManager{</p>
-<p>   TransactionStatus getTransaction(TransactionDefinition definition)  throws TransactionException;</p>
-<p>   void commit(TransactionStatus status)throws TransactionException;</p>
-<p>   void rollback(TransactionStatus status)throws TransactionException;</p>
-<p>}<br>根据底层所使用的不同的持久化 API 或框架，PlatformTransactionManager 的主要实现类大致如下：<br>DataSourceTransactionManager ：适用于使用JDBC和iBatis进行数据持久化操作的情况。<br>HibernateTransactionManager ：适用于使用Hibernate进行数据持久化操作的情况。<br>JpaTransactionManager ：适用于使用JPA进行数据持久化操作的情况。<br>另外还有JtaTransactionManager 、JdoTransactionManager、JmsTransactionManager等等。<br>编程式事务需要你在代码中直接加入处理事务的逻辑,可能需要在代码中显式调用beginTransaction()、commit()、rollback()等事务管理相关的方法,如在执行a方法时候需要事务处理,你需要在a方法开始时候开启事务,处理完后。在方法结束时候,关闭事务. 声明式的事务的做法是在a方法外围添加注解或者直接在配置文件中定义,a方法需要事务处理,在spring中会通过配置文件在a方法前后拦截,并添加事务. 二者区别.编程式事务侵入性比较强，但处理粒度更细. 相当于一个是手动事务，另一个是系统自动事务。 编程试事务就是需要手工写代码提交事务，回滚事务等。 声明性事务就是在配置文件里面定义一下什么时候需要事务，到时候系统会自动commit，出异常了自动rollback，不需要在代码里面写commit或者rollback。</p>
-<p>spring mvc 和struts2的区别： 1.spring mvc是基于方法的设计，而struts2是基于类的设计。 2.struts2有以自己的interceptor机制，spring mvc用的是独立的AOP方式。 3.spring mvc的方法之间基本上独立的，独享request response数据，struts2所有Action变量是共享的。 4.机制：spring mvc的入口是servlet，而struts2是filter。 5.性能：spring会稍微比struts快。 spring mvc是基于方法的设计 ， 而sturts是基于类 ， 每次发一次请求都会实例一个action，每个action都会被注入属性，而spring基于方法，粒度更细<br>8.Struts SpringMVC对比<br>参数传递：struts是在接受参数的时候，可以用属性来接受参数，这就说明参数是让多个方法共享的。<br>设计思想上： struts更加符合oop的编程思想 ， spring就比较谨慎，在servlet上扩展。 8.intercepter(拦截器)的实现机制：struts有以自己的interceptor机制， spring mvc用的是独立的AOP方式 。<br>9.Spring通过对AOP的支持，借助log4j等Apache开源组件实现了日志系统。</p>
-<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><p>1.基于Servlet API如何实现转向时不在地址栏中显示转向后的地址？forward ( )<br>7.运用javax.servlet.RequestDispatcher接口的forward方法请求转发<br>8.Spring框架中的核心思想包括DI,IOC,AOP<br>9.Spring数据库连接池:DBCP数据源;C3P0数据源;Spring的数据源实现(DriverManagerDataSource);获取JNDI数据源<br>10..Servlet只包含了init方法<br><strong>doGet和doPost是HttpServlet中的方法；forward是RequestDispatcher的方法</strong> </p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Minheap-greedy-to-use-the-largest"><a href="#Minheap-greedy-to-use-the-largest" class="headerlink" title="Minheap greedy to use the largest"></a>Minheap greedy to use the largest</h2><p>Scheduler &amp; Reorganize String:<br>For Reorganize String, count all char in the String, in order to split them into different areas as much as possible, you just use the largest 2 in the Minheap as much as possible to make sure the Character is different.</p>
 
       
 
@@ -582,11 +548,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSM</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -596,7 +558,87 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/25/Spring-detail-knowledge.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/05/Minheap-greedy-solution.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Dijkstra-practice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/04/Dijkstra-practice.html">Dijkstra practice</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/04/Dijkstra-practice.html" class="archive-article-date">
+  	<time datetime="2018-03-04T23:45:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Basic-summary"><a href="#Basic-summary" class="headerlink" title="Basic summary"></a>Basic summary</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> 1  function Dijkstra(G, w, s)</span><br><span class="line"> 2     for each vertex v in V[G]        // 初始化</span><br><span class="line"> 3           d[v] := infinity           // 將各點的已知最短距離先設成無窮大</span><br><span class="line"> 4           previous[v] := undefined   // 各点的已知最短路径上的前趋都未知</span><br><span class="line"> 5     d[s] := 0                        // 因为出发点到出发点间不需移动任何距离，所以可以直接将s到s的最小距离设为0</span><br><span class="line"> 6     S := empty set</span><br><span class="line"> 7     Q := set of all vertices</span><br><span class="line"> 8     while Q is not an empty set      // Dijkstra演算法主体</span><br><span class="line"> 9           u := Extract_Min(Q)</span><br><span class="line">10           S.append(u)</span><br><span class="line">11           for each edge outgoing from u as (u,v)</span><br><span class="line">12                  if d[v] &gt; d[u] + w(u,v)             // 拓展边（u,v）。w(u,v)为从u到v的路径长度。</span><br><span class="line">13                        d[v] := d[u] + w(u,v)         // 更新路径长度到更小的那个和值。</span><br><span class="line">14                        previous[v] := u              // 记录前置节点</span><br></pre></td></tr></table></figure>
+<p>Extract_Min(Q)是提取节点使得这个节点到源节点的距离最小，每次都这么提取。需要计算所有节点的距离因此将Q设成所有节点，如果只需要计算特殊情形Q起始只有一个节点。用PriorityQueue实现res-&gt;正则很方便.</p>
+<h2 id="变形Dj"><a href="#变形Dj" class="headerlink" title="变形Dj"></a>变形Dj</h2><p>BFS,每次不是提取Min_Q节点,仅仅BFS，因为题目要求逐跳之内到达目标节点，层序遍历走到就走到，走不到就停止。每次判断条件仍然是距离向量。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dfs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/04/Dijkstra-practice.html">展开全文 >></a>
         </p>
       
 
@@ -628,7 +670,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -740,11 +782,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color4">distributed system</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -756,10 +802,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
@@ -768,11 +810,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,11 +826,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Deep learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,23 +858,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -833,6 +883,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">

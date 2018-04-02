@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/24/pandas-details.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Classical usage of Pandas">
-<meta property="og:updated_time" content="2018-02-27T02:24:43.217Z">
+<meta property="og:updated_time" content="2018-03-19T15:09:12.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pandas details">
 <meta name="twitter:description" content="Classical usage of Pandas">
@@ -193,6 +193,7 @@
 <p>Series &amp; DataFrame are most important elements in pandas. df[‘col’] will return a Series with col as column name; can assign column name and index name with df.index/df.columns = ;can select using integer index like df.iloc[a,b] or using name value like df.loc[‘index1’,’col1’], can also using filter condition such as df.loc[df[‘col’] == val, :]</p>
 <h2 id="Use-a-single-ceil-to-store-a-list"><a href="#Use-a-single-ceil-to-store-a-list" class="headerlink" title="Use a single ceil to store a list"></a>Use a single ceil to store a list</h2><p>If you want to uses a single ceil to store a whole list, don’t use .iloc which may cause Valueerr, caonsider using <strong>at(m,n)</strong>, which need column name as find params. Can also use iat(m,n). Actually, dataframe ca definitly used to store Series &amp;&amp; Dataframe in a single cell.</p>
 <h2 id="Merge-amp-Join"><a href="#Merge-amp-Join" class="headerlink" title="Merge &amp; Join"></a>Merge &amp; Join</h2><p>Can merge 2/ more dataframe together using the list/dict as params.<br>frame = [df1,df2,df3], which all has the same index and column, implied the same structure.<br>result = pd.concat(frame)<br>df1.append(index, axis = 0), concat along the index dimension, can also get 2 matrix together.<br>pandas has full-featured, high performance in-memory join operations idiomatically very similar to relational databases like SQL. These methods perform significantly better (in some cases well over an order of magnitude better) than other open source implementations (like base::merge.data.frame in R). The reason for this is careful algorithmic design and internal layout of the data in DataFrame.<br>Useful tips when using concat, the <strong>index</strong> and the columns will all be kept, if you want to regenerate the range num index for concat dataframe, using <strong>ignore_index</strong> when call concat. newdf = pd.concat(list, ignore_index = True).</p>
+<h2 id="Select-based-on-index-position"><a href="#Select-based-on-index-position" class="headerlink" title="Select based on index/position"></a>Select based on index/position</h2><p>iloc[] will always select based on continuous position, has nothing to do with your index/columns name. loc will select based on self-assigned index and column values.</p>
 
       
 
@@ -440,11 +441,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color4">distributed system</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,10 +461,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
@@ -468,11 +469,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,11 +485,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Deep learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,23 +517,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,6 +542,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -170,360 +170,35 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Mysql-lock-level" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java-util-concurrent" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/12/Mysql-lock-level.html">Mysql lock level</a>
+      <a class="article-title" href="/2018/03/26/Java-util-concurrent.html">Java util concurrent</a>
     </h1>
   
 
         
-        <a href="/2018/03/12/Mysql-lock-level.html" class="archive-article-date">
-  	<time datetime="2018-03-13T02:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
+        <a href="/2018/03/26/Java-util-concurrent.html" class="archive-article-date">
+  	<time datetime="2018-03-27T01:09:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>MVCC (Multiversion Concurrency Control)，即多版本并发控制技术,它使得大部分支持行锁的事务引擎，不再单纯的使用行锁来进行数据库的并发控制，取而代之的是把数据库的行锁与行的多个版本结合起来，只需要很小的开销,就可以实现非锁定读，从而大大提高数据库系统的并发性能<br>
-        
-          <a class="article-more-a" href="/2018/03/12/Mysql-lock-level.html#more">more >></a>
-        
-      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h2><p>Java.util.concurrent:Executor框架就是一个任务的执行和调度框架。<br>最顶层是Executor接口，它的定义很简单，一个用于执行任务的execute方法.interface继承关系：executor-&gt;executorservice-&gt;ScheduledExecutorService。对应抽象类:<br>优点：<br>任务的<strong>提交过程与执行过程解耦</strong>，用户只需定义好任务提交，具体如何执行，什么时候执行不需要关心；<br>典型步骤：<br>定义好任务（如Callable对象），把它提交给ExecutorService（如线程池）去执行，得到Future对象，然后调用Future的get方法等待执行结果即可。<br>任务:实现Callable接口或Runnable接口的类，其实例就可以成为一个任务提交给ExecutorService去执行；其中Callable任务可以返回执行结果，Runnable任务无返回结果。<br>什么是线程池<br>通过Executors工具类可以创建各种类型的线程池，<strong>直接通过类名创建</strong>。如下为常见的四种：<br>newCachedThreadPool ：大小不受限，当线程释放时，可重用该线程；<br>newFixedThreadPool ：大小固定，无可用线程时，任务需等待，直到有可用线程；<br>newSingleThreadExecutor ：创建一个单线程，任务会按顺序依次执行；<br>newScheduledThreadPool：创建一个定长线程池，支持定时及周期性任务执行<br>流程举例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ExecutorService executor = Executors.newCachedThreadPool();//创建线程池</span><br><span class="line">Task task = new Task(); //创建Callable任务</span><br><span class="line">Future&lt;Integer&gt; result = executor.submit(task);//提交任务给线程池执行</span><br><span class="line">result.get()；//等待执行结果; 可以传入等待时间参数，指定时间内没返回的话，直接结束</span><br></pre></td></tr></table></figure></p>
+<p>定时周期性执行任务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// Timeout each entry and remove them when needed</span><br><span class="line">Runnable runnable = new Runnable() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ScheduledExecutorService resservice = Executors.newSingleThreadScheduledExecutor();</span><br><span class="line">resservice.scheduleAtFixedRate(runnable, 0, 10, TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure></p>
+<p>scheduleAtFixedRate:peroid周期执行<br>schedukedWithFixedDelay:一个任务结束之后才周期性执行下一个任务；</p>
+<h2 id="AQS框架AbstractQueuedSynchronizer"><a href="#AQS框架AbstractQueuedSynchronizer" class="headerlink" title="AQS框架AbstractQueuedSynchronizer"></a>AQS框架AbstractQueuedSynchronizer</h2><p>AQS框架是J.U.C中实现锁及同步机制的基础，其底层是通过调用LockSupport .unpark()和 LockSupport .park()实现线程的阻塞和唤醒。<br>LockSupport:java.util.concurrent.locks.LockSupport:可用则立即返回；否则阻塞直到unpark.<br>A call to park will return immediately if the permit is available, consuming it in the process; otherwise it may block. A call to unpark makes the permit available, if it was not already available. (Unlike with Semaphores though, permits do not accumulate. There is at most one.)<br>static Methods：都是通过类名调用<br>LockSupport.park():Disables the current thread for thread scheduling purposes unless the permit is available.<br>LockSupport.unpark(Thread thread):Makes available the permit for the given thread, if it was not already available.</p>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>AbstractQueuedSynchronizer是一个抽象类，主要是维护了一个int类型的state属性和一个非阻塞、先进先出的线程等待队列；其中state是用volatile修饰的，保证线程之间的可见性，队列的入队和出对操作都是无锁操作，基于自旋锁和CAS实现；另外AQS分为两种模式：独占模式和共享模式，像ReentrantLock是基于独占模式模式实现的，CountDownLatch、CyclicBarrier等是基于共享模式。<br>如果获取锁失败，则调用AQS的acquire方法，在该方法内部会调用tryAcquire方法再次尝试获取锁以及是否可重入判断，如果失败，则挂起当前线程并加入到等待队列；</p>
+<h2 id="Java锁的分类"><a href="#Java锁的分类" class="headerlink" title="Java锁的分类"></a>Java锁的分类</h2><p>1.AQS是<strong>独占锁(例如，ReentrantLock)和共享锁(例如，Semaphore)的公共父类</strong>。<br>(01) 独占锁 – 锁在一个时间点只能被一个线程锁占有。根据锁的获取机制，它又划分为“公平锁”和“非公平锁”。公平锁，是按照通过CLH等待线程按照先来先得的规则，公平的获取锁；而非公平锁，则当线程要获取锁时，它会无视CLH等待队列而直接获取锁。独占锁的典型实例子是ReentrantLock，此外，<strong>ReentrantReadWriteLock.WriteLock也是独占锁。</strong><br>(02) 共享锁 – 能被多个线程同时拥有，能被共享的锁。JUC包中的ReentrantReadWriteLock.ReadLock，CyclicBarrier， CountDownLatch和Semaphore都是共享锁。<br>CLH队列 – Craig, Landin, and Hagersten lock queue<br>CLH队列是AQS中“等待锁”的线程队列。在多线程中，为了保护竞争资源不被多个线程同时操作而起来错误，我们常常需要通过锁来保护这些资源。在独占锁中，竞争资源在一个时间点只能被一个线程锁访问；而其它线程则需要等待。CLH就是管理这些“等待锁”的线程的队列。<br>CLH是一个非阻塞的 FIFO 队列。也就是说往里面插入或移除一个节点的时候，在并发条件下不会阻塞，而是通过自旋锁和 CAS 保证节点插入和移除的原子性。<br>Node是CLH队列的节点，代表“等待锁的线程队列”。<br>(01) 每个Node都会一个线程对应。<br>(02) 每个Node会通过prev和next分别指向上一个节点和下一个节点，这分别代表上一个等待线程和下一个等待线程。<br>(03) Node通过waitStatus保存线程的等待状态。<br>(04) Node通过nextWaiter来区分线程是“独占锁”线程还是“共享锁”线程。如果是“独占锁”线程，则nextWaiter的值为EXCLUSIVE；如果是“共享锁”线程，则nextWaiter的值是SHARED。</p>
+<p>4.CAS函数 – Compare And Swap<br>CAS函数，是比较并交换函数，它是原子操作函数；即，通过CAS操作的数据都是以原子方式进行的。例如，compareAndSetHead(), compareAndSetTail(), compareAndSetNext()等函数。它们共同的特点是，这些函数所执行的动作是以原子的方式进行的。</p>
+<p>1.同步锁:synchoronized:　即通过synchronized关键字来进行同步，实现对竞争资源的互斥访问的锁。Java 1.0版本中就已经支持同步锁了。<br>同步锁的原理是，对于每一个对象，有且仅有一个同步锁；不同的线程能共同访问该同步锁。但是，在同一个时间点，该同步锁能且只能被一个线程获取到。这样，获取到同步锁的线程就能进行CPU调度，从而在CPU上执行；而没有获取到同步锁的线程，必须进行等待，直到获取到同步锁之后才能继续运行。这就是，多线程通过同步锁进行同步的原理.<br>ReentraantLock是通过一个<strong>FIFO的等待队列</strong>来管理获取该锁所有线程的。在“公平锁”的机制下，线程依次排队获取锁；而“非公平锁”在锁是可获取状态时，不管自己是不是在队列的开头都会获取锁。<br>默认是非公平锁，使用set true设置公平锁可能极大地降低效率和吞吐量。<br>unlock()是解锁函数，它是通过AQS的release()函数来实现的。<br>在这里，“1”的含义和“获取锁的函数acquire(1)的含义”一样，它是设置“释放锁的状态”的参数。由于“公平锁”是可重入的，所以对于同一个线程，每释放锁一次，锁的状态-1。<br>公平锁和非公平锁的区别，是在获取锁的机制上的区别。表现在，在尝试获取锁时 —— 公平锁，只有在当前线程是CLH等待队列的表头时，才获取锁；而非公平锁，只要当前锁处于空闲状态，则直接获取锁，而不管CLH等待队列中的顺序。<br>只有当非公平锁尝试获取锁失败的时候，它才会像公平锁一样，进入CLH等待队列排序等待。<br>Programs using fair locks accessed by many threads may display lower overall throughput (i.e., are slower; often much slower) than those using the default setting, but have smaller variances in times to obtain locks and guarantee lack of starvation. Note however, that fairness of locks does not guarantee fairness of thread scheduling. Thus, one of many threads using a fair lock may obtain it multiple times in succession while other active threads are not progressing and not currently holding the lock. Also note that the untimed tryLock method does not honor the fairness setting. It will succeed if the lock is available even if other threads are waiting.</p>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Database</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/12/Mysql-lock-level.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-商汤面经" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java线程池"><a href="#Java线程池" class="headerlink" title="Java线程池"></a>Java线程池</h2><p>注意区分不是数据库连接池…我真蠢<br>线程池的作用：<br>线程池作用就是<strong>限制系统中执行线程的数量。</strong><br>
-        
-          <a class="article-more-a" href="/2018/03/12/商汤面经.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/12/商汤面经.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-阿里面经" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="三次握手四次挥手"><a href="#三次握手四次挥手" class="headerlink" title="三次握手四次挥手"></a>三次握手四次挥手</h2><p>time_wait状态必须等待多长时间：<br>2MSL<br>MSL是Maximum Segment Lifetime英文的缩写，中文可以译为“报文最大生存时间”，他是任何报文在网络上存在的最长时间，超过这个时间报文将被丢弃。因为tcp报文（segment）是ip数据报（datagram）的数据部分，具体称谓请参见《数据在网络各层中的称呼》一文，而ip头中有一个TTL域，TTL是time to live的缩写，中文可以译为“生存时间”，这个生存时间是由源主机设置初始值但不是存的具体时间，而是存储了一个ip数据报可以经过的最大路由数，每经过一个处理他的路由器此值就减1，当此值为0则数据报将被丢弃，同时发送ICMP报文通知源主机。RFC 793中规定MSL为2分钟，实际应用中常用的是30秒，1分钟和2分钟等。<br>
-        
-          <a class="article-more-a" href="/2018/03/12/阿里面经.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/12/阿里面经.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Minheap-greedy-solution" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/05/Minheap-greedy-solution.html">Minheap greedy solution</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/05/Minheap-greedy-solution.html" class="archive-article-date">
-  	<time datetime="2018-03-06T01:43:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Minheap-greedy-to-use-the-largest"><a href="#Minheap-greedy-to-use-the-largest" class="headerlink" title="Minheap greedy to use the largest"></a>Minheap greedy to use the largest</h2><p>Scheduler &amp; Reorganize String:<br>For Reorganize String, count all char in the String, in order to split them into different areas as much as possible, you just use the largest 2 in the Minheap as much as possible to make sure the Character is different.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/05/Minheap-greedy-solution.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Dijkstra-practice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/04/Dijkstra-practice.html">Dijkstra practice</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/04/Dijkstra-practice.html" class="archive-article-date">
-  	<time datetime="2018-03-04T23:45:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Basic-summary"><a href="#Basic-summary" class="headerlink" title="Basic summary"></a>Basic summary</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> 1  function Dijkstra(G, w, s)</span><br><span class="line"> 2     for each vertex v in V[G]        // 初始化</span><br><span class="line"> 3           d[v] := infinity           // 將各點的已知最短距離先設成無窮大</span><br><span class="line"> 4           previous[v] := undefined   // 各点的已知最短路径上的前趋都未知</span><br><span class="line"> 5     d[s] := 0                        // 因为出发点到出发点间不需移动任何距离，所以可以直接将s到s的最小距离设为0</span><br><span class="line"> 6     S := empty set</span><br><span class="line"> 7     Q := set of all vertices</span><br><span class="line"> 8     while Q is not an empty set      // Dijkstra演算法主体</span><br><span class="line"> 9           u := Extract_Min(Q)</span><br><span class="line">10           S.append(u)</span><br><span class="line">11           for each edge outgoing from u as (u,v)</span><br><span class="line">12                  if d[v] &gt; d[u] + w(u,v)             // 拓展边（u,v）。w(u,v)为从u到v的路径长度。</span><br><span class="line">13                        d[v] := d[u] + w(u,v)         // 更新路径长度到更小的那个和值。</span><br><span class="line">14                        previous[v] := u              // 记录前置节点</span><br></pre></td></tr></table></figure>
-<p>Extract_Min(Q)是提取节点使得这个节点到源节点的距离最小，每次都这么提取。需要计算所有节点的距离因此将Q设成所有节点，如果只需要计算特殊情形Q起始只有一个节点。用PriorityQueue实现res-&gt;正则很方便.</p>
-<h2 id="变形Dj"><a href="#变形Dj" class="headerlink" title="变形Dj"></a>变形Dj</h2><p>BFS,每次不是提取Min_Q节点,仅仅BFS，因为题目要求逐跳之内到达目标节点，层序遍历走到就走到，走不到就停止。每次判断条件仍然是距离向量。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dfs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/04/Dijkstra-practice.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-DFS-used-up-analyze" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/DFS-used-up-analyze.html">DFS used up analyze</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/DFS-used-up-analyze.html" class="archive-article-date">
-  	<time datetime="2018-03-04T03:22:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>The nice thing about DFS is it tries a path, and if that’s wrong (i.e. path does not lead to solution), DFS goes one step back and tries another path. It continues to do so until we’ve found the correct path (which leads to the solution). You need to always bear this nice feature in mind when utilizing DFS to solve problems.<br>
-        
-          <a class="article-more-a" href="/2018/03/03/DFS-used-up-analyze.html#more">more >></a>
-        
       
 
       
@@ -546,7 +221,411 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/DFS-used-up-analyze.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/26/Java-util-concurrent.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java-logging" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/26/Java-logging.html">Java logging</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/26/Java-logging.html" class="archive-article-date">
+  	<time datetime="2018-03-27T00:47:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Log4j"><a href="#Log4j" class="headerlink" title="Log4j"></a>Log4j</h2><p>1.Maven配置文件<br>2.在src/main/java目录（包的根目录即classpath）新建log4j.properties文件<br>3.final Logger log = Logger.getLogger(Test.class);</p>
+<h2 id="SLF4J"><a href="#SLF4J" class="headerlink" title="SLF4J"></a>SLF4J</h2><p>最终，log4j的创始人Ceki发起了SLF4J（Simple Logging Facade for Java）项目，从设计模式的角度说，它是用来在log和代码层之间起到门面作用，对于用户来说只要使用SLF4J提供的接口，即可隐藏日志的具体实现，SLF4J提供的核心API是一些接口和一个LoggerFactory的工厂类，用户只需按照它提供的统一纪录日志接口，最终日志的格式、纪录级别、输出方式等可通过具体日志系统的配置来实现，因此可以灵活的切换日志系统。</p>
+<h2 id="logback"><a href="#logback" class="headerlink" title="logback"></a>logback</h2><p>logback和log4j是同一个作者创作，它是log4j的升级版，因此logback相较于log4j有更多的优点：<br>原生实现了SLF4J API（log4j需要一个中间层转换）<br>支持XML、Groovy方式配置<br>支持配置文件中加入条件判断<br>更强大的过滤器<br>更丰富的免费文档<br>更充分的测试<br>自动重载有变更的配置文件<br>自动压缩历史日志<br>打印异常信息时自动包含pachage名称及版本号</p>
+<h2 id="日志组件"><a href="#日志组件" class="headerlink" title="日志组件"></a>日志组件</h2><p>Java 日志 API 由以下三个核心组件组成：<br>Loggers：Logger 负责捕捉事件并将其发送给合适的 Appender。<br>Appenders：也被称为 Handlers，负责将日志事件记录到目标位置。在将日志事件输出之前， Appenders 使用Layouts来对事件进行格式化处理。<br>Layouts：也被称为 Formatters，它负责对日志事件中的数据进行转换和格式化。Layouts 决定了数据在一条日志记录中的最终形式。</p>
+<p>当 Logger 记录一个事件时，它将事件转发给适当的 Appender。然后 Appender 使用 Layout 来对日志记录进行格式化，并将其发送给控制台、文件或者其它目标位置。另外，Filters 可以让你进一步指定一个 Appender 是否可以应用在一条特定的日志记录上。在日志配置中，Filters 并不是必需的，但可以让你更灵活地控制日志消息的流动。<br><strong>应用中不可直接使用日志系统（Log4j、Logback）中的 API，而应依赖使用日志框架SLF4J 中的 API，使用门面模式的日志框架，有利于维护和各个类的日志处理方式统一。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import org.slf4j.Logger;</span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line">private static final Logger logger = LoggerFactory.getLogger(Abc.class);</span><br></pre></td></tr></table></figure></p>
+<p>通常情况下，一种好的做法是，我们在当前类下使用 class.getName() 作为新 Logger 的名字。<br>示例：<br>Logger logger = Logger.getLogger(MyClass.class.getName());<br>logger.log() 方法除了日志消息以外，还需要一个日志级别作为参数：<br>logger.log(Level.WARNING, “This is a warning!”);</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/26/Java-logging.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Apache-kafka" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/21/Apache-kafka.html">Apache kafka</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/21/Apache-kafka.html" class="archive-article-date">
+  	<time datetime="2018-03-21T15:17:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>LinkedIn用于存储在线离线日志的消息队列.<br>当前很多的消息队列服务提供可靠交付保证，并默认是即时消费（不适合离线）。 高可靠交付对linkedin的日志不是必须的，故可通过降低可靠性来提高性能，同时通过构建分布式的集群，允许消息在系统中累积，使得kafka同时支持离线和在线日志处理.<br>Kafka is generally used for two broad classes of applications:<br>Building real-time streaming data pipelines that reliably get data between systems or applications<br>Building real-time streaming applications that transform or react to the streams of data<br>Core concepts:</p>
+<ul>
+<li>Kafka is run as a cluster on one or more servers that can span multiple datacenters.</li>
+<li>The Kafka cluster stores streams of records in categories called <strong>topics.</strong></li>
+<li>Each record consists of a key, a value, and a timestamp.<h3 id="Core-API-usage"><a href="#Core-API-usage" class="headerlink" title="Core API usage"></a>Core API usage</h3></li>
+<li>The Producer API allows an application to publish a stream of records to one or more Kafka topics.</li>
+<li>The Consumer API allows an application to subscribe to one or more topics and process the stream of records produced to them.</li>
+<li>The Streams API allows an application to act as a stream processor, consuming an input stream from one or more topics and producing an output stream to one or more output topics, effectively transforming the input streams to output streams.</li>
+<li>The Connector API allows building and running reusable producers or consumers that connect Kafka topics to existing applications or data systems. For example, a connector to a relational database might capture every change to a table.<br>In Kafka the communication between the clients and the servers is done with a simple, high-performance, language agnostic <strong>TCP protocol.</strong><h2 id="Clients-for-different-Language-Aim-at-Java"><a href="#Clients-for-different-Language-Aim-at-Java" class="headerlink" title="Clients for different Language(Aim at Java)"></a>Clients for different Language(Aim at Java)</h2>We are instead moving to the <strong>redis/memcached model</strong> which seems to work better at supporting a rich ecosystem of high quality clients.</li>
+</ul>
+<h2 id="Quick-start"><a href="#Quick-start" class="headerlink" title="Quick start"></a>Quick start</h2><p>Should use zookeeper to manage these records<br>// generate a topic for mq, allow at most 1 duplicate<br>bin/kafka-topics.sh –create –zookeeper localhost:2181 –replication-factor 1 –partitions 1 –topic test<br>// Run the producer and then type a few messages into the console to send to the <strong>server.</strong><br>bin/kafka-console-producer.sh –broker-list localhost:9092 –topic test<br>//Kafka also has a command line consumer that will dump out messages to standard output.<br><strong>bin/kafka-console-consumer.sh</strong> –bootstrap-server localhost:9092 –topic test –from-beginning<br>类似一个管道模型，producer发信息到server，消费信息print到screen</p>
+<p>For many systems, instead of writing custom integration code you can use Kafka Connect to import or export data.<br>It is an extensible tool that runs connectors, which implement the custom logic for interacting with an external system. In this quickstart we’ll see how to run Kafka Connect with simple connectors that import data from a file to a Kafka topic and export data from a Kafka topic to a file.</p>
+<h2 id="Use-Kafka-streams-to-process-data"><a href="#Use-Kafka-streams-to-process-data" class="headerlink" title="Use Kafka streams to process data"></a>Use Kafka streams to process data</h2><p>Kafka Streams is a client library for building mission-critical real-time applications and microservices, where the input and/or output data is stored in Kafka clusters. Kafka Streams combines the simplicity of writing and deploying standard Java and Scala applications on the client side with the benefits of Kafka’s server-side cluster technology to make these applications highly scalable, elastic, fault-tolerant, distributed, and much more. </p>
+<h2 id="Design-motivation"><a href="#Design-motivation" class="headerlink" title="Design motivation"></a>Design motivation</h2><h4 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h4><p>It would have to have high-throughput to support high volume event streams such as real-time log aggregation.</p>
+<p>It would need to deal gracefully with large data backlogs to be able to support periodic data loads from offline systems.</p>
+<p>It also meant the system would have to <strong>handle low-latency delivery</strong> to handle more traditional messaging use-cases.</p>
+<p>We wanted to support partitioned, distributed, real-time processing of these feeds to create new, derived feeds. This motivated our partitioning and consumer model.</p>
+<p>Finally in cases where the stream is fed into other data systems for serving, we knew the system would have to be able to guarantee fault-tolerance in the presence of machine failures.</p>
+<p>Supporting these uses led us to a design with a number of unique elements, more akin to a database log than a traditional messaging system. We will outline some elements of the design in the following sections.</p>
+<h4 id="Persoistence"><a href="#Persoistence" class="headerlink" title="Persoistence"></a>Persoistence</h4><p>Kafka relies heavily on the <strong>filesystem</strong> for storing and caching messages. 主要分叉点在于random write比sequencial write慢很多.<br>Furthermore, we are building on top of the JVM, and anyone who has spent any time with Java memory usage knows two things:<br><strong>The memory overhead of objects is very high, often doubling the size of the data stored (or worse).</strong><br><strong>Java garbage collection becomes increasingly fiddly and slow as the in-heap data increases.</strong><br>This suggests a design which is very simple: rather than maintain as much as possible in-memory and flush it all out to the filesystem in a panic when we run out of space, we invert that. <strong>All data is immediately written to a persistent log on the filesystem without necessarily flushing to disk. In effect this just means that it is transferred into the kernel’s pagecache.</strong></p>
+<p>Properties pros = new Properties();//util.java properties<br>ProducerConfig config = new ProducerConfig(props);<br>// 创建producer<br>Producer<string, string=""> producer = new Producer<string, string="">(config);<br>KeyedMessage<string, string=""> data = new KeyedMessage<string, string="">(“page_visits”, ip, msg);<br>producer.send(data);</string,></string,></string,></string,></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">distributed system</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/21/Apache-kafka.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Blocking-Queue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><hr>
+<p>title: Blocking Queue<br>date: 2018-03-20 11:26:20</p>
+<h2 id="tags-Java"><a href="#tags-Java" class="headerlink" title="tags: [Java]"></a>tags: [Java]</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/20/Blocking-Queue.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Message-Queue-in-Java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/20/Message-Queue-in-Java.html">Message Queue in Java</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/20/Message-Queue-in-Java.html" class="archive-article-date">
+  	<time datetime="2018-03-20T15:49:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Message-Queue-Architecture"><a href="#Message-Queue-Architecture" class="headerlink" title="Message Queue Architecture"></a>Message Queue Architecture</h2><p>The Message Queue service is composed of the following elements:</p>
+<ul>
+<li>Message Server</li>
+<li>Client Runtime</li>
+<li>Administered Objects</li>
+<li>Administration Tools<br>As shown in the figure, a Message Queue client uses <strong>the Java or C API to send or receive a message. These APIs are implemented in a Java or C-client runtime library, which does the actual work of creating connections to the broker and packaging the bits appropriately for the connection service requested.</strong> If the application uses administered objects, the client runtime locates these objects in an object store and uses them to configure the connection and to locate physical destinations. The broker routes and delivers the message. An administrator uses Message Queue administrative tools to manage the broker and to add administered objects to the object store.<h2 id="Message-Server"><a href="#Message-Server" class="headerlink" title="Message Server"></a>Message Server</h2>The message server is composed of one or more brokers and performs message routing and delivery. It is the heart of the Message Queue service.</li>
+</ul>
+<p>The message server consists of a single broker or a set of brokers working together (as a broker cluster) to perform message routing and delivery services. The broker is a process that performs the following tasks:</p>
+<ul>
+<li>The authentication of users and authorization of the operations they want to perform</li>
+<li>Sets up communication channels with clients</li>
+<li>Receives messages from producing clients and places them in their respective physical destinations</li>
+<li>Routes and delivers messages to one or more consuming clients</li>
+<li>Guarantees reliable delivery</li>
+<li>Provides data for monitoring system performance.4<h2 id="Message-client-run-time"><a href="#Message-client-run-time" class="headerlink" title="Message client run time"></a>Message client run time</h2>The Message Queue client runtime provides client applications with an interface to the Message Queue service. The client runtime supports all operations needed for Message Queue clients to produce messages (send them to destinations) and to consume messages (retrieve them from destinations).</li>
+<li>Java client runtime. Supplies Java client applications and components with all the objects needed to implement the JMS API and to interact with the Message Queue message server. These interface objects include connections, sessions, messages, message producers, and message consumers.</li>
+<li>C client runtime. Supplies C client applications and components with the C programming interfaces needed to interact with the Message Queue server. (The C client runtime supports a procedural version of the JMS API messaging model.)<br><strong>Message production and consumption involve an interaction between clients and the client runtime, while message delivery is an interaction between the client runtime and the message server.</strong></li>
+</ul>
+<h2 id="Application-field"><a href="#Application-field" class="headerlink" title="Application field"></a>Application field</h2><p>JMS (ActiveMQ is a JMS broker implementation) can be used as a mechanism to allow asynchronous request processing. You may wish to do this because the request take a long time to complete or because several parties may be interested in the actual request. Another reason for using it is to allow multiple clients (potentially written in different languages) to access information via JMS. ActiveMQ is a good example here because you can use the STOMP protocol to allow access from a C#/Java/Ruby client.<br>A real world example is that of a web application that is used to place an order for a particular customer. As part of placing that order (and storing it in a database) you may wish to carry a number of additional tasks:<br>Store the order in some sort of third party back-end system (such as SAP), Send an email to the customer to inform them their order has been placed.<br>To do this your application code would publish a message onto a JMS queue which includes an order id. One part of your application listening to the queue may respond to the event by taking the orderId, looking the order up in the database and then place that order with another third party system. Another part of your application may be responsible for taking the orderId and sending a confirmation email to the customer.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">distributed system</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/20/Message-Queue-in-Java.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Json-java-transformation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/20/Json-java-transformation.html">Json-java transformation</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/20/Json-java-transformation.html" class="archive-article-date">
+  	<time datetime="2018-03-20T15:27:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Org-json-library"><a href="#Org-json-library" class="headerlink" title="Org.json library"></a>Org.json library</h2><h3 id="Basic-usage-to-generate-JSON-Data"><a href="#Basic-usage-to-generate-JSON-Data" class="headerlink" title="Basic usage to generate JSON Data"></a>Basic usage to generate JSON Data</h3><p>org.json uses its JSONObject (Java Doc) class to create or parse JSON. JSONObject APIs work much like the Java Map APIs and are simple to use.When you need to print out, you should transform it to String, .toString().<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import org.json.JSONObject;</span><br><span class="line">private static void createJSON(boolean prettyPrint) &#123;    </span><br><span class="line">    JSONObject tomJsonObj = new JSONObject();</span><br><span class="line">    tomJsonObj.put(&quot;name&quot;, &quot;Tom&quot;);</span><br><span class="line">    tomJsonObj.put(&quot;birthday&quot;, &quot;1940-02-10&quot;);</span><br><span class="line">    tomJsonObj.put(&quot;age&quot;, 76);</span><br><span class="line">    tomJsonObj.put(&quot;married&quot;, false);</span><br><span class="line">    </span><br><span class="line">    // Cannot set null directly</span><br><span class="line">    tomJsonObj.put(&quot;car&quot;, JSONObject.NULL);</span><br><span class="line">    </span><br><span class="line">    tomJsonObj.put(&quot;favorite_foods&quot;, new String[] &#123; &quot;cookie&quot;, &quot;fish&quot;, &quot;chips&quot; &#125;);</span><br><span class="line">    </span><br><span class="line">    // &#123;&quot;id&quot;: 100001, &quot;nationality&quot;, &quot;American&quot;&#125;</span><br><span class="line">    JSONObject passportJsonObj = new JSONObject();</span><br><span class="line">    passportJsonObj.put(&quot;id&quot;, 100001);</span><br><span class="line">    passportJsonObj.put(&quot;nationality&quot;, &quot;American&quot;);</span><br><span class="line">    // Value of a key is a JSONObject</span><br><span class="line">    tomJsonObj.put(&quot;passport&quot;, passportJsonObj);</span><br><span class="line">    </span><br><span class="line">    if (prettyPrint) &#123;</span><br><span class="line">        // With four indent spaces</span><br><span class="line">        System.out.println(tomJsonObj.toString(4));</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        System.out.println(tomJsonObj.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Convert-Json-object-into-Java-Map-object"><a href="#Convert-Json-object-into-Java-Map-object" class="headerlink" title="Convert Json object into Java Map object"></a>Convert Json object into Java Map object</h3><p>JSONObject provided a constructor to convert key-value pairs data to JSON object from Java Map object.<br>&lt;% start codeblock %&gt;<br>` // Create JSON object from Java Map<br>JSONObject tomJsonObj = new JSONObject(tom);``<br>&lt;% endcodeblock %&gt;</p>
+<h3 id="Create-JSON-Object-from-Java-Bean"><a href="#Create-JSON-Object-from-Java-Bean" class="headerlink" title="Create JSON Object from Java Bean"></a>Create JSON Object from Java Bean</h3><p>Should use Bean instance to initialize this JSON object;<br><code>JSONObject tomJsonObj = new JSONObject(tom);</code></p>
+<h3 id="Parse-JSON-String-into-JSON-object"><a href="#Parse-JSON-String-into-JSON-object" class="headerlink" title="Parse JSON String into JSON object"></a>Parse JSON String into JSON object</h3><p>&lt;% start codeblock %&gt;<br>import java.io.File;</p>
+<p>import org.apache.commons.io.FileUtils;<br>import org.json.JSONObject;</p>
+<p>private static void readJSON() throws Exception {<br>    File file = new File(“./tom.json”);<br>    String content = FileUtils.readFileToString(file, “utf-8”);</p>
+<pre><code>// Convert JSON string to JSONObject
+JSONObject tomJsonObject = new JSONObject(content);    
+
+// Access the attribute of this JSON data
+String name = tomJsonObject.getString(&quot;name&quot;);
+Integer age = tomJsonObject.getInt(&quot;Age&quot;);
+</code></pre><p>}<br>&lt;% endcodeblock %&gt;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/20/Json-java-transformation.html">展开全文 >></a>
         </p>
       
 
@@ -578,7 +657,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -690,11 +769,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color4">distributed system</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -706,10 +789,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
@@ -718,11 +797,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,11 +813,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Deep learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,23 +845,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -783,6 +870,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">

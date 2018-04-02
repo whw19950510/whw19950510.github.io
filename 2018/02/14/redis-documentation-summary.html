@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/14/redis-documentation-summary.html">
 <meta property="og:site_name" content="Huawei&#39;s Blog">
 <meta property="og:description" content="Redis architectureImplemented in C, the performance mainly lies in how OS schedules each process and the cost spent in network communication and sockets reading/writing system call.">
-<meta property="og:updated_time" content="2018-02-15T02:11:10.874Z">
+<meta property="og:updated_time" content="2018-03-21T15:10:52.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis documentation summary">
 <meta name="twitter:description" content="Redis architectureImplemented in C, the performance mainly lies in how OS schedules each process and the cost spent in network communication and sockets reading/writing system call.">
@@ -190,14 +190,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <script src="\assets\js\APlayer.min.js"> </script><h2 id="Redis-architecture"><a href="#Redis-architecture" class="headerlink" title="Redis architecture"></a>Redis architecture</h2><p>Implemented in C, the performance mainly lies in how OS schedules each process and the cost spent in network communication and sockets reading/writing system call.<br><a id="more"></a></p>
-<h2 id="Normal-command"><a href="#Normal-command" class="headerlink" title="Normal command"></a>Normal command</h2><p>1.bgsave:save db in background,The OK code is immediately returned. Redis forks, the parent continues to serve the clients, the child saves the DB on disk then exits.<br>2.client kill [ip:port] [ID client-id] [TYPE normal|master|slave|pubsub] [ADDR ip:port] [SKIPME yes/no].<br>3.client list:list all client connection<br>4.client pause:stop processing commands from client for some time.<br>5.client getname:get name of current client connection/client setname:set name of current connection<br>6.cluster nodes:集群模式nodes配置、<br>7.config get params:get configuration of certain configuration.<br>8.get key:get value of key/append key value:键值插入value<br>9.debug object [key]:get debug information about a key<br>10.exists [key] determine if it exists<br>11.<strong>exec</strong>:execute all commands queued in  a transaction and restores the connection state to normal.<br>12.<strong>MULTI</strong>:Marks the start of a transaction block. Subsequent commands will be queued for atomic execution using EXEC.<br>13.<strong>save</strong> synchnrously save all keys to index.<br>14.TTL [key]:get the time for a key to live.</p>
+<h2 id="Normal-command"><a href="#Normal-command" class="headerlink" title="Normal command"></a>Normal command</h2><p>1.<strong>bgsave:save db in background,The OK code is immediately returned. Redis forks, the parent continues to serve the clients, the child saves the DB on disk then exits.</strong><br>2.client kill [ip:port] [ID client-id] [TYPE normal|master|slave|pubsub] [ADDR ip:port] [SKIPME yes/no].<br>3.client list:list all client connection<br>4.client pause:stop processing commands from client for some time.<br>5.client getname:get name of current client connection/client setname:set name of current connection<br>6.cluster nodes:集群模式nodes配置、<br>7.config get params:get configuration of certain configuration.<br>8.get key:get value of key/append key value:键值插入value<br>9.debug object [key]:get debug information about a key<br>10.exists [key] determine if it exists<br>11.<strong>exec</strong>:execute all commands queued in a transaction and restores the connection state to normal.<br>12.<strong>MULTI</strong>:Marks the start of a transaction block. Subsequent commands will be queued for atomic execution using EXEC.<br>13.<strong>save</strong> synchnrously save all keys to index.<br>14.TTL [key]:get the time for a key to live.</p>
 <h2 id="Piplining"><a href="#Piplining" class="headerlink" title="Piplining"></a>Piplining</h2><p>Redis is a TCP server using the <strong>client-server model and what is called a Request/Response protocol.</strong><br>This means that usually a request is accomplished with the following steps:<br>The client sends a query to the server, and reads from the socket, usually in a blocking way, for the server response.<br>The server processes the command and sends the response back to the client.<br>the server &amp; client may not live in the same mahcine.(many hop)<br>Whatever the network latency is, there is a time for the packets to travel from the client to the server, and back from the server to the client to carry the reply.<br>How to reduce RTT in the network, thus improve the throughput in DB?<br>This way it is possible to send multiple commands to the server without waiting for the replies at all, and <strong>finally read the replies in a single step.</strong>server is forced to queue the replies using memory.<br>pipling save time in:1.<strong>socket I/O</strong>,read/write syscall with context switch2.RTT time is reduced with multiple commands batched together.<br>具体方法是用特定的ClientAPI实现pipling 请求batch.</p>
 <h2 id="Pub-sub-mechanism"><a href="#Pub-sub-mechanism" class="headerlink" title="Pub/sub mechanism"></a>Pub/sub mechanism</h2><p>SUBSCRIBE, UNSUBSCRIBE and PUBLISH implement the Publish/Subscribe messaging paradigm where (citing Wikipedia) senders (publishers) are not programmed to send their messages to specific receivers (subscribers). Rather, published messages are characterized into channels, without knowledge of what (if any) subscribers there may be. Subscribers express interest in one or more channels, and only receive messages that are of interest, without knowledge of what (if any) publishers there are. This decoupling of publishers and subscribers can allow for greater scalability and a more dynamic network topology.<br>消息分类，不发送给特定人群。<br><code>subscribe foo bar</code>listen to certain channel.<br><code>publish channel message</code>publish message to certain channel</p>
-<h2 id="Expires-mechanism"><a href="#Expires-mechanism" class="headerlink" title="Expires mechanism"></a>Expires mechanism</h2><p>it’s the core of which it can be used as cache, set a key with some time such that it will get expired.<strong>volatile</strong><br>using persist [key] to clear the timeout.</p>
+<h2 id="Expires-mechanism"><a href="#Expires-mechanism" class="headerlink" title="Expires mechanism"></a>Expires mechanism</h2><p>it’s the core of which it can be used as cache, set a key with some time such that it will get expired.<strong>volatile</strong> using persist [key] to clear the timeout.</p>
 <h2 id="Using-Redis-as-an-LRU-cache"><a href="#Using-Redis-as-an-LRU-cache" class="headerlink" title="Using Redis as an LRU cache"></a>Using Redis as an LRU cache</h2><p>When Redis is used as a cache, often it is handy to let it automatically evict old data as you add new one. This behavior is very well known in the community of developers, since it is the default behavior of the popular <strong>memcached system.</strong><br>in redis.conf:configure with <code>maxmemory 100mb</code>.<br><code>maxmemory-policy</code>:<code>volatile-lru</code>: evict keys by trying to remove the less recently used (LRU) keys first, but only among keys that have an expire set, in order to make space for the new data added.</p>
-<h2 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h2><p><code>multi</code> with multi operation,<code>exec</code> will start execution of transaction. <code>discard</code>will flush the transaction queue and exit. Atomicity, executed/or not.<br>No roll back for redis, when failed may still get some operation executed.<strong>Redis is internally simplified and faster because it does not need the ability to roll back.</strong>主要目的就是快！！</p>
+<h2 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h2><p><code>multi</code> with multi operation,<code>exec</code> will start execution of transaction. <code>discard</code> will flush the transaction queue and exit. Atomicity, executed/or not.<br>No roll back for redis, when failed may still get some operation executed.<strong>Redis is internally simplified and faster because it does not need the ability to roll back.</strong>主要目的就是快！！</p>
 <h2 id="Implement-self-modules"><a href="#Implement-self-modules" class="headerlink" title="Implement self modules"></a>Implement self modules</h2><p>in C, and load it later can extend the command supported. Module load ….so. //in conf file:<strong>loadmodule /path/file.so</strong>.</p>
 <h2 id="Disgtributed-locks-with"><a href="#Disgtributed-locks-with" class="headerlink" title="Disgtributed locks with"></a>Disgtributed locks with</h2><p>already have Java implementation</p>
+<h2 id="Regular-command"><a href="#Regular-command" class="headerlink" title="Regular command"></a>Regular command</h2><p>quit：关闭连接（connection）<br>auth：简单密码认证<br>2）持久化<br>save：将数据同步保存到磁盘<br>bgsave：将数据异步保存到磁盘<br>lastsave：返回上次成功将数据保存到磁盘的Unix时戳<br>shundown：将数据同步保存到磁盘，然后关闭服务<br>3)Key value Operation<br> exists(key)：确认一个key是否存在<br>del(key)：删除一个key<br>type(key)：返回值的类型<br>keys(pattern)：返回满足给定pattern的所有key<br>randomkey：随机返回key空间的一个<br>keyrename(oldname, newname)：重命名key<br>dbsize：返回当前数据库中key的数目<br>expire：设定一个key的活动时间（s）<br>ttl：获得一个key的活动时间<br>select(index)：按索引查询<br>move(key, dbindex)：移动当前数据库中的key到dbindex数据库<br>flushdb：删除当前选择数据库中的所有key<br>flushall：删除所有数据库中的所有key</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Redis本质上是一个Key-Value类型的内存数据库，很像memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据flush到硬盘上进行保存。因为是纯内存操作，Redis的性能非常出色，Redis最大的魅力是支持保存List链表和Set集合的数据结构，而且还支持对List进行各种操作，例如从List两端push和pop数据，取 List区间，排序等等，对Set支持各种集合的并集交集操作，此外单个value的最大限制是1GB，不像memcached只能保存1MB的数据，Redis可以用来实现很多有用的功能，比方说用他的List来做FIFO双向链表，实现一个轻量级的高性能消息队列服务，用他的Set可以做高性能的tag系统等等。另外Redis也可以对存入的Key-Value设置expire时间，因此也可以被当作一个功能加强版的memcached来用。</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>import redis.clients.jedis.JedisPool;<br>import redis.clients.jedis.JedisPoolConfig;<br>public class testJedis{<br>    private Jedis jedis;<br>    jedis = new Jedis(“127.0.0.1”, 6379);<br>    jedis.set(“name”, “whw”);<br>    jedis.append(“name”, “ is my name;”);<br>    jedis.del(“name”);<br>    //所有字段的key-value类型全部要用字符串的类型保存<br>    //Map<string, string="">map = new HashMap&lt;&gt;();<br>    jedis.hmset(“user”, map);<br>    jedis.hdel(“user”, “age”);//删除HashMap中的某个键值对<br>    // 通过keys获取key的值<br>    Iterator<string> iterator = jedis.hkeys(“user”).iterator();<br>    //可用连接实例的最大数目，默认为8;<br>    JedisPoolConfig config = new JedisPoolConfig();<br>    <strong>jedisPool = new JedisPool(config,ADDR,PORT,TIMEOUT,AUTH);</strong><br>    Jedis jedis = jedisPool.getResource();<br>    //通常对JedisPool使用单例模式，final class JedisPool{<br>        JedisPool jedispool = null;<br>        public static Jedis getJedisPool() {<br>            return jedispool.getReosource();<br>        }<br>    }<br>}</string></string,></p>
 
       
 
@@ -449,11 +452,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color4">distributed system</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,10 +472,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
@@ -477,11 +480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,11 +496,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Deep learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,23 +528,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,6 +553,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -170,31 +170,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Computer-Network-week4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Spring-detail-knowledge" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/15/Computer-Network-week4.html">Computer-Network-week4.md</a>
+      <a class="article-title" href="/2018/02/25/Spring-detail-knowledge.html">Spring-detail-knowledge</a>
     </h1>
   
 
         
-        <a href="/2018/02/15/Computer-Network-week4.html" class="archive-article-date">
-  	<time datetime="2018-02-16T03:54:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-15</time>
+        <a href="/2018/02/25/Spring-detail-knowledge.html" class="archive-article-date">
+  	<time datetime="2018-02-26T05:47:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Bridges are <strong>link-level nodes</strong> (they forward frames from one link to another to implement an extended LAN), switches are <strong>network-level nodes</strong> (they forward packets from one link to another to implement a packet-switched network), and routers are <strong>internet-level nodes</strong>(they forward datagrams from one network to another to implement an internet). Switch transmit later-2 packets(Ethernet);Router transmit <strong>IP datagrams.</strong></p>
-<h2 id="Internetworking-IP"><a href="#Internetworking-IP" class="headerlink" title="Internetworking(IP)"></a>Internetworking(IP)</h2><p>IP network which can handle scale and heterogenity, LAN with bridges can only scale to small network.<br>
-        
-          <a class="article-more-a" href="/2018/02/15/Computer-Network-week4.html#more">more >></a>
-        
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p>2.方便的事务管理: Spring的声明式事务管理力度是类级别,错。spring现在只支持方法级别的织入点，域级别的还没有实现。<br>3.Spring提供的DAO(数据访问对象)支持主要的目的是便于以标准的方式使用不同的数据访问技术。<br>4.异常包装:Spring能够包装Hibernate异常，把它们从CheckedException变为RuntimeException; 开发者可选择在恰当的层处理数据中不可恢复的异常，从而避免烦琐的 catch/throw 及异常声明<br>5.Spring提供的DAO支持了JDBC、JDO和Hibernate<br>6.Spring提供的DAO(数据访问对象)支持主要的目的是<strong>便于以标准的方式使用不同的数据访问技术</strong>。 简化 DAO 组件的开发。 Spring提供了一套抽象DAO类供你扩展。这些抽象类提供了一些方法，用来简化代码开发。 IoC 容器的使用，提供了 DAO 组件与业务逻辑组件之间的解耦。所有的 DAO 组件，都由容器负责注入到业务逻辑组件中，其业务组件无须关心 DAO 组件的实现。 面向接口编程及 DAO 模式的使用，提高了系统组件之间的解耦，降低了系统重构的成本。 方便的事务管理: Spring的声明式事务管理力度是方法级。 异常包装:Spring能够包装Hibernate异常，把它们从CheckedException变为RuntimeException; 开发者可选择在恰当的层处理数据中不可恢复的异常，从而避免烦琐的 catch/throw 及异常声明。<br>7.spring事务可以分为编程式事务和声明式事务<br>8.spring提供了一个事务的接口 PaltformTractionManager接口，针对不同的事务，spring进行了不同的实现<br>声明式事务最大的优点就是不需要通过编程的方式管理事务，这样就不需要在业务逻辑代码中掺杂事务管理的代码<br>1.Spring中涉及到事务管理的API有100多个，核心的只有三个： TransactionDefinition、PlatformTransactionManager、TransactionStatus。所谓事务管理，其实就是“按照给定的事务规则来执行提交或者回滚操作”。“给定的事务规则”就是用 TransactionDefinition 表示的，“按照……来执行提交或者回滚操作”便是用 PlatformTransactionManager 来表示，而 TransactionStatus 用于表示一个运行着的事务的状态。<br>2.TransactionDefinition， 该接口在前面已经介绍过，它用于定义一个事务。它包含了事务的静态属性，比如：事务传播行为、超时时间等等。Spring 为我们提供了一个默认的实现类：DefaultTransactionDefinition，该类适用于大多数情况。如果该类不能满足需求，可以通过实现 TransactionDefinition 接口来实现自己的事务定义。<br>3.PlatformTransactionManager  用于执行具体的事务操作。<br>Public interface PlatformTransactionManager{</p>
+<p>   TransactionStatus getTransaction(TransactionDefinition definition)  throws TransactionException;</p>
+<p>   void commit(TransactionStatus status)throws TransactionException;</p>
+<p>   void rollback(TransactionStatus status)throws TransactionException;</p>
+<p>}<br>根据底层所使用的不同的持久化 API 或框架，PlatformTransactionManager 的主要实现类大致如下：<br>DataSourceTransactionManager ：适用于使用JDBC和iBatis进行数据持久化操作的情况。<br>HibernateTransactionManager ：适用于使用Hibernate进行数据持久化操作的情况。<br>JpaTransactionManager ：适用于使用JPA进行数据持久化操作的情况。<br>另外还有JtaTransactionManager 、JdoTransactionManager、JmsTransactionManager等等。<br>编程式事务需要你在代码中直接加入处理事务的逻辑,可能需要在代码中显式调用beginTransaction()、commit()、rollback()等事务管理相关的方法,如在执行a方法时候需要事务处理,你需要在a方法开始时候开启事务,处理完后。在方法结束时候,关闭事务. 声明式的事务的做法是在a方法外围添加注解或者直接在配置文件中定义,a方法需要事务处理,在spring中会通过配置文件在a方法前后拦截,并添加事务. 二者区别.编程式事务侵入性比较强，但处理粒度更细. 相当于一个是手动事务，另一个是系统自动事务。 编程试事务就是需要手工写代码提交事务，回滚事务等。 声明性事务就是在配置文件里面定义一下什么时候需要事务，到时候系统会自动commit，出异常了自动rollback，不需要在代码里面写commit或者rollback。</p>
+<p>spring mvc 和struts2的区别： 1.spring mvc是基于方法的设计，而struts2是基于类的设计。 2.struts2有以自己的interceptor机制，spring mvc用的是独立的AOP方式。 3.spring mvc的方法之间基本上独立的，独享request response数据，struts2所有Action变量是共享的。 4.机制：spring mvc的入口是servlet，而struts2是filter。 5.性能：spring会稍微比struts快。 spring mvc是基于方法的设计 ， 而sturts是基于类 ， 每次发一次请求都会实例一个action，每个action都会被注入属性，而spring基于方法，粒度更细<br>8.Struts SpringMVC对比<br>参数传递：struts是在接受参数的时候，可以用属性来接受参数，这就说明参数是让多个方法共享的。<br>设计思想上： struts更加符合oop的编程思想 ， spring就比较谨慎，在servlet上扩展。 8.intercepter(拦截器)的实现机制：struts有以自己的interceptor机制， spring mvc用的是独立的AOP方式 。<br>9.Spring通过对AOP的支持，借助log4j等Apache开源组件实现了日志系统。</p>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><p>1.基于Servlet API如何实现转向时不在地址栏中显示转向后的地址？forward ( )<br>7.运用javax.servlet.RequestDispatcher接口的forward方法请求转发<br>8.Spring框架中的核心思想包括DI,IOC,AOP<br>9.Spring数据库连接池:DBCP数据源;C3P0数据源;Spring的数据源实现(DriverManagerDataSource);获取JNDI数据源<br>10..Servlet只包含了init方法<br><strong>doGet和doPost是HttpServlet中的方法；forward是RequestDispatcher的方法</strong> </p>
+
       
 
       
@@ -207,7 +210,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java EE</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSM</a>
         		</li>
       		
 		</ul>
@@ -217,7 +224,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/15/Computer-Network-week4.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/25/Spring-detail-knowledge.html">展开全文 >></a>
         </p>
       
 
@@ -247,29 +254,29 @@
 
 
   
-    <article id="post-Java-small-details" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-OS-practice-problem-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/15/Java-small-details.html">Java small details</a>
+      <a class="article-title" href="/2018/02/25/OS-practice-problem-summary.html">OS practice problem summary</a>
     </h1>
   
 
         
-        <a href="/2018/02/15/Java-small-details.html" class="archive-article-date">
-  	<time datetime="2018-02-15T22:50:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-15</time>
+        <a href="/2018/02/25/OS-practice-problem-summary.html" class="archive-article-date">
+  	<time datetime="2018-02-26T04:31:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="When-update-an-entry-of-HashMap"><a href="#When-update-an-entry-of-HashMap" class="headerlink" title="When update an entry of HashMap"></a>When update an entry of HashMap</h2><p>Imagine there is an HashMap with entry properties, mapped from String to Object, this value only contains a refrence to the value field. Thus you can directly call the <strong>set methods</strong> of the object, and it will get reflected in the HashMap. The situation also applies to arrayList as value of this entry.<br>
+        <h2 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h2><p>1.系统的主要功能有:<br>虚拟存储管理、处理机管理、进程调度、文件系统<br>2.通道控制设备控制器，设备控制器控制设备<br>3.在多道程序系统执行，一般情况下，每个程序执行完毕需要的时间（）大于单道系统时间<br>
         
-          <a class="article-more-a" href="/2018/02/15/Java-small-details.html#more">more >></a>
+          <a class="article-more-a" href="/2018/02/25/OS-practice-problem-summary.html#more">more >></a>
         
       
 
@@ -283,7 +290,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
         		</li>
       		
 		</ul>
@@ -293,7 +300,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/15/Java-small-details.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/25/OS-practice-problem-summary.html">展开全文 >></a>
         </p>
       
 
@@ -323,29 +330,29 @@
 
 
   
-    <article id="post-Computer-Network-week3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-pandas-details" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/14/Computer-Network-week3.html">Computer-Network-week3</a>
+      <a class="article-title" href="/2018/02/24/pandas-details.html">pandas details</a>
     </h1>
   
 
         
-        <a href="/2018/02/14/Computer-Network-week3.html" class="archive-article-date">
-  	<time datetime="2018-02-15T02:58:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-14</time>
+        <a href="/2018/02/24/pandas-details.html" class="archive-article-date">
+  	<time datetime="2018-02-25T03:06:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Data-link-layer-amp-amp-Transport-layer"><a href="#Data-link-layer-amp-amp-Transport-layer" class="headerlink" title="Data link layer &amp;&amp; Transport layer"></a>Data link layer &amp;&amp; Transport layer</h2><p>Data link layer: consists of Logic link layer and medium access control. <strong>dataframes transmission*,encapsulates network layer data into frmaes. responsible for </strong>local delivery of frames<strong> between devices on the same LAN.  example protocals:Ethernet for local area network(multinodes);PPP, HDLC.<br>
+        <h2 id="Classical-usage-of-Pandas"><a href="#Classical-usage-of-Pandas" class="headerlink" title="Classical usage of Pandas"></a>Classical usage of Pandas</h2>
         
-          <a class="article-more-a" href="/2018/02/14/Computer-Network-week3.html#more">more >></a>
+          <a class="article-more-a" href="/2018/02/24/pandas-details.html#more">more >></a>
         
       
 
@@ -359,7 +366,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
@@ -369,7 +376,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/14/Computer-Network-week3.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/24/pandas-details.html">展开全文 >></a>
         </p>
       
 
@@ -399,29 +406,105 @@
 
 
   
-    <article id="post-Database-design-theory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux-memory-management" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/14/Database-design-theory.html">Database design theory</a>
+      <a class="article-title" href="/2018/02/19/Linux-memory-management.html">Linux memory management</a>
     </h1>
   
 
         
-        <a href="/2018/02/14/Database-design-theory.html" class="archive-article-date">
-  	<time datetime="2018-02-14T21:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-14</time>
+        <a href="/2018/02/19/Linux-memory-management.html" class="archive-article-date">
+  	<time datetime="2018-02-19T14:39:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Functional-Dependencies"><a href="#Functional-Dependencies" class="headerlink" title="Functional Dependencies"></a>Functional Dependencies</h2>
+        <h2 id="Memory-management-in-Linux-Buddy-algorithms"><a href="#Memory-management-in-Linux-Buddy-algorithms" class="headerlink" title="Memory management in Linux(Buddy algorithms)"></a>Memory management in Linux(Buddy algorithms)</h2><p>Memory allocators have two distinct tasks. First, the memory allocator uses the <strong>sbrk() system call</strong> to ask the operating
         
-          <a class="article-more-a" href="/2018/02/14/Database-design-theory.html#more">more >></a>
+          <a class="article-more-a" href="/2018/02/19/Linux-memory-management.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/19/Linux-memory-management.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Database-design-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/18/Database-design-summary.html">Database design sumary</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/18/Database-design-summary.html" class="archive-article-date">
+  	<time datetime="2018-02-18T23:53:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Composite-key"><a href="#Composite-key" class="headerlink" title="Composite key"></a>Composite key</h2>
+        
+          <a class="article-more-a" href="/2018/02/18/Database-design-summary.html#more">more >></a>
         
       
 
@@ -445,7 +528,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/14/Database-design-theory.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/18/Database-design-summary.html">展开全文 >></a>
         </p>
       
 
@@ -475,30 +558,30 @@
 
 
   
-    <article id="post-redis-documentation-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux-screen-command" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/14/redis-documentation-summary.html">redis documentation summary</a>
+      <a class="article-title" href="/2018/02/17/Linux-screen-command.html">Linux-screen-command</a>
     </h1>
   
 
         
-        <a href="/2018/02/14/redis-documentation-summary.html" class="archive-article-date">
-  	<time datetime="2018-02-14T15:26:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-14</time>
+        <a href="/2018/02/17/Linux-screen-command.html" class="archive-article-date">
+  	<time datetime="2018-02-17T16:41:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Redis-architecture"><a href="#Redis-architecture" class="headerlink" title="Redis architecture"></a>Redis architecture</h2><p>Implemented in C, the performance mainly lies in how OS schedules each process and the cost spent in network communication and sockets reading/writing system call.<br>
-        
-          <a class="article-more-a" href="/2018/02/14/redis-documentation-summary.html#more">more >></a>
-        
+        <script src="\assets\js\APlayer.min.js"> </script><h3 id="Screen-command-for-terminal"><a href="#Screen-command-for-terminal" class="headerlink" title="Screen command for terminal"></a>Screen command for terminal</h3><p>Screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells. See <a href="https://www.gnu.org/software/screen/manual/screen.html#Getting-Started" target="_blank" rel="noopener">link</a>.<br>When screen is called, it creates a single window with a shell in it (or the specified command) and then gets out of your way so that you can use the program as you normally would. Then, at any time, you can create new (full-screen) windows with other programs in them (including more shells), kill the current window, view a list of the active windows, turn output logging on and off, copy text between windows, view the scrollback history, switch between windows, etc. All windows run their programs completely independent of each other. <strong>Programs continue to run when their window is currently not visible and even when the whole screen session is detached from the user’s terminal.</strong></p>
+<h2 id="grep-only-shows-file-name"><a href="#grep-only-shows-file-name" class="headerlink" title="grep only shows file name"></a>grep only shows file name</h2><p>Using <code>grep -l &quot;pattern&quot;</code><br>find file by filename, <code>find -name name.exe</code></p>
+<h2 id="Java-invoke"><a href="#Java-invoke" class="headerlink" title="Java invoke"></a>Java invoke</h2><p><code>java -jar file.jar -v r1 -r rtable.r1 -a arp_cache</code> invoke the corresponding jar file’s main methods, the remain params are passed into the main methods of programs.<br>first params is the file invoked.</p>
+
       
 
       
@@ -511,11 +594,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java ee</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -525,83 +604,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/14/redis-documentation-summary.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode-tree-prictice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/10/leetcode-tree-prictice.html">leetcode-tree-prictice</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/10/leetcode-tree-prictice.html" class="archive-article-date">
-  	<time datetime="2018-02-10T18:16:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="742-Nearest-to-leaf-node"><a href="#742-Nearest-to-leaf-node" class="headerlink" title="742.Nearest to leaf node"></a>742.Nearest to leaf node</h2><p>Find the treenode whose value == k first, then can use <strong>BFS</strong> to find the nearest leaf node to this target node.(Clever mind, once find target node, guaranteed to be nearest node).<br>
-        
-          <a class="article-more-a" href="/2018/02/10/leetcode-tree-prictice.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/10/leetcode-tree-prictice.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/17/Linux-screen-command.html">展开全文 >></a>
         </p>
       
 
@@ -633,7 +636,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -745,11 +748,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color4">distributed system</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -761,10 +768,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
@@ -773,11 +776,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,11 +792,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Deep learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,23 +824,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -838,6 +849,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">

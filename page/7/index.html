@@ -170,27 +170,105 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Java-load-balancing" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Database concept" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/30/Java-load-balancing.html">Java load balancing</a>
+      <a class="article-title" href="/2018/02/03/Database concept.html">Database Physical layer concept</a>
     </h1>
   
 
         
-        <a href="/2018/01/30/Java-load-balancing.html" class="archive-article-date">
-  	<time datetime="2018-01-31T01:10:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
+        <a href="/2018/02/03/Database concept.html" class="archive-article-date">
+  	<time datetime="2018-02-03T17:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Load-Balancing-Algorithms"><a href="#Load-Balancing-Algorithms" class="headerlink" title="Load Balancing Algorithms"></a>Load Balancing Algorithms</h2><p>Round robin:equally divide sevaral number of tasks.<br>Weighted RR:assign different number of tasks to several servers according to the weights.<br>Random<br>最少连接（Least Connections）<br>记录每个应用服务器正在处理额连接数（请求数），将新到的请求分发到最少连接的服务器上，应该说，这是最符合负载均衡定义的算法。</p>
+        <p>Cover materials on Stanford CS145,345,346</p>
+<h2 id="Transaction-Concurrency-amp-Atomicity"><a href="#Transaction-Concurrency-amp-Atomicity" class="headerlink" title="Transaction,Concurrency &amp; Atomicity"></a>Transaction,Concurrency &amp; Atomicity</h2><p>Performace problem:Disk/SSD    access is slow,DBMS hide the latency by    doing more CPU work concurrently.<br>
+        
+          <a class="article-more-a" href="/2018/02/03/Database concept.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Database</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/03/Database concept.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JDBC ResultSet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/03/JDBC ResultSet.html">JDBC ResultSet</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/03/JDBC ResultSet.html" class="archive-article-date">
+  	<time datetime="2018-02-03T17:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="\assets\js\APlayer.min.js"> </script><p>结果集(ResultSet)是数据中查询结果返回的一种对象，可以说结果集是一个存储查询结果的对象，但是结果集并不仅仅具有存储的功能，他同时还具有操纵数据的功能，可能完成对数据的更新等。<br>结果集读取数据的方法主要是getXXX() ，他的参数可以使整型表示第几列（是从1开始的），还可以是列名。返回的是对应的XXX类型的值。如果对应那列时空值，XXX是对象的话返回XXX型的空值，如果XXX是数字类型，如Float等则返回0，boolean返回false。使用getString()可以返回所有的列的值，不过返回的都是字符串类型的。XXX可以代表的类型有：基本的数据类型如整型(int)，布尔型(Boolean)，浮点型(Float,Double)等，比特型（byte），还包括一些特殊的类型，如：日期类型（java.sql.Date），时间类型(java.sql.Time)，时间戳类型 (java.sql.Timestamp)，大数型(BigDecimal和BigInteger等)等。还可以使用getArray(int colindex/String columnname)，通过这个方法获得当前行中，colindex所在列的元素组成的对象的数组。使用getAsciiStream(<br>int colindex/String colname)可以获得该列对应的当前行的ascii流。也就是说所有的getXXX方法都是对当前行进行操作。<br>结果集从其使用的特点上可以分为四类，这四类的结果集的所具备的特点都是和Statement语句的创建有关，因为结果集是通过Statement语句执行后产生的，所以可以说，结果集具备何种特点，完全决定于Statement，当然我是说下面要将的四个特点，在Statement创建时包括三种类型。首先是无参数类型的，他对应的就是下面要介绍的基本的ResultSet对应的Statement。下面的代码中用到的Connection并没有对其初始化，变量conn代表的就是Connection对应的对象。SqlStr代表的是响应的SQL语句。<br>1.最基本的ResultSet。<br>之所以说是最基本的ResultSet是因为，这个ResultSet他起到的作用就是完成了查询结果的存储功能，而且只能读去一次，不能够来回的滚动读取。这种结果集的创建方式如下：<br>Statement st = conn.CreateStatement<br>ResultSet rs = Statement.excuteQuery(sqlStr);<br>由于这种结果集不支持，滚动的读去功能所以，如果获得这样一个结果集，只能使用它里面的next()方法，逐个的读去数据。<br>2.可滚动的ResultSet类型。<br>这个类型支持前后滚动取得纪录next（）、previous()，回到第一行first()，同时还支持要去的ResultSet中的第几行 absolute（int n），以及移动到相对当前行的第几行relative(int n)，要实现这样的ResultSet在创建Statement时用如下的方法。<br>Statement st = conn. createStatement (int resultSetType, int resultSetConcurrency)<br>ResultSet rs = st.executeQuery(sqlStr)<br>其中两个参数的意义是：<br>resultSetType 是设置 ResultSet 对象的类型可滚动，或者是不可滚动。取值如下：<br>       ResultSet.TYPE_FORWARD_ONLY 只能向前滚动<br>       ResultSet.TYPE_SCROLL_INSENSITIVE 和 Result.TYPE_SCROLL_SENSITIVE 这两个 方法都能够实现任意的前后滚动，使用各种移动的 ResultSet 指针的方法。二者的区别在于前者对于修改不敏感，而后者对于修改敏感。<br>resultSetConcurency 是设置 ResultSet 对象能够修改的，取值如下：<br>       ResultSet.CONCUR_READ_ONLY 设置为只读类型的参数。<br>       ResultSet.CONCUR_UPDATABLE 设置为可修改类型的参数。<br>所以如果只是想要可以滚动的类型的 Result 只要把 Statement 如下赋值就行了。<br>Statement st = conn.createStatement(Result.TYPE_SCROLL_INSENITIVE,<br>ResultSet.CONCUR_READ_ONLY);<br>ResultSet rs = st.excuteQuery(sqlStr) ； </p>
+<p>用这个 Statement 执行的查询语句得到的就是可滚动的 ResultSet 。<br>3.可更新的ResultSet<br>这样的ResultSet对象可以完成对数据库中表的修改，但是我知道ResultSet只是相当于数据库中表的视图，所以并不时所有的ResultSet只要设置了可更新就能够完成更新的，能够完成更新的ResultSet的SQL语句必须要具备如下的属性：<br>a.只引用了单个表。<br>b.不含有join或者group by子句。<br>c.那些列中要包含主关键字。<br>具有上述条件的，可更新的ResultSet可以完成对数据的修改，可更新的结果集的创建方法是：<br>Statement st = createstatement(Result.TYPE_SCROLL_INSENSITIVE,Result.CONCUR_UPDATABLE)<br>4、可保持的ResultSet<br>正常情况下如果使用Statement执行完一个查询，又去执行另一个查询时这时候第一个查询的结果集就会被关闭，也就是说，所有的Statement的查询对应的结果集是一个，如果调用Connection的commit()方法也会关闭结果集。可保持性就是指当ResultSet的结果被提交时，是被关闭还是不被关闭。JDBC2.0和1.0提供的都是提交后ResultSet就会被关闭。不过在JDBC3.0中，我们可以设置ResultSet是否关闭。要完成这样的ResultSet的对象的创建，要使用的Statement的创建要具有三个参数，这个Statement的创建方式也就是，我所说的 Statement的第三种创建方式。<br>当使用ResultSet的时候，当查询出来的数据集记录很多，有一千万条的时候，那rs所指的对象是否会占用很多内存，如果记录过多，那程序会不会把系统的内存用光呢<br>不会的，ResultSet表面看起来是一个记录集，其实这个对象中只是记录了结果集的相关信息，具体的记录并没有存放在对象中，具体的记录内容知道你通过next方法提取的时候，再通过相关的getXXXXX方法提取字段内容的时候才能从数据库中得到，这些并不会占用内存，具体消耗内存是由于你将记录集中的数据提取出来加入到你自己的集合中的时候才会发生，如果你没有使用集合记录所有的记录就不会发生消耗内存厉害的情况。</p>
 
       
 
@@ -214,7 +292,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/30/Java-load-balancing.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/03/JDBC ResultSet.html">展开全文 >></a>
         </p>
       
 
@@ -244,36 +322,53 @@
 
 
   
-    <article id="post-Java-multithread-programming" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-阿里面经" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/30/Java-multithread-programming.html">Java multithread programming</a>
+      <a class="article-title" href="/2018/02/03/阿里面经.html">阿里面经</a>
     </h1>
   
 
         
-        <a href="/2018/01/30/Java-multithread-programming.html" class="archive-article-date">
-  	<time datetime="2018-01-30T22:47:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
+        <a href="/2018/02/03/阿里面经.html" class="archive-article-date">
+  	<time datetime="2018-02-03T17:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Multithreading-implementation"><a href="#Multithreading-implementation" class="headerlink" title="Multithreading implementation"></a>Multithreading implementation</h2><p>2 ways to implement multithreading:1.implement Runnable, then implement the void run() method.2.extends the Thread abstract class.<br>Obviously 1st way is better, as Java not allowed extends multi-classes.</p>
-<h2 id="Java-util-concurrent"><a href="#Java-util-concurrent" class="headerlink" title="Java.util.concurrent"></a>Java.util.concurrent</h2><p>It includes several threadsafing collection framework:CopyOnWriteArrayList,ConcurrentHashMap,ConcurrentSkipListSet,ConcurrentSkipListMap,BlockingQueue<br>Eg:BlockingQueue is thread safe for consumer/producer problems. Whereas add, remove will <strong>throw Exception</strong>; offer poll gives out specail value; put/take will get thread blocked until operated successfully.<br>ConcurrentHashMap providing thread safety and <strong>atomicity</strong> guarantees.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Consumer  c= <span class="keyword">new</span> Consumer();</span><br><span class="line">        Producer p = <span class="keyword">new</span> Producer();</span><br><span class="line">        <span class="keyword">new</span> Thread(c).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(p).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>tasks may execute in a newly created thread, an existing task-execution thread, or the thread calling execute, and may execute sequentially or concurrently.<br>ThreadPoolExecutor and ScheduledThreadPoolExecutor provide tunable, flexible thread pools. The Executors class provides factory methods for the most common kinds and configurations of Executors, as well as a few utility methods for using them. Other utilities based on Executors include the concrete class FutureTask providing a common extensible implementation of Futures, and ExecutorCompletionService, that assists in coordinating the processing of groups of asynchronous tasks.<br>Implements the <strong>ThreadFactory</strong> can creates self serving thread class.</p>
-<h2 id="Lock-in-Java"><a href="#Lock-in-Java" class="headerlink" title="Lock in Java"></a>Lock in Java</h2><p>ReentrantLock 实现的锁定规则非常简单 – 每当一个线程具有锁定时，其他线程必须等待，直到该锁定可用。有时，当对数据结构的读取通常多于修改时，可以使用更复杂的称为读写锁定的锁定结构，它允许有多个并发读者，同时还允许一个写入者独占锁定。该方法在一般情况下（只读）提供了更大的并发性，同时在必要时仍提供独占访问的安全性。ReadWriteLock 接口和 ReentrantReadWriteLock 类提供这种功能 – 多读者、单写入者锁定规则，可以用这种功能来保护共享的易变资源。<br>synchoronized used for methods/coding blocks.synchormized(this){}.非同步代码仍然能继续执行。<strong>synchronized锁住的是括号里的对象，而不是代码</strong>。main()里面只创建一个new Thread(),thread.start()同步机制才会生效.多个thread是不生效的。synchronized(Sync.class)实现全局锁的效果。</p>
-<h2 id="Java-util-concurrent-atomic-locks"><a href="#Java-util-concurrent-atomic-locks" class="headerlink" title="Java.util.concurrent.atomic/locks"></a>Java.util.concurrent.atomic/locks</h2><h2 id="Java-EE"><a href="#Java-EE" class="headerlink" title="Java EE"></a>Java EE</h2><p>Servlet is singleton but multi-threading, and is not thread safe.</p>
-<h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><p>ConcurrentHashMap是J.U.C(java.util.concurrent包)的重要成员，它是HashMap的一个线程安全的、支持高效并发的版本。在默认理想状态下，ConcurrentHashMap可以支持<strong>16个线程执行并发写操作</strong>及任意数量线程的读操作。<br>在ConcurrentHashMap中，无论是读操作还是写操作都能保证很高的性能：在进行读操作时(几乎)不需要加锁，而在写操作时通过锁分段技术只对所操作的段加锁而不影响客户端对其它段的访问。特别地，在理想状态下，ConcurrentHashMap 可以支持 16 个线程执行并发写操作（如果并发级别设为16），及任意数量线程的读操作。</p>
-<ul>
-<li>通过锁分段技术保证并发环境下的写操作；</li>
-<li>通过 HashEntry的不变性、Volatile变量的内存可见性和加锁重读机制保证高效、安全的读操作；</li>
-<li>通过不加锁和加锁两种方案控制跨段操作的的安全性。<br>ConcurrentHashMap读操作不需要加锁的奥秘在于以下三点：<br>用HashEntery对象的不变性来降低读操作对加锁的需求；<br>用Volatile变量协调读写线程间的内存可见性；<br>若读时发生指令重排序现象，则加锁重读；</li>
-</ul>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="三次握手四次挥手"><a href="#三次握手四次挥手" class="headerlink" title="三次握手四次挥手"></a>三次握手四次挥手</h2><p>time_wait状态必须等待多长时间：<br>2MSL<br>MSL是Maximum Segment Lifetime英文的缩写，中文可以译为“报文最大生存时间”，他是任何报文在网络上存在的最长时间，超过这个时间报文将被丢弃。因为tcp报文（segment）是ip数据报（datagram）的数据部分，具体称谓请参见《数据在网络各层中的称呼》一文，而ip头中有一个TTL域，TTL是time to live的缩写，中文可以译为“生存时间”，这个生存时间是由源主机设置初始值但不是存的具体时间，而是存储了一个ip数据报可以经过的最大路由数，每经过一个处理他的路由器此值就减1，当此值为0则数据报将被丢弃，同时发送ICMP报文通知源主机。RFC 793中规定MSL为2分钟，实际应用中常用的是30秒，1分钟和2分钟等。</p>
+<p>2MSL即两倍的MSL，TCP的TIME_WAIT状态也称为2MSL等待状态，当TCP的一端发起主动关闭，在发出最后一个ACK包后，即第3次握手完成后发送了第四次握手的ACK包后就进入了TIME_WAIT状态，必须在此状态上停留两倍的MSL时间，等待2MSL时间主要目的是怕最后一个ACK包对方没收到，那么对方在超时后将重发第三次握手的FIN包，主动关闭端接到重发的FIN包后可以再发一个ACK应答包。在TIME_WAIT状态时两端的端口不能使用，要等到2MSL时间结束才可继续使用。当连接处于2MSL等待阶段时任何迟到的报文段都将被丢弃。不过在实际应用中可以通过设置SO_REUSEADDR选项达到不必等待2MSL时间结束再使用此端口。</p>
+<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p>B+ 树是一种树数据结构，是一个n叉排序树，每个节点通常有多个孩子，一棵B+树包含根节点、内部节点和叶子节点。根节点可能是一个叶子节点，也可能是一个包含两个或两个以上孩子节点的节点。<br>B+ 树通常用于数据库和操作系统的文件系统中。NTFS, ReiserFS, NSS, XFS, JFS, ReFS 和BFS等文件系统都在使用B+树作为元数据索引。B+ 树的特点是能够保持数据稳定有序，其插入与修改拥有较稳定的对数时间复杂度。B+ 树元素自底向上插入。<br>红黑树旋转：<br>降低左子树的高度，增加右子树的高度<br>将x变为当前位置的右子节点</p>
+<h2 id="mysql隔离级别"><a href="#mysql隔离级别" class="headerlink" title="mysql隔离级别"></a>mysql隔离级别</h2><p>事务隔离级别    脏读    不可重复读    幻读<br>读未提交（read-uncommitted）    是    是    是<br>不可重复读（read-committed）    否    是    是<br>可重复读（repeatable-read）    否    否    是<br>串行化（serializable）    否    否    否</p>
+<p>##<br>快排最坏复杂度O(nlogn) 在最坏的情况下，待排序的序列为正序或者逆序，时间复杂度O(n^2)</p>
+<h2 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h2><ol>
+<li>方法区</li>
+<li>堆区</li>
+<li>本地方法栈</li>
+<li>虚拟机栈</li>
+<li>程序计数器<br>其中，<strong>方法区和堆是所有线程共享的。</strong></li>
+</ol>
+<p>1.自我介绍<br>2.object类里边的方法，hashcode和equals的区别，引申到map，扩容的实现，时间复杂度; HashMap()：构造一个具有默认初始容量 (16) 和默认加载因子 (0.75) 的空 HashMap。<br>初始容量，加载因子。这两个参数是影响HashMap性能的重要参数，其中容量表示哈希表中桶的数量，初始容量是创建哈希表时的容量，加载因子是哈希表在其容量自动增加之前可以达到多满的一种尺度，它衡量的是一个散列表的空间的使用程度，负载因子越大表示散列表的装填程度越高，反之愈小。对于使用链表法的散列表来说，查找一个元素的平均时间是O(1+a)，因此如果负载因子越大，对空间的利用更充分，然而后果是查找效率的降低；如果负载因子太小，那么散列表的数据将过于稀疏，对空间造成严重浪费。系统默认负载因子为0.75，一般情况下我们是无需修改的。<br>HashMap底层实现还是数组，只是数组的每一项都是一条链。其中参数initialCapacity就代表了该数组的长度。HashMap的最大容量值为2^30<br>//初始化table数组<br> table = new Entry[capacity];<br>随着HashMap中元素的数量越来越多，发生碰撞的概率就越来越大，所产生的链表长度就会越来越长，这样势必会影响HashMap的速度，为了保证HashMap的效率，系统必须要在某个临界点进行扩容处理。该临界点在当HashMap中元素的数量等于table数组长度<em>加载因子。但是扩容是一个非常耗时的过程，因为它需要重新计算这些数据在新table数组中的位置并进行复制处理。所以如果我们已经预知HashMap中元素的个数，那么预设元素的个数能够有效的提高HashMap的性能。<br>线程间共同使用的资源有哪些?<br>进程间通信需要拷贝哪些数据和资源?File descriptor/+memory space.<br>Linux中创建进程用fork操作，clone也是产生的新的process。通过ps -ef看到的是进程列表，线程可以通过ps -eLf来查看。<br>Exception in thread “main” java.lang.OutOfMemoryError: unable to create new native thread<br><strong>内存太小</strong><br>在Java中创建一个线程需要消耗一定的栈空间，默认的栈空间是1M(可以根据应用情况指定-Xss参数进行调整)，栈空间过小或递归调用过深，可能会出现StackOverflowError。<br>对于一个进程来说，假设一定量可使用的内存，分配给堆空间的越多，留给栈空间的就越少。这个限制常见于32位Java应用，进程空间4G，用户空间2G(Linux下3G，所以通常堆可以设置更大一些)，减去堆空间大小(通过-Xms、-Xmx指定范围)，减去非堆空间(其中永久代部分通过PermSize、MaxPermSize指定大小，在Java8换成了MetaSpace，默认不限制大小)，再减去虚拟机自身消耗，剩下的就是栈空间，假设剩下300M，那么理论上就限制了只能开300线程。不过对于64位应用，由于进程空间近乎无限大，所以可以不考虑这个问题。<br><strong>ulimit系统限制</strong><br>ulimit -a查看系统参数.<br>1.程序Bug，修改参数是不能解决的<br>2.程序需要大量线程，线程不足：<em>*在java中， 当创建一个线程的时候，虚拟机会在JVM内存创建一个Thread对象</em></em>，同时创建一个操作系统线程，而这个系统线程的内存用的不是JVMMemory，而是系统中剩下的内存(MaxProcessMemory - JVMMemory - ReservedOsMemory)。 </p>
+<p>如果程序确实需要大量的线程，现有的设置不能达到要求，那么可以通过修改MaxProcessMemory，JVMMemory，ThreadStackSize这三个因素，来增加能创建的线程数：<br>1、-Xmn：设置新生代的大小NewSize和MaxNewSize；<br>2、-Xms：设置堆的初始值InitialHeapSize，也是堆的最小值；<br>3、-Xmx：设置堆的最大值MaxHeapSize；<br>ThreadStackSize定义在globals.hpp中，根据当前系统类型，加载对应的配置文件，所以在不同的系统中，ThreadStackSize的默认值也不同。<br>3.wait notify ，synchronize方法，<br>4.不能够创建更多的线程数怎么排查<br>5.class的加载流程，一段java代码在栈帧中的执行过程<br>6.写一条sql，执行流程，b树怎么遍历，多少次io，二级索引查数据的流程，看了哪些书<br>7.volatile关键字的作用，被质疑这个关键字真的有用吗<br>8.打开文件流写入磁盘的过程，机械磁盘的查找过程<br>9.kafka 0拷贝机制，socket连接过程，nio和bio的区别<br>10.设计模式<br>11.nginx 和 tomcat的原理,优化….<br>12.linux命令<br>13.tcp连接数，挥手过程及状态转移<br>14.怎么学习新技术，对业务和技术的理解<br>15.股票买卖问题</p>
+<p>知道的redis全说出来 redis基于内存的，redis 的 rdb 和 aof， redis有虚拟内存，redis用的跳表。解释了一下aof和rdb 2. 虚拟内存为什么会损耗性能 我回答的是磁盘i/o、错了估计是内存映射 3. redis的瓶颈是什么 我回答单点故障 4. 说一下线程池 巴拉巴拉. 5. 说一下jvm. 6. 好了我们做一下题目 1. max point line 2. 求1000000w以内的素数<br>Redis瓶颈是单线程，所以一定要避免那种耗时的操作.</p>
+<p>有上面分析可知：RDB方式持久化的颗粒比较大，当服务器宕机时，到上次save或bgsave后的所有数据都会丢失。而AOF的持久化颗粒比较细，当服务器宕机后，只有宕机之前没来得AOF的操作数据会丢失。<br>1.RDB持久化是redis默认的，用来生成某一个时间点的数据快照；RDB是一个经过压缩的二进制文件，采用RDB持久化时服务器只会保存一个RDB文件（维护比较简单）；<br>2.AOF实现：<br>1）AOF持久化是通过保存redis服务器所执行的写命令来记录数据库状态的；被写入AOF文件的所有命令都是以Redis的命令请求协议格式保存的（Redis的请求协议是纯文本的）。服务器在启动时，通过载入AOF文件、并执行其中的命令来还原服务器状态。<br>1.Tomcat查看tomcat日志输出<br><strong>tail -f catalina.out命令实时查看tomcat的输出。查看系统磁盘的空间df</strong></p>
+<p>java基础如concurrent包、jvm优化、内存管理、gc分析、hadoop/spark/impala/lucene/RocksDB/redis这些框架的技术点<br>算法是大数据归并排序、遗传算法<br>项目是因人而已，我是报的数据库组，问了很多数据库的知识，B+树怎么索引，LSM的技术，分布式一致性算法，分布式事务这些<br>英文面比较奇葩，面试官打开了我的(<a href="https://github.com/jinhang" target="_blank" rel="noopener">https://github.com/jinhang</a>) 聊了下项目内容，真心奇葩啊。</p>
+<p>public final class String<br>extends Object<br>implements Serializable, Comparable<string>, CharSequence<br>String不能继承，因为有final，有final不能被继承<br>StringBuilder more speed up no synchonization; StringBuffer single thread.</string></p>
+<p><strong>2个字符串，找它们都包含的最长子串。</strong><br>还问了 你如何用程序实现一个图<br>地图中 2个位置最短的路径用程序如何实现，我说可以用广度优先搜索，他说其它方式呢？<br>快速排序是怎样的<br>还问了算法稳定性的含义是？<br>假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，ri=rj，且ri在rj之前，而在排序后的序列中，ri仍在rj之前，则称这种排序算法是稳定的；否则称为不稳定的。</p>
+<p>堆排序、快速排序、希尔排序、直接选择排序不是稳定的排序算法，而基数排序、冒泡排序、直接插入排序、折半插入排序、归并排序是稳定的排序算法。</p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>一是Java的内存分配原理与C/C++不同，C/C++每次采用malloc或new申请内存时都要进行brk和mmap等系统调用，而系统调用发生在内核空间，每次都要中断进行切换，这需要一定的开销，而Java虚拟机是先一次性分配一块较大的空间，然后每次new时都在该空间上进行分配和释放，减少了系统调用的次数，节省了一定的开销，这有点类似于内存池的概念；二是有了这块空间过后，如何进行分配和回收就跟GC机制有关了，然后我详细介绍了GC原理、画图表示年轻代（Eden区和Survival区）、年老代、比例分配及为啥要这样分代回收（我认为巧妙就在于这里），有了GC基本结构后，我又详述了下GC是具体如何进行内存分配和垃圾回收的。</p>
+<h2 id="数据库操作和调优"><a href="#数据库操作和调优" class="headerlink" title="数据库操作和调优"></a>数据库操作和调优</h2><ol>
+<li>熟悉数据库常用操作及调优。</li>
+<li>熟悉并行计算及分布式计算。</li>
+<li>熟悉消息队列及其使用。<h2 id="Spring部分"><a href="#Spring部分" class="headerlink" title="Spring部分"></a>Spring部分</h2>Spring，详细讲述了它解耦的功能、AOP原理及自己有利用动态代理简单模拟实现过一个简单的AOP功能、IOC(DI)等。</li>
+</ol>
+<h2 id="面经2"><a href="#面经2" class="headerlink" title="面经2"></a>面经2</h2><p>1.两个文件 里面各存有100G32字节的url 只有4G内存,设计算法判断两个文件重复url..（我说了布隆过滤器和字典树 效果不理想）<br>2.第三范式的特点和缺陷<br>3.如何抽象出数据库的表<br>4.设计阻塞队列（我说了生产者消费者 不满意）<br>5.jvm的gc 内存划分 内存模型<br>6.juc架构<br>7.为什么低版本ReentrantLock在高并发下比synchronized效率高</p>
 
       
 
@@ -297,7 +392,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/30/Java-multithread-programming.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/03/阿里面经.html">展开全文 >></a>
         </p>
       
 
@@ -327,28 +422,35 @@
 
 
   
-    <article id="post-leetcode-daily-practice-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-商汤面经" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/30/leetcode-daily-practice-Array.html">leetcode daily practice-Array</a>
+      <a class="article-title" href="/2018/02/03/商汤面经.html">JDBC ResultSet</a>
     </h1>
   
 
         
-        <a href="/2018/01/30/leetcode-daily-practice-Array.html" class="archive-article-date">
-  	<time datetime="2018-01-30T18:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
+        <a href="/2018/02/03/商汤面经.html" class="archive-article-date">
+  	<time datetime="2018-02-03T17:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Array-manipulation"><a href="#Array-manipulation" class="headerlink" title="Array manipulation"></a>Array manipulation</h2><p>I often feel tricky with many Array manipulation problems. This post may get updated in the future. Currently just can recognize to use increasing stack to solve this kind of typical problems.</p>
-<h2 id="Increasing-Stack"><a href="#Increasing-Stack" class="headerlink" title="Increasing Stack"></a>Increasing Stack</h2><p>To keep the order of the array and records some position information of the array.<br>lc739. Daily Temperatures<br>Use a stack to keep compare the peek element and current element, then get the position value of each position.<br>lc .Rectangle Histogram</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="Java线程池"><a href="#Java线程池" class="headerlink" title="Java线程池"></a>Java线程池</h2><p>注意区分不是数据库连接池…我真蠢<br>线程池的作用：<br>线程池作用就是<strong>限制系统中执行线程的数量。</strong><br>根据系统的环境情况，可以自动或手动设置线程数量，达到运行的最佳效果；少了浪费了系统资源，多了造成系统拥挤效率不高。用线程池控制线程数量，其他线程排 队等候。一个任务执行完毕，再从队列的中取最前面的任务开始执行。若队列中没有等待进程，线程池的这一资源处于等待。当一个新任务需要运行时，如果线程池中有等待的工作线程，就可以开始运行了；否则进入等待队列。<br>为什么要用线程池:<br>1.减少了创建和销毁线程的次数，每个工作线程都可以被重复利用，可执行多个任务。<br>2.可以根据系统的承受能力，调整线程池中工作线线程的数目，防止因为消耗过多的内存，而把服务器累趴下(每个线程需要大约1MB内存，线程开的越多，消耗的内存也就越大，最后死机)。<br>Java里面线程池的顶级接口是Executor，但是严格意义上讲Executor并不是一个线程池，而只是一个执行线程的工具。真正的线程池接口是ExecutorService。<br>比较重要的几个类：<br>ExecutorService:真正的线程池接口。<br>ScheduledExecutorService:能和Timer/TimerTask类似，解决那些需要任务重复执行的问题。<br>ThreadPoolExecutor:ExecutorService的默认实现。<br>ScheduledThreadPoolExecutor:继承ThreadPoolExecutor的ScheduledExecutorService接口实现，周期性任务调度的类实现。<br>要配置一个线程池是比较复杂的，尤其是对于线程池的原理不是很清楚的情况下，很有可能配置的线程池不是较优的，因此在Executors类里面提供了一些静态工厂，生成一些常用的线程池。<br>Java通过Executors提供四种线程池，分别为：<br><strong>newCachedThreadPool</strong>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程.<br>newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待.<br><strong>newScheduledThreadPool</strong>创建一个定长线程池，支持定时及周期性任务执行.<br>newSingleThreadExecutor创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行.</p>
+<h2 id="Java-Object"><a href="#Java-Object" class="headerlink" title="Java Object"></a>Java Object</h2><p>Clone(深拷贝浅拷贝);equals/hashCode(),为什么要重写他们,HashMap的实现原理一定会问，具体怎么实现的呢？toString():    Returns a string representation of the object.</p>
+<h2 id="Java数类型对象的安全性能"><a href="#Java数类型对象的安全性能" class="headerlink" title="Java数类型对象的安全性能"></a>Java数类型对象的安全性能</h2><h2 id="ConcurrentMap-amp-amp-HashMap有什么区别"><a href="#ConcurrentMap-amp-amp-HashMap有什么区别" class="headerlink" title="ConcurrentMap&amp;&amp;HashMap有什么区别"></a>ConcurrentMap&amp;&amp;HashMap有什么区别</h2><h2 id="数据库线程池"><a href="#数据库线程池" class="headerlink" title="数据库线程池"></a>数据库线程池</h2><p>连接池就是创建和管理一个连接的缓冲池技术，这些连接随时会被需要他们的线程调用。在我们连接数据库的时候如果不使用数据连接池，每一次访问数据库都去创建一个连接，这样会很消耗时间和项目的性能。<br>Proxool是sourceforge下面的一个开源数据连接池，最大的特色便是Proxool提供了监视的功能，便于发现连接泄漏的情况。 </p>
+<h2 id="Mysql的事务机制"><a href="#Mysql的事务机制" class="headerlink" title="Mysql的事务机制"></a>Mysql的事务机制</h2><p>事务是怎么解决幻读脏读的,Seriazable(肯定不是，性能太差了).四种事务隔离层级.</p>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>Redis的setkey的timeout机制你觉得应该怎么实现。Redis为什么能当成一个锁使用:单线程?</p>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><p>集合类描述一下，都包含什么东西。没有Map.HashSet的特性是什么(去重无序)</p>
+<h2 id="Java的锁有哪些"><a href="#Java的锁有哪些" class="headerlink" title="Java的锁有哪些"></a>Java的锁有哪些</h2><p>1.3 synchronized和volatile比较<br>简单的说就是synchronized的代码块是确保可见性和原子性的, volatile只能确保可见性 当且仅当下面条件全部满足时, 才能使用volatile<br>-对变量的写入操作不依赖于变量的当前值, (++i/i++这种肯定不行), 或者能确保只有单个线程在更新<br>-该变量不会与其他状态变量一起纳入不变性条件中<br>-访问变量时不需要加锁<br>juc中的锁分两种, 1. 可重入锁; 2. 读写锁. 两者都用到了一个通用组件 AbstractQueuedSynchronizer.<br>利用了一个int来表示状态, 内部基于FIFO队列及UnSafe的CAS原语作为操纵状态的数据结构, AQS以单个 int 类型的原子变量来表示其状态，定义了4个抽象方法(tryAcquire(int)、tryRelease(int)、tryAcquireShared(int)、tryReleaseShared(int)，前两个方法用于独占/排他模式，后两个用于共享模式)留给子类实现，用于自定义同步器的行为以实现特定的功能。</p>
+<h2 id="Java创建一个新的对象的方式"><a href="#Java创建一个新的对象的方式" class="headerlink" title="Java创建一个新的对象的方式"></a>Java创建一个新的对象的方式</h2><p>new/class.forName/getClass().newInstance; 调用java.lang.Class或者java.lang.reflect.Constructor类的newInstance()实例方法. 调用对象的clone()方法。运用反序列化手段，调用java.io.ObjectInputStream对象的readObject()方法.<br>查看磁盘分区的命令:df -hl.打印Tomcat日志目录的尾部:tail -n</p>
+<h2 id="Mysql存储过程总结"><a href="#Mysql存储过程总结" class="headerlink" title="Mysql存储过程总结"></a>Mysql存储过程总结</h2><p>Mysql一般反而不使用存储过程迁移那些事务管理。<br>一.创建存储过程<br>1.基本语法：<br>create procedure sp_name()<br>begin<br>………<br>end<br>2.参数传递<br>3.调用<br>call sp_name()<br>4.删除存储过程<br>drop procedure sp_name<br>(1)不能在一个存储过程中删除另一个存储过程，只能调用另一个存储过程</p>
 
       
 
@@ -362,11 +464,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">stack</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -376,7 +474,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/30/leetcode-daily-practice-Array.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/03/商汤面经.html">展开全文 >></a>
         </p>
       
 
@@ -406,29 +504,29 @@
 
 
   
-    <article id="post-Call-apply" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java Socket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/22/Call-apply.html">Call, apply</a>
+      <a class="article-title" href="/2018/02/02/Java Socket.html">Java Socket Programming</a>
     </h1>
   
 
         
-        <a href="/2018/01/22/Call-apply.html" class="archive-article-date">
-  	<time datetime="2018-01-23T00:38:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
+        <a href="/2018/02/02/Java Socket.html" class="archive-article-date">
+  	<time datetime="2018-02-02T22:07:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h3><p>前端面试中，很多面试官会问你，apply是做什么的？apply和call的区别？<br>
+        <h2 id="Java-Socket-programming-basics"><a href="#Java-Socket-programming-basics" class="headerlink" title="Java Socket programming basics"></a>Java Socket programming basics</h2><p>URLs and URLConnections provide a relatively high-level mechanism for accessing resources on the Internet. Sometimes your programs require lower-level network communication, for example, when you want to write a client-server application.<br>
         
-          <a class="article-more-a" href="/2018/01/22/Call-apply.html#more">more >></a>
+          <a class="article-more-a" href="/2018/02/02/Java Socket.html#more">more >></a>
         
       
 
@@ -442,11 +540,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
         		</li>
       		
 		</ul>
@@ -456,7 +550,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/22/Call-apply.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/02/Java Socket.html">展开全文 >></a>
         </p>
       
 
@@ -486,30 +580,29 @@
 
 
   
-    <article id="post-Spread-Operator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Advanced-Sql-query" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/22/Spread-Operator.html">Spread Operator</a>
+      <a class="article-title" href="/2018/02/02/Advanced-Sql-query.html">Advanced Sql query</a>
     </h1>
   
 
         
-        <a href="/2018/01/22/Spread-Operator.html" class="archive-article-date">
-  	<time datetime="2018-01-23T00:29:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
+        <a href="/2018/02/02/Advanced-Sql-query.html" class="archive-article-date">
+  	<time datetime="2018-02-02T16:55:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。本文主要记录展开运算符。</p>
-<p>展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。<br>
+        <h2 id="Query-Construction"><a href="#Query-Construction" class="headerlink" title="Query Construction"></a>Query Construction</h2>
         
-          <a class="article-more-a" href="/2018/01/22/Spread-Operator.html#more">more >></a>
+          <a class="article-more-a" href="/2018/02/02/Advanced-Sql-query.html#more">more >></a>
         
       
 
@@ -523,11 +616,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Database</a>
         		</li>
       		
 		</ul>
@@ -537,87 +626,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/22/Spread-Operator.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-阴雨天的新学期" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/22/阴雨天的新学期.html">阴雨天的新学期</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/22/阴雨天的新学期.html" class="archive-article-date">
-  	<time datetime="2018-01-22T14:43:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="新学期换个心情生活"><a href="#新学期换个心情生活" class="headerlink" title="新学期换个心情生活"></a>新学期换个心情生活</h2><p>麦屯淅淅沥沥下了一夜的雨，我也一夜都没睡好。希望新学期认真上课，好好做项目，能少一点来自现实的压力，希望暑假早一点到来，毕竟这个寒假实在是太煎熬了。<br>
-        
-          <a class="article-more-a" href="/2018/01/22/阴雨天的新学期.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/22/阴雨天的新学期.html">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/02/Advanced-Sql-query.html">展开全文 >></a>
         </p>
       
 
@@ -649,7 +658,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 
@@ -761,11 +770,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color4">distributed system</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -777,10 +790,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
@@ -789,11 +798,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,11 +814,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Deep learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -821,23 +846,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">two pointers</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -854,6 +871,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">union find</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
